@@ -1,0 +1,14 @@
+.vscode/
+try*.cpp
+try*
+reference/
+test.cpp
+test.exe
+*.exe
+concurrent_hash_map/benchmark/p_test.py
+*.zip
+*.o
+hybrid_dram_ssd_storage_single_thread
+dataset
+storage
+*.log
