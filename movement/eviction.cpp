@@ -62,11 +62,11 @@ void eviction_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *evic_ids, s
                 fs.close();
             }
         }
-        else
-        {
-            LOGINFO << key << "重复淘汰" << std::endl
-                    << std::flush;
-        }
+        // else
+        // {
+        //     LOGINFO << key << "已经不在DRAM中" << std::endl
+        //             << std::flush;
+        // }
         delete[] value;
     }
 }

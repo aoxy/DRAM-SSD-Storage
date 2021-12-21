@@ -51,12 +51,6 @@ private:
     {
         return a_shards[shard_idx(key)];
     }
-    size_t shard_idx(const int64_t &key)
-    {
-        std::hash<int64_t> hash_func;
-        auto h = hash_func(key);
-        return h & a_mask;
-    }
 
 public:
     ssd_hash_map(size_t num_shard = 16) : a_mask(num_shard - 1), a_shards(std::vector<ssd_google_concurrent_hash_map>(num_shard)) {}
@@ -74,6 +68,12 @@ public:
     }
     std::string filepath(int64_t key)
     {
-        return std::string("storage/hdss") + std::to_string(shard_idx(key)) + std::string(".storage");
+        return std::string("storage/emb") + std::to_string(shard_idx(key)) + std::string(".hdss");
+    }
+    size_t shard_idx(const int64_t &key) const
+    {
+        std::hash<int64_t> hash_func;
+        auto h = hash_func(key);
+        return h & a_mask;
     }
 };

@@ -1,101 +1,67 @@
-#include <iostream>
 #include <cstdio>
-#include <thread>
-#include <queue>
 #include <fstream>
-#include <string>
+#include <iomanip>
+#include <iostream>
+#include <queue>
 #include <sstream>
-#include "../justokmap/ssd_hash_map.h"
+#include <string>
+#include <thread>
 #include "../justokmap/shard_lock_map.h"
-
-class dataloder
-{
-public:
-    std::vector<int64_t> ids;
-    size_t offset;
-    dataloder(std::string filepath, size_t feature_id)
-    {
-        // std::cout << filepath << std::endl;
-        std::ifstream fp(filepath); //定义声明一个ifstream对象，指定文件路径
-        if (!fp)
-        {
-            std::cout << "open fail." << std::endl;
-            exit(1);
-        }
-        std::string line;
-        std::getline(fp, line); //跳过列名，第一行不做处理
-        // std::cout << line;
-        while (std::getline(fp, line))
-        { //循环读取每行数据
-            std::string number;
-            std::istringstream readstr(line); //string数据流化
-            //将一行数据按'，'分割
-            for (size_t j = 0; j <= feature_id; ++j)
-            {                                       //可根据数据的实际情况取循环获取
-                std::getline(readstr, number, ','); //循环读取数据
-            }
-            ids.push_back(std::atoi(number.c_str())); //插入到vector中
-        }
-        offset = 0;
-    }
-    void init() { offset = 0; }
-    void sample(int64_t *batch_ids, size_t batch_size)
-    {
-        // int64_t *batch_ids = new int64_t[batch_size];
-        for (size_t i = 0; offset < ids.size() && i < batch_size; ++offset, ++i)
-        {
-            batch_ids[i] = ids[offset];
-        }
-        // return batch_ids;
-    }
-    size_t size() { return ids.size(); }
-};
+#include "../justokmap/ssd_hash_map.h"
+#include "../utils/logs.h"
 
 void init_ssd_map(ssd_hash_map &smap)
 {
     const std::string filepath = "storage/offset.txt";
-    std::ifstream fp(filepath); //定义声明一个ifstream对象，指定文件路径
+    std::ifstream fp(filepath);
     if (!fp)
     {
-        std::cout << "open fail." << std::endl;
+        LOGINFO << "open" << filepath << "fail." << std::endl
+                << std::flush;
         exit(1);
     }
     int64_t key;
     size_t value;
     std::string line;
     while (std::getline(fp, line))
-    { //循环读取每行数据
+    {
         std::string number;
-        std::istringstream readstr(line); //string数据流化
-        //将一行数据按'，'分割
+        std::istringstream readstr(line);
         std::getline(readstr, number, ' ');
         key = std::atoi(number.c_str());
         std::getline(readstr, number, ' ');
         value = std::atoi(number.c_str());
-        // std::cout << key << " " << value << std::endl;
         smap.set(key, value);
     }
 }
 
 int main()
 {
-    dataloder dl("../dataset/taobao/user_profile.csv", 0);
-    std::cout << "data size: " << dl.size() << std::endl
+    std::ifstream ifs("storage/all_userid.txt");
+    std::vector<int64_t> ids;
+    int64_t key;
+    auto ts1 = std::chrono::high_resolution_clock::now();
+    while (ifs >> key)
+    {
+        ids.push_back(key);
+    }
+    std::cout << "data size: " << ids.size() << std::endl
               << std::flush;
     ssd_hash_map smap;
     init_ssd_map(std::ref(smap));
     embedding_t value = new double[EMB_LEN];
     std::string emb_out_file = "storage/embeddings.txt";
     std::ofstream ofs_off(emb_out_file, std::ios::binary);
+    auto ts2 = std::chrono::high_resolution_clock::now();
 
-    for (size_t i = 0; i < dl.ids.size(); ++i)
+    for (size_t i = 0; i < ids.size(); ++i)
     {
-        if (i % 4096 == 0)
+        if (i % 4096 == 0 || i == ids.size() - 1)
         {
-            double curr = double(i * 100.0) / dl.ids.size();
-            printf("\r读取中[%.2lf%%]:", curr);
+            double curr = double((i + 1) * 100.0) / ids.size();
+            std::cout << "\rreading embedding... " << std::fixed << std::setprecision(2) << curr << " %" << std::flush;
         }
-        int64_t key = dl.ids[i];
+        int64_t key = ids[i];
         std::string filepath = smap.filepath(key);
         std::ifstream ifs(filepath, std::ios::binary);
 
@@ -110,4 +76,10 @@ int main()
         ofs_off << std::endl;
         ifs.close();
     }
+    auto ts3 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::ratio<1, 1>> duration_readid(ts2 - ts1);
+    std::chrono::duration<double, std::ratio<1, 1>> duration_reademb(ts3 - ts2);
+    std::cout << std::endl;
+    std::cout << "read id time: " << duration_readid.count() << " s" << std::endl;
+    std::cout << "read embedding time: " << duration_reademb.count() << " s" << std::endl;
 }

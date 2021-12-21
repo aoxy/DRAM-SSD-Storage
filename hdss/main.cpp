@@ -2,6 +2,7 @@
 #include <thread>
 #include <queue>
 #include <fstream>
+#include <iomanip>
 #include <string>
 #include <sstream>
 #include <cstdio>
@@ -99,7 +100,9 @@ void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl)
 
 int main()
 {
-    dataloder dl("../dataset/taobao/user_profile.csv", 0);
+    auto ts1 = std::chrono::high_resolution_clock::now();
+    dataloder dl("dataset/taobao/raw_sample.csv", 0);
+    auto ts2 = std::chrono::high_resolution_clock::now();
     LOGINFO << "data size = " << dl.size() << std::endl
             << std::flush;
     shard_lock_map dmap;
@@ -116,13 +119,13 @@ int main()
     bool running = true;
     std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(que), k_size, num_worker, true, std::ref(running)); // TODO:
     auto start = std::chrono::high_resolution_clock::now();
+    size_t access_count = 0;
+    size_t hit_count = 0;
 
     for (size_t e = 0; e < epoch; ++e)
     {
         dl.init();
         size_t remain_size = dl.size();
-        double curr = double(e * 100.0) / epoch;
-        // TODO: printf("\r迭代中[%.2lf%%]:", curr);
 
         while (remain_size > batch_size)
         {
@@ -136,15 +139,19 @@ int main()
             // TODO:           << std::flush;
             add_to_rank(std::ref(que), batch_ids, batch_size);
             // LOGINFO << std::endl << std::flush;
-            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker);
+            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count));
             get_embs(ret, batch_size, num_worker);
             remain_size -= batch_size;
         }
         dl.sample(batch_ids, remain_size);
         add_to_rank(std::ref(que), batch_ids, remain_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker);
+        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count));
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
+
+        double curr = double((e + 1) * 100.0) / epoch;
+        std::cout << "\rtraining... " << std::fixed << std::setprecision(2) << curr << " %" << std::flush;
+        // TODO: printf("\r迭代中[%.2lf%%]:", curr);
     }
     auto point1 = std::chrono::high_resolution_clock::now(); //训练时间
     delete[] batch_ids;
@@ -156,8 +163,11 @@ int main()
     std::chrono::duration<double, std::ratio<1, 1>> duration_train(point1 - start);
     std::chrono::duration<double, std::ratio<1, 1>> duration_save(point2 - point1);
     std::chrono::duration<double, std::ratio<1, 1>> duration_total(end - start);
-    LOGINFO << "train time = " << duration_train.count() << " s" << std::flush;
+    std::chrono::duration<double, std::ratio<1, 1>> duration_readid(ts2 - ts1);
+    LOGINFO << "read id time = " << duration_readid.count() << " s" << std::flush;
     LOGINFO << "save time = " << duration_save.count() << " s" << std::flush;
     LOGINFO << "total time = " << duration_total.count() << " s" << std::flush;
+
+    LOGINFO << "total hit rate = " << double(hit_count * 100.0) / access_count << " %" << std::flush;
     return 0;
 }
