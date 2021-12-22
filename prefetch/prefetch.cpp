@@ -6,8 +6,10 @@
 #include "../justokmap/ssd_hash_map.h"
 #include "prefetch.h"
 #include "../utils/logs.h"
+#include "../ranking/cache_manager.h"
+#include "../utils/xhqueue.h"
 
-embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count)
+embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count, xhqueue<int64_t> &que, size_t k_size)
 {
     embedding_t *ret = new embedding_t[batch_size];
 
@@ -15,10 +17,10 @@ embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_i
     std::vector<std::thread> workers;
     for (size_t w = 1; w < num_workers; ++w)
     { //TODO:分任务的方式还可以优化，使得两个线程不操作同一个文件
-        workers.emplace_back(fetch_aux, std::ref(dmap), std::ref(smap), batch_ids, (w - 1) * work_size, w * work_size, ret, std::ref(access_count), std::ref(hit_count));
+        workers.emplace_back(fetch_aux, std::ref(dmap), std::ref(smap), batch_ids, (w - 1) * work_size, w * work_size, ret, std::ref(access_count), std::ref(hit_count), std::ref(que), k_size);
     }
     // auto start = std::chrono::high_resolution_clock::now();
-    fetch_aux(std::ref(dmap), std::ref(smap), batch_ids, (num_workers - 1) * work_size, batch_size, ret, std::ref(access_count), std::ref(hit_count)); //自己也要干活(也许会少点)
+    fetch_aux(std::ref(dmap), std::ref(smap), batch_ids, (num_workers - 1) * work_size, batch_size, ret, std::ref(access_count), std::ref(hit_count), std::ref(que), k_size); //自己也要干活(也许会少点)
     // LOGINFO << std::endl << std::flush;
     for (auto &worker : workers)
     {
@@ -28,7 +30,7 @@ embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_i
     return ret;
 }
 
-void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t begin, size_t end, embedding_t *ret, size_t &access_count, size_t &hit_count)
+void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t begin, size_t end, embedding_t *ret, size_t &access_count, size_t &hit_count, xhqueue<int64_t> &que, size_t k_size)
 {
     for (size_t i = begin; i < end; ++i)
     {
@@ -54,6 +56,7 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
             ifs.seekg(offset, std::ios::beg);
             ifs.read((char *)value, EMB_LEN * sizeof(double));
             ifs.close();
+            cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(que), k_size, 1, true);
             dmap.set(key, value);
         }
         else

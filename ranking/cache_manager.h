@@ -10,3 +10,4 @@
 
 // 一个异步线程
 void cache_manager(shard_lock_map &dmap, ssd_hash_map &smap, xhqueue<int64_t> &que, size_t k_size, size_t num_workers, bool uniform, bool &running);
+void cache_manager_once(shard_lock_map &dmap, ssd_hash_map &smap, xhqueue<int64_t> &que, size_t k_size, size_t num_workers, bool uniform);

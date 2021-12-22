@@ -126,6 +126,7 @@ int main()
     {
         dl.init();
         size_t remain_size = dl.size();
+        size_t total_size = remain_size;
 
         while (remain_size > batch_size)
         {
@@ -139,13 +140,17 @@ int main()
             // TODO:           << std::flush;
             add_to_rank(std::ref(que), batch_ids, batch_size);
             // LOGINFO << std::endl << std::flush;
-            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count));
+            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(que), k_size);
             get_embs(ret, batch_size, num_worker);
             remain_size -= batch_size;
+            if (int(remain_size / batch_size) % 1000 == 0)
+            {
+                std::cout << "\repoch training... " << std::fixed << std::setprecision(2) << double(remain_size * 100.0) / total_size << " %" << std::flush;
+            }
         }
         dl.sample(batch_ids, remain_size);
         add_to_rank(std::ref(que), batch_ids, remain_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count));
+        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(que), k_size);
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
 
