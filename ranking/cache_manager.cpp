@@ -9,6 +9,11 @@
 void cache_manager(shard_lock_map &dmap, ssd_hash_map &smap, xhqueue<int64_t> &que, size_t k_size, size_t num_workers, bool uniform, bool &running)
 {
     int64_t *evic_ids = new int64_t[k_size];
+    if (evic_ids == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
     while (running)
     {
         // LOGINFO << std::endl;
@@ -30,6 +35,11 @@ void cache_manager(shard_lock_map &dmap, ssd_hash_map &smap, xhqueue<int64_t> &q
 void cache_manager_once(shard_lock_map &dmap, ssd_hash_map &smap, xhqueue<int64_t> &que, size_t k_size, size_t num_workers, bool uniform)
 {
     int64_t *evic_ids = new int64_t[k_size];
+    if (evic_ids == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
 
     // LOGINFO << std::endl;
     size_t emb_num = dmap.true_size();

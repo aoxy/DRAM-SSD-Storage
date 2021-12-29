@@ -50,6 +50,11 @@ int main()
     ssd_hash_map smap;
     init_ssd_map(std::ref(smap));
     embedding_t value = new double[EMB_LEN];
+    if (value == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
     std::string emb_out_file = "storage/embeddings.txt";
     std::ofstream ofs_off(emb_out_file, std::ios::binary);
     auto ts2 = std::chrono::high_resolution_clock::now();

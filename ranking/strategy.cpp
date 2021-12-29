@@ -18,7 +18,6 @@ public:
     counter(int64_t k, size_t c) : key(k), count(c) {}
 };
 
-// 一个异步线程
 void add_to_rank(xhqueue<int64_t> &que, int64_t *batch_ids, size_t batch_size)
 {
     for (size_t i = 0; i < batch_size; ++i)

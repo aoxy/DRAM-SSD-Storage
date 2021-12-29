@@ -12,6 +12,11 @@
 embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count, xhqueue<int64_t> &que, size_t k_size)
 {
     embedding_t *ret = new embedding_t[batch_size];
+    if (ret == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
 
     size_t work_size = int(batch_size + num_workers - 1 / num_workers); //上取整
     std::vector<std::thread> workers;
@@ -56,7 +61,7 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
             ifs.seekg(offset, std::ios::beg);
             ifs.read((char *)value, EMB_LEN * sizeof(double));
             ifs.close();
-            cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(que), k_size, 1, true);
+            // cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(que), k_size, 1, true);
             dmap.set(key, value);
         }
         else

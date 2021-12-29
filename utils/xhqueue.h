@@ -11,6 +11,11 @@ public:
     xhqueue(size_t max_size = 1024) : begin(0), end(0), capacity(max_size + 1)
     {
         elements = new T[capacity];
+        if (elements == nullptr)
+        {
+            LOGINFO << "malloc failed." << std::endl;
+            exit(1);
+        }
         assert(elements != nullptr);
     }
     ~xhqueue() { delete[] elements; }

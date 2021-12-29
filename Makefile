@@ -10,16 +10,22 @@ OBJ_DIR = obj
 
 
 CPPFLAGS += -I$(MAIN_DIR) -I. -isystem
-CXXFLAGS += -Wall -Wextra -Wpedantic -Wno-missing-field-initializers -std=c++17 -O3  ${_CXXFLAGS}
+CXXFLAGS += -Wall -Wextra -Wpedantic -Wno-missing-field-initializers -std=c++17 -O3  ${_CXXFLAGS} -g
 LDFLAGS += -lpthread
 
 all :  main write_file_and_ssd_map read_file_and_ssd_map
 
 clean :
-	rm *.o *.exe
+	rm *.o main read_file_and_ssd_map write_file_and_ssd_map
 
 run :
 	./main > "storage/hdss.log"
+
+per :
+	chmod -R 777 ./
+
+scp :
+	rsync -avzu --progress /home/aoxuyang.axy/code/DRAM-SSD-Storage/ ubuntu@vlab.ustc.edu.cn:/home/ubuntu/code/DRAM-SSD-Storage/
 
 main.o : $(MAIN_DIR)/main.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(MAIN_DIR)/main.cpp

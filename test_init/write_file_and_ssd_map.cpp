@@ -30,6 +30,11 @@ int main()
               << std::flush;
     ssd_hash_map smap;
     embedding_t value = new double[EMB_LEN];
+    if (value == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
     for (size_t i = 0; i < EMB_LEN; ++i)
     {
         value[i] = 1.1;

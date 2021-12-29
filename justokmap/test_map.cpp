@@ -12,12 +12,22 @@ int main()
     shard_lock_map map(NUM_SHARD);
 
     embedding_t vec1 = new double[EMB_LEN];
+    if (vec1 == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+            exit(1);
+    }
     for (int i = 0; i < EMB_LEN; ++i)
     {
         vec1[i] = 1.1;
     }
 
     embedding_t vec2 = new double[EMB_LEN];
+    if (vec2 == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+            exit(1);
+    }
     for (int i = 0; i < EMB_LEN; ++i)
     {
         vec2[i] = 2.2;

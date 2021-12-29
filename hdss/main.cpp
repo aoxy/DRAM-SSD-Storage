@@ -94,6 +94,11 @@ void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl)
     dl.init();
     size_t remain_size = dl.size();
     int64_t *batch_ids = new int64_t[remain_size];
+    if (batch_ids == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
     dl.sample(batch_ids, remain_size);
     eviction(std::ref(dmap), std::ref(smap), batch_ids, remain_size, 1);
 }
@@ -113,11 +118,18 @@ int main()
     const size_t num_worker = 1;
     const size_t k_size = 6 * batch_size;
     int64_t *batch_ids = new int64_t[batch_size];
+    if (batch_ids == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+        ;
+        exit(1);
+    }
     // LOGINFO << std::endl << std::flush;
     init_ssd_map(std::ref(smap)); // 先加载存在SSD上的offset map
     // return 0;
     bool running = true;
-    std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(que), k_size, num_worker, true, std::ref(running)); // TODO:
+    // std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(que), k_size, num_worker, true, std::ref(running)); // TODO:
     auto start = std::chrono::high_resolution_clock::now();
     size_t access_count = 0;
     size_t hit_count = 0;
@@ -145,7 +157,7 @@ int main()
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 1000 == 0)
             {
-                std::cout << "\repoch training... " << std::fixed << std::setprecision(2) << double(remain_size * 100.0) / total_size << " %" << std::flush;
+                std::cout << "\r(" << e + 1 << "/" << epoch << ")epoch training... " << std::fixed << std::setprecision(2) << double((total_size - remain_size) * 100.0) / total_size << " %" << std::flush;
             }
         }
         dl.sample(batch_ids, remain_size);
@@ -163,16 +175,18 @@ int main()
     save_ssd(std::ref(dmap), std::ref(smap), std::ref(dl));
     auto point2 = std::chrono::high_resolution_clock::now(); //持久化时间
     running = false;
-    th.join();
+    // th.join();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::ratio<1, 1>> duration_train(point1 - start);
     std::chrono::duration<double, std::ratio<1, 1>> duration_save(point2 - point1);
-    std::chrono::duration<double, std::ratio<1, 1>> duration_total(end - start);
+    std::chrono::duration<double, std::ratio<1, 1>> duration_total(end - ts1);
     std::chrono::duration<double, std::ratio<1, 1>> duration_readid(ts2 - ts1);
     LOGINFO << "read id time = " << duration_readid.count() << " s" << std::flush;
+    LOGINFO << "train time = " << duration_train.count() << " s" << std::flush;
     LOGINFO << "save time = " << duration_save.count() << " s" << std::flush;
     LOGINFO << "total time = " << duration_total.count() << " s" << std::flush;
 
-    LOGINFO << "total hit rate = " << double(hit_count * 100.0) / access_count << " %" << std::flush;
+    LOGINFO << "total hit rate = " << double(hit_count * 100.0) / access_count << " %" << std::endl
+            << std::flush;
     return 0;
 }
