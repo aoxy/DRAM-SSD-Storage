@@ -6,7 +6,7 @@
 
 void get_embs(double *batch_emb_ptrs[EMB_LEN], size_t batch_size, size_t num_workers)
 {
-    size_t work_size = size_t(batch_size + num_workers - 1 / num_workers); //上取整
+    size_t work_size = size_t((batch_size + num_workers - 1) / num_workers); //上取整
     std::vector<std::thread> workers;
     for (size_t w = 1; w < num_workers; ++w)
     {

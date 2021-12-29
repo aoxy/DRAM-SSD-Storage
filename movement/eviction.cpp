@@ -6,7 +6,7 @@
 
 void eviction(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *evic_ids, size_t k_size, size_t num_workers)
 {
-    size_t work_size = size_t(k_size + num_workers - 1 / num_workers); //上取整
+    size_t work_size = size_t((k_size + num_workers - 1) / num_workers); //上取整
     std::vector<std::thread> workers;
     for (size_t w = 1; w < num_workers; ++w)
     {
@@ -38,7 +38,7 @@ void eviction_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *evic_ids, s
             assert(value != nullptr && "get embedding failed in eviction.");
             int64_t offset = smap.get(key) - 1; //offset - 1 是因为存的时候+1了
             // TODO: LOGINFO << key << "被淘汰了，放到SSD中 offset = " << offset << std::endl
-           // TODO:          << std::flush;
+            // TODO:          << std::flush;
             std::string filepath = smap.filepath(key);
 
             if (offset < 0)
@@ -61,12 +61,12 @@ void eviction_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *evic_ids, s
                 fs.write((char *)value, EMB_LEN * sizeof(double));
                 fs.close();
             }
+            delete[] value; // FIXME: 加上这个就段错误
         }
         // else
         // {
         //     LOGINFO << key << "已经不在DRAM中" << std::endl
         //             << std::flush;
         // }
-        delete[] value;
     }
 }

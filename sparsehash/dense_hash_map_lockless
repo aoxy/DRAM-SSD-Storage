@@ -102,7 +102,7 @@
 #include <utility>     // for pair<>
 #include <tuple>       // forward_as_tuple
 #include <type_traits> // for enable_if, is_constructible, etc
-#include <sparsehash/internal/densehashtable.h>  // IWYU pragma: export
+#include <sparsehash/internal/densehashtable_lockless.h>  // IWYU pragma: export
 #include <sparsehash/internal/libc_allocator_with_realloc.h>
 
 namespace google {
@@ -110,7 +110,7 @@ namespace google {
 template <class Key, class T, class HashFcn = std::hash<Key>,
           class EqualKey = std::equal_to<Key>,
           class Alloc = libc_allocator_with_realloc<std::pair<const Key, T>>>
-class dense_hash_map {
+class dense_hash_map_lockless {
  private:
   // Apparently select1st is not stl-standard, so we define our own
   struct SelectKey {
@@ -146,8 +146,8 @@ class dense_hash_map {
 
   // The actual data
   typedef typename sparsehash_internal::key_equal_chosen<HashFcn, EqualKey>::type EqualKeyChosen;
-  typedef dense_hashtable<std::pair<const Key, T>, Key, HashFcn, SelectKey,
-                          SetKey, EqualKeyChosen, Alloc> ht;
+  typedef dense_hashtable_lockless<std::pair<const Key, T>, Key, HashFcn, SelectKey,
+                          SetKey, EqualKeyChosen, Alloc, T> ht;
   ht rep;
 
   static_assert(!sparsehash_internal::has_transparent_key_equal<HashFcn>::value
@@ -199,7 +199,7 @@ class dense_hash_map {
   key_equal key_eq() const { return rep.key_eq(); }
 
   // Constructors
-  explicit dense_hash_map(size_type expected_max_items_in_table = 0,
+  explicit dense_hash_map_lockless(size_type expected_max_items_in_table = 0,
                           const hasher& hf = hasher(),
                           const key_equal& eql = key_equal(),
                           const allocator_type& alloc = allocator_type())
@@ -207,7 +207,7 @@ class dense_hash_map {
             alloc) {}
 
   template <class InputIterator>
-  dense_hash_map(InputIterator f, InputIterator l,
+  dense_hash_map_lockless(InputIterator f, InputIterator l,
                  const key_type& empty_key_val,
                  size_type expected_max_items_in_table = 0,
                  const hasher& hf = hasher(),
@@ -226,7 +226,7 @@ class dense_hash_map {
   // This clears the hash map without resizing it down to the minimum
   // bucket count, but rather keeps the number of buckets constant
   void clear_no_resize() { rep.clear_no_resize(); }
-  void swap(dense_hash_map& hs) { rep.swap(hs.rep); }
+  void swap(dense_hash_map_lockless& hs) { rep.swap(hs.rep); }
 
   // Functions concerning size
   size_type size() const { return rep.size(); }
@@ -234,6 +234,9 @@ class dense_hash_map {
   bool empty() const { return rep.empty(); }
   size_type bucket_count() const { return rep.bucket_count(); }
   size_type max_bucket_count() const { return rep.max_bucket_count(); }
+  void set_counternum(size_type ncounters) {rep.set_counternum(ncounters);}
+  long long int size_lockless() const {return rep.size_lockless();}
+
 
   // These are tr1 methods.  bucket() is the bucket the key is or would be in.
   size_type bucket_size(size_type i) const { return rep.bucket_size(i); }
@@ -272,6 +275,8 @@ class dense_hash_map {
   // Lookup routines
   iterator find(const key_type& key) { return rep.find(key); }
   const_iterator find(const key_type& key) const { return rep.find(key); }
+  //Lockfree Lookup routines
+  std::pair<key_type, data_type> find_wait_free(key_type& key) {return rep.template find_wait_free<data_type>(key);}
 
   template <typename K>
   typename std::enable_if<sparsehash_internal::has_transparent_key_equal<hasher, K>::value, iterator>::type
@@ -321,6 +326,13 @@ class dense_hash_map {
     return rep.insert(obj);
   }
 
+  std::pair<iterator, bool> insert_lockless(const value_type& obj) {
+    return rep.insert_lockless(obj);
+  }
+
+std::pair<value_type*, size_type> GetSnapshot(){ return rep.GetSnapShot();}
+
+
   template <typename Pair, typename = typename std::enable_if<std::is_constructible<value_type, Pair&&>::value>::type>
   std::pair<iterator, bool> insert(Pair&& obj) {
     return rep.insert(std::forward<Pair>(obj));
@@ -363,6 +375,9 @@ class dense_hash_map {
   // deleted key as time goes on, or get rid of it entirely to be insert-only.
    // YOU MUST CALL THIS!
   void set_empty_key(const key_type& key) { rep.set_empty_key(key); }
+
+  void set_empty_key_and_value(const key_type& key, T value) {rep.set_empty_key_and_value(key, value);}
+
   key_type empty_key() const {  return rep.empty_key(); }
 
   void set_deleted_key(const key_type& key) { rep.set_deleted_key(key); }
@@ -371,12 +386,15 @@ class dense_hash_map {
 
   // These are standard
   size_type erase(const key_type& key) { return rep.erase(key); }
+
+  size_type erase_lockless(const key_type& key) {return rep.erase_lockless(key);}
+
   iterator erase(const_iterator it) { return rep.erase(it); }
   iterator erase(const_iterator f, const_iterator l) { return rep.erase(f, l); }
 
   // Comparison
-  bool operator==(const dense_hash_map& hs) const { return rep == hs.rep; }
-  bool operator!=(const dense_hash_map& hs) const { return rep != hs.rep; }
+  bool operator==(const dense_hash_map_lockless& hs) const { return rep == hs.rep; }
+  bool operator!=(const dense_hash_map_lockless& hs) const { return rep != hs.rep; }
 
   // I/O -- this is an add-on for writing hash map to disk
   //
@@ -421,8 +439,8 @@ class dense_hash_map {
 
 // We need a global swap as well
 template <class Key, class T, class HashFcn, class EqualKey, class Alloc>
-inline void swap(dense_hash_map<Key, T, HashFcn, EqualKey, Alloc>& hm1,
-                 dense_hash_map<Key, T, HashFcn, EqualKey, Alloc>& hm2) {
+inline void swap(dense_hash_map_lockless<Key, T, HashFcn, EqualKey, Alloc>& hm1,
+                 dense_hash_map_lockless<Key, T, HashFcn, EqualKey, Alloc>& hm2) {
   hm1.swap(hm2);
 }
 

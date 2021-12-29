@@ -15,6 +15,7 @@
 #include "../utils/logs.h"
 #include "../utils/xhqueue.h"
 #include "../movement/eviction.h"
+#include "../ranking/lru.h"
 
 class dataloder
 {
@@ -112,7 +113,8 @@ int main()
             << std::flush;
     shard_lock_map dmap;
     ssd_hash_map smap;
-    xhqueue<int64_t> que(QUEUE_SIZE);
+    // xhqueue<int64_t> que(QUEUE_SIZE);
+    BatchLRUCache cache(MAX_EMB_NUM);
     const size_t epoch = 3;
     const size_t batch_size = 128;
     const size_t num_worker = 1;
@@ -129,7 +131,7 @@ int main()
     init_ssd_map(std::ref(smap)); // 先加载存在SSD上的offset map
     // return 0;
     bool running = true;
-    // std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(que), k_size, num_worker, true, std::ref(running)); // TODO:
+    std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(cache), k_size, num_worker, true, std::ref(running)); // TODO:
     auto start = std::chrono::high_resolution_clock::now();
     size_t access_count = 0;
     size_t hit_count = 0;
@@ -150,9 +152,9 @@ int main()
             // TODO: }
             // TODO: std::cout << std::endl
             // TODO:           << std::flush;
-            add_to_rank(std::ref(que), batch_ids, batch_size);
+
             // LOGINFO << std::endl << std::flush;
-            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(que), k_size);
+            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size);
             get_embs(ret, batch_size, num_worker);
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 1000 == 0)
@@ -161,8 +163,8 @@ int main()
             }
         }
         dl.sample(batch_ids, remain_size);
-        add_to_rank(std::ref(que), batch_ids, remain_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(que), k_size);
+        // add_to_rank(std::ref(que), batch_ids, remain_size);
+        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size);
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
 
@@ -175,7 +177,7 @@ int main()
     save_ssd(std::ref(dmap), std::ref(smap), std::ref(dl));
     auto point2 = std::chrono::high_resolution_clock::now(); //持久化时间
     running = false;
-    // th.join();
+    th.join();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::ratio<1, 1>> duration_train(point1 - start);
     std::chrono::duration<double, std::ratio<1, 1>> duration_save(point2 - point1);

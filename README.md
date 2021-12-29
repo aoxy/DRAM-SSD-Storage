@@ -8,5 +8,6 @@
 ## 下一步
 
 1. 用 embedding 池统一存储 embedding，管理内存使用
+train time 细粒度
 2. 上一步完成后改进 cache 策略的实现和设计更好的 cache 策略
 3. 正确使用多线程
