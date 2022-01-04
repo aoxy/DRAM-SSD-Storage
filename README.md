@@ -8,6 +8,55 @@
 ## 下一步
 
 1. 用 embedding 池统一存储 embedding，管理内存使用
-train time 细粒度
+   train time 细粒度
 2. 上一步完成后改进 cache 策略的实现和设计更好的 cache 策略
 3. 正确使用多线程
+
+## 测试数据
+
+```
+-pg
+./main
+gprof -b main gmon.out > report.txt
+```
+
+```
+dataset/taobao/raw_sample.csv
+userid size: 1141729
+adgroupid size: 846811
+total time: 88.99227023124695 s
+```
+
+## 结果记录（commit 796dd7c2d0fb8202b522969588273a4428ad371d）
+
+总共有 1141729 个不同的 userid 或 846811 个不同的 adgroupid，每一轮迭代进行 26557961 次访问。
+
+### 内存中最多放 409600（总量的 36%） 个 embedding 且采用 LRU 时，使用 userid 数据
+
+```
+[INFO]: hdss/main.cpp:186 (main): read id time = 22.86 s
+[INFO]: hdss/main.cpp:187 (main): train time = 692.56 s
+[INFO]: hdss/main.cpp:188 (main): save time = 12.24 s
+[INFO]: hdss/main.cpp:189 (main): total time = 729.19 s
+[INFO]: hdss/main.cpp:191 (main): total hit rate = 79.99 %
+```
+
+### 内存中最多放 409600（总量的 48%） 个 embedding 且采用 LRU 时，使用 adgroupid 数据
+
+```
+[INFO]: hdss/main.cpp:186 (main):  	read id time = 24.30 s
+[INFO]: hdss/main.cpp:187 (main):  	train time = 88.40 s
+[INFO]: hdss/main.cpp:188 (main):  	save time = 8.32 s
+[INFO]: hdss/main.cpp:189 (main):  	total time = 125.12 s
+[INFO]: hdss/main.cpp:191 (main):  	total hit rate = 96.81 %
+```
+
+### 内存中最多放 84681（总量的 10%） 个 embedding 且采用 LRU 时，使用 adgroupid 数据
+
+```
+[INFO]: hdss/main.cpp:186 (main):  	read id time = 29.08 s
+[INFO]: hdss/main.cpp:187 (main):  	train time = 97.19 s
+[INFO]: hdss/main.cpp:188 (main):  	save time = 4.94 s
+[INFO]: hdss/main.cpp:189 (main):  	total time = 134.88 s
+[INFO]: hdss/main.cpp:191 (main):  	total hit rate = 96.81 %
+```

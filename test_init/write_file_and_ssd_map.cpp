@@ -17,7 +17,9 @@ inline bool exists(const std::string &filepath)
 
 int main()
 {
-    std::ifstream ifs("storage/all_userid.txt");
+    // std::ifstream ifs("storage/all_userid.txt");
+    std::ifstream ifs("storage/all_adgroupid.txt");
+    
     std::vector<int64_t> ids;
     int64_t key;
     auto ts1 = std::chrono::high_resolution_clock::now();

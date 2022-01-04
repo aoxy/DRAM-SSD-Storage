@@ -107,7 +107,7 @@ void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl)
 int main()
 {
     auto ts1 = std::chrono::high_resolution_clock::now();
-    dataloder dl("dataset/taobao/raw_sample.csv", 0);
+    dataloder dl("dataset/taobao/raw_sample.csv", 2); // 0: user,1: time_stamp,2: adgroup_id,3: pid,4: nonclk,5: clk
     auto ts2 = std::chrono::high_resolution_clock::now();
     LOGINFO << "data size = " << dl.size() << std::endl
             << std::flush;
@@ -135,6 +135,13 @@ int main()
     auto start = std::chrono::high_resolution_clock::now();
     size_t access_count = 0;
     size_t hit_count = 0;
+    auto fetch_b = std::chrono::high_resolution_clock::now();
+    auto fetch_e = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::ratio<1, 1>> duration_fetch;
+
+    auto update_b = std::chrono::high_resolution_clock::now();
+    auto update_e = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::ratio<1, 1>> duration_update;
 
     for (size_t e = 0; e < epoch; ++e)
     {
@@ -154,10 +161,15 @@ int main()
             // TODO:           << std::flush;
 
             // LOGINFO << std::endl << std::flush;
+            fetch_b = std::chrono::high_resolution_clock::now();
             embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size);
+            fetch_e = std::chrono::high_resolution_clock::now();
             get_embs(ret, batch_size, num_worker);
+            update_e = std::chrono::high_resolution_clock::now();
+            duration_fetch += fetch_e - fetch_b;
+            duration_update = update_e - fetch_e;
             remain_size -= batch_size;
-            if (int(remain_size / batch_size) % 1000 == 0)
+            if (int(remain_size / batch_size) % 8000 == 0)
             {
                 std::cout << "\r(" << e + 1 << "/" << epoch << ")epoch training... " << std::fixed << std::setprecision(2) << double((total_size - remain_size) * 100.0) / total_size << " %" << std::flush;
             }
@@ -168,9 +180,8 @@ int main()
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
 
-        double curr = double((e + 1) * 100.0) / epoch;
-        std::cout << "\rtraining... " << std::fixed << std::setprecision(2) << curr << " %" << std::flush;
-        // TODO: printf("\r迭代中[%.2lf%%]:", curr);
+        // double curr = double((e + 1) * 100.0) / epoch;
+        // std::cout << "\rtraining... " << std::fixed << std::setprecision(2) << curr << " %" << std::flush;
     }
     auto point1 = std::chrono::high_resolution_clock::now(); //训练时间
     delete[] batch_ids;
@@ -185,6 +196,8 @@ int main()
     std::chrono::duration<double, std::ratio<1, 1>> duration_readid(ts2 - ts1);
     LOGINFO << "read id time = " << duration_readid.count() << " s" << std::flush;
     LOGINFO << "train time = " << duration_train.count() << " s" << std::flush;
+    LOGINFO << "\tfetch time = " << duration_fetch.count() << " s" << std::flush;
+    LOGINFO << "\tupdate time = " << duration_update.count() << " s" << std::flush;
     LOGINFO << "save time = " << duration_save.count() << " s" << std::flush;
     LOGINFO << "total time = " << duration_total.count() << " s" << std::flush;
 
