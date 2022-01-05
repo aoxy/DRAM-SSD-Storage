@@ -58,6 +58,53 @@ def gen_result_file():
     np.save("test_init/temp/ay.npy", ay)
 
 
+def plot_ratio():
+    import matplotlib.pyplot as plt
+
+    per_points = [1, 5, 10, 20, 30, 50, 70, 100]
+    user_hit_rate = [7.99922, 28.921, 43.6905, 61.16, 72.4352, 86.227, 93.6628, 100.0]
+    ad_hit_rate = [20.0984, 48.910, 65.2165, 81.0444, 88.64687, 95.25425, 97.686, 100.0]
+    user_count = [22.9816, 46.01803, 59.0954, 74.1374, 82.7866, 92.1246, 96.6018, 100.0]
+    ad_count = [36.6051, 64.0675, 76.9989, 88.3513, 93.3913, 97.5309, 99.0434, 100.0]
+    user_hit_div_count = np.array(user_hit_rate) / np.array(user_count)
+    ad_hit_div_count = np.array(ad_hit_rate) / np.array(ad_count)
+    user_count_sub_hit = np.array(user_count) - np.array(user_hit_rate)
+    ad_count_sub_hit = np.array(ad_count) - np.array(ad_hit_rate)
+    # print(user_hit_div_count)
+    # print(ad_hit_div_count)
+
+    fig = plt.figure()
+    ax1 = fig.add_subplot(2, 2, 1)
+    ax1.plot(per_points, user_hit_div_count)
+    ax1.set_title("user")
+    ax1.set_xlabel("LRU Cache Size (%)")
+    ax1.set_ylabel("Hit Rate Ratio")
+    ax1.grid(True)
+
+    ax2 = fig.add_subplot(2, 2, 2)
+    ax2.plot(per_points, ad_hit_div_count)
+    ax2.set_title("adgroup_id")
+    ax2.set_xlabel("LRU Cache Size (%)")
+    ax2.set_ylabel("Hit Rate Ratio")
+    ax2.grid(True)
+
+    ax3 = fig.add_subplot(2, 2, 3)
+    ax3.plot(per_points, user_count_sub_hit)
+    ax3.set_title("user")
+    ax3.set_xlabel("LRU Cache Size (%)")
+    ax3.set_ylabel("Hit Rate Diff (%)")
+    ax3.grid(True)
+
+    ax4 = fig.add_subplot(2, 2, 4)
+    ax4.plot(per_points, ad_count_sub_hit)
+    ax4.set_title("adgroup_id")
+    ax4.set_xlabel("LRU Cache Size (%)")
+    ax4.set_ylabel("Hit Rate Diff (%)")
+    ax4.grid(True)
+
+    plt.show()
+
+
 def plot():
     import matplotlib.pyplot as plt
 
@@ -65,6 +112,31 @@ def plot():
     uy = np.load("test_init/temp/uy.npy")
     ax = np.load("test_init/temp/ax.npy")
     ay = np.load("test_init/temp/ay.npy")
+    #############################################################################
+    # per_points = [1, 5, 10, 20, 30, 50, 70, 100]
+    # user_hit_rate = [7.99922, 28.921, 43.6905, 61.16, 72.4352, 86.227, 93.6628, 100.0]
+    # ad_hit_rate = [20.0984, 48.910, 65.2165, 81.0444, 88.64687, 95.25425, 97.686, 100.0]
+    # user_count = [0] * len(per_points)
+    # ad_count = [0] * len(per_points)
+
+    # min_delta = [float("inf")] * len(per_points)
+    # for xi in range(len(ux)):
+    #     for i in range(len(per_points)):
+    #         if abs(ux[xi] - per_points[i]) < min_delta[i]:
+    #             min_delta[i] = abs(ux[xi] - per_points[i])
+    #             user_count[i] = uy[xi]
+
+    # min_delta = [float("inf")] * len(per_points)
+    # for xi in range(len(ax)):
+    #     for i in range(len(per_points)):
+    #         if abs(ax[xi] - per_points[i]) < min_delta[i]:
+    #             min_delta[i] = abs(ax[xi] - per_points[i])
+    #             ad_count[i] = ay[xi]
+    # # print(user_count)
+    # # print(ad_count)
+    # user_count = [22.9816, 46.01803, 59.0954, 74.1374, 82.7866, 92.1246, 96.6018, 100.0]
+    # ad_count = [36.6051, 64.0675, 76.9989, 88.3513, 93.3913, 97.5309, 99.0434, 100.0]
+    #############################################################################
     fig = plt.figure()
     ax1 = fig.add_subplot(1, 2, 1)
     ax1.plot(ux, uy)
@@ -83,4 +155,5 @@ def plot():
     plt.show()
 
 
-plot()
+# plot()
+plot_ratio()

@@ -37,6 +37,10 @@ total time: 88.99227023124695 s
 
 ![](fig/Figure_2.png)
 
+#### 缓存大小和LRU命中率的关系
+
+![](fig/Figure_3.png)
+
 ## 结果记录（commit 796dd7c2d0fb8202b522969588273a4428ad371d）
 
 总共有 1141729 个不同的 userid 或 846811 个不同的 adgroupid，每一轮迭代进行 26557961 次访问。
