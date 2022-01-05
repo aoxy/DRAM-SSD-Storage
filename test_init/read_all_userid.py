@@ -1,5 +1,5 @@
+# -*- coding:utf-8 -*-
 import csv
-import platform
 import time
 
 T1 = time.time()
