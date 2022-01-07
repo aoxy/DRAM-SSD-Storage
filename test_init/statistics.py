@@ -58,7 +58,7 @@ def gen_result_file():
     np.save("test_init/temp/ay.npy", ay)
 
 
-def plot_ratio():
+def plot_ratio_lru():
     import matplotlib.pyplot as plt
 
     per_points = [1, 5, 10, 20, 30, 50, 70, 100]
@@ -66,6 +66,7 @@ def plot_ratio():
     ad_hit_rate = [20.0984, 48.910, 65.2165, 81.0444, 88.64687, 95.25425, 97.686, 100.0]
     user_count = [22.9816, 46.01803, 59.0954, 74.1374, 82.7866, 92.1246, 96.6018, 100.0]
     ad_count = [36.6051, 64.0675, 76.9989, 88.3513, 93.3913, 97.5309, 99.0434, 100.0]
+
     user_hit_div_count = np.array(user_hit_rate) / np.array(user_count)
     ad_hit_div_count = np.array(ad_hit_rate) / np.array(ad_count)
     user_count_sub_hit = np.array(user_count) - np.array(user_hit_rate)
@@ -99,6 +100,59 @@ def plot_ratio():
     ax4.plot(per_points, ad_count_sub_hit)
     ax4.set_title("adgroup_id")
     ax4.set_xlabel("LRU Cache Size (%)")
+    ax4.set_ylabel("Hit Rate Diff (%)")
+    ax4.grid(True)
+
+    plt.show()
+
+
+def plot_ratio_lfu():
+    import matplotlib.pyplot as plt
+
+    per_points = [1, 5, 10, 20, 30, 50, 70, 100]
+    user_count = [22.9816, 46.01803, 59.0954, 74.1374, 82.7866, 92.1246, 96.6018, 100.0]
+    ad_count = [36.6051, 64.0675, 76.9989, 88.3513, 93.3913, 97.5309, 99.0434, 100.0]
+
+    # ============================================================ LFU (
+    u_result_lfu = [8.21060322, 29.14606886, 44.04884622, 61.74202229, 73.23232156, 87.23671143, 94.71662376, 100.0]
+    a_result_lfu = [21.01788838, 49.20053689, 65.50611698, 81.42300457, 89.12332841, 95.88060845, 98.45036673, 100.0]
+    user_hit_rate = u_result_lfu
+    ad_hit_rate = a_result_lfu
+    # ============================================================ LFU )
+
+    user_hit_div_count = np.array(user_hit_rate) / np.array(user_count)
+    ad_hit_div_count = np.array(ad_hit_rate) / np.array(ad_count)
+    user_count_sub_hit = np.array(user_count) - np.array(user_hit_rate)
+    ad_count_sub_hit = np.array(ad_count) - np.array(ad_hit_rate)
+    # print(user_hit_div_count)
+    # print(ad_hit_div_count)
+
+    fig = plt.figure()
+    ax1 = fig.add_subplot(2, 2, 1)
+    ax1.plot(per_points, user_hit_div_count)
+    ax1.set_title("user")
+    ax1.set_xlabel("LFU Cache Size (%)")
+    ax1.set_ylabel("Hit Rate Ratio")
+    ax1.grid(True)
+
+    ax2 = fig.add_subplot(2, 2, 2)
+    ax2.plot(per_points, ad_hit_div_count)
+    ax2.set_title("adgroup_id")
+    ax2.set_xlabel("LFU Cache Size (%)")
+    ax2.set_ylabel("Hit Rate Ratio")
+    ax2.grid(True)
+
+    ax3 = fig.add_subplot(2, 2, 3)
+    ax3.plot(per_points, user_count_sub_hit)
+    ax3.set_title("user")
+    ax3.set_xlabel("LFU Cache Size (%)")
+    ax3.set_ylabel("Hit Rate Diff (%)")
+    ax3.grid(True)
+
+    ax4 = fig.add_subplot(2, 2, 4)
+    ax4.plot(per_points, ad_count_sub_hit)
+    ax4.set_title("adgroup_id")
+    ax4.set_xlabel("LFU Cache Size (%)")
     ax4.set_ylabel("Hit Rate Diff (%)")
     ax4.grid(True)
 
@@ -156,4 +210,4 @@ def plot():
 
 
 # plot()
-plot_ratio()
+plot_ratio_lfu()
