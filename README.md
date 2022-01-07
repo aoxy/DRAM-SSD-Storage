@@ -44,6 +44,8 @@ total time: 88.99227023124695 s
 
 #### 缓存大小和LRU命中率的关系
 
+当Cache能放下x%的id时，最频繁出现的前x%的id占所有迭代id的比例是q%，命中率是p%，则`Hit Rate Ratio`定义为p/q
+
 ![](fig/Figure_3.png)
 
 #### 缓存大小和LFU命中率的关系
