@@ -178,7 +178,7 @@ def run(algo="lru"):
             lru_res_ad_list = []
             print("user" + "=" * 20)
             for per in cap_perc:
-                lru_res_user_list.append(lfu_hit_rate(userid_visit_list, per, userid_visit_dup_size))
+                lru_res_user_list.append(lru_hit_rate(userid_visit_list, per, userid_visit_dup_size))
             print("adgroup" + "=" * 20)
             for per in cap_perc:
                 lru_res_ad_list.append(lru_hit_rate(adgroupid_visit_list, per, adgroupid_visit_dup_size))
