@@ -89,7 +89,7 @@ class LFUCache:
             self.increase(node)
 
 
-def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
+def lfu_hit_rate_2(visit_list, capacity_percent, visit_dup_size):
     visit_count = 0
     hit_count = 0
     miss_count = 0
@@ -126,7 +126,7 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
     return hit_count * 100 / visit_count
 
 
-def lfu_hit_rate_2(visit_list, capacity_percent, visit_dup_size):
+def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
     visit_count = 0
     hit_count = 0
     miss_count = 0

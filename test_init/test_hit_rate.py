@@ -228,4 +228,5 @@ def test_lfu():
 if __name__ == "__main__":
     # plot_avg()
     # gen_file()
-    test_lfu()
+    # test_lfu()
+    test_lru()
