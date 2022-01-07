@@ -29,17 +29,30 @@ total time: 88.99227023124695 s
 
 ### 统计信息
 
-#### LRU缓存策略的表现
-
-![](fig/Figure_1.png)
-
 #### 数据分布
 
 ![](fig/Figure_2.png)
 
+#### LRU缓存策略的表现
+
+![](fig/Figure_1.png)
+
+#### LFU缓存策略的表现
+
+![](fig/Figure_4.png)
+
+
 #### 缓存大小和LRU命中率的关系
 
 ![](fig/Figure_3.png)
+
+#### 缓存大小和LFU命中率的关系
+
+![](fig/Figure_5.png)
+
+#### LRU与LFU命中率的比较
+
+![](fig/Figure_6.png)
 
 ## 结果记录（commit 796dd7c2d0fb8202b522969588273a4428ad371d）
 
