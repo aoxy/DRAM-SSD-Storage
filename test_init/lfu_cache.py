@@ -73,19 +73,20 @@ class LFUCache:
             self.increase(node)
 
     def put(self, key: int, value: int) -> None:
-        if key in self.keyMap:
-            node = self.keyMap[key]
-            node.val = 123
-        elif self.size == self.capacity:
-            deleted = self.delete(self.freqMap[self.minFreq][0].nex)
-            self.keyMap.pop(deleted)
-            node = Node(key, 123)
-            self.keyMap[key] = node
-        else:
-            node = Node(key, 123)
-            self.keyMap[key] = node
-            self.size += 1
-        self.increase(node)
+        if self.capacity != 0:
+            if key in self.keyMap:
+                node = self.keyMap[key]
+                node.val = value
+            elif self.size == self.capacity:
+                deleted = self.delete(self.freqMap[self.minFreq][0].nex)
+                self.keyMap.pop(deleted)
+                node = Node(key, value)
+                self.keyMap[key] = node
+            else:
+                node = Node(key, value)
+                self.keyMap[key] = node
+                self.size += 1
+            self.increase(node)
 
 
 def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
@@ -94,23 +95,23 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
     miss_count = 0
     capacity = int(capacity_percent * visit_dup_size / 100)
     cache = LFUCache(capacity)
+    value = 123
     # 预先加载一些数据进内存
     for key in visit_list:
-        if cache.size == cache.capacity:
+        if cache.size >= cache.capacity:
             break
-        if key in cache.keyMap:
-            cache.increase(cache.keyMap[key])
+        elif cache.get(key) > 0:
+            pass
         else:
-            cache.put(key, 123)
+            cache.put(key, value)
     # 正式开始迭代
     for key in visit_list:
         visit_count += 1
-        if key in cache.keyMap:
+        if cache.get(key) > 0:
             hit_count += 1
-            cache.increase(cache.keyMap[key])
         else:
             miss_count += 1
-            cache.put(key, 123)
+            cache.put(key, value)
 
     print(
         "LFUCache[{}]({} %) {} visit, {} miss, {} hit({} %)".format(
@@ -125,26 +126,22 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
     return hit_count * 100 / visit_count
 
 
-def lfu_hit_rate_first(visit_list, capacity_percent, visit_dup_size):
+def lfu_hit_rate_2(visit_list, capacity_percent, visit_dup_size):
     visit_count = 0
     hit_count = 0
     miss_count = 0
     capacity = int(capacity_percent * visit_dup_size / 100)
     cache = LFUCache(capacity)
+    value = 123
     # 预先加载一些数据进内存
     for key in visit_list:
         if key in cache.keyMap:
             node = cache.keyMap[key]
-            node.val = 123
-        elif cache.size == cache.capacity:
-            deleted = cache.delete(cache.freqMap[cache.minFreq][0].nex)
-            cache.keyMap.pop(deleted)
-            node = Node(key, 123)
-            cache.keyMap[key] = node
-            cache.increase(node)
+            node.val = value
+        elif cache.size >= cache.capacity:
             break
         else:
-            node = Node(key, 123)
+            node = Node(key, value)
             cache.keyMap[key] = node
             cache.size += 1
         cache.increase(node)
@@ -153,21 +150,22 @@ def lfu_hit_rate_first(visit_list, capacity_percent, visit_dup_size):
     for key in visit_list:
         visit_count += 1
         if key in cache.keyMap:
-            node = cache.keyMap[key]
-            node.val = 123
             hit_count += 1
-        elif cache.size == cache.capacity:
+            node = cache.keyMap[key]
+            node.val = value
+        elif cache.size >= cache.capacity:
+            miss_count += 1
             deleted = cache.delete(cache.freqMap[cache.minFreq][0].nex)
             cache.keyMap.pop(deleted)
-            node = Node(key, 123)
+            node = Node(key, value)
             cache.keyMap[key] = node
-            miss_count += 1
         else:
-            node = Node(key, 123)
+            miss_count += 1
+            node = Node(key, value)
             cache.keyMap[key] = node
             cache.size += 1
-            miss_count += 1
         cache.increase(node)
+
     print(
         "LFUCache[{}]({} %) {} visit, {} miss, {} hit({} %)".format(
             capacity,

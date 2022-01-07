@@ -58,9 +58,7 @@ def lru_hit_rate(visit_list, capacity_percent, visit_dup_size):
         if key in cache.keys():
             cache.pop(key)
             cache[key] = "v"
-        elif capacity == len(cache):
-            cache.popitem(last=False)
-            cache[key] = "v"
+        elif capacity >= len(cache):
             break
         else:
             cache[key] = "v"
