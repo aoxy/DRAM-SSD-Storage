@@ -113,15 +113,16 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
             cache.put(key, 123)
 
     print(
-        "LFUCache[{}]({} %) {}次访问，{}次命中（{} %）".format(
+        "LFUCache[{}]({} %) {} visit, {} miss, {} hit({} %)".format(
             capacity,
             capacity_percent,
             visit_count,
+            miss_count,
             hit_count,
             "%.6g" % (hit_count * 100 / visit_count),
         )
     )
-    return visit_count, hit_count, miss_count
+    return hit_count * 100 / visit_count
 
 
 def lfu_hit_rate_first(visit_list, capacity_percent, visit_dup_size):
@@ -168,15 +169,16 @@ def lfu_hit_rate_first(visit_list, capacity_percent, visit_dup_size):
             miss_count += 1
         cache.increase(node)
     print(
-        "LFUCache[{}]({} %) {}次访问，{}次命中（{} %）".format(
+        "LFUCache[{}]({} %) {} visit, {} miss, {} hit({} %)".format(
             capacity,
             capacity_percent,
             visit_count,
+            miss_count,
             hit_count,
             "%.6g" % (hit_count * 100 / visit_count),
         )
     )
-    return visit_count, hit_count, miss_count
+    return hit_count * 100 / visit_count
 
 
 def main():
