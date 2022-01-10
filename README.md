@@ -90,6 +90,6 @@ total time: 88.99227023124695 s
 [INFO]: hdss/main.cpp:191 (main):  	total hit rate = 96.81 %
 ```
 
-## 结果记录（commit 52341659b61bafd52c3d56f62c8ce7741e59c46b)
+## 结果记录（commit a6e31b8bc499872fa2ef6d1a9721bbbdd80bcf28)
 
 见logs目录
