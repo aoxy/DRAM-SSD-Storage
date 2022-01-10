@@ -19,7 +19,7 @@ clean :
 	rm *.o main read_file_and_ssd_map write_file_and_ssd_map
 
 run :
-	./main > "storage/hdss.log"
+	./main $(var) > "logs/hdss($(var)).log"
 
 per :
 	chmod -R 777 ./

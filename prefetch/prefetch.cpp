@@ -10,10 +10,10 @@
 #include "../utils/xhqueue.h"
 #include "../ranking/lru.h"
 
-embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count, BatchLRUCache &cache, size_t k_size)
+embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count, BatchLRUCache &cache, size_t k_size, size_t max_emb_num)
 {
     cache.add_to_rank(batch_ids, batch_size);
-    cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(cache), k_size, 1, true);// TODO: 不能淘汰本次要用的，先淘汰
+    cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(cache), k_size, 1, true, max_emb_num);// TODO: 不能淘汰本次要用的，先淘汰
     embedding_t *ret = new embedding_t[batch_size];
     if (ret == nullptr)
     {
@@ -65,6 +65,7 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
             ifs.read((char *)value, EMB_LEN * sizeof(double));
             ifs.close();
             dmap.set(key, value);
+            dmap.increase();
         }
         else
         {

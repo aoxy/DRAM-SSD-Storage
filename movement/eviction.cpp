@@ -35,6 +35,7 @@ void eviction_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *evic_ids, s
             //     LOGINFO << value[ii] << " ";
             // }
             // std::cout << std::endl;
+            dmap.decrease();
             assert(value != nullptr && "get embedding failed in eviction.");
             int64_t offset = smap.get(key) - 1; //offset - 1 是因为存的时候+1了
             // LOGINFO << key << "被淘汰了，放到SSD中 offset = " << offset << std::endl

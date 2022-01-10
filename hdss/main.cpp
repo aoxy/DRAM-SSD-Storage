@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <cstdio>
+#include <cstring>
 #include "../ranking/cache_manager.h"
 #include "../justokmap/shard_lock_map.h"
 #include "../justokmap/ssd_hash_map.h"
@@ -24,7 +25,7 @@ private:
     size_t offset;
 
 public:
-    dataloder(std::string filepath, size_t feature_id)
+    dataloder(std::string filepath, size_t feature_id = 0)
     {
         // std::cout << filepath << std::endl;
         std::ifstream fp(filepath); //定义声明一个ifstream对象，指定文件路径
@@ -104,17 +105,42 @@ void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl)
     eviction(std::ref(dmap), std::ref(smap), batch_ids, remain_size, 1);
 }
 
-int main()
+int main(int argh, char *argv[])
 {
+    std::string data_file;
+    size_t dsize;
+    if (std::strcmp(argv[1], "ad") == 0)
+    {
+        data_file = "dataset/taobao/shuffled_adgroupid.csv";
+        dsize = 846811;
+        // userid size:  1141729
+        // adgroupid size:  846811
+    }
+    else if (std::strcmp(argv[1], "ad") == 0)
+    {
+        data_file = "dataset/taobao/shuffled_userid.csv";
+        dsize = 1141729;
+    }
+    else
+    {
+        LOGINFO << "invalid dataset" << std::endl;
+        exit(0);
+    }
     auto ts1 = std::chrono::high_resolution_clock::now();
-    dataloder dl("dataset/taobao/raw_sample.csv", 2); // 0: user,1: time_stamp,2: adgroup_id,3: pid,4: nonclk,5: clk
+    // dataloder dl("dataset/taobao/raw_sample.csv", 2); // 0: user,1: time_stamp,2: adgroup_id,3: pid,4: nonclk,5: clk
+    dataloder dl(data_file); // 0: user,1: time_stamp,2: adgroup_id,3: pid,4: nonclk,5: clk
+
     auto ts2 = std::chrono::high_resolution_clock::now();
     LOGINFO << "data size = " << dl.size() << std::endl
             << std::flush;
     shard_lock_map dmap;
     ssd_hash_map smap;
     // xhqueue<int64_t> que(QUEUE_SIZE);
-    BatchLRUCache cache(MAX_EMB_NUM);
+    int max_emb_num_perc = atoi(argv[2]);
+    const size_t max_emb_num = size_t(max_emb_num_perc * dsize / 100);
+    LOGINFO << "max emb num = " << max_emb_num << std::endl
+            << std::flush;
+    BatchLRUCache cache(max_emb_num);
     const size_t epoch = 3;
     const size_t batch_size = 128;
     const size_t num_worker = 1;
@@ -162,7 +188,7 @@ int main()
 
             // LOGINFO << std::endl << std::flush;
             fetch_b = std::chrono::high_resolution_clock::now();
-            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size);
+            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
             fetch_e = std::chrono::high_resolution_clock::now();
             get_embs(ret, batch_size, num_worker);
             update_e = std::chrono::high_resolution_clock::now();
@@ -176,7 +202,7 @@ int main()
         }
         dl.sample(batch_ids, remain_size);
         // add_to_rank(std::ref(que), batch_ids, remain_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size);
+        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
 
@@ -186,6 +212,9 @@ int main()
     auto point1 = std::chrono::high_resolution_clock::now(); //训练时间
     delete[] batch_ids;
     save_ssd(std::ref(dmap), std::ref(smap), std::ref(dl));
+    // LOGINFO << "dmap size =" << dmap.true_size() << std::endl
+    //         << std::flush;
+    assert(dmap.true_size() == 0 && "dmap final size is nonzero");
     auto point2 = std::chrono::high_resolution_clock::now(); //持久化时间
     running = false;
     th.join();

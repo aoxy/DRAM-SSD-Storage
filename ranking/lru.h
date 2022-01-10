@@ -27,7 +27,7 @@ private:
     CacheNode *head, *tail;
     map<int64_t, CacheNode *> mp; // Use hashmap to store
 public:
-    BatchLRUCache(int cap)
+    BatchLRUCache(size_t cap)
     {
         capacity = cap;
         head = new CacheNode(0);

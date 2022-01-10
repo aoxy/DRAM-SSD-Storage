@@ -11,7 +11,6 @@ concurrent_hash_map/benchmark/p_test.py
 hybrid_dram_ssd_storage_single_thread
 dataset
 storage
-*.log
 core
 main
 read_file_and_ssd_map
