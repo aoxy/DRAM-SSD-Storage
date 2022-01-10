@@ -116,7 +116,7 @@ int main(int argh, char *argv[])
         // userid size:  1141729
         // adgroupid size:  846811
     }
-    else if (std::strcmp(argv[1], "ad") == 0)
+    else if (std::strcmp(argv[1], "user") == 0)
     {
         data_file = "dataset/taobao/shuffled_userid.csv";
         dsize = 1141729;
@@ -135,30 +135,31 @@ int main(int argh, char *argv[])
             << std::flush;
     shard_lock_map dmap;
     ssd_hash_map smap;
-    // xhqueue<int64_t> que(QUEUE_SIZE);
     int max_emb_num_perc = atoi(argv[2]);
     const size_t max_emb_num = size_t(max_emb_num_perc * dsize / 100);
     LOGINFO << "max emb num = " << max_emb_num << std::endl
             << std::flush;
     BatchLRUCache cache(max_emb_num);
     const size_t epoch = 3;
-    const size_t batch_size = 128;
+    const size_t batch_size = 512;
     const size_t num_worker = 1;
     const size_t k_size = 6 * batch_size;
+    LOGINFO << "batch_size = " << batch_size << std::endl
+            << std::flush;
+    LOGINFO << "k_size = " << k_size << std::endl
+            << std::flush;
     int64_t *batch_ids = new int64_t[batch_size];
     if (batch_ids == nullptr)
     {
         LOGINFO << "malloc failed." << std::endl;
-        exit(1);
-        ;
         exit(1);
     }
     // LOGINFO << std::endl << std::flush;
     init_ssd_map(std::ref(smap)); // 先加载存在SSD上的offset map
     // return 0;
     bool running = true;
-    std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(cache), k_size, num_worker, true, std::ref(running)); // TODO:
-    auto start = std::chrono::high_resolution_clock::now();
+    std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(cache), k_size, num_worker, true, std::ref(running));
+
     size_t access_count = 0;
     size_t hit_count = 0;
     auto fetch_b = std::chrono::high_resolution_clock::now();
@@ -169,6 +170,38 @@ int main(int argh, char *argv[])
     auto update_e = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::ratio<1, 1>> duration_update;
 
+    // 先训练一轮不记录数据，用于使得“训练开始前已经有一部分数据在内存中”
+    {
+        dl.init();
+        size_t remain_size = dl.size();
+        size_t total_size = remain_size;
+
+        while (remain_size > batch_size)
+        {
+            dl.sample(batch_ids, batch_size);
+            fetch_b = std::chrono::high_resolution_clock::now();
+            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
+            fetch_e = std::chrono::high_resolution_clock::now();
+            get_embs(ret, batch_size, num_worker);
+            update_e = std::chrono::high_resolution_clock::now();
+            duration_fetch += fetch_e - fetch_b;
+            duration_update = update_e - fetch_e;
+            remain_size -= batch_size;
+            if (int(remain_size / batch_size) % 8000 == 0)
+            {
+                std::cout << "\r(0/0)epoch training... " << std::fixed << std::setprecision(2) << double((total_size - remain_size) * 100.0) / total_size << " %" << std::flush;
+            }
+        }
+        dl.sample(batch_ids, remain_size);
+        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
+        get_embs(ret, remain_size, num_worker);
+        remain_size -= remain_size;
+
+        access_count = 0;
+        hit_count = 0;
+    }
+
+    auto start = std::chrono::high_resolution_clock::now();
     for (size_t e = 0; e < epoch; ++e)
     {
         dl.init();
