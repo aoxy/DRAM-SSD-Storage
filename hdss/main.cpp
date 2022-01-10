@@ -66,7 +66,8 @@ public:
 
 void init_ssd_map(ssd_hash_map &smap)
 {
-    const std::string filepath = "storage/offset.txt";
+    auto feature_name = smap.feature_name();
+    const std::string filepath = std::string("storage/") + feature_name + std::string("/offset.txt");
     std::ifstream fp(filepath); //定义声明一个ifstream对象，指定文件路径
     if (!fp)
     {
@@ -136,7 +137,8 @@ int main(int argh, char *argv[])
     LOGINFO << "data size = " << dl.size() << std::endl
             << std::flush;
     shard_lock_map dmap;
-    ssd_hash_map smap;
+    std::string feature_name(argv[1]);
+    ssd_hash_map smap(feature_name);
     int max_emb_num_perc = atoi(argv[2]);
     const size_t max_emb_num = size_t(max_emb_num_perc * dsize / 100);
     LOGINFO << "max emb num = " << max_emb_num << std::endl

@@ -36,11 +36,11 @@ with open("dataset/taobao/raw_sample.csv", encoding="utf-8") as csvfile:
             all_adgroupid_list.append(adgroupid)
             all_adgroupid_set.add(adgroupid)
 
-    file_path = "storage/all_userid.txt"
+    file_path = "storage/user/all_userid.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for v in all_userid_list:
             file_obj.write(v + " ")
-    file_path = "storage/all_adgroupid.txt"
+    file_path = "storage/ad/all_adgroupid.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for v in all_adgroupid_list:
             file_obj.write(v + " ")
@@ -48,11 +48,11 @@ with open("dataset/taobao/raw_sample.csv", encoding="utf-8") as csvfile:
     #     file_obj.write(",".join(visit_userid_list))
     # with open("../storage/visit_adgroupid.txt", mode="w", encoding="utf-8") as file_obj:
     #     file_obj.write(",".join(visit_adgroupid_list))
-    file_path = "storage/userid_count.txt"
+    file_path = "storage/user/userid_count.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for k, v in all_userid_dict.items():
             file_obj.write(k + "\t:" + str(v) + "\n")
-    file_path = "storage/adgroupid_count.txt"
+    file_path = "storage/ad/adgroupid_count.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for k, v in all_adgroupid_dict.items():
             file_obj.write(k + "\t:" + str(v) + "\n")
