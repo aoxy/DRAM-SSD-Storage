@@ -131,6 +131,8 @@ int main(int argh, char *argv[])
     dataloder dl(data_file); // 0: user,1: time_stamp,2: adgroup_id,3: pid,4: nonclk,5: clk
 
     auto ts2 = std::chrono::high_resolution_clock::now();
+    LOGINFO << "dsize = " << dsize << std::endl
+            << std::flush;
     LOGINFO << "data size = " << dl.size() << std::endl
             << std::flush;
     shard_lock_map dmap;
@@ -170,6 +172,7 @@ int main(int argh, char *argv[])
     auto update_e = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::ratio<1, 1>> duration_update;
 
+    auto ts3 = std::chrono::high_resolution_clock::now();
     // 先训练一轮不记录数据，用于使得“训练开始前已经有一部分数据在内存中”
     {
         dl.init();
@@ -179,13 +182,8 @@ int main(int argh, char *argv[])
         while (remain_size > batch_size)
         {
             dl.sample(batch_ids, batch_size);
-            fetch_b = std::chrono::high_resolution_clock::now();
             embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
-            fetch_e = std::chrono::high_resolution_clock::now();
             get_embs(ret, batch_size, num_worker);
-            update_e = std::chrono::high_resolution_clock::now();
-            duration_fetch += fetch_e - fetch_b;
-            duration_update = update_e - fetch_e;
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 8000 == 0)
             {
@@ -256,7 +254,9 @@ int main(int argh, char *argv[])
     std::chrono::duration<double, std::ratio<1, 1>> duration_save(point2 - point1);
     std::chrono::duration<double, std::ratio<1, 1>> duration_total(end - ts1);
     std::chrono::duration<double, std::ratio<1, 1>> duration_readid(ts2 - ts1);
+    std::chrono::duration<double, std::ratio<1, 1>> duration_zerotrain(start - ts3);
     LOGINFO << "read id time = " << duration_readid.count() << " s" << std::flush;
+    LOGINFO << "zero-th epoch time = " << duration_zerotrain.count() << " s" << std::flush;
     LOGINFO << "train time = " << duration_train.count() << " s" << std::flush;
     LOGINFO << "\tfetch time = " << duration_fetch.count() << " s" << std::flush;
     LOGINFO << "\tupdate time = " << duration_update.count() << " s" << std::flush;

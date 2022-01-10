@@ -1,0 +1,71 @@
+
+[INFO]: hdss/main.cpp:134 (main):  	dsize = 846811
+
+[INFO]: hdss/main.cpp:136 (main):  	data size = 26557961
+
+[INFO]: hdss/main.cpp:142 (main):  	max emb num = 846811
+
+[INFO]: hdss/main.cpp:149 (main):  	batch_size = 512
+
+[INFO]: hdss/main.cpp:151 (main):  	k_size = 3072
+
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 0 个embedding
+(0/0)epoch training... 7.46 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 365635 个embedding
+(0/0)epoch training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 528127 个embedding
+(0/0)epoch training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 632491 个embedding
+(0/0)epoch training... 53.73 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 709749 个embedding
+(0/0)epoch training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 769975 个embedding
+(0/0)epoch training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 820213 个embedding
+(0/0)epoch training... 100.00 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(1/3)epoch training... 7.46 %(1/3)epoch training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(1/3)epoch training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(1/3)epoch training... 53.73 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(1/3)epoch training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(1/3)epoch training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(1/3)epoch training... 100.00 %(2/3)epoch training... 7.46 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(2/3)epoch training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(2/3)epoch training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(2/3)epoch training... 53.73 %(2/3)epoch training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(2/3)epoch training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(2/3)epoch training... 100.00 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(3/3)epoch training... 7.46 %(3/3)epoch training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(3/3)epoch training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(3/3)epoch training... 53.73 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(3/3)epoch training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(3/3)epoch training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 846811 个embedding
+(3/3)epoch training... 100.00 %
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 455183 个embedding
+
+[INFO]: ranking/cache_manager.cpp:22 (cache_manager):  	当前DRAM中存了 106527 个embedding
+
+[INFO]: hdss/main.cpp:258 (main):  	read id time = 13.31 s
+[INFO]: hdss/main.cpp:259 (main):  	zero-th epoch time = 32.97 s
+[INFO]: hdss/main.cpp:260 (main):  	train time = 83.20 s
+[INFO]: hdss/main.cpp:261 (main):  		fetch time = 69.05 s
+[INFO]: hdss/main.cpp:262 (main):  		update time = 0.00 s
+[INFO]: hdss/main.cpp:263 (main):  	save time = 11.13 s
+[INFO]: hdss/main.cpp:264 (main):  	total time = 144.25 s
+[INFO]: hdss/main.cpp:266 (main):  	total hit rate = 100.00 %
