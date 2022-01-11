@@ -48,21 +48,25 @@ void eviction_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *evic_ids, s
                 LOGINFO << key << "的embedding不在SSD中，致命错误！" << std::endl
                         << std::flush;
                 std::ofstream ofs(filepath, std::ios::app | std::ios::binary);
-                ofs.seekp(0, std::ios::end);
+                // ofs.seekp(0, std::ios::end); // 不必要
                 offset = size_t(ofs.tellp()) + 1; // 存的时候+1了
                 smap.set(key, offset);
+                ofs.write((char *)&key, sizeof(int64_t));
                 ofs.write((char *)value, EMB_LEN * sizeof(double));
                 ofs.close();
             }
             else
             {
-                //SSD更新
-                std::fstream fs(filepath, std::ios::out | std::ios::in | std::ios::binary);
-                fs.seekp(offset, std::ios::beg);
-                fs.write((char *)value, EMB_LEN * sizeof(double));
-                fs.close();
+                //SSD增量更新
+                std::ofstream ofs(filepath, std::ios::app | std::ios::binary);
+                // ofs.seekp(0, std::ios::end); // 不必要
+                offset = size_t(ofs.tellp()) + 1;
+                smap.set(key, offset); //存的时候+1了
+                ofs.write((char *)&key, sizeof(int64_t));
+                ofs.write((char *)value, EMB_LEN * sizeof(double));
+                ofs.close();
             }
-            delete[] value; // FIXME: 加上这个就段错误
+            delete[] value;
         }
         // else
         // {

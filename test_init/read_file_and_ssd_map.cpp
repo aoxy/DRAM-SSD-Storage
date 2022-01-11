@@ -84,6 +84,9 @@ int main()
 
         size_t offset = smap_u.get(key) - 1;
         ifs.seekg(offset, std::ios::beg);
+        int64_t read_key;
+        ifs.read((char *)&read_key, sizeof(int64_t));
+        assert(key == read_key);
         ifs.read((char *)value, EMB_LEN * sizeof(double));
         ofs_off_u << key << ": \t";
         for (size_t j = 0; j < EMB_LEN; ++j)
@@ -113,6 +116,9 @@ int main()
 
         size_t offset = smap_a.get(key) - 1;
         ifs.seekg(offset, std::ios::beg);
+        int64_t read_key;
+        ifs.read((char *)&read_key, sizeof(int64_t));
+        assert(key == read_key);
         ifs.read((char *)value, EMB_LEN * sizeof(double));
         ofs_off_a << key << ": \t";
         for (size_t j = 0; j < EMB_LEN; ++j)

@@ -71,9 +71,10 @@ int main()
             has_old_storage_file_u[file_idx] = false;
         }
         std::ofstream ofs(filepath, std::ios::app | std::ios::binary);
-        ofs.seekp(0, std::ios::end);
+        // ofs.seekp(0, std::ios::end); // 不必要
         size_t offset = size_t(ofs.tellp()) + 1;
         smap_u.set(key, offset); //存的时候+1了
+        ofs.write((char *)&key, sizeof(int64_t));
         ofs.write((char *)value, EMB_LEN * sizeof(double));
         ofs.close();
         ofs_off_u << key << ' ' << offset << std::endl;
@@ -104,9 +105,10 @@ int main()
             has_old_storage_file_a[file_idx] = false;
         }
         std::ofstream ofs(filepath, std::ios::app | std::ios::binary);
-        ofs.seekp(0, std::ios::end);
+        // ofs.seekp(0, std::ios::end); // 不必要
         size_t offset = size_t(ofs.tellp()) + 1;
         smap_a.set(key, offset); //存的时候+1了
+        ofs.write((char *)&key, sizeof(int64_t));
         ofs.write((char *)value, EMB_LEN * sizeof(double));
         ofs.close();
         ofs_off_a << key << ' ' << offset << std::endl;

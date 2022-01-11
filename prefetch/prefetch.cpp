@@ -44,6 +44,7 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
     {
         int64_t key = batch_ids[i];
         embedding_t value = dmap.get(key);
+        int64_t read_key;
         if (value == nullptr)
         { // 在SSD中，读取并分配地址
 
@@ -62,6 +63,8 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
             // TODO:         << std::flush;
             std::ifstream ifs(filepath, std::ios::in | std::ios::binary);
             ifs.seekg(offset, std::ios::beg);
+            ifs.read((char *)&read_key, sizeof(int64_t));
+            assert(key == read_key);
             ifs.read((char *)value, EMB_LEN * sizeof(double));
             ifs.close();
             dmap.set(key, value);
