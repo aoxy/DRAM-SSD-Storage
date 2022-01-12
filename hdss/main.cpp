@@ -28,8 +28,7 @@ private:
 public:
     dataloder(std::string filepath, size_t feature_id = 0)
     {
-        // std::cout << filepath << std::endl;
-        std::ifstream fp(filepath); //定义声明一个ifstream对象，指定文件路径
+        std::ifstream fp(filepath);
         if (!fp)
         {
             LOGINFO << "open" << filepath << "fail." << std::endl
@@ -38,29 +37,26 @@ public:
         }
         std::string line;
         std::getline(fp, line); //跳过列名，第一行不做处理
-        // std::cout << line;
+
         while (std::getline(fp, line))
-        { //循环读取每行数据
+        {
             std::string number;
-            std::istringstream readstr(line); //string数据流化
-            //将一行数据按'，'分割
+            std::istringstream readstr(line);
             for (size_t j = 0; j <= feature_id; ++j)
-            {                                       //可根据数据的实际情况取循环获取
-                std::getline(readstr, number, ','); //循环读取数据
+            {
+                std::getline(readstr, number, ',');
             }
-            ids.push_back(std::atoi(number.c_str())); //插入到vector中
+            ids.push_back(std::atoi(number.c_str()));
         }
         offset = 0;
     }
     void init() { offset = 0; }
     void sample(int64_t *batch_ids, size_t batch_size)
     {
-        // int64_t *batch_ids = new int64_t[batch_size];
         for (size_t i = 0; offset < ids.size() && i < batch_size; ++offset, ++i)
         {
             batch_ids[i] = ids[offset];
         }
-        // return batch_ids;
     }
     size_t size() { return ids.size(); }
 };
@@ -69,12 +65,11 @@ void init_ssd_map(ssd_hash_map &smap)
 {
     auto feature_name = smap.feature_name();
     const std::string filepath = std::string("storage/") + feature_name + std::string("/offset.txt");
-    std::ifstream fp(filepath); //定义声明一个ifstream对象，指定文件路径
-    // fp.read((char *)(&smap), sizeof(smap));
-    // return;
+    std::ifstream fp(filepath);
+
     if (!fp)
     {
-        LOGINFO << "open" << filepath << "fail." << std::endl
+        LOGINFO << "open " << filepath << " fail." << std::endl
                 << std::flush;
         exit(1);
     }
@@ -82,15 +77,13 @@ void init_ssd_map(ssd_hash_map &smap)
     size_t value;
     std::string line;
     while (std::getline(fp, line))
-    { //循环读取每行数据
+    {
         std::string number;
-        std::istringstream readstr(line); //string数据流化
-        //将一行数据按'，'分割
+        std::istringstream readstr(line);
         std::getline(readstr, number, ' ');
         key = std::atoi(number.c_str());
         std::getline(readstr, number, ' ');
         value = std::atoi(number.c_str());
-        // std::cout << key << " " << value << std::endl;
         smap.set(key, value);
     }
 }
@@ -123,7 +116,7 @@ void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl, FilePool 
     int64_t *batch_ids = new int64_t[remain_size];
     if (batch_ids == nullptr)
     {
-        LOGINFO << "malloc failed." << std::endl;
+        LOGINFO << " malloc failed. " << std::endl;
         exit(1);
     }
     dl.sample(batch_ids, remain_size);
@@ -132,8 +125,64 @@ void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl, FilePool 
     delete[] batch_ids;
 }
 
-int main(int argh, char *argv[])
+void compaction(shard_lock_map &dmap, ssd_hash_map &smap, FilePool &old_fp)
 {
+    auto feature_name = smap.feature_name();
+    size_t offset;
+    size_t file_idx;
+    embedding_t value;
+    const std::string ids_file = std::string("storage/") + feature_name + std::string("/all_ids.txt");
+    std::ifstream ifs(ids_file);
+    std::vector<int64_t> ids;
+    int64_t key;
+    while (ifs >> key)
+    {
+        ids.push_back(key);
+    }
+    ifs.close();
+    std::string offset_map_file = std::string("storage/") + feature_name + std::string("/offset.txt");
+    std::remove(offset_map_file.c_str());
+    std::ofstream ofs_off(offset_map_file, std::ios::app | std::ios::binary);
+    for (int64_t &key : ids)
+    {
+        value = dmap.get(key);
+        if (value == nullptr) // 不在内存里，先读进来
+        {
+            value = new double[EMB_LEN];
+            assert(value != nullptr && "allocate failed in compaction.");
+            offset = smap.get(key) - 1; //offset - 1 是因为存的时候+1了
+            assert(offset >= 0 && "offset < 0.");
+            old_fp.rw_s(key).seekg(offset, std::ios::beg);
+            old_fp.rw_s(key).read((char *)value, EMB_LEN * sizeof(double));
+            dmap.set(key, value);
+            dmap.increase();
+        }
+    }
+    old_fp.close();
+    for (size_t i = 0; i < NUM_SHARD; ++i)
+    {
+        std::remove(smap.filepath(i).c_str());
+    }
+    FilePool new_fp(smap);
+    for (int64_t &key : ids)
+    {
+        value = dmap.get(key);
+        assert(value != nullptr && "unknown error failed.");
+        dmap.set(key, nullptr);
+        dmap.decrease();
+        offset = size_t(new_fp.rw_s(key).tellp()) + 1; //存的时候+1了
+        new_fp.rw_s(key).write((char *)value, EMB_LEN * sizeof(double));
+        ofs_off << key << ' ' << offset << std::endl;
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    if (argc < 3)
+    {
+        std::cout << "usage: ./main <feature name> <cache percent>" << std::endl;
+        exit(0);
+    }
     std::string data_file;
     size_t dsize;
     if (std::strcmp(argv[1], "ad") == 0)
@@ -150,7 +199,7 @@ int main(int argh, char *argv[])
     }
     else
     {
-        LOGINFO << "invalid dataset" << std::endl;
+        LOGINFO << " invalid dataset " << std::endl;
         exit(0);
     }
     auto ts1 = std::chrono::high_resolution_clock::now();
@@ -174,7 +223,7 @@ int main(int argh, char *argv[])
     const size_t epoch = 3;
     const size_t batch_size = 512;
     const size_t num_worker = 1;
-    const size_t k_size = 6 * batch_size;
+    const size_t k_size = 8 * batch_size;
     LOGINFO << "batch_size = " << batch_size << std::endl
             << std::flush;
     LOGINFO << "k_size = " << k_size << std::endl
@@ -182,12 +231,11 @@ int main(int argh, char *argv[])
     int64_t *batch_ids = new int64_t[batch_size];
     if (batch_ids == nullptr)
     {
-        LOGINFO << "malloc failed." << std::endl;
+        LOGINFO << " malloc failed. " << std::endl;
         exit(1);
     }
-    // LOGINFO << std::endl << std::flush;
+
     init_ssd_map(std::ref(smap)); // 先加载存在SSD上的offset map
-    // return 0;
     bool running = true;
     // std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(cache), k_size, num_worker, true, std::ref(running));
 
@@ -212,7 +260,7 @@ int main(int argh, char *argv[])
         {
             dl.sample(batch_ids, batch_size);
             embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
-            get_embs(ret, batch_size, num_worker);
+            update_embs(ret, batch_size);
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 8000 == 0)
             {
@@ -221,7 +269,7 @@ int main(int argh, char *argv[])
         }
         dl.sample(batch_ids, remain_size);
         embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
-        get_embs(ret, remain_size, num_worker);
+        update_embs(ret, remain_size);
         remain_size -= remain_size;
 
         access_count = 0;
@@ -238,15 +286,6 @@ int main(int argh, char *argv[])
         while (remain_size > batch_size)
         {
             dl.sample(batch_ids, batch_size);
-            // TODO: LOGINFO << e + 1 << " batch: ";
-            // TODO: for (size_t i = 0; i < batch_size; ++i)
-            // TODO: {
-            // TODO:     std::cout << batch_ids[i] << " " << std::flush;
-            // TODO: }
-            // TODO: std::cout << std::endl
-            // TODO:           << std::flush;
-
-            // LOGINFO << std::endl << std::flush;
             fetch_b = std::chrono::high_resolution_clock::now();
             embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
             fetch_e = std::chrono::high_resolution_clock::now();
@@ -261,19 +300,15 @@ int main(int argh, char *argv[])
             }
         }
         dl.sample(batch_ids, remain_size);
-        // add_to_rank(std::ref(que), batch_ids, remain_size);
         embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
-
-        // double curr = double((e + 1) * 100.0) / epoch;
-        // std::cout << "\rtraining... " << std::fixed << std::setprecision(2) << curr << " %" << std::flush;
     }
     auto point1 = std::chrono::high_resolution_clock::now(); //训练时间
     delete[] batch_ids;
-    save_ssd(std::ref(dmap), std::ref(smap), std::ref(dl), std::ref(fp));
-    // LOGINFO << "dmap size =" << dmap.true_size() << std::endl
-    //         << std::flush;
+    // save_ssd(std::ref(dmap), std::ref(smap), std::ref(dl), std::ref(fp));
+    compaction(std::ref(dmap), std::ref(smap), std::ref(fp));
+
     assert(dmap.true_size() == 0 && "dmap final size is nonzero");
     auto point2 = std::chrono::high_resolution_clock::now(); //持久化时间
     running = false;
@@ -289,7 +324,7 @@ int main(int argh, char *argv[])
     LOGINFO << "train time = " << duration_train.count() << " s" << std::flush;
     LOGINFO << "\tfetch time = " << duration_fetch.count() << " s" << std::flush;
     LOGINFO << "\tupdate time = " << duration_update.count() << " s" << std::flush;
-    LOGINFO << "save time = " << duration_save.count() << " s" << std::flush;
+    LOGINFO << "compaction time = " << duration_save.count() << " s" << std::flush;
     LOGINFO << "total time = " << duration_total.count() << " s" << std::flush;
 
     LOGINFO << "total hit rate = " << double(hit_count * 100.0) / access_count << " %" << std::endl

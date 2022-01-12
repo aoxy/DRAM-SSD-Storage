@@ -62,41 +62,7 @@ total time: 88.99227023124695 s
 
 ## 结果记录
 
-总共有 1141729 个不同的 userid 或 846811 个不同的 adgroupid，每一轮迭代进行 26557961 次访问。
-
-### 内存中最多放 409600（总量的 36%） 个 embedding 且采用 LRU 时，使用 userid 数据
-
-```
-[INFO]: hdss/main.cpp:186 (main): read id time = 22.86 s
-[INFO]: hdss/main.cpp:187 (main): train time = 692.56 s
-[INFO]: hdss/main.cpp:188 (main): save time = 12.24 s
-[INFO]: hdss/main.cpp:189 (main): total time = 729.19 s
-[INFO]: hdss/main.cpp:191 (main): total hit rate = 79.99 %
-```
-
-### 内存中最多放 409600（总量的 48%） 个 embedding 且采用 LRU 时，使用 adgroupid 数据
-
-```
-[INFO]: hdss/main.cpp:186 (main):  	read id time = 24.30 s
-[INFO]: hdss/main.cpp:187 (main):  	train time = 88.40 s
-[INFO]: hdss/main.cpp:188 (main):  	save time = 8.32 s
-[INFO]: hdss/main.cpp:189 (main):  	total time = 125.12 s
-[INFO]: hdss/main.cpp:191 (main):  	total hit rate = 96.81 %
-```
-
-### 内存中最多放 84681（总量的 10%） 个 embedding 且采用 LRU (LFU结果相差不大)时，使用 adgroupid 数据
-
-```
-[INFO]: hdss/main.cpp:186 (main):  	read id time = 29.08 s
-[INFO]: hdss/main.cpp:187 (main):  	train time = 97.19 s
-[INFO]: hdss/main.cpp:188 (main):  	save time = 4.94 s
-[INFO]: hdss/main.cpp:189 (main):  	total time = 134.88 s
-[INFO]: hdss/main.cpp:191 (main):  	total hit rate = 96.81 %
-```
-
-## 结果记录（commit a6e31b8bc499872fa2ef6d1a9721bbbdd80bcf28)
-
 ### log说明
 
 - logs目录中的是每次读写embedding文件都打开关闭一次，且原地读写
-- logfilepool目录中的是打开embedding文件，最后训练结束才关闭，且追加写
+- logfilepool目录中的是打开embedding文件，最后训练结束才关闭，且追加写，最后compaction

@@ -13,7 +13,7 @@
 void init_ssd_map(ssd_hash_map &smap)
 {
     auto feature_name = smap.feature_name();
-    const std::string filepath = std::string("storage/") + feature_name + std::string("/offset_saved.txt");
+    const std::string filepath = std::string("storage/") + feature_name + std::string("/offset.txt");
     std::ifstream fp(filepath);
     if (!fp)
     {
@@ -89,9 +89,6 @@ int main()
 
         size_t offset = smap_u.get(key) - 1;
         ofs_list_u[file_idx].seekg(offset, std::ios::beg);
-        int64_t read_key;
-        ofs_list_u[file_idx].read((char *)&read_key, sizeof(int64_t));
-        assert(key == read_key);
         ofs_list_u[file_idx].read((char *)value, EMB_LEN * sizeof(double));
         ofs_off_u << key << ": \t";
         for (size_t j = 0; j < EMB_LEN; ++j)
@@ -128,9 +125,6 @@ int main()
 
         size_t offset = smap_a.get(key) - 1;
         ofs_list_a[file_idx].seekg(offset, std::ios::beg);
-        int64_t read_key;
-        ofs_list_a[file_idx].read((char *)&read_key, sizeof(int64_t));
-        assert(key == read_key);
         ofs_list_a[file_idx].read((char *)value, EMB_LEN * sizeof(double));
         ofs_off_a << key << ": \t";
         for (size_t j = 0; j < EMB_LEN; ++j)

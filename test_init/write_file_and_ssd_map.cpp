@@ -8,6 +8,7 @@
 #include <thread>
 #include "../justokmap/shard_lock_map.h"
 #include "../justokmap/ssd_hash_map.h"
+#include "../movement/files.h"
 
 inline bool exists(const std::string &filepath)
 {
@@ -55,6 +56,7 @@ int main()
     std::vector<std::ofstream> ofs_list_u(NUM_SHARD);
     for (size_t i = 0; i < NUM_SHARD; ++i)
     {
+        std::remove(smap_u.filepath(i).c_str());
         ofs_list_u[i] = std::ofstream(smap_u.filepath(i), std::ios::binary);
     }
 
@@ -68,10 +70,9 @@ int main()
         }
         int64_t key = ids_u[i];
         size_t file_idx = smap_u.shard_idx(key);
-        // ofs.seekp(0, std::ios::end); // 不必要
+        ofs_list_u[file_idx].seekp(0, std::ios::end);
         size_t offset = size_t(ofs_list_u[file_idx].tellp()) + 1;
         smap_u.set(key, offset); //存的时候+1了
-        ofs_list_u[file_idx].write((char *)&key, sizeof(int64_t));
         ofs_list_u[file_idx].write((char *)value, EMB_LEN * sizeof(double));
         ofs_off_u << key << ' ' << offset << std::endl;
     }
@@ -90,6 +91,7 @@ int main()
     std::vector<std::ofstream> ofs_list_a(NUM_SHARD);
     for (size_t i = 0; i < NUM_SHARD; ++i)
     {
+        std::remove(smap_a.filepath(i).c_str());
         ofs_list_a[i] = std::ofstream(smap_a.filepath(i), std::ios::binary);
     }
 
@@ -103,10 +105,9 @@ int main()
         }
         int64_t key = ids_a[i];
         size_t file_idx = smap_a.shard_idx(key);
-        // ofs.seekp(0, std::ios::end); // 不必要
+        ofs_list_a[file_idx].seekp(0, std::ios::end);
         size_t offset = size_t(ofs_list_a[file_idx].tellp()) + 1;
         smap_a.set(key, offset); //存的时候+1了
-        ofs_list_a[file_idx].write((char *)&key, sizeof(int64_t));
         ofs_list_a[file_idx].write((char *)value, EMB_LEN * sizeof(double));
         ofs_off_a << key << ' ' << offset << std::endl;
     }
