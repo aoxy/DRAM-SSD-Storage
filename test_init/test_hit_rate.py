@@ -51,6 +51,7 @@ def lru_hit_rate(visit_list, capacity_percent, visit_dup_size):
     visit_count = 0
     hit_count = 0
     miss_count = 0
+    append_count = 0  # 淘汰时需要写文件，这是追加写入文件的次数
     capacity = int(capacity_percent * visit_dup_size / 100)
     cache = collections.OrderedDict()  # 有序字典
     # 预先加载一些数据进内存
@@ -72,19 +73,22 @@ def lru_hit_rate(visit_list, capacity_percent, visit_dup_size):
             cache[key] = "v"
         elif capacity == len(cache):
             miss_count += 1
+            append_count += 1
             cache.popitem(last=False)
             cache[key] = "v"
         else:
             miss_count += 1
             cache[key] = "v"
     print(
-        "LRUCache[{}]({} %) {} visit, {} miss, {} hit({} %)".format(
+        "LRUCache[{}]({} %) {} visit, {} miss, {} hit({} %), {} append({})".format(
             capacity,
             capacity_percent,
             visit_count,
             miss_count,
             hit_count,
             "%.6g" % (hit_count * 100 / visit_count),
+            append_count,
+            append_count / visit_dup_size,
         )
     )
     return hit_count * 100 / visit_count
@@ -228,5 +232,5 @@ def test_lfu():
 if __name__ == "__main__":
     # plot_avg()
     # gen_file()
-    # test_lfu()
-    test_lru()
+    test_lfu()
+    # test_lru()

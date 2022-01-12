@@ -130,6 +130,7 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
     visit_count = 0
     hit_count = 0
     miss_count = 0
+    append_count = 0  # 淘汰时需要写文件，这是追加写入文件的次数
     capacity = int(capacity_percent * visit_dup_size / 100)
     cache = LFUCache(capacity)
     value = 123
@@ -155,6 +156,7 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
             node.val = value
         elif cache.size >= cache.capacity:
             miss_count += 1
+            append_count += 1
             deleted = cache.delete(cache.freqMap[cache.minFreq][0].nex)
             cache.keyMap.pop(deleted)
             node = Node(key, value)
@@ -167,13 +169,15 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
         cache.increase(node)
 
     print(
-        "LFUCache[{}]({} %) {} visit, {} miss, {} hit({} %)".format(
+        "LFUCache[{}]({} %) {} visit, {} miss, {} hit({} %), {} append({})".format(
             capacity,
             capacity_percent,
             visit_count,
             miss_count,
             hit_count,
             "%.6g" % (hit_count * 100 / visit_count),
+            append_count,
+            append_count / visit_dup_size,
         )
     )
     return hit_count * 100 / visit_count

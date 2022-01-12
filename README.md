@@ -56,7 +56,11 @@ total time: 88.99227023124695 s
 
 ![](fig/Figure_6.png)
 
-## 结果记录（commit 796dd7c2d0fb8202b522969588273a4428ad371d）
+#### LRU淘汰append写文件时，写入embedding的数量与id的数量的比值（只遍历一轮）的比较
+
+![](fig/Figure_7.png)
+
+## 结果记录
 
 总共有 1141729 个不同的 userid 或 846811 个不同的 adgroupid，每一轮迭代进行 26557961 次访问。
 
@@ -80,7 +84,7 @@ total time: 88.99227023124695 s
 [INFO]: hdss/main.cpp:191 (main):  	total hit rate = 96.81 %
 ```
 
-### 内存中最多放 84681（总量的 10%） 个 embedding 且采用 LRU 时，使用 adgroupid 数据
+### 内存中最多放 84681（总量的 10%） 个 embedding 且采用 LRU (LFU结果相差不大)时，使用 adgroupid 数据
 
 ```
 [INFO]: hdss/main.cpp:186 (main):  	read id time = 29.08 s
@@ -92,4 +96,7 @@ total time: 88.99227023124695 s
 
 ## 结果记录（commit a6e31b8bc499872fa2ef6d1a9721bbbdd80bcf28)
 
-见logs目录
+### log说明
+
+- logs目录中的是每次读写embedding文件都打开关闭一次，且原地读写
+- logfilepool目录中的是打开embedding文件，最后训练结束才关闭，且追加写

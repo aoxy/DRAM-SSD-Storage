@@ -212,6 +212,32 @@ def plot():
     plt.show()
 
 
+def plot_append_lru():
+    import matplotlib.pyplot as plt
+
+    per_points = [1, 5, 10, 20, 30, 50, 70, 100]
+    user_append = [21.39228, 16.49326, 13.0210, 8.8992, 6.2293, 2.9701, 1.2288, 0]
+    ad_append = [25.0484, 15.9805, 10.84034, 5.8299, 3.4124, 1.29106, 0.48489, 0]
+
+    fig = plt.figure()
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax1.plot(per_points, np.log2(np.array(user_append) + 1))
+    ax1.set_title("user")
+    ax1.set_xlabel("LRU Cache Size (%)")
+    ax1.set_ylabel("log2(Append Ratio + 1)")
+    ax1.grid(True)
+
+    ax2 = fig.add_subplot(1, 2, 2)
+    ax2.plot(per_points, np.log2(np.array(ad_append) + 1))
+    ax2.set_title("adgroup_id")
+    ax2.set_xlabel("LRU Cache Size (%)")
+    ax2.set_ylabel("log2(Append Ratio + 1)")
+    ax2.grid(True)
+
+    plt.show()
+
+
 # plot()
-plot_ratio_lfu()
-plot_ratio_lru()
+# plot_ratio_lfu()
+# plot_ratio_lru()
+plot_append_lru()
