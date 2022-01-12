@@ -46,6 +46,7 @@ class ssd_hash_map
 {
 private:
     const size_t a_mask;
+    const size_t num_shard;
     std::vector<ssd_google_concurrent_hash_map> a_shards;
     std::string feature;
     ssd_google_concurrent_hash_map &get_shard(const int64_t &key)
@@ -54,7 +55,7 @@ private:
     }
 
 public:
-    ssd_hash_map(std::string feature, size_t num_shard = 16) : feature(feature), a_mask(num_shard - 1), a_shards(std::vector<ssd_google_concurrent_hash_map>(num_shard)) {}
+    ssd_hash_map(std::string feature, size_t num_shard = 16) : num_shard(num_shard), feature(feature), a_mask(num_shard - 1), a_shards(std::vector<ssd_google_concurrent_hash_map>(num_shard)) {}
     void set(const int64_t &key, size_t value)
     {
         get_shard(key).set(key, value);
@@ -71,11 +72,19 @@ public:
     {
         return std::string("storage/" + feature + "/emb") + std::to_string(shard_idx(key)) + std::string(".hdss");
     }
+    std::string savepath(int64_t key)
+    {
+        return std::string("save/" + feature + "/emb") + std::to_string(shard_idx(key)) + std::string(".hdss");
+    }
     size_t shard_idx(const int64_t &key) const
     {
         std::hash<int64_t> hash_func;
         auto h = hash_func(key);
         return h & a_mask;
+    }
+    size_t get_num_shard() const
+    {
+        return num_shard;
     }
     std::string feature_name()
     {

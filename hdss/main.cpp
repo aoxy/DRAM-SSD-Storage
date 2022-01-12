@@ -17,6 +17,7 @@
 #include "../utils/xhqueue.h"
 #include "../movement/eviction.h"
 #include "../ranking/lru.h"
+#include "../movement/files.h"
 
 class dataloder
 {
@@ -69,6 +70,8 @@ void init_ssd_map(ssd_hash_map &smap)
     auto feature_name = smap.feature_name();
     const std::string filepath = std::string("storage/") + feature_name + std::string("/offset.txt");
     std::ifstream fp(filepath); //定义声明一个ifstream对象，指定文件路径
+    // fp.read((char *)(&smap), sizeof(smap));
+    // return;
     if (!fp)
     {
         LOGINFO << "open" << filepath << "fail." << std::endl
@@ -92,7 +95,28 @@ void init_ssd_map(ssd_hash_map &smap)
     }
 }
 
-void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl)
+void update_ssd_map(ssd_hash_map &smap)
+{
+    auto feature_name = smap.feature_name();
+    const std::string ids_file = std::string("storage/") + feature_name + std::string("/all_ids.txt");
+    std::ifstream ifs(ids_file);
+    std::vector<int64_t> ids;
+    int64_t key;
+    while (ifs >> key)
+    {
+        ids.push_back(key);
+    }
+    ifs.close();
+    const std::string offset_map_file = std::string("storage/") + feature_name + std::string("/offset_saved.txt");
+    std::ofstream ofs_off(offset_map_file, std::ios::binary | std::ios::trunc);
+    for (int64_t &key : ids)
+    {
+        ofs_off << key << ' ' << smap.get(key) << std::endl;
+    }
+    ofs_off.close();
+}
+
+void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl, FilePool &fp)
 {
     dl.init();
     size_t remain_size = dl.size();
@@ -103,7 +127,9 @@ void save_ssd(shard_lock_map &dmap, ssd_hash_map &smap, dataloder &dl)
         exit(1);
     }
     dl.sample(batch_ids, remain_size);
-    eviction(std::ref(dmap), std::ref(smap), batch_ids, remain_size, 1);
+    eviction(std::ref(dmap), std::ref(smap), batch_ids, remain_size, 1, std::ref(fp));
+    update_ssd_map(std::ref(smap));
+    delete[] batch_ids;
 }
 
 int main(int argh, char *argv[])
@@ -139,6 +165,7 @@ int main(int argh, char *argv[])
     shard_lock_map dmap;
     std::string feature_name(argv[1]);
     ssd_hash_map smap(feature_name);
+    FilePool fp(smap);
     int max_emb_num_perc = atoi(argv[2]);
     const size_t max_emb_num = size_t(max_emb_num_perc * dsize / 100);
     LOGINFO << "max emb num = " << max_emb_num << std::endl
@@ -162,7 +189,7 @@ int main(int argh, char *argv[])
     init_ssd_map(std::ref(smap)); // 先加载存在SSD上的offset map
     // return 0;
     bool running = true;
-    std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(cache), k_size, num_worker, true, std::ref(running));
+    // std::thread th(cache_manager, std::ref(dmap), std::ref(smap), std::ref(cache), k_size, num_worker, true, std::ref(running));
 
     size_t access_count = 0;
     size_t hit_count = 0;
@@ -184,7 +211,7 @@ int main(int argh, char *argv[])
         while (remain_size > batch_size)
         {
             dl.sample(batch_ids, batch_size);
-            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
+            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
             get_embs(ret, batch_size, num_worker);
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 8000 == 0)
@@ -193,7 +220,7 @@ int main(int argh, char *argv[])
             }
         }
         dl.sample(batch_ids, remain_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
+        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
 
@@ -221,7 +248,7 @@ int main(int argh, char *argv[])
 
             // LOGINFO << std::endl << std::flush;
             fetch_b = std::chrono::high_resolution_clock::now();
-            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
+            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
             fetch_e = std::chrono::high_resolution_clock::now();
             get_embs(ret, batch_size, num_worker);
             update_e = std::chrono::high_resolution_clock::now();
@@ -235,7 +262,7 @@ int main(int argh, char *argv[])
         }
         dl.sample(batch_ids, remain_size);
         // add_to_rank(std::ref(que), batch_ids, remain_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num);
+        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
 
@@ -244,13 +271,13 @@ int main(int argh, char *argv[])
     }
     auto point1 = std::chrono::high_resolution_clock::now(); //训练时间
     delete[] batch_ids;
-    save_ssd(std::ref(dmap), std::ref(smap), std::ref(dl));
+    save_ssd(std::ref(dmap), std::ref(smap), std::ref(dl), std::ref(fp));
     // LOGINFO << "dmap size =" << dmap.true_size() << std::endl
     //         << std::flush;
     assert(dmap.true_size() == 0 && "dmap final size is nonzero");
     auto point2 = std::chrono::high_resolution_clock::now(); //持久化时间
     running = false;
-    th.join();
+    // th.join();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::ratio<1, 1>> duration_train(point1 - start);
     std::chrono::duration<double, std::ratio<1, 1>> duration_save(point2 - point1);

@@ -2,6 +2,7 @@
 import csv
 import time
 import random
+import os
 
 T1 = time.time()
 
@@ -36,11 +37,11 @@ with open("dataset/taobao/raw_sample.csv", encoding="utf-8") as csvfile:
             all_adgroupid_list.append(adgroupid)
             all_adgroupid_set.add(adgroupid)
 
-    file_path = "storage/user/all_userid.txt"
+    file_path = "storage/user/all_ids.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for v in all_userid_list:
             file_obj.write(v + " ")
-    file_path = "storage/ad/all_adgroupid.txt"
+    file_path = "storage/ad/all_ids.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for v in all_adgroupid_list:
             file_obj.write(v + " ")
@@ -48,11 +49,11 @@ with open("dataset/taobao/raw_sample.csv", encoding="utf-8") as csvfile:
     #     file_obj.write(",".join(visit_userid_list))
     # with open("../storage/visit_adgroupid.txt", mode="w", encoding="utf-8") as file_obj:
     #     file_obj.write(",".join(visit_adgroupid_list))
-    file_path = "storage/user/userid_count.txt"
+    file_path = "storage/user/id_count.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for k, v in all_userid_dict.items():
             file_obj.write(k + "\t:" + str(v) + "\n")
-    file_path = "storage/ad/adgroupid_count.txt"
+    file_path = "storage/ad/id_count.txt"
     with open(file_path, mode="w", encoding="utf-8") as file_obj:
         for k, v in all_adgroupid_dict.items():
             file_obj.write(k + "\t:" + str(v) + "\n")
@@ -60,18 +61,21 @@ with open("dataset/taobao/raw_sample.csv", encoding="utf-8") as csvfile:
     print()
     print("userid size: ", len(all_userid_list))
     print("adgroupid size: ", len(all_adgroupid_list))
-    random.shuffle(visit_userid_list)
-    random.shuffle(visit_adgroupid_list)
+
     file_path = "dataset/taobao/shuffled_adgroupid.csv"
-    with open(file_path, mode="w", encoding="utf-8") as file_obj:
-        file_obj.write(f'shuffled_adgroupid\n')
-        for id in visit_adgroupid_list:
-            file_obj.write(f'{id}\n')
+    if not os.path.exists(file_path):
+        random.shuffle(visit_userid_list)
+        with open(file_path, mode="w", encoding="utf-8") as file_obj:
+            file_obj.write(f"shuffled_adgroupid\n")
+            for id in visit_adgroupid_list:
+                file_obj.write(f"{id}\n")
     file_path = "dataset/taobao/shuffled_userid.csv"
-    with open(file_path, mode="w", encoding="utf-8") as file_obj:
-        file_obj.write(f'{id}\n')
-        for id in visit_userid_list:
-            file_obj.write(f'{id}\n')
+    if not os.path.exists(file_path):
+        random.shuffle(visit_adgroupid_list)
+        with open(file_path, mode="w", encoding="utf-8") as file_obj:
+            file_obj.write(f"{id}\n")
+            for id in visit_userid_list:
+                file_obj.write(f"{id}\n")
 
 T2 = time.time()
 print("total time: %s s" % (T2 - T1))

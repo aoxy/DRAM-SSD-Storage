@@ -26,7 +26,7 @@ void cache_manager(shard_lock_map &dmap, ssd_hash_map &smap, BatchLRUCache &cach
     delete[] evic_ids;
 }
 
-void cache_manager_once(shard_lock_map &dmap, ssd_hash_map &smap, BatchLRUCache &cache, size_t k_size, size_t num_workers, bool uniform, size_t max_emb_num)
+void cache_manager_once(shard_lock_map &dmap, ssd_hash_map &smap, BatchLRUCache &cache, size_t k_size, size_t num_workers, bool uniform, size_t max_emb_num, FilePool &fp)
 {
     int64_t *evic_ids = new int64_t[k_size];
     if (evic_ids == nullptr)
@@ -44,7 +44,7 @@ void cache_manager_once(shard_lock_map &dmap, ssd_hash_map &smap, BatchLRUCache 
         // LOGINFO << que << std::endl
         //         << std::flush;
         size_t true_size = cache.get_evic_ids(evic_ids, k_size);
-        eviction(std::ref(dmap), std::ref(smap), evic_ids, true_size, num_workers);
+        eviction(std::ref(dmap), std::ref(smap), evic_ids, true_size, num_workers, std::ref(fp));
     }
 
     delete[] evic_ids;

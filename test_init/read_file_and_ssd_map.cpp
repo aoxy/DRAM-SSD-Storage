@@ -13,7 +13,7 @@
 void init_ssd_map(ssd_hash_map &smap)
 {
     auto feature_name = smap.feature_name();
-    const std::string filepath = std::string("storage/") + feature_name + std::string("/offset.txt");
+    const std::string filepath = std::string("storage/") + feature_name + std::string("/offset_saved.txt");
     std::ifstream fp(filepath);
     if (!fp)
     {
@@ -38,11 +38,12 @@ void init_ssd_map(ssd_hash_map &smap)
 
 int main()
 {
-    std::ifstream ifs_u("storage/user/all_userid.txt");
-    std::ifstream ifs_a("storage/ad/all_adgroupid.txt");
+    std::ifstream ifs_u("storage/user/all_ids.txt");
+    std::ifstream ifs_a("storage/ad/all_ids.txt");
     std::vector<int64_t> ids_u;
     std::vector<int64_t> ids_a;
     int64_t key;
+    const size_t one_emb_size = sizeof(int64_t) + EMB_LEN * sizeof(double);
     auto ts1 = std::chrono::high_resolution_clock::now();
     while (ifs_u >> key)
     {
@@ -70,6 +71,11 @@ int main()
 
     std::string emb_out_file_u = "storage/user/embeddings.txt";
     std::ofstream ofs_off_u(emb_out_file_u, std::ios::binary);
+    std::vector<std::ifstream> ofs_list_u(NUM_SHARD);
+    for (size_t i = 0; i < NUM_SHARD; ++i)
+    {
+        ofs_list_u[i] = std::ifstream(smap_u.filepath(i), std::ios::binary);
+    }
     auto ts2 = std::chrono::high_resolution_clock::now();
     for (size_t i = 0; i < ids_u.size(); ++i)
     {
@@ -79,29 +85,36 @@ int main()
             std::cout << "\rreading user embedding... " << std::fixed << std::setprecision(2) << curr << " %" << std::flush;
         }
         int64_t key = ids_u[i];
-        std::string filepath = smap_u.filepath(key);
-        std::ifstream ifs(filepath, std::ios::binary);
+        size_t file_idx = smap_u.shard_idx(key);
 
         size_t offset = smap_u.get(key) - 1;
-        ifs.seekg(offset, std::ios::beg);
+        ofs_list_u[file_idx].seekg(offset, std::ios::beg);
         int64_t read_key;
-        ifs.read((char *)&read_key, sizeof(int64_t));
+        ofs_list_u[file_idx].read((char *)&read_key, sizeof(int64_t));
         assert(key == read_key);
-        ifs.read((char *)value, EMB_LEN * sizeof(double));
+        ofs_list_u[file_idx].read((char *)value, EMB_LEN * sizeof(double));
         ofs_off_u << key << ": \t";
         for (size_t j = 0; j < EMB_LEN; ++j)
         {
             ofs_off_u << value[j] << " ";
         }
         ofs_off_u << std::endl;
-        ifs.close();
     }
     auto ts3 = std::chrono::high_resolution_clock::now();
+    for (auto &ofs : ofs_list_u)
+    {
+        ofs.close();
+    }
     std::cout << std::endl
               << std::flush;
 
     std::string emb_out_file_a = "storage/ad/embeddings.txt";
     std::ofstream ofs_off_a(emb_out_file_a, std::ios::binary);
+    std::vector<std::ifstream> ofs_list_a(NUM_SHARD);
+    for (size_t i = 0; i < NUM_SHARD; ++i)
+    {
+        ofs_list_a[i] = std::ifstream(smap_a.filepath(i), std::ios::binary);
+    }
     auto ts4 = std::chrono::high_resolution_clock::now();
     for (size_t i = 0; i < ids_a.size(); ++i)
     {
@@ -111,24 +124,26 @@ int main()
             std::cout << "\rreading adgroup embedding... " << std::fixed << std::setprecision(2) << curr << " %" << std::flush;
         }
         int64_t key = ids_a[i];
-        std::string filepath = smap_a.filepath(key);
-        std::ifstream ifs(filepath, std::ios::binary);
+        size_t file_idx = smap_a.shard_idx(key);
 
         size_t offset = smap_a.get(key) - 1;
-        ifs.seekg(offset, std::ios::beg);
+        ofs_list_a[file_idx].seekg(offset, std::ios::beg);
         int64_t read_key;
-        ifs.read((char *)&read_key, sizeof(int64_t));
+        ofs_list_a[file_idx].read((char *)&read_key, sizeof(int64_t));
         assert(key == read_key);
-        ifs.read((char *)value, EMB_LEN * sizeof(double));
+        ofs_list_a[file_idx].read((char *)value, EMB_LEN * sizeof(double));
         ofs_off_a << key << ": \t";
         for (size_t j = 0; j < EMB_LEN; ++j)
         {
             ofs_off_a << value[j] << " ";
         }
         ofs_off_a << std::endl;
-        ifs.close();
     }
     auto ts5 = std::chrono::high_resolution_clock::now();
+    for (auto &ofs : ofs_list_a)
+    {
+        ofs.close();
+    }
 
     std::chrono::duration<double, std::ratio<1, 1>> duration_readid(ts6 - ts1);
     std::chrono::duration<double, std::ratio<1, 1>> duration_read_user_emb(ts3 - ts2);

@@ -9,11 +9,12 @@
 #include "../ranking/cache_manager.h"
 #include "../utils/xhqueue.h"
 #include "../ranking/lru.h"
+#include "../movement/files.h"
 
-embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count, BatchLRUCache &cache, size_t k_size, size_t max_emb_num)
+embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count, BatchLRUCache &cache, size_t k_size, size_t max_emb_num, FilePool &fp)
 {
     cache.add_to_rank(batch_ids, batch_size);
-    cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(cache), k_size, 1, true, max_emb_num);// TODO: 不能淘汰本次要用的，先淘汰
+    cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(cache), k_size, 1, true, max_emb_num, std::ref(fp)); // TODO: 不能淘汰本次要用的，先淘汰
     embedding_t *ret = new embedding_t[batch_size];
     if (ret == nullptr)
     {
@@ -25,10 +26,10 @@ embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_i
     std::vector<std::thread> workers;
     for (size_t w = 1; w < num_workers; ++w)
     { //TODO:分任务的方式还可以优化，使得两个线程不操作同一个文件
-        workers.emplace_back(fetch_aux, std::ref(dmap), std::ref(smap), batch_ids, (w - 1) * work_size, w * work_size, ret, std::ref(access_count), std::ref(hit_count), k_size);
+        workers.emplace_back(fetch_aux, std::ref(dmap), std::ref(smap), batch_ids, (w - 1) * work_size, w * work_size, ret, std::ref(access_count), std::ref(hit_count), k_size, std::ref(fp));
     }
     // auto start = std::chrono::high_resolution_clock::now();
-    fetch_aux(std::ref(dmap), std::ref(smap), batch_ids, (num_workers - 1) * work_size, batch_size, ret, std::ref(access_count), std::ref(hit_count), k_size); //自己也要干活(也许会少点)
+    fetch_aux(std::ref(dmap), std::ref(smap), batch_ids, (num_workers - 1) * work_size, batch_size, ret, std::ref(access_count), std::ref(hit_count), k_size, std::ref(fp)); //自己也要干活(也许会少点)
     // LOGINFO << std::endl << std::flush;
     for (auto &worker : workers)
     {
@@ -38,13 +39,16 @@ embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_i
     return ret;
 }
 
-void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t begin, size_t end, embedding_t *ret, size_t &access_count, size_t &hit_count, size_t k_size)
+void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t begin, size_t end, embedding_t *ret, size_t &access_count, size_t &hit_count, size_t k_size, FilePool &fp)
 {
+    int64_t key;
+    embedding_t value;
+    int64_t read_key;
     for (size_t i = begin; i < end; ++i)
     {
-        int64_t key = batch_ids[i];
-        embedding_t value = dmap.get(key);
-        int64_t read_key;
+        key = batch_ids[i];
+        value = dmap.get(key);
+
         if (value == nullptr)
         { // 在SSD中，读取并分配地址
 
@@ -58,15 +62,12 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
             }
             // assert(offset >= 0 && "offset < 0.");
 
-            std::string filepath = smap.filepath(key);
             // TODO: LOGINFO << key << " 不在内存中，在文件" << filepath << " offset = " << offset << std::endl
             // TODO:         << std::flush;
-            std::ifstream ifs(filepath, std::ios::in | std::ios::binary);
-            ifs.seekg(offset, std::ios::beg);
-            ifs.read((char *)&read_key, sizeof(int64_t));
+            fp.rw_s(key).seekg(offset, std::ios::beg);
+            fp.rw_s(key).read((char *)&read_key, sizeof(int64_t));
             assert(key == read_key);
-            ifs.read((char *)value, EMB_LEN * sizeof(double));
-            ifs.close();
+            fp.rw_s(key).read((char *)value, EMB_LEN * sizeof(double));
             dmap.set(key, value);
             dmap.increase();
         }
