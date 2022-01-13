@@ -1,0 +1,19 @@
+
+[INFO]: hdss/main.cpp:209 (main):  	dsize = 1141729
+
+[INFO]: hdss/main.cpp:211 (main):  	data size = 26557961
+
+[INFO]: hdss/main.cpp:219 (main):  	max emb num = 799210
+
+[INFO]: hdss/main.cpp:226 (main):  	batch_size = 512
+
+[INFO]: hdss/main.cpp:228 (main):  	k_size = 4096
+(0/0)epoch training... 7.46 %(0/0)epoch training... 22.89 %(0/0)epoch training... 38.31 %(0/0)epoch training... 53.73 %(0/0)epoch training... 69.15 %(0/0)epoch training... 84.58 %(0/0)epoch training... 100.00 %(1/3)epoch training... 7.46 %(1/3)epoch training... 22.89 %(1/3)epoch training... 38.31 %(1/3)epoch training... 53.73 %(1/3)epoch training... 69.15 %(1/3)epoch training... 84.58 %(1/3)epoch training... 100.00 %(2/3)epoch training... 7.46 %(2/3)epoch training... 22.89 %(2/3)epoch training... 38.31 %(2/3)epoch training... 53.73 %(2/3)epoch training... 69.15 %(2/3)epoch training... 84.58 %(2/3)epoch training... 100.00 %(3/3)epoch training... 7.46 %(3/3)epoch training... 22.89 %(3/3)epoch training... 38.31 %(3/3)epoch training... 53.73 %(3/3)epoch training... 69.15 %(3/3)epoch training... 84.58 %(3/3)epoch training... 100.00 %
+[INFO]: hdss/main.cpp:323 (main):  	read id time = 13.62 s
+[INFO]: hdss/main.cpp:324 (main):  	zero-th epoch time = 54.43 s
+[INFO]: hdss/main.cpp:325 (main):  	train time = 193.57 s
+[INFO]: hdss/main.cpp:326 (main):  		fetch time = 152.76 s
+[INFO]: hdss/main.cpp:327 (main):  		update time = 0.00 s
+[INFO]: hdss/main.cpp:328 (main):  	compaction time = 5.58 s
+[INFO]: hdss/main.cpp:329 (main):  	total time = 268.09 s
+[INFO]: hdss/main.cpp:331 (main):  	total hit rate = 93.62 %
