@@ -151,7 +151,6 @@ void compaction(shard_lock_map &dmap, ssd_hash_map &smap, FilePool &old_fp)
             value = new double[EMB_LEN];
             assert(value != nullptr && "allocate failed in compaction.");
             offset = smap.get(key) - 1; //offset - 1 是因为存的时候+1了
-            assert(offset >= 0 && "offset < 0.");
             old_fp.rw_s(key).seekg(offset, std::ios::beg);
             old_fp.rw_s(key).read((char *)value, EMB_LEN * sizeof(double));
             dmap.set(key, value);
@@ -260,7 +259,8 @@ int main(int argc, char *argv[])
         {
             dl.sample(batch_ids, batch_size);
             embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
-            update_embs(ret, batch_size);
+            update_embs(ret, batch_size); // 一种梯度更新的方式
+            // output(ret, 0, batch_size); // 加100次1.0
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 8000 == 0)
             {
@@ -269,7 +269,8 @@ int main(int argc, char *argv[])
         }
         dl.sample(batch_ids, remain_size);
         embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(access_count), std::ref(hit_count), std::ref(cache), k_size, max_emb_num, std::ref(fp));
-        update_embs(ret, remain_size);
+        update_embs(ret, remain_size); // 一种梯度更新的方式
+        // output(ret, 0, remain_size);// 加100次1.0
         remain_size -= remain_size;
 
         access_count = 0;
