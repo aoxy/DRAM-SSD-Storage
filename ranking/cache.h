@@ -61,7 +61,6 @@ private:
 public:
     LRUCache(size_t cap) : BatchCache(cap)
     {
-        std::cout << capacity << std::endl;
         mp.clear();
         head = new LRUNode(0);
         tail = new LRUNode(0);
@@ -142,7 +141,6 @@ private:
 public:
     LFUCache(size_t cap) : BatchCache(cap)
     {
-        std::cout << "===" << capacity << "====" << std::endl;
         min_freq = 0;
         key_table.clear();
         freq_table.clear();
