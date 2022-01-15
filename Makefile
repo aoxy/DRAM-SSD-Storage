@@ -30,7 +30,13 @@ scp :
 main.o : $(MAIN_DIR)/main.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(MAIN_DIR)/main.cpp
 
-main: main.o cache_manager.o strategy.o prefetch.o get_embeddings.o eviction.o
+main: main.o cache_manager.o prefetch.o get_embeddings.o store.o eviction.o
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+
+store.o : $(MAIN_DIR)/store.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(MAIN_DIR)/store.cpp
+
+store: store.o eviction.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
 test_map.o : $(MAP_DIR)/test_map.cpp

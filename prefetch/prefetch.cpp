@@ -8,13 +8,13 @@
 #include "../utils/logs.h"
 #include "../ranking/cache_manager.h"
 #include "../utils/xhqueue.h"
-#include "../ranking/lru.h"
+#include "../ranking/cache.h"
 #include "../movement/files.h"
 
-embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, size_t &access_count, size_t &hit_count, BatchLRUCache &cache, size_t k_size, size_t max_emb_num, FilePool &fp)
+embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, CacheRecord &cr, BatchCache *cache, size_t k_size, FilePool &fp)
 {
-    cache.add_to_rank(batch_ids, batch_size);
-    cache_manager_once(std::ref(dmap), std::ref(smap), std::ref(cache), k_size, 1, max_emb_num, std::ref(fp)); // TODO: 不能淘汰本次要用的，先淘汰
+    cache->add_to_rank(batch_ids, batch_size);
+    cache_manager_once(std::ref(dmap), std::ref(smap), cache, k_size, 1, std::ref(fp)); // TODO: 不能淘汰本次要用的，先淘汰
     embedding_t *ret = new embedding_t[batch_size];
     if (ret == nullptr)
     {
@@ -24,22 +24,22 @@ embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_i
 
     size_t work_size = int((batch_size + num_workers - 1) / num_workers); //上取整
     std::vector<std::thread> workers;
+    // TODO:分任务的方式还可以优化，使得两个线程不操作同一个文件
     for (size_t w = 1; w < num_workers; ++w)
-    { //TODO:分任务的方式还可以优化，使得两个线程不操作同一个文件
-        workers.emplace_back(fetch_aux, std::ref(dmap), std::ref(smap), batch_ids, (w - 1) * work_size, w * work_size, ret, std::ref(access_count), std::ref(hit_count), std::ref(fp));
+    {
+        workers.emplace_back(fetch_aux, std::ref(dmap), std::ref(smap), batch_ids, (w - 1) * work_size, w * work_size, ret, std::ref(cr), std::ref(fp));
     }
-    // auto start = std::chrono::high_resolution_clock::now();
-    fetch_aux(std::ref(dmap), std::ref(smap), batch_ids, (num_workers - 1) * work_size, batch_size, ret, std::ref(access_count), std::ref(hit_count), std::ref(fp)); //自己也要干活(也许会少点)
-    // LOGINFO << std::endl << std::flush;
+
+    fetch_aux(std::ref(dmap), std::ref(smap), batch_ids, (num_workers - 1) * work_size, batch_size, ret, std::ref(cr), std::ref(fp)); //自己也要干活(也许会少点)
+
     for (auto &worker : workers)
     {
         worker.join();
     }
-    // LOGINFO << std::endl << std::flush;
     return ret;
 }
 
-void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t begin, size_t end, embedding_t *ret, size_t &access_count, size_t &hit_count, FilePool &fp)
+void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t begin, size_t end, embedding_t *ret, CacheRecord &cr, FilePool &fp)
 {
     int64_t key;
     embedding_t value;
@@ -61,9 +61,9 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
         }
         else
         {
-            ++hit_count;
+            cr.hit();
         }
-        ++access_count;
+        cr.access();
         ret[i] = value;
     }
 }
