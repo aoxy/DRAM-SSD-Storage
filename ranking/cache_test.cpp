@@ -1,57 +1,19 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include <set>
 #include <string>
 #include <sstream>
 #include <vector>
 #include "cache.h"
-#include "../utils/dataloder.h"
+#include "../hdss/store.h"
 
 int main(int argc, char *argv[])
 {
-    if (argc < 4)
-    {
-        std::cout << "usage: ./cache_test <ad/user> <1~100> <lru/lfu>" << std::endl;
-        std::cout << "example: ./cache_test ad 70 lfu" << std::endl;
-        return 0;
-    }
-    std::string feature_name(argv[1]);
-    int max_emb_num_perc = atoi(argv[2]);
-    size_t dsize;
-    std::string data_file;
-    if (feature_name == "ad")
-    {
-        data_file = "../dataset/taobao/shuffled_adgroupid.csv";
-        dsize = 846811;
-    }
-    else if (feature_name == "user")
-    {
-        data_file = "../dataset/taobao/shuffled_userid.csv";
-        dsize = 1141729;
-    }
-    else
-    {
-        std::cout << "invalid: feature must be `ad` or `user`" << std::endl;
-        return 0;
-    }
-    const size_t max_emb_num = size_t(max_emb_num_perc * dsize / 100);
-    std::string cache_policy(argv[3]);
-    BatchCache *cache;
-    if (cache_policy == "lru")
-    {
-        cache = new LRUCache(max_emb_num);
-    }
-    else if (cache_policy == "lfu")
-    {
-        cache = new LFUCache(max_emb_num);
-    }
-    else
-    {
-        std::cout << "invalid: feature must be `lru` or `lfu`" << std::endl;
-        return 0;
-    }
+    Config conf(argc, argv);
     auto begin = std::chrono::high_resolution_clock::now();
-    dataloder dl(data_file);
+    DataLoader dl("dataset/taobao/shuffled_sample.csv", conf.feature_id);
+    BatchCache *cache = conf.cache;
     const size_t batch_size = 512;
     const size_t num_worker = 1;
     const size_t k_size = 8 * batch_size;
@@ -71,7 +33,6 @@ int main(int argc, char *argv[])
         while (remain_size > batch_size)
         {
             dl.sample(batch_ids, batch_size);
-            cache->add_to_rank(batch_ids, batch_size);
             if (s.size() > cache->max_emb_num())
             {
                 size_t true_size = cache->get_evic_ids(evic_ids, k_size);
@@ -80,6 +41,7 @@ int main(int argc, char *argv[])
                     s.erase(evic_ids[i]);
                 }
             }
+            cache->add_to_rank(batch_ids, batch_size);
             for (size_t i = 0; i < batch_size; ++i)
             {
                 int64_t id = batch_ids[i];
@@ -95,7 +57,6 @@ int main(int argc, char *argv[])
         }
         dl.sample(batch_ids, remain_size);
 
-        cache->add_to_rank(batch_ids, remain_size);
         if (s.size() > cache->max_emb_num())
         {
             size_t true_size = cache->get_evic_ids(evic_ids, k_size);
@@ -104,6 +65,7 @@ int main(int argc, char *argv[])
                 s.erase(evic_ids[i]);
             }
         }
+        cache->add_to_rank(batch_ids, remain_size);
         for (size_t i = 0; i < remain_size; ++i)
         {
             int64_t id = batch_ids[i];
@@ -124,7 +86,6 @@ int main(int argc, char *argv[])
         while (remain_size > batch_size)
         {
             dl.sample(batch_ids, batch_size);
-            cache->add_to_rank(batch_ids, batch_size);
             if (s.size() > cache->max_emb_num())
             {
                 size_t true_size = cache->get_evic_ids(evic_ids, k_size);
@@ -133,6 +94,7 @@ int main(int argc, char *argv[])
                     s.erase(evic_ids[i]);
                 }
             }
+            cache->add_to_rank(batch_ids, batch_size);
             for (size_t i = 0; i < batch_size; ++i)
             {
                 int64_t id = batch_ids[i];
@@ -154,7 +116,6 @@ int main(int argc, char *argv[])
         }
         dl.sample(batch_ids, remain_size);
 
-        cache->add_to_rank(batch_ids, remain_size);
         if (s.size() > cache->max_emb_num())
         {
             size_t true_size = cache->get_evic_ids(evic_ids, k_size);
@@ -163,6 +124,7 @@ int main(int argc, char *argv[])
                 s.erase(evic_ids[i]);
             }
         }
+        cache->add_to_rank(batch_ids, remain_size);
         for (size_t i = 0; i < remain_size; ++i)
         {
             int64_t id = batch_ids[i];

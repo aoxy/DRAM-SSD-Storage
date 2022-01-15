@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <iomanip>
 #include <string>
+#include <iomanip>
 #include "store.h"
 #include "../justokmap/shard_lock_map.h"
 #include "../justokmap/ssd_hash_map.h"

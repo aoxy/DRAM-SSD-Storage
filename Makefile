@@ -13,7 +13,7 @@ CPPFLAGS += -I$(MAIN_DIR) -I. -isystem
 CXXFLAGS += -Wall -Wextra -Wpedantic -Wno-missing-field-initializers -std=c++17 -O3  ${_CXXFLAGS} -g
 LDFLAGS += -lpthread
 
-all :  main write_file_and_ssd_map read_file_and_ssd_map
+all :  main write_file_and_ssd_map read_file_and_ssd_map cache_test
 
 clean :
 	rm *.o main read_file_and_ssd_map write_file_and_ssd_map
@@ -85,4 +85,10 @@ read_file_and_ssd_map.o : $(TEST_DIR)/read_file_and_ssd_map.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(TEST_DIR)/read_file_and_ssd_map.cpp
 
 read_file_and_ssd_map: read_file_and_ssd_map.o
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+
+cache_test.o : $(RANK_DIR)/cache_test.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(RANK_DIR)/cache_test.cpp
+
+cache_test: cache_test.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)

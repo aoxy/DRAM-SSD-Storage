@@ -30,10 +30,11 @@ void eviction_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *evic_ids, s
     {
         key = evic_ids[i];
         value = dmap.get(key);
-        dmap.set(key, nullptr);
-        dmap.decrease();
+
         if (value != nullptr)
         {
+            dmap.set(key, nullptr);
+            dmap.decrease();
             //SSD增量更新
             fp.rw_s(key).seekp(0, std::ios::end);
             offset = size_t(fp.rw_s(key).tellp()) + 1; //存的时候+1了

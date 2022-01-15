@@ -19,3 +19,5 @@ write_file_and_ssd_map
 test_init/temp/*.npy
 .DS_Store
 *.pyc
+a.out
+cache_test

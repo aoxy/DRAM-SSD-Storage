@@ -13,8 +13,8 @@
 
 embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, CacheRecord &cr, BatchCache *cache, size_t k_size, FilePool &fp)
 {
-    cache->add_to_rank(batch_ids, batch_size);
     cache_manager_once(std::ref(dmap), std::ref(smap), cache, k_size, 1, std::ref(fp)); // TODO: 不能淘汰本次要用的，先淘汰
+    cache->add_to_rank(batch_ids, batch_size);
     embedding_t *ret = new embedding_t[batch_size];
     if (ret == nullptr)
     {
