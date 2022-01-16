@@ -19,7 +19,16 @@ clean :
 	rm *.o main read_file_and_ssd_map write_file_and_ssd_map cache_test
 
 run :
+	./main $(var)
+
+run5 :
 	./main $(var) > "logs/compaction/v5/hdss($(var)).log"
+
+run6:
+	./main $(var) > "logs/compaction/v6/hdss($(var)).log"
+
+run7 :
+	./main $(var) > "logs/compaction/v7/hdss($(var)).log"
 
 per :
 	chmod -R 777 ./

@@ -21,3 +21,4 @@ test_init/temp/*.npy
 *.pyc
 a.out
 cache_test
+nohup.out

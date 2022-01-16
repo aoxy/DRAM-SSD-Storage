@@ -59,7 +59,7 @@ def print_table(feature, cache_policy, res_list):
 
 
 if __name__ == "__main__":
-    res_list = read_compaction(["v2", "v3"])
+    res_list = read_compaction(["v5", "v6", "v7"])
     # print(res_list)
     print_table("u", "lru", res_list)
     print_table("u", "lfu", res_list)
