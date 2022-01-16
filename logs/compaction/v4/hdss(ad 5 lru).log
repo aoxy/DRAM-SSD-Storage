@@ -1,0 +1,251 @@
+
+[INFO]: hdss/main.cpp:30 (main):  	dsize = 846811
+
+[INFO]: hdss/main.cpp:32 (main):  	data size = 26557961
+
+[INFO]: hdss/main.cpp:34 (main):  	max emb num = 42340
+
+[INFO]: hdss/main.cpp:36 (main):  	batch_size = 512
+
+[INFO]: hdss/main.cpp:38 (main):  	k_size = 4096
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	0 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41260 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39383 embedding in DRAM
+epoch zero training... 7.46 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41997 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38795 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42452 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41295 embedding in DRAM
+epoch zero training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40358 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40298 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42385 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38865 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38421 embedding in DRAM
+epoch zero training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42604 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41531 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38810 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39817 embedding in DRAM
+epoch zero training... 53.73 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40677 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42322 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42603 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39521 embedding in DRAM
+epoch zero training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40922 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41864 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42473 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39788 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42161 embedding in DRAM
+epoch zero training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39453 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39040 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39831 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39185 embedding in DRAM
+epoch zero training... 100.00 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41480 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42473 embedding in DRAM
+(1/3)epoch training... 7.46 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42001 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42504 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40956 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40667 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40622 embedding in DRAM
+(1/3)epoch training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38664 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39362 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41767 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38543 embedding in DRAM
+(1/3)epoch training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40242 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39895 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38904 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39144 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40565 embedding in DRAM
+(1/3)epoch training... 53.73 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42123 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42216 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40720 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39579 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42476 embedding in DRAM
+(1/3)epoch training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40571 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42534 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42030 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42485 embedding in DRAM
+(1/3)epoch training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39631 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38778 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41886 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42238 embedding in DRAM
+(1/3)epoch training... 100.00 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40166 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39688 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40725 embedding in DRAM
+(2/3)epoch training... 7.46 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41663 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42453 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42544 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41885 embedding in DRAM
+(2/3)epoch training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38989 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38563 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39913 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40351 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40264 embedding in DRAM
+(2/3)epoch training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38857 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39285 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42004 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40907 embedding in DRAM
+(2/3)epoch training... 53.73 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38306 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41653 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41825 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40893 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39953 embedding in DRAM
+(2/3)epoch training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38512 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40833 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41138 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41587 embedding in DRAM
+(2/3)epoch training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42372 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41024 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40759 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39020 embedding in DRAM
+(2/3)epoch training... 100.00 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38838 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39834 embedding in DRAM
+(3/3)epoch training... 7.46 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39462 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39469 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40975 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42413 embedding in DRAM
+(3/3)epoch training... 22.89 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39482 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41700 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41779 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39803 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42245 embedding in DRAM
+(3/3)epoch training... 38.31 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40146 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38368 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40555 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	41740 embedding in DRAM
+(3/3)epoch training... 53.73 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38862 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39498 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	38866 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40106 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42000 embedding in DRAM
+(3/3)epoch training... 69.15 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40175 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40971 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40195 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	40669 embedding in DRAM
+(3/3)epoch training... 84.58 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39169 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42294 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	39198 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	42553 embedding in DRAM
+(3/3)epoch training... 100.00 %
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	360164 embedding in DRAM
+
+[INFO]: ranking/cache_manager.cpp:15 (cache_inspect):  	475181 embedding in DRAM
+
+[INFO]: hdss/main.cpp:79 (main):  	read id time = 14.94 s
+[INFO]: hdss/main.cpp:80 (main):  	zero-th epoch time = 143.01 s
+[INFO]: hdss/main.cpp:81 (main):  	train time = 430.61 s
+[INFO]: hdss/main.cpp:82 (main):  	compaction time = 8.01 s
+[INFO]: hdss/main.cpp:83 (main):  	total time = 600.57 s
+[INFO]: hdss/main.cpp:84 (main):  	total hit rate = 47.76 %

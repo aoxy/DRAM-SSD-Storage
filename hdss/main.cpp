@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <thread>
 #include <iomanip>
 #include "store.h"
 #include "../justokmap/shard_lock_map.h"
@@ -10,6 +11,7 @@
 #include "../utils/logs.h"
 #include "../ranking/cache.h"
 #include "../movement/files.h"
+#include "../ranking/cache_manager.h"
 
 void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker);
 double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch);
@@ -29,6 +31,8 @@ int main(int argc, char *argv[])
             << std::flush;
     LOGINFO << "data size = " << dl.size() << std::endl
             << std::flush;
+    LOGINFO << "max emb num = " << conf.cache->max_emb_num() << std::endl
+            << std::flush;
     LOGINFO << "batch_size = " << batch_size << std::endl
             << std::flush;
     LOGINFO << "k_size = " << k_size << std::endl
@@ -47,6 +51,7 @@ int main(int argc, char *argv[])
 
     init_ssd_map(std::ref(smap)); // 先加载存在SSD上的offset map
     bool running = true;
+    // std::thread th(cache_inspect, std::ref(dmap), std::ref(running));
 
     // 先训练一轮不记录数据，用于使得“训练开始前已经有一部分数据在内存中”
     auto ts3 = std::chrono::high_resolution_clock::now();
@@ -63,6 +68,7 @@ int main(int argc, char *argv[])
     auto ts6 = std::chrono::high_resolution_clock::now(); //持久化时间
 
     running = false;
+    // th.join();
 
     auto ts7 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::ratio<1, 1>> duration_train(ts5 - ts4);

@@ -16,10 +16,10 @@ LDFLAGS += -lpthread
 all :  main write_file_and_ssd_map read_file_and_ssd_map cache_test
 
 clean :
-	rm *.o main read_file_and_ssd_map write_file_and_ssd_map
+	rm *.o main read_file_and_ssd_map write_file_and_ssd_map cache_test
 
 run :
-	./main $(var) > "logs/compaction/v2/hdss($(var)).log"
+	./main $(var) > "logs/compaction/v5/hdss($(var)).log"
 
 per :
 	chmod -R 777 ./
