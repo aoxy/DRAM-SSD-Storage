@@ -135,6 +135,7 @@ private:
         LFUNode(int64_t key, size_t freq) : key(key), freq(freq) {}
     };
     size_t min_freq;
+    size_t max_freq;
     std::unordered_map<int64_t, std::list<LFUNode>::iterator> key_table;
     std::unordered_map<int64_t, std::list<LFUNode>> freq_table;
 
@@ -142,6 +143,7 @@ public:
     LFUCache(size_t cap) : BatchCache(cap)
     {
         min_freq = 0;
+        max_freq = 0;
         key_table.clear();
         freq_table.clear();
     }
@@ -164,15 +166,17 @@ public:
             {
                 freq_table.erase(min_freq);
                 ++min_freq;
-                auto it = freq_table.find(min_freq);
-                while (it != freq_table.end() && it->second.size() == 0)
+                while (min_freq <= max_freq)
                 {
-                    ++min_freq;
-                    it = freq_table.find(min_freq);
-                }
-                if (it == freq_table.end())
-                {
-                    break;
+                    auto it = freq_table.find(min_freq);
+                    if (it == freq_table.end() || it->second.size() == 0)
+                    {
+                        ++min_freq;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
         }
@@ -212,6 +216,7 @@ public:
                     if (min_freq == freq)
                         min_freq += 1;
                 }
+                max_freq = std::max(max_freq, freq + 1);
                 freq_table[freq + 1].push_front(LFUNode(id, freq + 1));
                 key_table[id] = freq_table[freq + 1].begin();
             }
