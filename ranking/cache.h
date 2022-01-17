@@ -39,6 +39,8 @@ public:
     BatchCache(size_t cap = 16) : capacity(cap) {}
     virtual size_t get_evic_ids(int64_t *evic_ids, size_t k_size) = 0;
     virtual void add_to_rank(int64_t *batch_ids, size_t batch_size) = 0;
+    virtual size_t size() const = 0;
+    virtual size_t mpsize() const = 0;
     size_t max_emb_num() const
     {
         return capacity;
@@ -57,15 +59,27 @@ private:
     };
     LRUNode *head, *tail;
     std::map<int64_t, LRUNode *> mp;
+    size_t _size;
 
 public:
     LRUCache(size_t cap) : BatchCache(cap)
     {
         mp.clear();
+        _size = 0;
         head = new LRUNode(0);
         tail = new LRUNode(0);
         head->next = tail;
         tail->pre = head;
+    }
+
+    size_t size() const
+    {
+        return _size;
+    }
+
+    size_t mpsize() const
+    {
+        return mp.size();
     }
 
     size_t get_evic_ids(int64_t *evic_ids, size_t k_size)
@@ -76,6 +90,7 @@ public:
         for (size_t i = 0; i < k_size && evic_node != head; ++i)
         {
             evic_ids[i] = evic_node->id;
+            _size--;
             rm_node = evic_node;
             evic_node = evic_node->pre;
             mp.erase(rm_node->id);
@@ -104,16 +119,8 @@ public:
             }
             else
             {
+                ++_size;
                 LRUNode *newNode = new LRUNode(id);
-                if (mp.size() >= capacity)
-                {
-                    LRUNode *rm_node = tail->pre;
-                    std::map<int64_t, LRUNode *>::iterator iter = mp.find(rm_node->id);
-                    tail->pre = rm_node->pre;
-                    rm_node->pre->next = tail;
-                    delete rm_node;
-                    mp.erase(iter);
-                }
                 head->next->pre = newNode;
                 newNode->next = head->next;
                 head->next = newNode;
@@ -136,6 +143,7 @@ private:
     };
     size_t min_freq;
     size_t max_freq;
+    size_t _size;
     std::unordered_map<int64_t, std::list<LFUNode>::iterator> key_table;
     std::unordered_map<int64_t, std::list<LFUNode>> freq_table;
 
@@ -144,12 +152,24 @@ public:
     {
         min_freq = 0;
         max_freq = 0;
+        _size = 0;
         key_table.clear();
         freq_table.clear();
     }
+
+    size_t size() const
+    {
+        return _size;
+    }
+
     size_t max_emb_num()
     {
         return capacity;
+    }
+
+    size_t mpsize() const
+    {
+        return key_table.size();
     }
 
     size_t get_evic_ids(int64_t *evic_ids, size_t k_size)
@@ -160,6 +180,7 @@ public:
             auto rm_it = freq_table[min_freq].back();
             key_table.erase(rm_it.key);
             evic_ids[i] = rm_it.key;
+            --_size;
             ++true_size;
             freq_table[min_freq].pop_back();
             if (freq_table[min_freq].size() == 0)
@@ -191,16 +212,7 @@ public:
             auto it = key_table.find(id);
             if (it == key_table.end())
             {
-                if (key_table.size() == capacity)
-                {
-                    auto it2 = freq_table[min_freq].back();
-                    key_table.erase(it2.key);
-                    freq_table[min_freq].pop_back();
-                    if (freq_table[min_freq].size() == 0)
-                    {
-                        freq_table.erase(min_freq);
-                    }
-                }
+                ++_size;
                 freq_table[1].push_front(LFUNode(id, 1));
                 key_table[id] = freq_table[1].begin();
                 min_freq = 1;

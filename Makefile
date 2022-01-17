@@ -19,7 +19,7 @@ clean :
 	rm *.o main read_file_and_ssd_map write_file_and_ssd_map cache_test
 
 run :
-	./main $(var)
+	./main $(var) > "logs/compaction/temp/hdss($(var)).log"
 
 run5 :
 	./main $(var) > "logs/compaction/v5/hdss($(var)).log"
@@ -42,7 +42,7 @@ main.o : $(MAIN_DIR)/main.cpp
 main: main.o cache_manager.o prefetch.o get_embeddings.o store.o eviction.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-store.o : $(MAIN_DIR)/store.cpp
+store.o : $(MAIN_DIR)/store.cpp $(RANK_DIR)/cache.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(MAIN_DIR)/store.cpp
 
 store: store.o eviction.o
@@ -60,7 +60,7 @@ eviction.o : $(MOVE_DIR)/eviction.cpp
 eviction: eviction.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-cache_manager.o : $(RANK_DIR)/cache_manager.cpp
+cache_manager.o : $(RANK_DIR)/cache_manager.cpp $(RANK_DIR)/cache.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(RANK_DIR)/cache_manager.cpp
 
 cache_manager: cache_manager.o eviction.o
@@ -72,7 +72,7 @@ strategy.o : $(RANK_DIR)/strategy.cpp
 strategy: strategy.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-prefetch.o : $(FETCH_DIR)/prefetch.cpp
+prefetch.o : $(FETCH_DIR)/prefetch.cpp $(RANK_DIR)/cache.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(FETCH_DIR)/prefetch.cpp
 
 prefetch: prefetch.o
@@ -96,7 +96,7 @@ read_file_and_ssd_map.o : $(TEST_DIR)/read_file_and_ssd_map.cpp
 read_file_and_ssd_map: read_file_and_ssd_map.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-cache_test.o : $(RANK_DIR)/cache_test.cpp
+cache_test.o : $(RANK_DIR)/cache_test.cpp $(RANK_DIR)/cache.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(RANK_DIR)/cache_test.cpp
 
 cache_test: cache_test.o

@@ -89,6 +89,12 @@ int main(int argc, char *argv[])
 double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch)
 {
     CacheRecord cr;
+    embedding_t *ret = new embedding_t[batch_size];
+    if (ret == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
     for (size_t e = 0; e < epoch; ++e)
     {
         dl.init();
@@ -98,7 +104,9 @@ double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_
         while (remain_size > batch_size)
         {
             dl.sample(batch_ids, batch_size);
-            embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
+            assert(dmap.true_size() == cache->size() && dmap.true_size() == cache->mpsize() && "dmap.true_size()==cache->size()");
+
+            prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, batch_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
             get_embs(ret, batch_size, num_worker);
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 8000 == 0)
@@ -107,7 +115,7 @@ double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_
             }
         }
         dl.sample(batch_ids, remain_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
+        prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, remain_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
         get_embs(ret, remain_size, num_worker);
         remain_size -= remain_size;
     }
@@ -120,11 +128,18 @@ void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, si
     dl.init();
     size_t remain_size = dl.size();
     size_t total_size = remain_size;
+    embedding_t *ret = new embedding_t[batch_size];
+    if (ret == nullptr)
+    {
+        LOGINFO << "malloc failed." << std::endl;
+        exit(1);
+    }
 
     while (remain_size > batch_size)
     {
+        assert(dmap.true_size() == cache->size() && dmap.true_size() == cache->mpsize() && "dmap.true_size()==cache->size()");
         dl.sample(batch_ids, batch_size);
-        embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, batch_size, num_worker, std::ref(temp_cr), cache, k_size, std::ref(fp));
+        prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, batch_size, num_worker, std::ref(temp_cr), cache, k_size, std::ref(fp));
         update_embs(ret, batch_size); // 一种梯度更新的方式
         // output(ret, 0, batch_size); // 加100次1.0
         remain_size -= batch_size;
@@ -134,8 +149,9 @@ void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, si
         }
     }
     dl.sample(batch_ids, remain_size);
-    embedding_t *ret = prefetch(std::ref(dmap), std::ref(smap), batch_ids, remain_size, num_worker, std::ref(temp_cr), cache, k_size, std::ref(fp));
+    prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, remain_size, num_worker, std::ref(temp_cr), cache, k_size, std::ref(fp));
     update_embs(ret, remain_size); // 一种梯度更新的方式
     // output(ret, 0, remain_size);// 加100次1.0
     remain_size -= remain_size;
+    delete[] ret;
 }

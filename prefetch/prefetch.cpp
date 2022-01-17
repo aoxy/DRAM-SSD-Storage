@@ -11,16 +11,10 @@
 #include "../ranking/cache.h"
 #include "../movement/files.h"
 
-embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, size_t num_workers, CacheRecord &cr, BatchCache *cache, size_t k_size, FilePool &fp)
+void prefetch(shard_lock_map &dmap, ssd_hash_map &smap, embedding_t *ret, int64_t *batch_ids, size_t batch_size, size_t num_workers, CacheRecord &cr, BatchCache *cache, size_t k_size, FilePool &fp)
 {
     cache_manager_once(std::ref(dmap), std::ref(smap), cache, k_size, 1, std::ref(fp)); // TODO: 不能淘汰本次要用的，先淘汰
     cache->add_to_rank(batch_ids, batch_size);
-    embedding_t *ret = new embedding_t[batch_size];
-    if (ret == nullptr)
-    {
-        LOGINFO << "malloc failed." << std::endl;
-        exit(1);
-    }
 
     size_t work_size = int((batch_size + num_workers - 1) / num_workers); //上取整
     std::vector<std::thread> workers;
@@ -36,7 +30,6 @@ embedding_t *prefetch(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_i
     {
         worker.join();
     }
-    return ret;
 }
 
 void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t begin, size_t end, embedding_t *ret, CacheRecord &cr, FilePool &fp)
