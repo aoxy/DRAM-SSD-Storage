@@ -9,9 +9,9 @@
 
 [INFO]: hdss/main.cpp:38 (main):  	k_size = 4096
 epoch zero training... 7.46 %epoch zero training... 22.89 %epoch zero training... 38.31 %epoch zero training... 53.73 %epoch zero training... 69.15 %epoch zero training... 84.58 %epoch zero training... 100.00 %(1/3)epoch training... 7.46 %(1/3)epoch training... 22.89 %(1/3)epoch training... 38.31 %(1/3)epoch training... 53.73 %(1/3)epoch training... 69.15 %(1/3)epoch training... 84.58 %(1/3)epoch training... 100.00 %(2/3)epoch training... 7.46 %(2/3)epoch training... 22.89 %(2/3)epoch training... 38.31 %(2/3)epoch training... 53.73 %(2/3)epoch training... 69.15 %(2/3)epoch training... 84.58 %(2/3)epoch training... 100.00 %(3/3)epoch training... 7.46 %(3/3)epoch training... 22.89 %(3/3)epoch training... 38.31 %(3/3)epoch training... 53.73 %(3/3)epoch training... 69.15 %(3/3)epoch training... 84.58 %(3/3)epoch training... 100.00 %
-[INFO]: hdss/main.cpp:79 (main):  	read id time = 13.45 s
-[INFO]: hdss/main.cpp:80 (main):  	zero-th epoch time = 38.19 s
-[INFO]: hdss/main.cpp:81 (main):  	train time = 127.74 s
-[INFO]: hdss/main.cpp:82 (main):  	compaction time = 3.34 s
-[INFO]: hdss/main.cpp:83 (main):  	total time = 183.65 s
+[INFO]: hdss/main.cpp:79 (main):  	read id time = 13.29 s
+[INFO]: hdss/main.cpp:80 (main):  	zero-th epoch time = 42.77 s
+[INFO]: hdss/main.cpp:81 (main):  	train time = 134.25 s
+[INFO]: hdss/main.cpp:82 (main):  	compaction time = 5.55 s
+[INFO]: hdss/main.cpp:83 (main):  	total time = 196.78 s
 [INFO]: hdss/main.cpp:84 (main):  	total hit rate = 100.00 %
