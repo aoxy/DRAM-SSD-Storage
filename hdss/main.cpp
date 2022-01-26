@@ -103,11 +103,11 @@ double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_
 
         while (remain_size > batch_size)
         {
-            dl.sample(batch_ids, batch_size);
             assert(dmap.true_size() == cache->size() && dmap.true_size() == cache->mpsize() && "dmap.true_size()==cache->size()");
-
+            dl.sample(batch_ids, batch_size);
             prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, batch_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
-            get_embs(ret, batch_size, num_worker);
+            update_embs(ret, batch_size); // 一种梯度更新的方式
+            // output(ret, 0, batch_size); // 加100次1.0
             remain_size -= batch_size;
             if (int(remain_size / batch_size) % 8000 == 0)
             {
@@ -116,7 +116,8 @@ double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_
         }
         dl.sample(batch_ids, remain_size);
         prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, remain_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
-        get_embs(ret, remain_size, num_worker);
+        update_embs(ret, remain_size); // 一种梯度更新的方式
+        // output(ret, 0, remain_size);// 加100次1.0
         remain_size -= remain_size;
     }
     return cr.hit_rate();
