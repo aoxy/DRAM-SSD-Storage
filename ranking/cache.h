@@ -72,6 +72,12 @@ public:
         tail->pre = head;
     }
 
+    ~LRUCache()
+    {
+        delete head;
+        delete tail;
+    }
+
     size_t size() const
     {
         return _size;
