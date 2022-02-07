@@ -59,8 +59,9 @@ def lru_hit_rate(visit_list, capacity_percent, visit_dup_size):
         if key in cache.keys():
             cache.pop(key)
             cache[key] = "v"
-        elif capacity >= len(cache):
-            break
+        elif capacity == len(cache):
+            cache.popitem(last=False)
+            cache[key] = "v"
         else:
             cache[key] = "v"
 
@@ -97,36 +98,13 @@ def lru_hit_rate(visit_list, capacity_percent, visit_dup_size):
 cap_perc = [1, 5, 10, 20, 30, 50, 70, 100]
 
 user_data = [
-    (cap_perc, [7.99985, 28.9187, 43.6927, 61.157, 72.4288, 86.2242, 93.6659, 100]),
-    (cap_perc, [7.99983, 28.9223, 43.6926, 61.1669, 72.4383, 86.2248, 93.6606, 100]),
-    (cap_perc, [7.99867, 28.9174, 43.6895, 61.1708, 72.4364, 86.2309, 93.6696, 100]),
-    (cap_perc, [8.00056, 28.9269, 43.6925, 61.1595, 72.4363, 86.2292, 93.6587, 100]),
-    (cap_perc, [7.99964, 28.9264, 43.6869, 61.1704, 72.4436, 86.2316, 93.6613, 100]),
-    (cap_perc, [7.99677, 28.9128, 43.6888, 61.1556, 72.4278, 86.2234, 93.6606, 100]),
+    (cap_perc, [7.993177638900818, 28.910928064093476, 43.6831050395774, 61.14668592216097, 72.43348613999396, 86.21781242919967, 93.66259329923709, 100.0]),
 ]
 
 
 ad_data = [
-    (cap_perc, [20.09, 48.9124, 65.2088, 81.0437, 88.6488, 95.2525, 97.6852, 100]),
-    (cap_perc, [20.0971, 48.9118, 65.2206, 81.0412, 88.6403, 95.2569, 97.6879, 100]),
-    (cap_perc, [20.1036, 48.9074, 65.2075, 81.0423, 88.6498, 95.2578, 97.687, 100]),
-    (cap_perc, [20.1025, 48.8989, 65.2182, 81.0491, 88.6483, 95.2511, 97.6853, 100]),
-    (cap_perc, [20.0995, 48.9255, 65.2224, 81.0434, 88.6495, 95.2574, 97.6852, 100]),
-    (cap_perc, [20.0979, 48.9093, 65.2215, 81.0467, 88.6445, 95.2498, 97.6853, 100]),
+    (cap_perc, [20.10309451090767, 48.92210286776157, 65.21746530164721, 81.05090221346435, 88.65144805356104, 95.25646942549542, 97.68756343907576, 100.0]),
 ]
-
-
-def plot_all():
-    import matplotlib.pyplot as plt
-
-    fig1 = plt.figure()
-    for i in range(len(user_data)):
-        ax = fig1.add_subplot(6, 2, 2 * i + 1)
-        ax.plot(user_data[i][0], user_data[i][1])
-    for i in range(len(ad_data)):
-        ax = fig1.add_subplot(6, 2, 2 * i + 2)
-        ax.plot(ad_data[i][0], ad_data[i][1])
-    plt.show()
 
 
 def plot_avg():
@@ -142,10 +120,6 @@ def plot_avg():
         (cap_perc, res1 / len(user_data)),
         (cap_perc, res2 / len(ad_data)),
     ]
-
-    # avg_data
-    # [7.99922, 28.92075, 43.6905, 61.16336667, 72.4352, 86.22735, 93.66278333, 100.0]
-    # [20.09843333, 48.91088333, 65.2165, 81.0444, 88.64686667, 95.25425, 97.68598333, 100.0]
 
     fig2 = plt.figure()
     ax1 = fig2.add_subplot(1, 2, 1)
@@ -169,7 +143,7 @@ def run(algo="lru"):
     adgroupid_visit_dup_size = None
     result_list_user = []
     result_list_ad = []
-    for i in range(5):
+    for i in range(1):
         print("\n\nepoch: ", i + 1)
         userid_visit_list, adgroupid_visit_list = gen_visit_list(i + 1)
         if not userid_visit_dup_size or not adgroupid_visit_dup_size:

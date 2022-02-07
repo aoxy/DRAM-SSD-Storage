@@ -99,7 +99,7 @@ def lfu_hit_rate_2(visit_list, capacity_percent, visit_dup_size):
     # 预先加载一些数据进内存
     for key in visit_list:
         if cache.size >= cache.capacity:
-            break
+            pass
         elif cache.get(key) > 0:
             pass
         else:
@@ -140,7 +140,10 @@ def lfu_hit_rate(visit_list, capacity_percent, visit_dup_size):
             node = cache.keyMap[key]
             node.val = value
         elif cache.size >= cache.capacity:
-            break
+            deleted = cache.delete(cache.freqMap[cache.minFreq][0].nex)
+            cache.keyMap.pop(deleted)
+            node = Node(key, value)
+            cache.keyMap[key] = node
         else:
             node = Node(key, value)
             cache.keyMap[key] = node

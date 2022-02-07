@@ -133,5 +133,6 @@ total time: 88.99227023124695 s
 
 ![](fig/Figure_7.png)
 
+#### LFU淘汰append写文件时，写入embedding的数量与id的数量的比值（只遍历一轮）的比较
 
-
+![](fig/Figure_8.png)
