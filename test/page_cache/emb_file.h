@@ -1,5 +1,7 @@
 #include <fstream>
 #include <sstream>
+#include <iomanip>
+#include <cassert>
 struct EmbFile
 {
     std::fstream fs;
