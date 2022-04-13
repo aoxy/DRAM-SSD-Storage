@@ -22,3 +22,5 @@ test_init/temp/*.npy
 a.out
 cache_test
 nohup.out
+test/page_cache/page_cache
+test/page_cache/pc_test0000.emb
