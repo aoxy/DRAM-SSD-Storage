@@ -30,6 +30,7 @@ public:
     }
 };
 
+template <class K>
 class BatchCache
 {
 protected:
@@ -37,58 +38,45 @@ protected:
 
 public:
     BatchCache(size_t cap = 16) : capacity(cap) {}
-    virtual size_t get_evic_ids(int64_t *evic_ids, size_t k_size) = 0;
-    virtual void add_to_rank(int64_t *batch_ids, size_t batch_size) = 0;
-    virtual size_t size() const = 0;
-    virtual size_t mpsize() const = 0;
+    virtual size_t get_evic_ids(K *evic_ids, size_t k_size) = 0;
+    virtual void add_to_rank(const K *batch_ids, size_t batch_size) = 0;
+    virtual size_t size() = 0;
     size_t max_emb_num() const
     {
         return capacity;
     }
 };
 
-class LRUCache : public BatchCache
+template <class K>
+class LRUCache : public BatchCache<K>
 {
 private:
     class LRUNode
     {
     public:
-        int64_t id;
+        K id;
         LRUNode *pre, *next;
-        LRUNode(int64_t id) : id(id), pre(nullptr), next(nullptr) {}
+        LRUNode(K id) : id(id), pre(nullptr), next(nullptr) {}
     };
     LRUNode *head, *tail;
-    std::map<int64_t, LRUNode *> mp;
-    size_t _size;
+    std::map<K, LRUNode *> mp;
 
 public:
-    LRUCache(size_t cap) : BatchCache(cap)
+    LRUCache(size_t cap) : BatchCache<K>(cap)
     {
         mp.clear();
-        _size = 0;
         head = new LRUNode(0);
         tail = new LRUNode(0);
         head->next = tail;
         tail->pre = head;
     }
 
-    ~LRUCache()
-    {
-        delete head;
-        delete tail;
-    }
-
-    size_t size() const
-    {
-        return _size;
-    }
-
-    size_t mpsize() const
+    size_t size()
     {
         return mp.size();
     }
 
-    size_t get_evic_ids(int64_t *evic_ids, size_t k_size)
+    size_t get_evic_ids(K *evic_ids, size_t k_size)
     {
         size_t true_size = 0;
         LRUNode *evic_node = tail->pre;
@@ -96,7 +84,6 @@ public:
         for (size_t i = 0; i < k_size && evic_node != head; ++i)
         {
             evic_ids[i] = evic_node->id;
-            _size--;
             rm_node = evic_node;
             evic_node = evic_node->pre;
             mp.erase(rm_node->id);
@@ -107,12 +94,13 @@ public:
         tail->pre = evic_node;
         return true_size;
     }
-    void add_to_rank(int64_t *batch_ids, size_t batch_size)
+
+    void add_to_rank(const K *batch_ids, size_t batch_size)
     {
         for (size_t i = 0; i < batch_size; ++i)
         {
-            int64_t id = batch_ids[i];
-            std::map<int64_t, LRUNode *>::iterator it = mp.find(id);
+            K id = batch_ids[i];
+            typename std::map<K, LRUNode *>::iterator it = mp.find(id);
             if (it != mp.end())
             {
                 LRUNode *node = it->second;
@@ -125,7 +113,6 @@ public:
             }
             else
             {
-                ++_size;
                 LRUNode *newNode = new LRUNode(id);
                 head->next->pre = newNode;
                 newNode->next = head->next;
@@ -137,48 +124,37 @@ public:
     }
 };
 
-class LFUCache : public BatchCache
+template <class K>
+class LFUCache : public BatchCache<K>
 {
 private:
     class LFUNode
     {
     public:
-        int64_t key;
+        K key;
         size_t freq;
-        LFUNode(int64_t key, size_t freq) : key(key), freq(freq) {}
+        LFUNode(K key, size_t freq) : key(key), freq(freq) {}
     };
     size_t min_freq;
     size_t max_freq;
-    size_t _size;
-    std::unordered_map<int64_t, std::list<LFUNode>::iterator> key_table;
-    std::unordered_map<int64_t, std::list<LFUNode>> freq_table;
+    std::unordered_map<K, typename std::list<LFUNode>::iterator> key_table;
+    std::unordered_map<K, typename std::list<LFUNode>> freq_table;
 
 public:
-    LFUCache(size_t cap) : BatchCache(cap)
+    LFUCache(size_t cap) : BatchCache<K>(cap)
     {
         min_freq = 0;
         max_freq = 0;
-        _size = 0;
         key_table.clear();
         freq_table.clear();
     }
 
-    size_t size() const
-    {
-        return _size;
-    }
-
-    size_t max_emb_num()
-    {
-        return capacity;
-    }
-
-    size_t mpsize() const
+    size_t size()
     {
         return key_table.size();
     }
 
-    size_t get_evic_ids(int64_t *evic_ids, size_t k_size)
+    size_t get_evic_ids(K *evic_ids, size_t k_size)
     {
         size_t true_size = 0;
         for (size_t i = 0; i < k_size; ++i)
@@ -186,7 +162,6 @@ public:
             auto rm_it = freq_table[min_freq].back();
             key_table.erase(rm_it.key);
             evic_ids[i] = rm_it.key;
-            --_size;
             ++true_size;
             freq_table[min_freq].pop_back();
             if (freq_table[min_freq].size() == 0)
@@ -210,22 +185,21 @@ public:
         return true_size;
     }
 
-    void add_to_rank(int64_t *batch_ids, size_t batch_size)
+    void add_to_rank(const K *batch_ids, size_t batch_size)
     {
         for (size_t i = 0; i < batch_size; ++i)
         {
-            int64_t id = batch_ids[i];
+            K id = batch_ids[i];
             auto it = key_table.find(id);
             if (it == key_table.end())
             {
-                ++_size;
                 freq_table[1].push_front(LFUNode(id, 1));
                 key_table[id] = freq_table[1].begin();
                 min_freq = 1;
             }
             else
             {
-                std::list<LFUNode>::iterator node = it->second;
+                typename std::list<LFUNode>::iterator node = it->second;
                 size_t freq = node->freq;
                 freq_table[freq].erase(node);
                 if (freq_table[freq].size() == 0)

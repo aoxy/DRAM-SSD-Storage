@@ -13,8 +13,8 @@
 #include "../movement/files.h"
 #include "../ranking/cache_manager.h"
 
-void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker);
-double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch);
+void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker);
+double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch);
 
 int main(int argc, char *argv[])
 {
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     shard_lock_map dmap;
     ssd_hash_map smap(conf.feature);
     FilePool fp(smap);
-    BatchCache *cache = conf.cache;
+    BatchCache<int64_t> *cache = conf.cache;
 
     int64_t *batch_ids = new int64_t[batch_size];
     if (batch_ids == nullptr)
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch)
+double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch)
 {
     CacheRecord cr;
     embedding_t *ret = new embedding_t[batch_size];
@@ -103,7 +103,6 @@ double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_
 
         while (remain_size > batch_size)
         {
-            assert(dmap.true_size() == cache->size() && dmap.true_size() == cache->mpsize() && "dmap.true_size()==cache->size()");
             dl.sample(batch_ids, batch_size);
             prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, batch_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
             update_embs(ret, batch_size); // 一种梯度更新的方式
@@ -123,7 +122,7 @@ double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_
     return cr.hit_rate();
 }
 
-void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker)
+void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker)
 {
     CacheRecord temp_cr;
     dl.init();
@@ -138,7 +137,6 @@ void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, si
 
     while (remain_size > batch_size)
     {
-        assert(dmap.true_size() == cache->size() && dmap.true_size() == cache->mpsize() && "dmap.true_size()==cache->size()");
         dl.sample(batch_ids, batch_size);
         prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, batch_size, num_worker, std::ref(temp_cr), cache, k_size, std::ref(fp));
         update_embs(ret, batch_size); // 一种梯度更新的方式

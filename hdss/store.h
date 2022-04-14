@@ -60,7 +60,7 @@ class Config
 public:
     std::string feature;
     size_t feature_id;
-    BatchCache *cache;
+    BatchCache<int64_t> *cache;
     size_t dsize;
 
     Config(int argc, char *argv[])
@@ -101,11 +101,11 @@ public:
         cache_policy = std::string(argv[3]);
         if (cache_policy == "lru")
         {
-            cache = new LRUCache(dsize * max_emb_num_perc / 100);
+            cache = new LRUCache<int64_t>(dsize * max_emb_num_perc / 100);
         }
         else if (cache_policy == "lfu")
         {
-            cache = new LFUCache(dsize * max_emb_num_perc / 100);
+            cache = new LFUCache<int64_t>(dsize * max_emb_num_perc / 100);
         }
         else
         {

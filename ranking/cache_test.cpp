@@ -13,11 +13,11 @@ int main(int argc, char *argv[])
     Config conf(argc, argv);
     auto begin = std::chrono::high_resolution_clock::now();
     DataLoader dl("dataset/taobao/shuffled_sample.csv", conf.feature_id);
-    BatchCache *cache = conf.cache;
+    BatchCache<int64_t> *cache = conf.cache;
     const size_t batch_size = 512;
     const size_t num_worker = 1;
     const size_t k_size = 8 * batch_size;
-    const size_t epoch = 3;
+    const size_t epoch = 1;
     int64_t *batch_ids = new int64_t[batch_size];
     std::set<int64_t> s;
 
