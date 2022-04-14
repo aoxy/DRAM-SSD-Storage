@@ -67,7 +67,7 @@ int main()
     file.fs.close();
     void *read_ptr = get_value_ptr(total_dims, 0.0);
     srand((unsigned)time(NULL));
-    for (int i = 0; i < 100000; i++) // 100w次随机访问
+    for (int i = 0; i < 1000000; i++) // 100w次随机访问
     {
         int key = ids[rand() % ids_num];
         int offset = offset_map[key];
@@ -76,12 +76,11 @@ int main()
         {
             LOGINFO << key << " -> R/W Error!";
         }
-        if (i % int(100000 / 100) == 0)
+        if (i % int(1000000 / 100) == 0)
         {
             LOGINFO << i << "\tRead read_proc_memory = " << read_proc_memory();
         }
     }
 
-    srand((unsigned)time(NULL));
-    LOGINFO << "read_proc_memory = " << read_proc_memory();
+    LOGINFO << "read_proc_memory = " << read_proc_memory() << std::endl;
 }

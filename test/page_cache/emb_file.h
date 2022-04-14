@@ -57,8 +57,7 @@ struct EmbFile
         else
         {
             // LOG(INFO) << "Read Open Close";
-            fs.open(filepath, std::ios::app | std::ios::in | std::ios::out |
-                                  std::ios::binary);
+            fs.open(filepath,  std::ios::in | std::ios::binary);
             fs.seekg(offset, std::ios::beg);
             fs.read(val, val_len);
             fs.close();
