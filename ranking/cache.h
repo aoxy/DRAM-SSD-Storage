@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <set>
 #include <list>
+#include "utils/logs.h"
 
 class CacheRecord
 {
@@ -214,4 +215,59 @@ public:
             }
         }
     }
+};
+
+template <class K>
+class FIFOCache : public BatchCache<K>
+{
+public:
+    using fifo_iterator = typename std::list<K>::const_iterator;
+
+    FIFOCache(size_t cap) : BatchCache<K>(cap)
+    {
+        fifo_queue.clear();
+        key_lookup.clear();
+    }
+
+    size_t size()
+    {
+        LOGINFO << "key_lookup.size() = " << key_lookup.size() << ", fifo_queue.size() = " << fifo_queue.size();
+        return key_lookup.size();
+    }
+
+    size_t get_evic_ids(K *evic_ids, size_t k_size)
+    {
+        size_t true_size = 0;
+        for (size_t i = 0; i < k_size; ++i)
+        {
+            auto rm_it = fifo_queue.back();
+            evic_ids[true_size++] = rm_it;
+            key_lookup.erase(rm_it);
+            fifo_queue.pop_back();
+        }
+        return true_size;
+    }
+    void add_to_rank(const K *batch_ids, size_t batch_size)
+    {
+        for (size_t i = 0; i < batch_size; ++i)
+        {
+            K id = batch_ids[i];
+            auto it = key_lookup.find(id);
+            if (it == key_lookup.end())
+            {
+                fifo_queue.emplace_front(id);
+                key_lookup[id] = fifo_queue.begin();
+            }
+            else
+            {
+                fifo_queue.erase(it->second);
+                fifo_queue.emplace_front(id);
+                key_lookup[id] = fifo_queue.begin();
+            }
+        }
+    }
+
+private:
+    std::list<K> fifo_queue;
+    std::unordered_map<K, fifo_iterator> key_lookup;
 };

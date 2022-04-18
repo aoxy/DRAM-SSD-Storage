@@ -107,6 +107,10 @@ public:
         {
             cache = new LFUCache<int64_t>(dsize * max_emb_num_perc / 100);
         }
+        else if (cache_policy == "fifo")
+        {
+            cache = new FIFOCache<int64_t>(dsize * max_emb_num_perc / 100);
+        }
         else
         {
             std::cout << "invalid: feature must be `lru` or `lfu`" << std::endl;
