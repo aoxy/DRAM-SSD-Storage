@@ -8,6 +8,7 @@
 #include "../justokmap/ssd_hash_map.h"
 #include "../movement/files.h"
 #include "../ranking/cache.h"
+#include "../ranking/arc.h"
 
 class DataLoader
 {
@@ -110,6 +111,10 @@ public:
         else if (cache_policy == "fifo")
         {
             cache = new FIFOCache<int64_t>(dsize * max_emb_num_perc / 100);
+        }
+        else if (cache_policy == "arc")
+        {
+            cache = new ARCCache<int64_t>(dsize * max_emb_num_perc / 100);
         }
         else
         {
