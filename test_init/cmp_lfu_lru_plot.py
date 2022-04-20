@@ -16,6 +16,13 @@ a_result_lru = [
     [20.10309451090767, 48.92210286776157, 65.21746530164721, 81.05090221346435, 88.65144805356104, 95.25646942549542, 97.68756343907576, 100.0],
 ]
 
+u_result_arc = [
+    [15.62, 43.01, 56.23, 70.88, 79.81, 90.34, 95.91, 100.0],
+]
+a_result_arc = [
+    [25.0, 60.38, 74.92, 87.03, 92.35, 97.1, 98.54, 100.0],
+]
+
 
 def plot_lru_lfu():
     import matplotlib.pyplot as plt
@@ -40,11 +47,22 @@ def plot_lru_lfu():
         (per_points, res3 / len(u_result_lru)),
         (per_points, res4 / len(a_result_lru)),
     ]
+    res5 = np.zeros_like(np.array(u_result_arc[0]))
+    res6 = np.zeros_like(np.array(a_result_arc[0]))
+    for i in u_result_arc:
+        res5 += np.array(i)
+    for i in a_result_arc:
+        res6 += np.array(i)
+    avg_data_arc = [
+        (per_points, res5 / len(u_result_arc)),
+        (per_points, res6 / len(a_result_arc)),
+    ]
 
     fig2 = plt.figure()
     ax1 = fig2.add_subplot(1, 2, 1)
     ax1.plot(avg_data_lru[0][0], avg_data_lru[0][1], color="red", label="LRU")
     ax1.plot(avg_data_lfu[0][0], avg_data_lfu[0][1], color="skyblue", label="LFU")
+    ax1.plot(avg_data_arc[0][0], avg_data_arc[0][1], color="green", label="ARC")
     ax1.set_title("user")
     ax1.set_xlabel("Cache Size(%)")
     ax1.set_ylabel("Hit Rate (%)")
@@ -54,6 +72,7 @@ def plot_lru_lfu():
     ax2 = fig2.add_subplot(1, 2, 2)
     ax2.plot(avg_data_lru[1][0], avg_data_lru[1][1], color="red", label="LRU")
     ax2.plot(avg_data_lfu[1][0], avg_data_lfu[1][1], color="skyblue", label="LFU")
+    ax2.plot(avg_data_arc[1][0], avg_data_arc[1][1], color="green", label="ARC")
     ax2.set_title("adgroup_id")
     ax2.set_xlabel("Cache Size(%)")
     ax2.set_ylabel("Hit Rate (%)")
@@ -124,6 +143,6 @@ def plot_avg_lru():
     plt.show()
 
 
-plot_avg_lfu()
-plot_avg_lru()
+# plot_avg_lfu()
+# plot_avg_lru()
 plot_lru_lfu()
