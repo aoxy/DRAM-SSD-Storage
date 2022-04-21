@@ -130,12 +130,13 @@ public:
         size_t true_size = 0;
         for (size_t i = 0; i < k_size; ++i)
         {
-            auto rm_it = freq_table[min_freq].back();
+            auto &freq_ls = freq_table[min_freq];
+            auto rm_it = freq_ls.back();
+            freq_ls.pop_back();
             key_table.erase(rm_it.key);
-            evic_ids[i] = rm_it.key;
-            ++true_size;
-            freq_table[min_freq].pop_back();
-            if (freq_table[min_freq].size() == 0)
+            evic_ids[true_size++] = rm_it.key;
+
+            if (freq_ls.size() == 0)
             {
                 freq_table.erase(min_freq);
                 ++min_freq;
@@ -143,13 +144,9 @@ public:
                 {
                     auto it = freq_table.find(min_freq);
                     if (it == freq_table.end() || it->second.size() == 0)
-                    {
                         ++min_freq;
-                    }
                     else
-                    {
                         break;
-                    }
                 }
             }
         }
@@ -172,16 +169,19 @@ public:
             {
                 typename std::list<LFUNode>::iterator node = it->second;
                 size_t freq = node->freq;
-                freq_table[freq].erase(node);
-                if (freq_table[freq].size() == 0)
+                auto &freq_ls = freq_table[freq];
+                if (freq_table[freq].size() <= 1)
                 {
                     freq_table.erase(freq);
                     if (min_freq == freq)
                         min_freq += 1;
                 }
-                max_freq = std::max(max_freq, freq + 1);
-                freq_table[freq + 1].emplace_front(LFUNode(id, freq + 1));
-                key_table[id] = freq_table[freq + 1].begin();
+                else
+                    freq_table[freq].erase(node);
+                max_freq = std::max(max_freq, ++freq);
+                auto &freq_add_ls = freq_table[freq];
+                freq_add_ls.emplace_front(LFUNode(id, freq));
+                key_table[id] = freq_add_ls.begin();
             }
         }
     }
