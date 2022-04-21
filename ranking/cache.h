@@ -1,8 +1,5 @@
 #pragma once
-#include <iostream>
-#include <map>
 #include <unordered_map>
-#include <set>
 #include <list>
 #include "utils/logs.h"
 
@@ -13,16 +10,14 @@ private:
     size_t hit_count;
 
 public:
-    CacheRecord()
-    {
-        access_count = 0;
-        hit_count = 0;
-    }
+    CacheRecord() : access_count(0), hit_count(0) {}
     void access() { ++access_count; }
     void hit() { ++hit_count; }
     double hit_rate()
     {
-        return double(hit_count * 100.0) / access_count;
+        if (access_count == 0)
+            return 0.0;
+        return hit_count * 100.0 / access_count;
     }
     void clear()
     {
@@ -90,7 +85,7 @@ public:
             {
                 ls.erase(it->second);
             }
-            ls.push_front(id);
+            ls.emplace_front(id);
             mp[id] = ls.begin();
         }
     }
@@ -169,7 +164,7 @@ public:
             auto it = key_table.find(id);
             if (it == key_table.end())
             {
-                freq_table[1].push_front(LFUNode(id, 1));
+                freq_table[1].emplace_front(LFUNode(id, 1));
                 key_table[id] = freq_table[1].begin();
                 min_freq = 1;
             }
@@ -185,7 +180,7 @@ public:
                         min_freq += 1;
                 }
                 max_freq = std::max(max_freq, freq + 1);
-                freq_table[freq + 1].push_front(LFUNode(id, freq + 1));
+                freq_table[freq + 1].emplace_front(LFUNode(id, freq + 1));
                 key_table[id] = freq_table[freq + 1].begin();
             }
         }
@@ -206,7 +201,6 @@ public:
 
     size_t size()
     {
-        LOGINFO << "key_lookup.size() = " << key_lookup.size() << ", fifo_queue.size() = " << fifo_queue.size();
         return key_lookup.size();
     }
 
@@ -215,10 +209,13 @@ public:
         size_t true_size = 0;
         for (size_t i = 0; i < k_size; ++i)
         {
-            auto rm_it = fifo_queue.back();
-            evic_ids[true_size++] = rm_it;
-            key_lookup.erase(rm_it);
-            fifo_queue.pop_back();
+            if (fifo_queue.size() > 0)
+            {
+                evic_ids[true_size] = fifo_queue.back();
+                fifo_queue.pop_back();
+                key_lookup.erase(evic_ids[true_size]);
+                true_size++;
+            }
         }
         return true_size;
     }
@@ -227,15 +224,8 @@ public:
         for (size_t i = 0; i < batch_size; ++i)
         {
             K id = batch_ids[i];
-            auto it = key_lookup.find(id);
-            if (it == key_lookup.end())
+            if (key_lookup.find(id) == key_lookup.end())
             {
-                fifo_queue.emplace_front(id);
-                key_lookup[id] = fifo_queue.begin();
-            }
-            else
-            {
-                fifo_queue.erase(it->second);
                 fifo_queue.emplace_front(id);
                 key_lookup[id] = fifo_queue.begin();
             }
