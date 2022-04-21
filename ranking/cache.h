@@ -51,25 +51,12 @@ public:
 template <class K>
 class LRUCache : public BatchCache<K>
 {
-private:
-    class LRUNode
-    {
-    public:
-        K id;
-        LRUNode *pre, *next;
-        LRUNode(K id) : id(id), pre(nullptr), next(nullptr) {}
-    };
-    LRUNode *head, *tail;
-    std::map<K, LRUNode *> mp;
-
 public:
+    using list_iterator = typename std::list<K>::const_iterator;
     LRUCache(size_t cap) : BatchCache<K>(cap)
     {
         mp.clear();
-        head = new LRUNode(0);
-        tail = new LRUNode(0);
-        head->next = tail;
-        tail->pre = head;
+        ls.clear();
     }
 
     size_t size()
@@ -80,19 +67,16 @@ public:
     size_t get_evic_ids(K *evic_ids, size_t k_size)
     {
         size_t true_size = 0;
-        LRUNode *evic_node = tail->pre;
-        LRUNode *rm_node = evic_node;
-        for (size_t i = 0; i < k_size && evic_node != head; ++i)
+        for (size_t i = 0; i < k_size; ++i)
         {
-            evic_ids[i] = evic_node->id;
-            rm_node = evic_node;
-            evic_node = evic_node->pre;
-            mp.erase(rm_node->id);
-            delete rm_node;
-            true_size++;
+            if (ls.size() > 0)
+            {
+                evic_ids[true_size] = ls.back();
+                ls.pop_back();
+                mp.erase(evic_ids[true_size]);
+                true_size++;
+            }
         }
-        evic_node->next = tail;
-        tail->pre = evic_node;
         return true_size;
     }
 
@@ -101,28 +85,19 @@ public:
         for (size_t i = 0; i < batch_size; ++i)
         {
             K id = batch_ids[i];
-            typename std::map<K, LRUNode *>::iterator it = mp.find(id);
+            typename std::unordered_map<K, list_iterator>::iterator it = mp.find(id);
             if (it != mp.end())
             {
-                LRUNode *node = it->second;
-                node->pre->next = node->next;
-                node->next->pre = node->pre;
-                head->next->pre = node;
-                node->next = head->next;
-                head->next = node;
-                node->pre = head;
+                ls.erase(it->second);
             }
-            else
-            {
-                LRUNode *newNode = new LRUNode(id);
-                head->next->pre = newNode;
-                newNode->next = head->next;
-                head->next = newNode;
-                newNode->pre = head;
-                mp[id] = newNode;
-            }
+            ls.push_front(id);
+            mp[id] = ls.begin();
         }
     }
+
+private:
+    std::unordered_map<K, list_iterator> mp;
+    std::list<K> ls;
 };
 
 template <class K>
