@@ -9,6 +9,7 @@
 #include "../movement/files.h"
 #include "../ranking/cache.h"
 #include "../ranking/arc.h"
+#include "../ranking/arf.h"
 
 class DataLoader
 {
@@ -115,6 +116,10 @@ public:
         else if (cache_policy == "arc")
         {
             cache = new ARCCache<int64_t>(dsize * max_emb_num_perc / 100);
+        }
+        else if (cache_policy == "arf")
+        {
+            cache = new ARFCache<int64_t>(dsize * max_emb_num_perc / 100);
         }
         else
         {

@@ -3,7 +3,7 @@ template <class K>
 class ARCCache : public BatchCache<K>
 {
 public:
-    using fifo_iterator = typename std::list<K>::const_iterator;
+    using list_iterator = typename std::list<K>::const_iterator;
     ARCCache(size_t cap) : BatchCache<K>(cap)
     {
         t1_l.clear();
@@ -52,7 +52,7 @@ public:
             arc_lookup(id);
         }
     }
-    int check(std::unordered_map<K, fifo_iterator> &m, K x)
+    int check(std::unordered_map<K, list_iterator> &m, K x)
     {
         if (m.find(x) != m.end())
         {
@@ -61,7 +61,7 @@ public:
         return 0;
     }
 
-    void queue_insert(std::unordered_map<K, fifo_iterator> &m, std::list<K> &l, K i)
+    void queue_insert(std::unordered_map<K, list_iterator> &m, std::list<K> &l, K i)
     {
         if (m.size() == BatchCache<K>::capacity)
         {
@@ -73,7 +73,7 @@ public:
         m[i] = l.begin();
     }
 
-    void queue_delete(std::unordered_map<K, fifo_iterator> &m, std::list<K> &l)
+    void queue_delete(std::unordered_map<K, list_iterator> &m, std::list<K> &l)
     {
         if (m.size() > 0)
         {
@@ -82,7 +82,7 @@ public:
             m.erase(rm_it);
         }
     }
-    void movefrom(std::unordered_map<K, fifo_iterator> &m1, std::list<K> &l1, std::unordered_map<K, fifo_iterator> &m2, std::list<K> &l2, int x)
+    void movefrom(std::unordered_map<K, list_iterator> &m1, std::list<K> &l1, std::unordered_map<K, list_iterator> &m2, std::list<K> &l2, int x)
     {
         auto rm_it = m1.find(x);
         if (rm_it != m1.end())
@@ -113,7 +113,7 @@ public:
         {
             if (t2_m.size() > 0)
             {
-                movefrom(t2_m, t2_l, b2_m, b2_l, t1_l.back());
+                movefrom(t2_m, t2_l, b2_m, b2_l, t2_l.back());
             }
         }
     }
@@ -178,6 +178,6 @@ public:
 
 private:
     std::list<K> t1_l, t2_l, b1_l, b2_l;
-    std::unordered_map<K, fifo_iterator> t1_m, t2_m, b1_m, b2_m;
+    std::unordered_map<K, list_iterator> t1_m, t2_m, b1_m, b2_m;
     float p;
 };

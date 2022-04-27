@@ -21,6 +21,9 @@ clean :
 run :
 	./main $(var) > "logs/compaction/temp/hdss($(var)).log"
 
+run_cache :
+	./cache_test $(var) > "logs/cache/temp/hdss($(var)).log"
+
 run5 :
 	./main $(var) > "logs/compaction/v5/hdss($(var)).log"
 
@@ -96,7 +99,7 @@ read_file_and_ssd_map.o : $(TEST_DIR)/read_file_and_ssd_map.cpp
 read_file_and_ssd_map: read_file_and_ssd_map.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-cache_test.o : $(RANK_DIR)/cache_test.cpp $(RANK_DIR)/cache.h
+cache_test.o : $(RANK_DIR)/cache_test.cpp $(RANK_DIR)/cache.h $(RANK_DIR)/*.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(RANK_DIR)/cache_test.cpp
 
 cache_test: cache_test.o

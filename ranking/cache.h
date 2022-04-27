@@ -109,7 +109,7 @@ private:
     size_t min_freq;
     size_t max_freq;
     std::unordered_map<K, typename std::list<LFUNode>::iterator> key_table;
-    std::unordered_map<K, typename std::list<LFUNode>> freq_table;
+    std::unordered_map<size_t, typename std::list<LFUNode>> freq_table;
 
 public:
     LFUCache(size_t cap) : BatchCache<K>(cap)
