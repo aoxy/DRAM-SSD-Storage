@@ -229,8 +229,12 @@ private:
                 }
             }
         }
-        void add(const K &x)
+        void add(const K &x, size_t c)
         {
+            if (size() == c)
+            {
+                evic();
+            }
             freq_table[1].emplace_front(LFUNode(x, 1));
             key_table[x] = freq_table[1].begin();
             min_freq = 1;
