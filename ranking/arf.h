@@ -24,7 +24,6 @@ public:
         size_t true_size = 0;
         for (size_t i = 0; i < k_size; ++i)
         {
-            K rm_it;
             if (t1.size() > 0)
             {
                 evic_ids[true_size++] = t1.evic();
@@ -51,7 +50,7 @@ public:
         if (t1.hit(id))
         {
             t1.remove(id);
-            t2.add(id);
+            t2.add(id, BatchCache<K>::capacity);
         }
         else if (t2.hit(id))
         {
@@ -62,14 +61,14 @@ public:
             p = (float)std::min((float)BatchCache<K>::capacity, (float)(p + std::max((b2.size() * 1.0) / b1.size(), 1.0)));
             replace(id, p);
             b1.remove(id);
-            t2.add(id);
+            t2.add(id, BatchCache<K>::capacity);
         }
         else if (b2.hit(id))
         {
             p = (float)std::max((float)0.0, (float)(p - std::max((b1.size() * 1.0) / b2.size(), 1.0)));
             replace(id, p);
             b2.remove(id);
-            t2.add(id);
+            t2.add(id, BatchCache<K>::capacity);
         }
         else
         {
@@ -95,20 +94,26 @@ public:
                 replace(id, p);
             }
 
-            t1.add(id);
+            t1.add(id, BatchCache<K>::capacity);
         }
     }
     void replace(const K &x, float p)
     {
         if ((t1.size() > 0) && ((t1.size() > p) || (b2.hit(x) && t1.size() == p)))
         {
-            K id = t1.evic();
-            b1.add(id);
+            if (t1.size() > 0)
+            {
+                K id = t1.evic();
+                b1.add(id, BatchCache<K>::capacity);
+            }
         }
         else
         {
-            K id = t2.evic();
-            b2.add(id);
+            if (t2.size() > 0)
+            {
+                K id = t2.evic();
+                b2.add(id, BatchCache<K>::capacity);
+            }
         }
     }
 
@@ -132,21 +137,35 @@ private:
             ls.erase(mp[x]);
             mp.erase(x);
         }
-        void add(const K &x)
+        void add(const K &x, size_t c)
         {
+            if (mp.size() == c)
+            {
+                auto rm_it = ls.back();
+                ls.pop_back();
+                mp.erase(rm_it);
+            }
+            ls.emplace_front(x);
+            mp[x] = ls.begin();
+        }
+        void readd(const K &x)
+        {
+            auto it = mp.find(x);
+            ls.erase(it->second);
+            mp.erase(x);
             ls.emplace_front(x);
             mp[x] = ls.begin();
         }
         K evic()
         {
+            K evic_id = 0;
             if (ls.size() > 0)
             {
-                K evic_id = ls.back();
+                evic_id = ls.back();
                 ls.pop_back();
                 mp.erase(evic_id);
-                return evic_id;
             }
-            return 0;
+            return evic_id;
         }
     };
     struct LFUPart
