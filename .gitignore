@@ -24,3 +24,4 @@ cache_test
 nohup.out
 test/page_cache/page_cache
 test/page_cache/pc_test0000.emb
+single_cache_test

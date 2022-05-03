@@ -8,6 +8,7 @@
 #include "../justokmap/ssd_hash_map.h"
 #include "../movement/files.h"
 #include "../ranking/cache.h"
+#include "../ranking/single_cache.h"
 #include "../ranking/arc.h"
 #include "../ranking/arf.h"
 
@@ -18,7 +19,7 @@ private:
     size_t offset;
 
 public:
-    DataLoader(std::string filepath, size_t feature_id = 0)
+    DataLoader(std::string filepath, size_t feature_id = 0, size_t count = 0)
     {
         std::ifstream fp(filepath);
         if (!fp)
@@ -39,6 +40,10 @@ public:
                 std::getline(readstr, number, ',');
             }
             ids.push_back(std::atoi(number.c_str()));
+            if (count > 0 && ids.size() >= count)
+            {
+                break;
+            }
         }
         offset = 0;
     }
@@ -51,6 +56,7 @@ public:
         }
     }
     size_t size() { return ids.size(); }
+    int64_t at(int i) { return ids[i]; }
 };
 
 void init_ssd_map(ssd_hash_map &smap);
@@ -124,6 +130,91 @@ public:
         else
         {
             std::cout << "invalid: feature must be `lru` or `lfu`" << std::endl;
+            exit(0);
+        }
+    }
+};
+
+class SingleConfig
+{
+public:
+    std::string feature;
+    size_t feature_id;
+    SingleCache<int64_t, bool> *cache;
+    size_t dsize;
+    bool verbose;
+
+    SingleConfig(int argc, char *argv[])
+    {
+        std::string cache_policy;
+        double max_emb_num_perc;
+        if (argc < 4)
+        {
+            std::cout << "missing parameters" << std::endl;
+            std::cout << "usage: ./main <ad/user> <1~100> <lru/lfu/fifo/arc/arf>" << std::endl;
+            exit(0);
+        }
+        if (argc > 4 && std::string(argv[4]) == "verbose")
+        {
+            verbose = true;
+        }
+        else
+        {
+            verbose = false;
+        }
+        std::cout << std::string(32, '=') << std::endl;
+        feature = std::string(argv[1]);
+        std::cout << "feature = " << feature << std::endl;
+        if (feature == "user")
+        {
+            dsize = 1141729;
+            feature_id = 0;
+        }
+        else if (feature == "ad")
+        {
+            dsize = 846811;
+            feature_id = 1;
+        }
+        else
+        {
+            std::cout << "invalid: feature must be `ad` or `user`" << std::endl;
+            exit(0);
+        }
+        max_emb_num_perc = std::stod(argv[2]);
+        std::cout << "cache size = " << max_emb_num_perc << std::endl;
+        if (max_emb_num_perc < 0)
+        {
+            std::cout << "invalid: cache size must be `1` to `100`" << std::endl;
+        }
+        else if (max_emb_num_perc > 100)
+        {
+            max_emb_num_perc = 100;
+        }
+        cache_policy = std::string(argv[3]);
+        std::cout << "cache policy = " << cache_policy << std::endl;
+        if (cache_policy == "lru")
+        {
+            cache = new SingleLRUCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
+        }
+        else if (cache_policy == "lfu")
+        {
+            cache = new SingleLFUCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
+        }
+        else if (cache_policy == "fifo")
+        {
+            cache = new SingleFIFOCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
+        }
+        else if (cache_policy == "arc")
+        {
+            cache = new SingleARCCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
+        }
+        else if (cache_policy == "arf")
+        {
+            cache = new SingleARFCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
+        }
+        else
+        {
+            std::cout << "invalid: cache policy must be `lru`, `lfu`, `fifo`, `arc`, `arf`" << std::endl;
             exit(0);
         }
     }
