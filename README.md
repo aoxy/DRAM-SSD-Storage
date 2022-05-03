@@ -1,5 +1,17 @@
 # DRAM-SSD 混合 embedding 存储 POC
 
+## Cache策略比较
+
+不同`Hit Rate`的区别可以看[single_cache_test.cpp](ranking/single_cache_test.cpp)。结果如下图：
+
+![](fig/Figure_10.png)
+
+![](fig/Figure_11.png)
+
+![](fig/Figure_12.png)
+
+![](fig/Figure_13.png)
+
 ## 结果记录
 
 ### logs说明
