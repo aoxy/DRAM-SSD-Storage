@@ -59,7 +59,7 @@ public:
         {
             ls.erase(it->second);
         }
-        else if (SingleCache<K, V>::size() >= SingleCache<K, V>::capacity())
+        else if (SingleCache<K, V>::size() >= SingleCache<K, V>::capacity() && ls.size() > 0)
         {
             K evic_id = ls.back();
             ls.pop_back();
@@ -124,7 +124,7 @@ public:
         }
         else
         {
-            if (SingleCache<K, V>::size() >= SingleCache<K, V>::capacity())
+            if (SingleCache<K, V>::size() >= SingleCache<K, V>::capacity() && key_table.size() > 0)
             {
                 auto &freq_ls = freq_table[min_freq];
                 auto rm_it = freq_ls.back();
@@ -170,7 +170,7 @@ public:
     {
         if (key_lookup.find(id) == key_lookup.end())
         {
-            if (SingleCache<K, V>::size() >= SingleCache<K, V>::capacity())
+            if (SingleCache<K, V>::size() >= SingleCache<K, V>::capacity() && key_lookup.size() > 0)
             {
                 K evic_id = fifo_queue.back();
                 fifo_queue.pop_back();
@@ -259,36 +259,39 @@ struct LFUPart
     }
     void remove(const K &x)
     {
-        auto it = key_table[x];
-        size_t freq = it->freq;
-        auto &freq_ls = freq_table[freq];
-        freq_ls.erase(it);
-        key_table.erase(x);
-        if (freq_ls.size() == 0)
+        if (hit(x))
         {
-            freq_table.erase(freq);
-            if (freq == min_freq)
+            auto it = key_table[x];
+            size_t freq = it->freq;
+            auto &freq_ls = freq_table[freq];
+            freq_ls.erase(it);
+            key_table.erase(x);
+            if (freq_ls.size() == 0)
             {
-                ++min_freq;
-                while (min_freq <= max_freq)
+                freq_table.erase(freq);
+                if (freq == min_freq)
                 {
-                    auto it = freq_table.find(min_freq);
-                    if (it == freq_table.end() || it->second.size() == 0)
-                        ++min_freq;
-                    else
-                        break;
+                    ++min_freq;
+                    while (min_freq <= max_freq)
+                    {
+                        auto it = freq_table.find(min_freq);
+                        if (it == freq_table.end() || it->second.size() == 0)
+                            ++min_freq;
+                        else
+                            break;
+                    }
                 }
-            }
-            else if (freq == max_freq)
-            {
-                --max_freq;
-                while (min_freq <= max_freq)
+                else if (freq == max_freq)
                 {
-                    auto it = freq_table.find(min_freq);
-                    if (it == freq_table.end() || it->second.size() == 0)
-                        --max_freq;
-                    else
-                        break;
+                    --max_freq;
+                    while (min_freq <= max_freq)
+                    {
+                        auto it = freq_table.find(min_freq);
+                        if (it == freq_table.end() || it->second.size() == 0)
+                            --max_freq;
+                        else
+                            break;
+                    }
                 }
             }
         }

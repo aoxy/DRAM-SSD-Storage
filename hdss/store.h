@@ -182,9 +182,10 @@ public:
         }
         max_emb_num_perc = std::stod(argv[2]);
         std::cout << "cache size = " << max_emb_num_perc << std::endl;
-        if (max_emb_num_perc < 0)
+        if (max_emb_num_perc <= 0)
         {
-            std::cout << "invalid: cache size must be `1` to `100`" << std::endl;
+            std::cout << "invalid: cache size must be (0, 100]" << std::endl;
+            max_emb_num_perc = 1;
         }
         else if (max_emb_num_perc > 100)
         {
