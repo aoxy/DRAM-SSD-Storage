@@ -1,0 +1,5880 @@
+================================
+feature = cate_id
+cache size = 0.1
+cache policy = lru
+[1]total hit rate = 3.9337 %
+[2]total hit rate = 0.565652 %
+[3]total hit rate = 3.76353 %
+cost time = 0.382951 s
+================================
+feature = cate_id
+cache size = 0.1
+cache policy = lfu
+[1]total hit rate = 10.5594 %
+[2]total hit rate = 10.1797 %
+[3]total hit rate = 10.5609 %
+cost time = 92.135 s
+================================
+feature = cate_id
+cache size = 0.1
+cache policy = fifo
+[1]total hit rate = 3.76353 %
+[2]total hit rate = 0.565652 %
+[3]total hit rate = 3.76353 %
+cost time = 0.380624 s
+================================
+feature = cate_id
+cache size = 0.1
+cache policy = arc
+[1]total hit rate = 10.1661 %
+[2]total hit rate = 9.25413 %
+[3]total hit rate = 9.62836 %
+cost time = 0.602212 s
+================================
+feature = cate_id
+cache size = 0.1
+cache policy = arf
+[1]total hit rate = 11.2974 %
+[2]total hit rate = 9.45748 %
+[3]total hit rate = 9.63296 %
+cost time = 0.625508 s
+================================
+feature = cate_id
+cache size = 0.3
+cache policy = lru
+[1]total hit rate = 11.4573 %
+[2]total hit rate = 5.98209 %
+[3]total hit rate = 10.3186 %
+cost time = 0.434203 s
+================================
+feature = cate_id
+cache size = 0.3
+cache policy = lfu
+[1]total hit rate = 25.2424 %
+[2]total hit rate = 25.0781 %
+[3]total hit rate = 25.2492 %
+cost time = 17.0863 s
+================================
+feature = cate_id
+cache size = 0.3
+cache policy = fifo
+[1]total hit rate = 10.3185 %
+[2]total hit rate = 3.55805 %
+[3]total hit rate = 10.3187 %
+cost time = 0.425444 s
+================================
+feature = cate_id
+cache size = 0.3
+cache policy = arc
+[1]total hit rate = 23.5827 %
+[2]total hit rate = 24.2241 %
+[3]total hit rate = 21.5057 %
+cost time = 0.645554 s
+================================
+feature = cate_id
+cache size = 0.3
+cache policy = arf
+[1]total hit rate = 26.2022 %
+[2]total hit rate = 26.4085 %
+[3]total hit rate = 24.1505 %
+cost time = 0.66271 s
+================================
+feature = cate_id
+cache size = 0.6
+cache policy = lru
+[1]total hit rate = 19.4483 %
+[2]total hit rate = 17.6183 %
+[3]total hit rate = 16.9339 %
+cost time = 0.407247 s
+================================
+feature = cate_id
+cache size = 0.6
+cache policy = lfu
+[1]total hit rate = 35.4184 %
+[2]total hit rate = 35.3455 %
+[3]total hit rate = 35.4307 %
+cost time = 11.4217 s
+================================
+feature = cate_id
+cache size = 0.6
+cache policy = fifo
+[1]total hit rate = 16.9332 %
+[2]total hit rate = 12.6678 %
+[3]total hit rate = 16.9336 %
+cost time = 0.401737 s
+================================
+feature = cate_id
+cache size = 0.6
+cache policy = arc
+[1]total hit rate = 33.5444 %
+[2]total hit rate = 31.7995 %
+[3]total hit rate = 30.2431 %
+cost time = 0.585748 s
+================================
+feature = cate_id
+cache size = 0.6
+cache policy = arf
+[1]total hit rate = 36.3257 %
+[2]total hit rate = 34.1337 %
+[3]total hit rate = 34.8027 %
+cost time = 0.598468 s
+================================
+feature = cate_id
+cache size = 1
+cache policy = lru
+[1]total hit rate = 27.2195 %
+[2]total hit rate = 26.1923 %
+[3]total hit rate = 23.3609 %
+cost time = 0.369366 s
+================================
+feature = cate_id
+cache size = 1
+cache policy = lfu
+[1]total hit rate = 41.5749 %
+[2]total hit rate = 41.5383 %
+[3]total hit rate = 41.592 %
+cost time = 1.99154 s
+================================
+feature = cate_id
+cache size = 1
+cache policy = fifo
+[1]total hit rate = 23.3602 %
+[2]total hit rate = 19.8813 %
+[3]total hit rate = 23.3609 %
+cost time = 0.360869 s
+================================
+feature = cate_id
+cache size = 1
+cache policy = arc
+[1]total hit rate = 40.4824 %
+[2]total hit rate = 39.8901 %
+[3]total hit rate = 36.7687 %
+cost time = 0.540477 s
+================================
+feature = cate_id
+cache size = 1
+cache policy = arf
+[1]total hit rate = 43.2226 %
+[2]total hit rate = 43.7408 %
+[3]total hit rate = 42.0435 %
+cost time = 0.544631 s
+================================
+feature = cate_id
+cache size = 2
+cache policy = lru
+[1]total hit rate = 39.1524 %
+[2]total hit rate = 37.6087 %
+[3]total hit rate = 33.6759 %
+cost time = 0.341554 s
+================================
+feature = cate_id
+cache size = 2
+cache policy = lfu
+[1]total hit rate = 50.2078 %
+[2]total hit rate = 50.21 %
+[3]total hit rate = 50.2431 %
+cost time = 1.64406 s
+================================
+feature = cate_id
+cache size = 2
+cache policy = fifo
+[1]total hit rate = 33.673 %
+[2]total hit rate = 32.4284 %
+[3]total hit rate = 33.6742 %
+cost time = 0.332376 s
+================================
+feature = cate_id
+cache size = 2
+cache policy = arc
+[1]total hit rate = 49.6113 %
+[2]total hit rate = 48.9295 %
+[3]total hit rate = 45.7277 %
+cost time = 0.497401 s
+================================
+feature = cate_id
+cache size = 2
+cache policy = arf
+[1]total hit rate = 52.7777 %
+[2]total hit rate = 53.0274 %
+[3]total hit rate = 52.0037 %
+cost time = 0.513646 s
+================================
+feature = cate_id
+cache size = 3
+cache policy = lru
+[1]total hit rate = 46.2802 %
+[2]total hit rate = 43.8229 %
+[3]total hit rate = 40.3978 %
+cost time = 0.304729 s
+================================
+feature = cate_id
+cache size = 3
+cache policy = lfu
+[1]total hit rate = 56.278 %
+[2]total hit rate = 56.3182 %
+[3]total hit rate = 56.3384 %
+cost time = 0.625505 s
+================================
+feature = cate_id
+cache size = 3
+cache policy = fifo
+[1]total hit rate = 40.3932 %
+[2]total hit rate = 39.3505 %
+[3]total hit rate = 40.3954 %
+cost time = 0.294016 s
+================================
+feature = cate_id
+cache size = 3
+cache policy = arc
+[1]total hit rate = 55.2429 %
+[2]total hit rate = 54.3909 %
+[3]total hit rate = 51.0842 %
+cost time = 0.450106 s
+================================
+feature = cate_id
+cache size = 3
+cache policy = arf
+[1]total hit rate = 58.7396 %
+[2]total hit rate = 58.8967 %
+[3]total hit rate = 58.4156 %
+cost time = 0.474844 s
+================================
+feature = cate_id
+cache size = 4
+cache policy = lru
+[1]total hit rate = 51.221 %
+[2]total hit rate = 51.3546 %
+[3]total hit rate = 45.3838 %
+cost time = 0.311217 s
+================================
+feature = cate_id
+cache size = 4
+cache policy = lfu
+[1]total hit rate = 60.2646 %
+[2]total hit rate = 60.3272 %
+[3]total hit rate = 60.3418 %
+cost time = 0.601072 s
+================================
+feature = cate_id
+cache size = 4
+cache policy = fifo
+[1]total hit rate = 45.378 %
+[2]total hit rate = 46.2178 %
+[3]total hit rate = 45.3821 %
+cost time = 0.293316 s
+================================
+feature = cate_id
+cache size = 4
+cache policy = arc
+[1]total hit rate = 59.2987 %
+[2]total hit rate = 59.1996 %
+[3]total hit rate = 54.9844 %
+cost time = 0.453323 s
+================================
+feature = cate_id
+cache size = 4
+cache policy = arf
+[1]total hit rate = 62.924 %
+[2]total hit rate = 63.0958 %
+[3]total hit rate = 62.5521 %
+cost time = 0.467065 s
+================================
+feature = cate_id
+cache size = 5
+cache policy = lru
+[1]total hit rate = 55.1911 %
+[2]total hit rate = 55.2573 %
+[3]total hit rate = 49.3803 %
+cost time = 0.313257 s
+================================
+feature = cate_id
+cache size = 5
+cache policy = lfu
+[1]total hit rate = 63.5925 %
+[2]total hit rate = 63.6649 %
+[3]total hit rate = 63.6773 %
+cost time = 0.611601 s
+================================
+feature = cate_id
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 49.3709 %
+[2]total hit rate = 48.0747 %
+[3]total hit rate = 49.3768 %
+cost time = 0.300108 s
+================================
+feature = cate_id
+cache size = 5
+cache policy = arc
+[1]total hit rate = 62.5473 %
+[2]total hit rate = 62.5033 %
+[3]total hit rate = 58.1399 %
+cost time = 0.457756 s
+================================
+feature = cate_id
+cache size = 5
+cache policy = arf
+[1]total hit rate = 66.2145 %
+[2]total hit rate = 66.3097 %
+[3]total hit rate = 65.7588 %
+cost time = 0.471866 s
+================================
+feature = cate_id
+cache size = 7
+cache policy = lru
+[1]total hit rate = 61.2394 %
+[2]total hit rate = 61.0849 %
+[3]total hit rate = 55.5848 %
+cost time = 0.274813 s
+================================
+feature = cate_id
+cache size = 7
+cache policy = lfu
+[1]total hit rate = 69.026 %
+[2]total hit rate = 69.1379 %
+[3]total hit rate = 69.1432 %
+cost time = 0.516598 s
+================================
+feature = cate_id
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 55.5727 %
+[2]total hit rate = 53.8535 %
+[3]total hit rate = 55.5821 %
+cost time = 0.259936 s
+================================
+feature = cate_id
+cache size = 7
+cache policy = arc
+[1]total hit rate = 67.4323 %
+[2]total hit rate = 67.706 %
+[3]total hit rate = 62.8511 %
+cost time = 0.409917 s
+================================
+feature = cate_id
+cache size = 7
+cache policy = arf
+[1]total hit rate = 71.0528 %
+[2]total hit rate = 71.3607 %
+[3]total hit rate = 70.9479 %
+cost time = 0.438853 s
+================================
+feature = cate_id
+cache size = 10
+cache policy = lru
+[1]total hit rate = 67.8956 %
+[2]total hit rate = 68.9704 %
+[3]total hit rate = 62.4411 %
+cost time = 0.278361 s
+================================
+feature = cate_id
+cache size = 10
+cache policy = lfu
+[1]total hit rate = 74.2423 %
+[2]total hit rate = 74.389 %
+[3]total hit rate = 74.3891 %
+cost time = 0.421264 s
+================================
+feature = cate_id
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 62.4158 %
+[2]total hit rate = 64.3615 %
+[3]total hit rate = 62.436 %
+cost time = 0.256311 s
+================================
+feature = cate_id
+cache size = 10
+cache policy = arc
+[1]total hit rate = 72.7463 %
+[2]total hit rate = 73.2849 %
+[3]total hit rate = 68.0665 %
+cost time = 0.41127 s
+================================
+feature = cate_id
+cache size = 10
+cache policy = arf
+[1]total hit rate = 76.3534 %
+[2]total hit rate = 76.7655 %
+[3]total hit rate = 76.3375 %
+cost time = 0.437983 s
+================================
+feature = cate_id
+cache size = 15
+cache policy = lru
+[1]total hit rate = 75.6023 %
+[2]total hit rate = 76.1881 %
+[3]total hit rate = 70.4631 %
+cost time = 0.228227 s
+================================
+feature = cate_id
+cache size = 15
+cache policy = lfu
+[1]total hit rate = 80.6581 %
+[2]total hit rate = 80.8647 %
+[3]total hit rate = 80.8611 %
+cost time = 0.332954 s
+================================
+feature = cate_id
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 70.4248 %
+[2]total hit rate = 69.779 %
+[3]total hit rate = 70.4511 %
+cost time = 0.202906 s
+================================
+feature = cate_id
+cache size = 15
+cache policy = arc
+[1]total hit rate = 78.9085 %
+[2]total hit rate = 79.4161 %
+[3]total hit rate = 74.0961 %
+cost time = 0.346823 s
+================================
+feature = cate_id
+cache size = 15
+cache policy = arf
+[1]total hit rate = 82.1025 %
+[2]total hit rate = 82.5984 %
+[3]total hit rate = 82.3204 %
+cost time = 0.378837 s
+================================
+feature = cate_id
+cache size = 20
+cache policy = lru
+[1]total hit rate = 81.0103 %
+[2]total hit rate = 81.3018 %
+[3]total hit rate = 76.1837 %
+cost time = 0.225505 s
+================================
+feature = cate_id
+cache size = 20
+cache policy = lfu
+[1]total hit rate = 85.1071 %
+[2]total hit rate = 85.3761 %
+[3]total hit rate = 85.3678 %
+cost time = 0.325154 s
+================================
+feature = cate_id
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 76.1243 %
+[2]total hit rate = 76.1536 %
+[3]total hit rate = 76.1686 %
+cost time = 0.194105 s
+================================
+feature = cate_id
+cache size = 20
+cache policy = arc
+[1]total hit rate = 83.2761 %
+[2]total hit rate = 83.4833 %
+[3]total hit rate = 78.4236 %
+cost time = 0.342394 s
+================================
+feature = cate_id
+cache size = 20
+cache policy = arf
+[1]total hit rate = 86.3364 %
+[2]total hit rate = 86.8691 %
+[3]total hit rate = 86.711 %
+cost time = 0.378794 s
+================================
+feature = cate_id
+cache size = 30
+cache policy = lru
+[1]total hit rate = 88.2401 %
+[2]total hit rate = 88.5683 %
+[3]total hit rate = 84.1316 %
+cost time = 0.160979 s
+================================
+feature = cate_id
+cache size = 30
+cache policy = lfu
+[1]total hit rate = 91.0055 %
+[2]total hit rate = 91.3559 %
+[3]total hit rate = 91.3585 %
+cost time = 0.253624 s
+================================
+feature = cate_id
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 84.0198 %
+[2]total hit rate = 85.3229 %
+[3]total hit rate = 84.1052 %
+cost time = 0.133632 s
+================================
+feature = cate_id
+cache size = 30
+cache policy = arc
+[1]total hit rate = 89.404 %
+[2]total hit rate = 89.7353 %
+[3]total hit rate = 84.98 %
+cost time = 0.25464 s
+================================
+feature = cate_id
+cache size = 30
+cache policy = arf
+[1]total hit rate = 91.619 %
+[2]total hit rate = 92.1155 %
+[3]total hit rate = 92.0418 %
+cost time = 0.28841 s
+================================
+feature = cate_id
+cache size = 40
+cache policy = lru
+[1]total hit rate = 92.7318 %
+[2]total hit rate = 93.2759 %
+[3]total hit rate = 89.4191 %
+cost time = 0.155734 s
+================================
+feature = cate_id
+cache size = 40
+cache policy = lfu
+[1]total hit rate = 94.463 %
+[2]total hit rate = 94.8952 %
+[3]total hit rate = 94.8952 %
+cost time = 0.251099 s
+================================
+feature = cate_id
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 89.2446 %
+[2]total hit rate = 89.5226 %
+[3]total hit rate = 89.3869 %
+cost time = 0.123545 s
+================================
+feature = cate_id
+cache size = 40
+cache policy = arc
+[1]total hit rate = 93.4122 %
+[2]total hit rate = 94.0309 %
+[3]total hit rate = 90.3918 %
+cost time = 0.244357 s
+================================
+feature = cate_id
+cache size = 40
+cache policy = arf
+[1]total hit rate = 94.7926 %
+[2]total hit rate = 95.2651 %
+[3]total hit rate = 95.2771 %
+cost time = 0.295265 s
+================================
+feature = cate_id
+cache size = 50
+cache policy = lru
+[1]total hit rate = 95.572 %
+[2]total hit rate = 96.0521 %
+[3]total hit rate = 93.0295 %
+cost time = 0.158179 s
+================================
+feature = cate_id
+cache size = 50
+cache policy = lfu
+[1]total hit rate = 96.629 %
+[2]total hit rate = 97.1426 %
+[3]total hit rate = 97.1417 %
+cost time = 0.256752 s
+================================
+feature = cate_id
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 92.765 %
+[2]total hit rate = 92.4677 %
+[3]total hit rate = 92.9481 %
+cost time = 0.118911 s
+================================
+feature = cate_id
+cache size = 50
+cache policy = arc
+[1]total hit rate = 95.8252 %
+[2]total hit rate = 96.1148 %
+[3]total hit rate = 93.0303 %
+cost time = 0.237468 s
+================================
+feature = cate_id
+cache size = 50
+cache policy = arf
+[1]total hit rate = 96.8311 %
+[2]total hit rate = 97.3678 %
+[3]total hit rate = 97.3671 %
+cost time = 0.291367 s
+================================
+feature = cate_id
+cache size = 60
+cache policy = lru
+[1]total hit rate = 97.3192 %
+[2]total hit rate = 97.8273 %
+[3]total hit rate = 95.6024 %
+cost time = 0.115177 s
+================================
+feature = cate_id
+cache size = 60
+cache policy = lfu
+[1]total hit rate = 97.922 %
+[2]total hit rate = 98.5082 %
+[3]total hit rate = 98.5072 %
+cost time = 0.214085 s
+================================
+feature = cate_id
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 95.236 %
+[2]total hit rate = 96.1509 %
+[3]total hit rate = 95.5022 %
+cost time = 0.0835583 s
+================================
+feature = cate_id
+cache size = 60
+cache policy = arc
+[1]total hit rate = 97.5245 %
+[2]total hit rate = 97.9189 %
+[3]total hit rate = 95.6026 %
+cost time = 0.185394 s
+================================
+feature = cate_id
+cache size = 60
+cache policy = arf
+[1]total hit rate = 97.9942 %
+[2]total hit rate = 98.6011 %
+[3]total hit rate = 98.6002 %
+cost time = 0.240615 s
+================================
+feature = cate_id
+cache size = 70
+cache policy = lru
+[1]total hit rate = 98.3531 %
+[2]total hit rate = 98.9522 %
+[3]total hit rate = 97.4306 %
+cost time = 0.112387 s
+================================
+feature = cate_id
+cache size = 70
+cache policy = lfu
+[1]total hit rate = 98.6376 %
+[2]total hit rate = 99.3009 %
+[3]total hit rate = 99.2984 %
+cost time = 0.212857 s
+================================
+feature = cate_id
+cache size = 70
+cache policy = fifo
+[1]total hit rate = 96.9174 %
+[2]total hit rate = 97.39 %
+[3]total hit rate = 97.2819 %
+cost time = 0.0792895 s
+================================
+feature = cate_id
+cache size = 70
+cache policy = arc
+[1]total hit rate = 98.4988 %
+[2]total hit rate = 99.037 %
+[3]total hit rate = 97.4445 %
+cost time = 0.180446 s
+================================
+feature = cate_id
+cache size = 70
+cache policy = arf
+[1]total hit rate = 98.6622 %
+[2]total hit rate = 99.3413 %
+[3]total hit rate = 99.338 %
+cost time = 0.237979 s
+================================
+feature = cate_id
+cache size = 80
+cache policy = lru
+[1]total hit rate = 98.9087 %
+[2]total hit rate = 99.5676 %
+[3]total hit rate = 98.5717 %
+cost time = 0.11163 s
+================================
+feature = cate_id
+cache size = 80
+cache policy = lfu
+[1]total hit rate = 98.9993 %
+[2]total hit rate = 99.7146 %
+[3]total hit rate = 99.6919 %
+cost time = 0.21451 s
+================================
+feature = cate_id
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 98.0817 %
+[2]total hit rate = 99.2114 %
+[3]total hit rate = 98.3769 %
+cost time = 0.0790177 s
+================================
+feature = cate_id
+cache size = 80
+cache policy = arc
+[1]total hit rate = 98.9808 %
+[2]total hit rate = 99.6386 %
+[3]total hit rate = 98.578 %
+cost time = 0.181119 s
+================================
+feature = cate_id
+cache size = 80
+cache policy = arf
+[1]total hit rate = 99.0066 %
+[2]total hit rate = 99.7348 %
+[3]total hit rate = 99.7051 %
+cost time = 0.240462 s
+================================
+feature = cate_id
+cache size = 90
+cache policy = lru
+[1]total hit rate = 99.1451 %
+[2]total hit rate = 99.8627 %
+[3]total hit rate = 99.2006 %
+cost time = 0.113107 s
+================================
+feature = cate_id
+cache size = 90
+cache policy = lfu
+[1]total hit rate = 99.1601 %
+[2]total hit rate = 99.911 %
+[3]total hit rate = 99.8666 %
+cost time = 0.219471 s
+================================
+feature = cate_id
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 98.6845 %
+[2]total hit rate = 99.5232 %
+[3]total hit rate = 99.1702 %
+cost time = 0.0784945 s
+================================
+feature = cate_id
+cache size = 90
+cache policy = arc
+[1]total hit rate = 99.1597 %
+[2]total hit rate = 99.9156 %
+[3]total hit rate = 99.2006 %
+cost time = 0.183576 s
+================================
+feature = cate_id
+cache size = 90
+cache policy = arf
+[1]total hit rate = 99.1597 %
+[2]total hit rate = 99.9166 %
+[3]total hit rate = 99.8589 %
+cost time = 0.249245 s
+================================
+feature = cate_id
+cache size = 95
+cache policy = lru
+[1]total hit rate = 99.1881 %
+[2]total hit rate = 99.9497 %
+[3]total hit rate = 99.2006 %
+cost time = 0.115093 s
+================================
+feature = cate_id
+cache size = 95
+cache policy = lfu
+[1]total hit rate = 99.1905 %
+[2]total hit rate = 99.96 %
+[3]total hit rate = 99.9062 %
+cost time = 0.220237 s
+================================
+feature = cate_id
+cache size = 95
+cache policy = fifo
+[1]total hit rate = 98.8835 %
+[2]total hit rate = 99.2079 %
+[3]total hit rate = 99.1536 %
+cost time = 0.0768858 s
+================================
+feature = cate_id
+cache size = 95
+cache policy = arc
+[1]total hit rate = 99.1905 %
+[2]total hit rate = 99.96 %
+[3]total hit rate = 99.9281 %
+cost time = 0.186186 s
+================================
+feature = cate_id
+cache size = 95
+cache policy = arf
+[1]total hit rate = 99.1905 %
+[2]total hit rate = 99.96 %
+[3]total hit rate = 99.8706 %
+cost time = 0.256012 s
+================================
+feature = cate_id
+cache size = 100
+cache policy = lru
+[1]total hit rate = 99.2006 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.11396 s
+================================
+feature = cate_id
+cache size = 100
+cache policy = lfu
+[1]total hit rate = 99.2006 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.222433 s
+================================
+feature = cate_id
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 99.2006 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.0820076 s
+================================
+feature = cate_id
+cache size = 100
+cache policy = arc
+[1]total hit rate = 99.2006 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.186999 s
+================================
+feature = cate_id
+cache size = 100
+cache policy = arf
+[1]total hit rate = 99.2006 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.256142 s
+================================
+feature = campaign_id
+cache size = 0.1
+cache policy = lru
+[1]total hit rate = 0.776797 %
+[2]total hit rate = 0.6789 %
+[3]total hit rate = 0.751998 %
+cost time = 0.414738 s
+================================
+feature = campaign_id
+cache size = 0.1
+cache policy = lfu
+[1]total hit rate = 4.06868 %
+[2]total hit rate = 4.4429 %
+[3]total hit rate = 4.44267 %
+cost time = 0.511255 s
+================================
+feature = campaign_id
+cache size = 0.1
+cache policy = fifo
+[1]total hit rate = 0.751998 %
+[2]total hit rate = 0.6789 %
+[3]total hit rate = 0.751998 %
+cost time = 0.406841 s
+================================
+feature = campaign_id
+cache size = 0.1
+cache policy = arc
+[1]total hit rate = 5.01174 %
+[2]total hit rate = 5.35491 %
+[3]total hit rate = 4.09914 %
+cost time = 0.661302 s
+================================
+feature = campaign_id
+cache size = 0.1
+cache policy = arf
+[1]total hit rate = 5.07776 %
+[2]total hit rate = 5.57468 %
+[3]total hit rate = 5.48505 %
+cost time = 0.662963 s
+================================
+feature = campaign_id
+cache size = 0.3
+cache policy = lru
+[1]total hit rate = 2.16459 %
+[2]total hit rate = 2.16624 %
+[3]total hit rate = 2.01096 %
+cost time = 0.455443 s
+================================
+feature = campaign_id
+cache size = 0.3
+cache policy = lfu
+[1]total hit rate = 7.55718 %
+[2]total hit rate = 8.33799 %
+[3]total hit rate = 8.33775 %
+cost time = 0.520752 s
+================================
+feature = campaign_id
+cache size = 0.3
+cache policy = fifo
+[1]total hit rate = 2.00978 %
+[2]total hit rate = 1.93455 %
+[3]total hit rate = 2.01072 %
+cost time = 0.452794 s
+================================
+feature = campaign_id
+cache size = 0.3
+cache policy = arc
+[1]total hit rate = 8.59601 %
+[2]total hit rate = 9.41521 %
+[3]total hit rate = 7.46577 %
+cost time = 0.741238 s
+================================
+feature = campaign_id
+cache size = 0.3
+cache policy = arf
+[1]total hit rate = 8.75792 %
+[2]total hit rate = 9.69449 %
+[3]total hit rate = 9.63474 %
+cost time = 0.736287 s
+================================
+feature = campaign_id
+cache size = 0.6
+cache policy = lru
+[1]total hit rate = 3.9657 %
+[2]total hit rate = 4.20696 %
+[3]total hit rate = 3.57789 %
+cost time = 0.455911 s
+================================
+feature = campaign_id
+cache size = 0.6
+cache policy = lfu
+[1]total hit rate = 10.5101 %
+[2]total hit rate = 11.8343 %
+[3]total hit rate = 11.8083 %
+cost time = 0.476781 s
+================================
+feature = campaign_id
+cache size = 0.6
+cache policy = fifo
+[1]total hit rate = 3.57447 %
+[2]total hit rate = 3.79057 %
+[3]total hit rate = 3.57801 %
+cost time = 0.450133 s
+================================
+feature = campaign_id
+cache size = 0.6
+cache policy = arc
+[1]total hit rate = 11.7271 %
+[2]total hit rate = 12.937 %
+[3]total hit rate = 10.5206 %
+cost time = 0.764673 s
+================================
+feature = campaign_id
+cache size = 0.6
+cache policy = arf
+[1]total hit rate = 11.9734 %
+[2]total hit rate = 13.3846 %
+[3]total hit rate = 13.3249 %
+cost time = 0.756701 s
+================================
+feature = campaign_id
+cache size = 1
+cache policy = lru
+[1]total hit rate = 5.95493 %
+[2]total hit rate = 6.58033 %
+[3]total hit rate = 5.27237 %
+cost time = 0.44116 s
+================================
+feature = campaign_id
+cache size = 1
+cache policy = lfu
+[1]total hit rate = 13.1544 %
+[2]total hit rate = 15.0159 %
+[3]total hit rate = 14.9666 %
+cost time = 0.470527 s
+================================
+feature = campaign_id
+cache size = 1
+cache policy = fifo
+[1]total hit rate = 5.26269 %
+[2]total hit rate = 5.49639 %
+[3]total hit rate = 5.27001 %
+cost time = 0.43229 s
+================================
+feature = campaign_id
+cache size = 1
+cache policy = arc
+[1]total hit rate = 14.4573 %
+[2]total hit rate = 16.192 %
+[3]total hit rate = 13.3533 %
+cost time = 0.762954 s
+================================
+feature = campaign_id
+cache size = 1
+cache policy = arf
+[1]total hit rate = 14.7175 %
+[2]total hit rate = 16.7307 %
+[3]total hit rate = 16.6633 %
+cost time = 0.74995 s
+================================
+feature = campaign_id
+cache size = 2
+cache policy = lru
+[1]total hit rate = 9.76865 %
+[2]total hit rate = 10.5934 %
+[3]total hit rate = 8.55586 %
+cost time = 0.461083 s
+================================
+feature = campaign_id
+cache size = 2
+cache policy = lfu
+[1]total hit rate = 17.4042 %
+[2]total hit rate = 20.5119 %
+[3]total hit rate = 20.3531 %
+cost time = 0.479972 s
+================================
+feature = campaign_id
+cache size = 2
+cache policy = fifo
+[1]total hit rate = 8.52103 %
+[2]total hit rate = 9.31743 %
+[3]total hit rate = 8.54961 %
+cost time = 0.446387 s
+================================
+feature = campaign_id
+cache size = 2
+cache policy = arc
+[1]total hit rate = 18.8544 %
+[2]total hit rate = 21.8898 %
+[3]total hit rate = 18.1225 %
+cost time = 0.820868 s
+================================
+feature = campaign_id
+cache size = 2
+cache policy = arf
+[1]total hit rate = 19.1729 %
+[2]total hit rate = 22.4894 %
+[3]total hit rate = 22.387 %
+cost time = 0.811575 s
+================================
+feature = campaign_id
+cache size = 3
+cache policy = lru
+[1]total hit rate = 12.6717 %
+[2]total hit rate = 14.0097 %
+[3]total hit rate = 11.0783 %
+cost time = 0.536979 s
+================================
+feature = campaign_id
+cache size = 3
+cache policy = lfu
+[1]total hit rate = 20.3756 %
+[2]total hit rate = 24.4404 %
+[3]total hit rate = 24.1016 %
+cost time = 0.535314 s
+================================
+feature = campaign_id
+cache size = 3
+cache policy = fifo
+[1]total hit rate = 11.0125 %
+[2]total hit rate = 12.3649 %
+[3]total hit rate = 11.0655 %
+cost time = 0.52751 s
+================================
+feature = campaign_id
+cache size = 3
+cache policy = arc
+[1]total hit rate = 21.8158 %
+[2]total hit rate = 25.9377 %
+[3]total hit rate = 21.4736 %
+cost time = 0.933748 s
+================================
+feature = campaign_id
+cache size = 3
+cache policy = arf
+[1]total hit rate = 22.1164 %
+[2]total hit rate = 26.7343 %
+[3]total hit rate = 26.5922 %
+cost time = 0.919188 s
+================================
+feature = campaign_id
+cache size = 4
+cache policy = lru
+[1]total hit rate = 15.0188 %
+[2]total hit rate = 16.8987 %
+[3]total hit rate = 13.1685 %
+cost time = 0.50239 s
+================================
+feature = campaign_id
+cache size = 4
+cache policy = lfu
+[1]total hit rate = 22.6199 %
+[2]total hit rate = 27.5855 %
+[3]total hit rate = 27.0266 %
+cost time = 0.512849 s
+================================
+feature = campaign_id
+cache size = 4
+cache policy = fifo
+[1]total hit rate = 13.0637 %
+[2]total hit rate = 14.9003 %
+[3]total hit rate = 13.1485 %
+cost time = 0.483686 s
+================================
+feature = campaign_id
+cache size = 4
+cache policy = arc
+[1]total hit rate = 24.1149 %
+[2]total hit rate = 29.2847 %
+[3]total hit rate = 24.4645 %
+cost time = 0.867746 s
+================================
+feature = campaign_id
+cache size = 4
+cache policy = arf
+[1]total hit rate = 24.3516 %
+[2]total hit rate = 30.0039 %
+[3]total hit rate = 29.7377 %
+cost time = 0.874255 s
+================================
+feature = campaign_id
+cache size = 5
+cache policy = lru
+[1]total hit rate = 17.0521 %
+[2]total hit rate = 19.4426 %
+[3]total hit rate = 15.0172 %
+cost time = 0.548857 s
+================================
+feature = campaign_id
+cache size = 5
+cache policy = lfu
+[1]total hit rate = 24.4537 %
+[2]total hit rate = 30.224 %
+[3]total hit rate = 29.4264 %
+cost time = 0.556176 s
+================================
+feature = campaign_id
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 14.8615 %
+[2]total hit rate = 17.2791 %
+[3]total hit rate = 14.9882 %
+cost time = 0.520367 s
+================================
+feature = campaign_id
+cache size = 5
+cache policy = arc
+[1]total hit rate = 25.944 %
+[2]total hit rate = 32.1013 %
+[3]total hit rate = 26.6937 %
+cost time = 0.924806 s
+================================
+feature = campaign_id
+cache size = 5
+cache policy = arf
+[1]total hit rate = 26.1349 %
+[2]total hit rate = 32.8998 %
+[3]total hit rate = 32.2805 %
+cost time = 0.936645 s
+================================
+feature = campaign_id
+cache size = 7
+cache policy = lru
+[1]total hit rate = 20.4675 %
+[2]total hit rate = 23.8651 %
+[3]total hit rate = 18.1628 %
+cost time = 0.612432 s
+================================
+feature = campaign_id
+cache size = 7
+cache policy = lfu
+[1]total hit rate = 27.3748 %
+[2]total hit rate = 34.6313 %
+[3]total hit rate = 33.2885 %
+cost time = 0.603663 s
+================================
+feature = campaign_id
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 17.912 %
+[2]total hit rate = 21.094 %
+[3]total hit rate = 18.1116 %
+cost time = 0.590091 s
+================================
+feature = campaign_id
+cache size = 7
+cache policy = arc
+[1]total hit rate = 28.8735 %
+[2]total hit rate = 36.8691 %
+[3]total hit rate = 29.9252 %
+cost time = 1.02615 s
+================================
+feature = campaign_id
+cache size = 7
+cache policy = arf
+[1]total hit rate = 28.9821 %
+[2]total hit rate = 37.5674 %
+[3]total hit rate = 36.1911 %
+cost time = 0.988828 s
+================================
+feature = campaign_id
+cache size = 10
+cache policy = lru
+[1]total hit rate = 24.5508 %
+[2]total hit rate = 29.4101 %
+[3]total hit rate = 22.0125 %
+cost time = 0.55689 s
+================================
+feature = campaign_id
+cache size = 10
+cache policy = lfu
+[1]total hit rate = 30.6727 %
+[2]total hit rate = 39.8917 %
+[3]total hit rate = 37.63 %
+cost time = 0.556402 s
+================================
+feature = campaign_id
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 21.5845 %
+[2]total hit rate = 26.0188 %
+[3]total hit rate = 21.9213 %
+cost time = 0.511969 s
+================================
+feature = campaign_id
+cache size = 10
+cache policy = arc
+[1]total hit rate = 32.0649 %
+[2]total hit rate = 42.6156 %
+[3]total hit rate = 35.9997 %
+cost time = 0.945069 s
+================================
+feature = campaign_id
+cache size = 10
+cache policy = arf
+[1]total hit rate = 32.0806 %
+[2]total hit rate = 42.988 %
+[3]total hit rate = 40.2971 %
+cost time = 0.923072 s
+================================
+feature = campaign_id
+cache size = 15
+cache policy = lru
+[1]total hit rate = 29.62 %
+[2]total hit rate = 37.0445 %
+[3]total hit rate = 27.0031 %
+cost time = 0.507498 s
+================================
+feature = campaign_id
+cache size = 15
+cache policy = lfu
+[1]total hit rate = 34.7051 %
+[2]total hit rate = 46.7494 %
+[3]total hit rate = 42.9287 %
+cost time = 0.51687 s
+================================
+feature = campaign_id
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 26.2497 %
+[2]total hit rate = 32.9323 %
+[3]total hit rate = 26.8426 %
+cost time = 0.47079 s
+================================
+feature = campaign_id
+cache size = 15
+cache policy = arc
+[1]total hit rate = 35.7337 %
+[2]total hit rate = 49.7394 %
+[3]total hit rate = 47.1128 %
+cost time = 0.889585 s
+================================
+feature = campaign_id
+cache size = 15
+cache policy = arf
+[1]total hit rate = 35.7265 %
+[2]total hit rate = 49.6026 %
+[3]total hit rate = 45.1141 %
+cost time = 0.955458 s
+================================
+feature = campaign_id
+cache size = 20
+cache policy = lru
+[1]total hit rate = 33.463 %
+[2]total hit rate = 43.4383 %
+[3]total hit rate = 30.9876 %
+cost time = 0.536666 s
+================================
+feature = campaign_id
+cache size = 20
+cache policy = lfu
+[1]total hit rate = 37.6456 %
+[2]total hit rate = 52.2668 %
+[3]total hit rate = 46.8049 %
+cost time = 0.585586 s
+================================
+feature = campaign_id
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 29.8496 %
+[2]total hit rate = 39.1365 %
+[3]total hit rate = 30.7391 %
+cost time = 0.519133 s
+================================
+feature = campaign_id
+cache size = 20
+cache policy = arc
+[1]total hit rate = 38.4152 %
+[2]total hit rate = 54.6781 %
+[3]total hit rate = 53.761 %
+cost time = 0.96679 s
+================================
+feature = campaign_id
+cache size = 20
+cache policy = arf
+[1]total hit rate = 38.4134 %
+[2]total hit rate = 54.6715 %
+[3]total hit rate = 53.7426 %
+cost time = 0.990905 s
+================================
+feature = campaign_id
+cache size = 30
+cache policy = lru
+[1]total hit rate = 39.0143 %
+[2]total hit rate = 54.0122 %
+[3]total hit rate = 37.3096 %
+cost time = 0.494831 s
+================================
+feature = campaign_id
+cache size = 30
+cache policy = lfu
+[1]total hit rate = 41.7526 %
+[2]total hit rate = 61.1164 %
+[3]total hit rate = 52.3126 %
+cost time = 0.528442 s
+================================
+feature = campaign_id
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 35.2186 %
+[2]total hit rate = 48.505 %
+[3]total hit rate = 36.8354 %
+cost time = 0.461113 s
+================================
+feature = campaign_id
+cache size = 30
+cache policy = arc
+[1]total hit rate = 42.136 %
+[2]total hit rate = 62.6575 %
+[3]total hit rate = 58.283 %
+cost time = 1.05303 s
+================================
+feature = campaign_id
+cache size = 30
+cache policy = arf
+[1]total hit rate = 42.136 %
+[2]total hit rate = 62.6575 %
+[3]total hit rate = 58.283 %
+cost time = 1.03602 s
+================================
+feature = campaign_id
+cache size = 40
+cache policy = lru
+[1]total hit rate = 42.8264 %
+[2]total hit rate = 62.7785 %
+[3]total hit rate = 42.3718 %
+cost time = 0.527254 s
+================================
+feature = campaign_id
+cache size = 40
+cache policy = lfu
+[1]total hit rate = 44.4966 %
+[2]total hit rate = 68.2752 %
+[3]total hit rate = 56.1632 %
+cost time = 0.667476 s
+================================
+feature = campaign_id
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 39.1475 %
+[2]total hit rate = 57.3836 %
+[3]total hit rate = 41.6086 %
+cost time = 0.561925 s
+================================
+feature = campaign_id
+cache size = 40
+cache policy = arc
+[1]total hit rate = 44.6397 %
+[2]total hit rate = 69.2004 %
+[3]total hit rate = 61.6807 %
+cost time = 1.08304 s
+================================
+feature = campaign_id
+cache size = 40
+cache policy = arf
+[1]total hit rate = 44.6397 %
+[2]total hit rate = 69.2004 %
+[3]total hit rate = 61.6807 %
+cost time = 1.11074 s
+================================
+feature = campaign_id
+cache size = 50
+cache policy = lru
+[1]total hit rate = 45.4965 %
+[2]total hit rate = 70.4589 %
+[3]total hit rate = 46.4604 %
+cost time = 0.673606 s
+================================
+feature = campaign_id
+cache size = 50
+cache policy = lfu
+[1]total hit rate = 46.4156 %
+[2]total hit rate = 74.4784 %
+[3]total hit rate = 59.082 %
+cost time = 0.685286 s
+================================
+feature = campaign_id
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 42.0763 %
+[2]total hit rate = 63.4828 %
+[3]total hit rate = 45.5965 %
+cost time = 0.645686 s
+================================
+feature = campaign_id
+cache size = 50
+cache policy = arc
+[1]total hit rate = 46.4518 %
+[2]total hit rate = 74.9374 %
+[3]total hit rate = 62.7639 %
+cost time = 1.27077 s
+================================
+feature = campaign_id
+cache size = 50
+cache policy = arf
+[1]total hit rate = 46.4518 %
+[2]total hit rate = 74.9374 %
+[3]total hit rate = 62.7639 %
+cost time = 1.48187 s
+================================
+feature = campaign_id
+cache size = 60
+cache policy = lru
+[1]total hit rate = 47.3555 %
+[2]total hit rate = 77.3436 %
+[3]total hit rate = 49.9964 %
+cost time = 0.654567 s
+================================
+feature = campaign_id
+cache size = 60
+cache policy = lfu
+[1]total hit rate = 47.7985 %
+[2]total hit rate = 79.9848 %
+[3]total hit rate = 61.5945 %
+cost time = 0.72721 s
+================================
+feature = campaign_id
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 44.2794 %
+[2]total hit rate = 71.9966 %
+[3]total hit rate = 49.1487 %
+cost time = 0.648439 s
+================================
+feature = campaign_id
+cache size = 60
+cache policy = arc
+[1]total hit rate = 47.7987 %
+[2]total hit rate = 79.9985 %
+[3]total hit rate = 63.3934 %
+cost time = 1.32034 s
+================================
+feature = campaign_id
+cache size = 60
+cache policy = arf
+[1]total hit rate = 47.7987 %
+[2]total hit rate = 79.9985 %
+[3]total hit rate = 63.3934 %
+cost time = 1.36587 s
+================================
+feature = campaign_id
+cache size = 70
+cache policy = lru
+[1]total hit rate = 48.6208 %
+[2]total hit rate = 83.6254 %
+[3]total hit rate = 49.9964 %
+cost time = 0.607496 s
+================================
+feature = campaign_id
+cache size = 70
+cache policy = lfu
+[1]total hit rate = 48.7931 %
+[2]total hit rate = 84.9989 %
+[3]total hit rate = 62.6691 %
+cost time = 0.594606 s
+================================
+feature = campaign_id
+cache size = 70
+cache policy = fifo
+[1]total hit rate = 45.9924 %
+[2]total hit rate = 75.9121 %
+[3]total hit rate = 49.9574 %
+cost time = 0.475402 s
+================================
+feature = campaign_id
+cache size = 70
+cache policy = arc
+[1]total hit rate = 48.7931 %
+[2]total hit rate = 84.9989 %
+[3]total hit rate = 63.6688 %
+cost time = 1.19972 s
+================================
+feature = campaign_id
+cache size = 70
+cache policy = arf
+[1]total hit rate = 48.7931 %
+[2]total hit rate = 84.9989 %
+[3]total hit rate = 63.6688 %
+cost time = 1.08745 s
+================================
+feature = campaign_id
+cache size = 80
+cache policy = lru
+[1]total hit rate = 49.4454 %
+[2]total hit rate = 89.4308 %
+[3]total hit rate = 49.9964 %
+cost time = 0.65434 s
+================================
+feature = campaign_id
+cache size = 80
+cache policy = lfu
+[1]total hit rate = 49.49 %
+[2]total hit rate = 89.9992 %
+[3]total hit rate = 63.2309 %
+cost time = 0.634058 s
+================================
+feature = campaign_id
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 47.6464 %
+[2]total hit rate = 80.4542 %
+[3]total hit rate = 49.9764 %
+cost time = 0.490069 s
+================================
+feature = campaign_id
+cache size = 80
+cache policy = arc
+[1]total hit rate = 49.49 %
+[2]total hit rate = 89.9992 %
+[3]total hit rate = 64.6019 %
+cost time = 1.16806 s
+================================
+feature = campaign_id
+cache size = 80
+cache policy = arf
+[1]total hit rate = 49.49 %
+[2]total hit rate = 89.9992 %
+[3]total hit rate = 71.4215 %
+cost time = 1.14151 s
+================================
+feature = campaign_id
+cache size = 90
+cache policy = lru
+[1]total hit rate = 49.8637 %
+[2]total hit rate = 94.8705 %
+[3]total hit rate = 49.9964 %
+cost time = 0.510643 s
+================================
+feature = campaign_id
+cache size = 90
+cache policy = lfu
+[1]total hit rate = 49.8692 %
+[2]total hit rate = 94.9996 %
+[3]total hit rate = 63.5608 %
+cost time = 0.55598 s
+================================
+feature = campaign_id
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 49.0727 %
+[2]total hit rate = 86.3126 %
+[3]total hit rate = 49.99 %
+cost time = 0.441348 s
+================================
+feature = campaign_id
+cache size = 90
+cache policy = arc
+[1]total hit rate = 49.8692 %
+[2]total hit rate = 94.9996 %
+[3]total hit rate = 67.6822 %
+cost time = 0.934203 s
+================================
+feature = campaign_id
+cache size = 90
+cache policy = arf
+[1]total hit rate = 49.8692 %
+[2]total hit rate = 94.9996 %
+[3]total hit rate = 74.2398 %
+cost time = 0.912227 s
+================================
+feature = campaign_id
+cache size = 95
+cache policy = lru
+[1]total hit rate = 49.9653 %
+[2]total hit rate = 97.4678 %
+[3]total hit rate = 49.9964 %
+cost time = 0.515819 s
+================================
+feature = campaign_id
+cache size = 95
+cache policy = lfu
+[1]total hit rate = 49.9658 %
+[2]total hit rate = 97.4998 %
+[3]total hit rate = 63.651 %
+cost time = 0.551168 s
+================================
+feature = campaign_id
+cache size = 95
+cache policy = fifo
+[1]total hit rate = 49.6421 %
+[2]total hit rate = 90.443 %
+[3]total hit rate = 49.9944 %
+cost time = 0.466393 s
+================================
+feature = campaign_id
+cache size = 95
+cache policy = arc
+[1]total hit rate = 49.9658 %
+[2]total hit rate = 97.4998 %
+[3]total hit rate = 69.3782 %
+cost time = 0.88308 s
+================================
+feature = campaign_id
+cache size = 95
+cache policy = arf
+[1]total hit rate = 49.9658 %
+[2]total hit rate = 97.4998 %
+[3]total hit rate = 75.7369 %
+cost time = 0.898606 s
+================================
+feature = campaign_id
+cache size = 100
+cache policy = lru
+[1]total hit rate = 49.9964 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.355481 s
+================================
+feature = campaign_id
+cache size = 100
+cache policy = lfu
+[1]total hit rate = 49.9964 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.49129 s
+================================
+feature = campaign_id
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 49.9964 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.312005 s
+================================
+feature = campaign_id
+cache size = 100
+cache policy = arc
+[1]total hit rate = 49.9964 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.626901 s
+================================
+feature = campaign_id
+cache size = 100
+cache policy = arf
+[1]total hit rate = 49.9964 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.666645 s
+================================
+feature = customer
+cache size = 0.1
+cache policy = lru
+[1]total hit rate = 1.08277 %
+[2]total hit rate = 1.02467 %
+[3]total hit rate = 1.0353 %
+cost time = 0.42305 s
+================================
+feature = customer
+cache size = 0.1
+cache policy = lfu
+[1]total hit rate = 4.98612 %
+[2]total hit rate = 5.1518 %
+[3]total hit rate = 5.15251 %
+cost time = 0.569414 s
+================================
+feature = customer
+cache size = 0.1
+cache policy = fifo
+[1]total hit rate = 1.0353 %
+[2]total hit rate = 1.02467 %
+[3]total hit rate = 1.0353 %
+cost time = 0.418857 s
+================================
+feature = customer
+cache size = 0.1
+cache policy = arc
+[1]total hit rate = 5.95174 %
+[2]total hit rate = 6.24602 %
+[3]total hit rate = 4.79363 %
+cost time = 0.677287 s
+================================
+feature = customer
+cache size = 0.1
+cache policy = arf
+[1]total hit rate = 6.26669 %
+[2]total hit rate = 6.65721 %
+[3]total hit rate = 6.53759 %
+cost time = 0.670944 s
+================================
+feature = customer
+cache size = 0.3
+cache policy = lru
+[1]total hit rate = 2.95757 %
+[2]total hit rate = 2.96678 %
+[3]total hit rate = 2.72328 %
+cost time = 0.490709 s
+================================
+feature = customer
+cache size = 0.3
+cache policy = lfu
+[1]total hit rate = 9.05704 %
+[2]total hit rate = 9.46598 %
+[3]total hit rate = 9.46563 %
+cost time = 0.557938 s
+================================
+feature = customer
+cache size = 0.3
+cache policy = fifo
+[1]total hit rate = 2.72257 %
+[2]total hit rate = 2.72139 %
+[3]total hit rate = 2.72316 %
+cost time = 0.478748 s
+================================
+feature = customer
+cache size = 0.3
+cache policy = arc
+[1]total hit rate = 10.1285 %
+[2]total hit rate = 10.4165 %
+[3]total hit rate = 8.4784 %
+cost time = 0.746606 s
+================================
+feature = customer
+cache size = 0.3
+cache policy = arf
+[1]total hit rate = 10.5949 %
+[2]total hit rate = 11.1964 %
+[3]total hit rate = 11.1801 %
+cost time = 0.738748 s
+================================
+feature = customer
+cache size = 0.6
+cache policy = lru
+[1]total hit rate = 5.26835 %
+[2]total hit rate = 5.33897 %
+[3]total hit rate = 4.72349 %
+cost time = 0.477343 s
+================================
+feature = customer
+cache size = 0.6
+cache policy = lfu
+[1]total hit rate = 12.5721 %
+[2]total hit rate = 13.2816 %
+[3]total hit rate = 13.2812 %
+cost time = 0.544549 s
+================================
+feature = customer
+cache size = 0.6
+cache policy = fifo
+[1]total hit rate = 4.72065 %
+[2]total hit rate = 4.48353 %
+[3]total hit rate = 4.72313 %
+cost time = 0.472675 s
+================================
+feature = customer
+cache size = 0.6
+cache policy = arc
+[1]total hit rate = 13.6493 %
+[2]total hit rate = 14.2223 %
+[3]total hit rate = 11.753 %
+cost time = 0.767361 s
+================================
+feature = customer
+cache size = 0.6
+cache policy = arf
+[1]total hit rate = 14.3406 %
+[2]total hit rate = 15.2871 %
+[3]total hit rate = 15.2408 %
+cost time = 0.756713 s
+================================
+feature = customer
+cache size = 1
+cache policy = lru
+[1]total hit rate = 7.77446 %
+[2]total hit rate = 8.16605 %
+[3]total hit rate = 6.86847 %
+cost time = 0.453539 s
+================================
+feature = customer
+cache size = 1
+cache policy = lfu
+[1]total hit rate = 15.8235 %
+[2]total hit rate = 16.8764 %
+[3]total hit rate = 16.876 %
+cost time = 0.503613 s
+================================
+feature = customer
+cache size = 1
+cache policy = fifo
+[1]total hit rate = 6.8621 %
+[2]total hit rate = 7.30777 %
+[3]total hit rate = 6.86788 %
+cost time = 0.441135 s
+================================
+feature = customer
+cache size = 1
+cache policy = arc
+[1]total hit rate = 16.8689 %
+[2]total hit rate = 17.7147 %
+[3]total hit rate = 14.8435 %
+cost time = 0.7735 s
+================================
+feature = customer
+cache size = 1
+cache policy = arf
+[1]total hit rate = 17.6356 %
+[2]total hit rate = 18.933 %
+[3]total hit rate = 18.9098 %
+cost time = 0.735586 s
+================================
+feature = customer
+cache size = 2
+cache policy = lru
+[1]total hit rate = 12.5238 %
+[2]total hit rate = 13.2517 %
+[3]total hit rate = 11.0072 %
+cost time = 0.451588 s
+================================
+feature = customer
+cache size = 2
+cache policy = lfu
+[1]total hit rate = 21.0536 %
+[2]total hit rate = 22.8502 %
+[3]total hit rate = 22.848 %
+cost time = 0.46478 s
+================================
+feature = customer
+cache size = 2
+cache policy = fifo
+[1]total hit rate = 10.9803 %
+[2]total hit rate = 11.581 %
+[3]total hit rate = 11.0026 %
+cost time = 0.43826 s
+================================
+feature = customer
+cache size = 2
+cache policy = arc
+[1]total hit rate = 22.2472 %
+[2]total hit rate = 23.8061 %
+[3]total hit rate = 20.0411 %
+cost time = 0.769435 s
+================================
+feature = customer
+cache size = 2
+cache policy = arf
+[1]total hit rate = 23.1256 %
+[2]total hit rate = 25.2314 %
+[3]total hit rate = 25.1471 %
+cost time = 0.763924 s
+================================
+feature = customer
+cache size = 3
+cache policy = lru
+[1]total hit rate = 16.1735 %
+[2]total hit rate = 17.1157 %
+[3]total hit rate = 14.2381 %
+cost time = 0.425176 s
+================================
+feature = customer
+cache size = 3
+cache policy = lfu
+[1]total hit rate = 24.8421 %
+[2]total hit rate = 27.3516 %
+[3]total hit rate = 27.3253 %
+cost time = 0.449837 s
+================================
+feature = customer
+cache size = 3
+cache policy = fifo
+[1]total hit rate = 14.1844 %
+[2]total hit rate = 15.1306 %
+[3]total hit rate = 14.2313 %
+cost time = 0.411048 s
+================================
+feature = customer
+cache size = 3
+cache policy = arc
+[1]total hit rate = 25.9786 %
+[2]total hit rate = 28.1293 %
+[3]total hit rate = 23.746 %
+cost time = 0.754056 s
+================================
+feature = customer
+cache size = 3
+cache policy = arf
+[1]total hit rate = 27.0017 %
+[2]total hit rate = 29.7722 %
+[3]total hit rate = 29.7375 %
+cost time = 0.751442 s
+================================
+feature = customer
+cache size = 4
+cache policy = lru
+[1]total hit rate = 19.1891 %
+[2]total hit rate = 20.3021 %
+[3]total hit rate = 16.9499 %
+cost time = 0.469171 s
+================================
+feature = customer
+cache size = 4
+cache policy = lfu
+[1]total hit rate = 27.8825 %
+[2]total hit rate = 31.0347 %
+[3]total hit rate = 30.9835 %
+cost time = 0.479904 s
+================================
+feature = customer
+cache size = 4
+cache policy = fifo
+[1]total hit rate = 16.8663 %
+[2]total hit rate = 17.9982 %
+[3]total hit rate = 16.9305 %
+cost time = 0.453673 s
+================================
+feature = customer
+cache size = 4
+cache policy = arc
+[1]total hit rate = 28.9251 %
+[2]total hit rate = 31.6977 %
+[3]total hit rate = 26.7335 %
+cost time = 0.816313 s
+================================
+feature = customer
+cache size = 4
+cache policy = arf
+[1]total hit rate = 30.0055 %
+[2]total hit rate = 33.4987 %
+[3]total hit rate = 33.3623 %
+cost time = 0.799868 s
+================================
+feature = customer
+cache size = 5
+cache policy = lru
+[1]total hit rate = 21.7965 %
+[2]total hit rate = 23.2136 %
+[3]total hit rate = 19.3446 %
+cost time = 0.51161 s
+================================
+feature = customer
+cache size = 5
+cache policy = lfu
+[1]total hit rate = 30.4136 %
+[2]total hit rate = 34.1478 %
+[3]total hit rate = 34.0538 %
+cost time = 0.502789 s
+================================
+feature = customer
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 19.2266 %
+[2]total hit rate = 20.7078 %
+[3]total hit rate = 19.3188 %
+cost time = 0.490622 s
+================================
+feature = customer
+cache size = 5
+cache policy = arc
+[1]total hit rate = 31.4289 %
+[2]total hit rate = 34.716 %
+[3]total hit rate = 29.2641 %
+cost time = 0.868109 s
+================================
+feature = customer
+cache size = 5
+cache policy = arf
+[1]total hit rate = 32.5008 %
+[2]total hit rate = 36.6085 %
+[3]total hit rate = 36.3897 %
+cost time = 0.866311 s
+================================
+feature = customer
+cache size = 7
+cache policy = lru
+[1]total hit rate = 26.2076 %
+[2]total hit rate = 28.2472 %
+[3]total hit rate = 23.411 %
+cost time = 0.480248 s
+================================
+feature = customer
+cache size = 7
+cache policy = lfu
+[1]total hit rate = 34.5046 %
+[2]total hit rate = 39.3229 %
+[3]total hit rate = 39.1481 %
+cost time = 0.474621 s
+================================
+feature = customer
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 23.21 %
+[2]total hit rate = 25.0268 %
+[3]total hit rate = 23.3743 %
+cost time = 0.452403 s
+================================
+feature = customer
+cache size = 7
+cache policy = arc
+[1]total hit rate = 35.4548 %
+[2]total hit rate = 39.6501 %
+[3]total hit rate = 33.4003 %
+cost time = 0.796306 s
+================================
+feature = customer
+cache size = 7
+cache policy = arf
+[1]total hit rate = 36.5026 %
+[2]total hit rate = 41.8017 %
+[3]total hit rate = 41.4396 %
+cost time = 0.787748 s
+================================
+feature = customer
+cache size = 10
+cache policy = lru
+[1]total hit rate = 31.5689 %
+[2]total hit rate = 34.5081 %
+[3]total hit rate = 28.4494 %
+cost time = 0.529534 s
+================================
+feature = customer
+cache size = 10
+cache policy = lfu
+[1]total hit rate = 39.262 %
+[2]total hit rate = 45.5468 %
+[3]total hit rate = 45.1593 %
+cost time = 0.517364 s
+================================
+feature = customer
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 28.1025 %
+[2]total hit rate = 30.7644 %
+[3]total hit rate = 28.3779 %
+cost time = 0.502403 s
+================================
+feature = customer
+cache size = 10
+cache policy = arc
+[1]total hit rate = 40.129 %
+[2]total hit rate = 45.7299 %
+[3]total hit rate = 38.4733 %
+cost time = 0.852944 s
+================================
+feature = customer
+cache size = 10
+cache policy = arf
+[1]total hit rate = 41.1313 %
+[2]total hit rate = 48.061 %
+[3]total hit rate = 47.6916 %
+cost time = 0.854326 s
+================================
+feature = customer
+cache size = 15
+cache policy = lru
+[1]total hit rate = 38.5386 %
+[2]total hit rate = 42.9826 %
+[3]total hit rate = 35.1998 %
+cost time = 0.465056 s
+================================
+feature = customer
+cache size = 15
+cache policy = lfu
+[1]total hit rate = 45.084 %
+[2]total hit rate = 53.5524 %
+[3]total hit rate = 52.6403 %
+cost time = 0.467532 s
+================================
+feature = customer
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 34.5482 %
+[2]total hit rate = 38.5739 %
+[3]total hit rate = 35.0711 %
+cost time = 0.429707 s
+================================
+feature = customer
+cache size = 15
+cache policy = arc
+[1]total hit rate = 45.8379 %
+[2]total hit rate = 53.6095 %
+[3]total hit rate = 44.3411 %
+cost time = 0.802401 s
+================================
+feature = customer
+cache size = 15
+cache policy = arf
+[1]total hit rate = 46.6511 %
+[2]total hit rate = 56.0236 %
+[3]total hit rate = 55.2777 %
+cost time = 0.796798 s
+================================
+feature = customer
+cache size = 20
+cache policy = lru
+[1]total hit rate = 43.9157 %
+[2]total hit rate = 49.9404 %
+[3]total hit rate = 40.6882 %
+cost time = 0.481295 s
+================================
+feature = customer
+cache size = 20
+cache policy = lfu
+[1]total hit rate = 49.4488 %
+[2]total hit rate = 59.7825 %
+[3]total hit rate = 58.2469 %
+cost time = 0.500274 s
+================================
+feature = customer
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 39.6744 %
+[2]total hit rate = 45.1283 %
+[3]total hit rate = 40.4924 %
+cost time = 0.450035 s
+================================
+feature = customer
+cache size = 20
+cache policy = arc
+[1]total hit rate = 50.157 %
+[2]total hit rate = 59.7578 %
+[3]total hit rate = 50.0461 %
+cost time = 0.883502 s
+================================
+feature = customer
+cache size = 20
+cache policy = arf
+[1]total hit rate = 50.7674 %
+[2]total hit rate = 62.2023 %
+[3]total hit rate = 60.7934 %
+cost time = 0.8854 s
+================================
+feature = customer
+cache size = 30
+cache policy = lru
+[1]total hit rate = 52.0069 %
+[2]total hit rate = 61.0591 %
+[3]total hit rate = 49.4106 %
+cost time = 0.406272 s
+================================
+feature = customer
+cache size = 30
+cache policy = lfu
+[1]total hit rate = 55.7711 %
+[2]total hit rate = 69.3536 %
+[3]total hit rate = 66.4321 %
+cost time = 0.430742 s
+================================
+feature = customer
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 47.4902 %
+[2]total hit rate = 55.5251 %
+[3]total hit rate = 49.0343 %
+cost time = 0.360889 s
+================================
+feature = customer
+cache size = 30
+cache policy = arc
+[1]total hit rate = 56.3768 %
+[2]total hit rate = 69.5159 %
+[3]total hit rate = 55.1434 %
+cost time = 0.77213 s
+================================
+feature = customer
+cache size = 30
+cache policy = arf
+[1]total hit rate = 56.6608 %
+[2]total hit rate = 71.4542 %
+[3]total hit rate = 68.1923 %
+cost time = 0.784736 s
+================================
+feature = customer
+cache size = 40
+cache policy = lru
+[1]total hit rate = 57.7813 %
+[2]total hit rate = 69.8772 %
+[3]total hit rate = 56.3103 %
+cost time = 0.418697 s
+================================
+feature = customer
+cache size = 40
+cache policy = lfu
+[1]total hit rate = 60.217 %
+[2]total hit rate = 76.6382 %
+[3]total hit rate = 72.2287 %
+cost time = 0.445536 s
+================================
+feature = customer
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 53.3528 %
+[2]total hit rate = 64.0486 %
+[3]total hit rate = 55.733 %
+cost time = 0.369343 s
+================================
+feature = customer
+cache size = 40
+cache policy = arc
+[1]total hit rate = 60.7271 %
+[2]total hit rate = 77.4427 %
+[3]total hit rate = 67.3676 %
+cost time = 0.776837 s
+================================
+feature = customer
+cache size = 40
+cache policy = arf
+[1]total hit rate = 60.7544 %
+[2]total hit rate = 78.4195 %
+[3]total hit rate = 72.5838 %
+cost time = 0.784803 s
+================================
+feature = customer
+cache size = 50
+cache policy = lru
+[1]total hit rate = 62.0181 %
+[2]total hit rate = 77.0756 %
+[3]total hit rate = 61.8343 %
+cost time = 0.338082 s
+================================
+feature = customer
+cache size = 50
+cache policy = lfu
+[1]total hit rate = 63.4996 %
+[2]total hit rate = 82.413 %
+[3]total hit rate = 76.5771 %
+cost time = 0.383656 s
+================================
+feature = customer
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 57.915 %
+[2]total hit rate = 70.8845 %
+[3]total hit rate = 61.1481 %
+cost time = 0.271612 s
+================================
+feature = customer
+cache size = 50
+cache policy = arc
+[1]total hit rate = 63.7932 %
+[2]total hit rate = 84.6952 %
+[3]total hit rate = 65.4929 %
+cost time = 0.750512 s
+================================
+feature = customer
+cache size = 50
+cache policy = arf
+[1]total hit rate = 63.7861 %
+[2]total hit rate = 84.5825 %
+[3]total hit rate = 76.5423 %
+cost time = 0.898637 s
+================================
+feature = customer
+cache size = 60
+cache policy = lru
+[1]total hit rate = 65.118 %
+[2]total hit rate = 83.196 %
+[3]total hit rate = 69.2782 %
+cost time = 0.348491 s
+================================
+feature = customer
+cache size = 60
+cache policy = lfu
+[1]total hit rate = 65.9012 %
+[2]total hit rate = 87.0844 %
+[3]total hit rate = 79.9521 %
+cost time = 0.397541 s
+================================
+feature = customer
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 61.6488 %
+[2]total hit rate = 75.7742 %
+[3]total hit rate = 67.8769 %
+cost time = 0.278471 s
+================================
+feature = customer
+cache size = 60
+cache policy = arc
+[1]total hit rate = 65.9579 %
+[2]total hit rate = 87.8538 %
+[3]total hit rate = 69.9874 %
+cost time = 0.82131 s
+================================
+feature = customer
+cache size = 60
+cache policy = arf
+[1]total hit rate = 65.9577 %
+[2]total hit rate = 87.8445 %
+[3]total hit rate = 78.8067 %
+cost time = 0.876874 s
+================================
+feature = customer
+cache size = 70
+cache policy = lru
+[1]total hit rate = 67.2973 %
+[2]total hit rate = 88.4069 %
+[3]total hit rate = 69.7837 %
+cost time = 0.399837 s
+================================
+feature = customer
+cache size = 70
+cache policy = lfu
+[1]total hit rate = 67.6281 %
+[2]total hit rate = 90.8995 %
+[3]total hit rate = 82.7965 %
+cost time = 0.406383 s
+================================
+feature = customer
+cache size = 70
+cache policy = fifo
+[1]total hit rate = 64.1447 %
+[2]total hit rate = 81.3709 %
+[3]total hit rate = 69.5045 %
+cost time = 0.300902 s
+================================
+feature = customer
+cache size = 70
+cache policy = arc
+[1]total hit rate = 67.6281 %
+[2]total hit rate = 90.935 %
+[3]total hit rate = 71.0418 %
+cost time = 0.812559 s
+================================
+feature = customer
+cache size = 70
+cache policy = arf
+[1]total hit rate = 67.6281 %
+[2]total hit rate = 90.935 %
+[3]total hit rate = 79.6926 %
+cost time = 0.953644 s
+================================
+feature = customer
+cache size = 80
+cache policy = lru
+[1]total hit rate = 68.7326 %
+[2]total hit rate = 92.8913 %
+[3]total hit rate = 69.7837 %
+cost time = 0.349074 s
+================================
+feature = customer
+cache size = 80
+cache policy = lfu
+[1]total hit rate = 68.8252 %
+[2]total hit rate = 93.9567 %
+[3]total hit rate = 84.1992 %
+cost time = 0.422433 s
+================================
+feature = customer
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 66.3962 %
+[2]total hit rate = 83.9264 %
+[3]total hit rate = 69.7082 %
+cost time = 0.269838 s
+================================
+feature = customer
+cache size = 80
+cache policy = arc
+[1]total hit rate = 68.8252 %
+[2]total hit rate = 93.9567 %
+[3]total hit rate = 71.2858 %
+cost time = 0.814187 s
+================================
+feature = customer
+cache size = 80
+cache policy = arf
+[1]total hit rate = 68.8252 %
+[2]total hit rate = 93.9567 %
+[3]total hit rate = 84.065 %
+cost time = 0.80231 s
+================================
+feature = customer
+cache size = 90
+cache policy = lru
+[1]total hit rate = 69.5281 %
+[2]total hit rate = 96.7302 %
+[3]total hit rate = 69.7837 %
+cost time = 0.381356 s
+================================
+feature = customer
+cache size = 90
+cache policy = lfu
+[1]total hit rate = 69.5379 %
+[2]total hit rate = 96.9783 %
+[3]total hit rate = 84.7739 %
+cost time = 0.434006 s
+================================
+feature = customer
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 68.4596 %
+[2]total hit rate = 88.2058 %
+[3]total hit rate = 69.7605 %
+cost time = 0.272344 s
+================================
+feature = customer
+cache size = 90
+cache policy = arc
+[1]total hit rate = 69.5379 %
+[2]total hit rate = 96.9783 %
+[3]total hit rate = 91.1108 %
+cost time = 0.561287 s
+================================
+feature = customer
+cache size = 90
+cache policy = arf
+[1]total hit rate = 69.5379 %
+[2]total hit rate = 96.9783 %
+[3]total hit rate = 86.4592 %
+cost time = 0.612796 s
+================================
+feature = customer
+cache size = 95
+cache policy = lru
+[1]total hit rate = 69.7213 %
+[2]total hit rate = 98.4279 %
+[3]total hit rate = 69.7837 %
+cost time = 0.328377 s
+================================
+feature = customer
+cache size = 95
+cache policy = lfu
+[1]total hit rate = 69.7225 %
+[2]total hit rate = 98.4892 %
+[3]total hit rate = 84.9387 %
+cost time = 0.418625 s
+================================
+feature = customer
+cache size = 95
+cache policy = fifo
+[1]total hit rate = 69.2871 %
+[2]total hit rate = 91.4793 %
+[3]total hit rate = 69.7757 %
+cost time = 0.28307 s
+================================
+feature = customer
+cache size = 95
+cache policy = arc
+[1]total hit rate = 69.7225 %
+[2]total hit rate = 98.4892 %
+[3]total hit rate = 91.7738 %
+cost time = 0.578228 s
+================================
+feature = customer
+cache size = 95
+cache policy = arf
+[1]total hit rate = 69.7225 %
+[2]total hit rate = 98.4892 %
+[3]total hit rate = 91.7738 %
+cost time = 0.544811 s
+================================
+feature = customer
+cache size = 100
+cache policy = lru
+[1]total hit rate = 69.7837 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.250645 s
+================================
+feature = customer
+cache size = 100
+cache policy = lfu
+[1]total hit rate = 69.7837 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.335867 s
+================================
+feature = customer
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 69.7837 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.2112 s
+================================
+feature = customer
+cache size = 100
+cache policy = arc
+[1]total hit rate = 69.7837 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.431399 s
+================================
+feature = customer
+cache size = 100
+cache policy = arf
+[1]total hit rate = 69.7837 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.454609 s
+================================
+feature = brand
+cache size = 0.1
+cache policy = lru
+[1]total hit rate = 31.7543 %
+[2]total hit rate = 32.305 %
+[3]total hit rate = 30.7742 %
+cost time = 0.329507 s
+================================
+feature = brand
+cache size = 0.1
+cache policy = lfu
+[1]total hit rate = 36.6562 %
+[2]total hit rate = 36.7132 %
+[3]total hit rate = 36.7179 %
+cost time = 0.548895 s
+================================
+feature = brand
+cache size = 0.1
+cache policy = fifo
+[1]total hit rate = 30.7737 %
+[2]total hit rate = 32.2865 %
+[3]total hit rate = 30.774 %
+cost time = 0.318245 s
+================================
+feature = brand
+cache size = 0.1
+cache policy = arc
+[1]total hit rate = 37.5447 %
+[2]total hit rate = 37.5884 %
+[3]total hit rate = 36.5465 %
+cost time = 0.499647 s
+================================
+feature = brand
+cache size = 0.1
+cache policy = arf
+[1]total hit rate = 38.1727 %
+[2]total hit rate = 38.2989 %
+[3]total hit rate = 38.1431 %
+cost time = 0.519178 s
+================================
+feature = brand
+cache size = 0.3
+cache policy = lru
+[1]total hit rate = 35.0077 %
+[2]total hit rate = 35.1532 %
+[3]total hit rate = 33.9132 %
+cost time = 0.352447 s
+================================
+feature = brand
+cache size = 0.3
+cache policy = lfu
+[1]total hit rate = 40.6857 %
+[2]total hit rate = 40.8223 %
+[3]total hit rate = 40.824 %
+cost time = 0.485591 s
+================================
+feature = brand
+cache size = 0.3
+cache policy = fifo
+[1]total hit rate = 33.9119 %
+[2]total hit rate = 34.6776 %
+[3]total hit rate = 33.9131 %
+cost time = 0.336292 s
+================================
+feature = brand
+cache size = 0.3
+cache policy = arc
+[1]total hit rate = 41.4455 %
+[2]total hit rate = 41.6338 %
+[3]total hit rate = 40.0343 %
+cost time = 0.528946 s
+================================
+feature = brand
+cache size = 0.3
+cache policy = arf
+[1]total hit rate = 42.2164 %
+[2]total hit rate = 42.5242 %
+[3]total hit rate = 42.4018 %
+cost time = 0.554972 s
+================================
+feature = brand
+cache size = 0.6
+cache policy = lru
+[1]total hit rate = 37.8285 %
+[2]total hit rate = 37.2649 %
+[3]total hit rate = 36.5041 %
+cost time = 0.353157 s
+================================
+feature = brand
+cache size = 0.6
+cache policy = lfu
+[1]total hit rate = 43.9511 %
+[2]total hit rate = 44.226 %
+[3]total hit rate = 44.2255 %
+cost time = 0.457097 s
+================================
+feature = brand
+cache size = 0.6
+cache policy = fifo
+[1]total hit rate = 36.5012 %
+[2]total hit rate = 36.6032 %
+[3]total hit rate = 36.5037 %
+cost time = 0.337839 s
+================================
+feature = brand
+cache size = 0.6
+cache policy = arc
+[1]total hit rate = 44.6549 %
+[2]total hit rate = 45.0054 %
+[3]total hit rate = 42.9953 %
+cost time = 0.522707 s
+================================
+feature = brand
+cache size = 0.6
+cache policy = arf
+[1]total hit rate = 45.5744 %
+[2]total hit rate = 45.9596 %
+[3]total hit rate = 45.9169 %
+cost time = 0.53247 s
+================================
+feature = brand
+cache size = 1
+cache policy = lru
+[1]total hit rate = 40.3912 %
+[2]total hit rate = 40.3939 %
+[3]total hit rate = 38.9095 %
+cost time = 0.333098 s
+================================
+feature = brand
+cache size = 1
+cache policy = lfu
+[1]total hit rate = 46.841 %
+[2]total hit rate = 47.2502 %
+[3]total hit rate = 47.2486 %
+cost time = 0.424662 s
+================================
+feature = brand
+cache size = 1
+cache policy = fifo
+[1]total hit rate = 38.9029 %
+[2]total hit rate = 39.3816 %
+[3]total hit rate = 38.9086 %
+cost time = 0.321181 s
+================================
+feature = brand
+cache size = 1
+cache policy = arc
+[1]total hit rate = 47.5211 %
+[2]total hit rate = 47.7676 %
+[3]total hit rate = 45.6881 %
+cost time = 0.496798 s
+================================
+feature = brand
+cache size = 1
+cache policy = arf
+[1]total hit rate = 48.529 %
+[2]total hit rate = 49.1359 %
+[3]total hit rate = 49.0738 %
+cost time = 0.507486 s
+================================
+feature = brand
+cache size = 2
+cache policy = lru
+[1]total hit rate = 44.8235 %
+[2]total hit rate = 44.9995 %
+[3]total hit rate = 43.0084 %
+cost time = 0.331105 s
+================================
+feature = brand
+cache size = 2
+cache policy = lfu
+[1]total hit rate = 51.6902 %
+[2]total hit rate = 52.3371 %
+[3]total hit rate = 52.3353 %
+cost time = 0.398213 s
+================================
+feature = brand
+cache size = 2
+cache policy = fifo
+[1]total hit rate = 42.9925 %
+[2]total hit rate = 43.2732 %
+[3]total hit rate = 43.0035 %
+cost time = 0.305466 s
+================================
+feature = brand
+cache size = 2
+cache policy = arc
+[1]total hit rate = 52.2268 %
+[2]total hit rate = 52.7114 %
+[3]total hit rate = 50.1105 %
+cost time = 0.495807 s
+================================
+feature = brand
+cache size = 2
+cache policy = arf
+[1]total hit rate = 53.3659 %
+[2]total hit rate = 54.2611 %
+[3]total hit rate = 54.1951 %
+cost time = 0.512223 s
+================================
+feature = brand
+cache size = 3
+cache policy = lru
+[1]total hit rate = 48.0894 %
+[2]total hit rate = 48.6812 %
+[3]total hit rate = 46.0345 %
+cost time = 0.354075 s
+================================
+feature = brand
+cache size = 3
+cache policy = lfu
+[1]total hit rate = 55.0318 %
+[2]total hit rate = 55.9473 %
+[3]total hit rate = 55.9468 %
+cost time = 0.411305 s
+================================
+feature = brand
+cache size = 3
+cache policy = fifo
+[1]total hit rate = 46.0045 %
+[2]total hit rate = 46.0884 %
+[3]total hit rate = 46.0272 %
+cost time = 0.32719 s
+================================
+feature = brand
+cache size = 3
+cache policy = arc
+[1]total hit rate = 55.3874 %
+[2]total hit rate = 56.2057 %
+[3]total hit rate = 53.1286 %
+cost time = 0.532027 s
+================================
+feature = brand
+cache size = 3
+cache policy = arf
+[1]total hit rate = 56.5819 %
+[2]total hit rate = 57.6966 %
+[3]total hit rate = 57.6746 %
+cost time = 0.542601 s
+================================
+feature = brand
+cache size = 4
+cache policy = lru
+[1]total hit rate = 50.7516 %
+[2]total hit rate = 51.2995 %
+[3]total hit rate = 48.4863 %
+cost time = 0.315382 s
+================================
+feature = brand
+cache size = 4
+cache policy = lfu
+[1]total hit rate = 57.6416 %
+[2]total hit rate = 58.7946 %
+[3]total hit rate = 58.7941 %
+cost time = 0.398662 s
+================================
+feature = brand
+cache size = 4
+cache policy = fifo
+[1]total hit rate = 48.4395 %
+[2]total hit rate = 49.5014 %
+[3]total hit rate = 48.4793 %
+cost time = 0.289786 s
+================================
+feature = brand
+cache size = 4
+cache policy = arc
+[1]total hit rate = 57.8764 %
+[2]total hit rate = 58.8937 %
+[3]total hit rate = 55.5237 %
+cost time = 0.493837 s
+================================
+feature = brand
+cache size = 4
+cache policy = arf
+[1]total hit rate = 59.0792 %
+[2]total hit rate = 60.4722 %
+[3]total hit rate = 60.4537 %
+cost time = 0.502305 s
+================================
+feature = brand
+cache size = 5
+cache policy = lru
+[1]total hit rate = 53.0096 %
+[2]total hit rate = 53.708 %
+[3]total hit rate = 50.5662 %
+cost time = 0.327117 s
+================================
+feature = brand
+cache size = 5
+cache policy = lfu
+[1]total hit rate = 59.7626 %
+[2]total hit rate = 61.1534 %
+[3]total hit rate = 61.153 %
+cost time = 0.399257 s
+================================
+feature = brand
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 50.4978 %
+[2]total hit rate = 50.1929 %
+[3]total hit rate = 50.5538 %
+cost time = 0.299497 s
+================================
+feature = brand
+cache size = 5
+cache policy = arc
+[1]total hit rate = 59.9112 %
+[2]total hit rate = 61.1742 %
+[3]total hit rate = 57.5119 %
+cost time = 0.512989 s
+================================
+feature = brand
+cache size = 5
+cache policy = arf
+[1]total hit rate = 61.2148 %
+[2]total hit rate = 62.8187 %
+[3]total hit rate = 62.8144 %
+cost time = 0.51678 s
+================================
+feature = brand
+cache size = 7
+cache policy = lru
+[1]total hit rate = 56.7506 %
+[2]total hit rate = 57.4416 %
+[3]total hit rate = 54.0559 %
+cost time = 0.349843 s
+================================
+feature = brand
+cache size = 7
+cache policy = lfu
+[1]total hit rate = 63.1692 %
+[2]total hit rate = 64.9904 %
+[3]total hit rate = 64.9872 %
+cost time = 0.38472 s
+================================
+feature = brand
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 53.9479 %
+[2]total hit rate = 54.6946 %
+[3]total hit rate = 54.0328 %
+cost time = 0.321901 s
+================================
+feature = brand
+cache size = 7
+cache policy = arc
+[1]total hit rate = 63.2534 %
+[2]total hit rate = 64.7368 %
+[3]total hit rate = 60.7665 %
+cost time = 0.544473 s
+================================
+feature = brand
+cache size = 7
+cache policy = arf
+[1]total hit rate = 64.5512 %
+[2]total hit rate = 66.5969 %
+[3]total hit rate = 66.5602 %
+cost time = 0.548898 s
+================================
+feature = brand
+cache size = 10
+cache policy = lru
+[1]total hit rate = 61.1413 %
+[2]total hit rate = 62.2859 %
+[3]total hit rate = 58.1941 %
+cost time = 0.319322 s
+================================
+feature = brand
+cache size = 10
+cache policy = lfu
+[1]total hit rate = 67.0263 %
+[2]total hit rate = 69.449 %
+[3]total hit rate = 69.4341 %
+cost time = 0.349191 s
+================================
+feature = brand
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 58.0074 %
+[2]total hit rate = 58.9089 %
+[3]total hit rate = 58.1517 %
+cost time = 0.286494 s
+================================
+feature = brand
+cache size = 10
+cache policy = arc
+[1]total hit rate = 66.9976 %
+[2]total hit rate = 68.9608 %
+[3]total hit rate = 64.5354 %
+cost time = 0.513232 s
+================================
+feature = brand
+cache size = 10
+cache policy = arf
+[1]total hit rate = 68.253 %
+[2]total hit rate = 70.8705 %
+[3]total hit rate = 70.8149 %
+cost time = 0.53492 s
+================================
+feature = brand
+cache size = 15
+cache policy = lru
+[1]total hit rate = 66.6397 %
+[2]total hit rate = 68.4306 %
+[3]total hit rate = 63.5534 %
+cost time = 0.345405 s
+================================
+feature = brand
+cache size = 15
+cache policy = lfu
+[1]total hit rate = 71.5715 %
+[2]total hit rate = 74.9035 %
+[3]total hit rate = 74.8498 %
+cost time = 0.382517 s
+================================
+feature = brand
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 63.2134 %
+[2]total hit rate = 65.0784 %
+[3]total hit rate = 63.4782 %
+cost time = 0.307193 s
+================================
+feature = brand
+cache size = 15
+cache policy = arc
+[1]total hit rate = 71.4876 %
+[2]total hit rate = 74.0633 %
+[3]total hit rate = 69.0648 %
+cost time = 0.542762 s
+================================
+feature = brand
+cache size = 15
+cache policy = arf
+[1]total hit rate = 72.6241 %
+[2]total hit rate = 76.159 %
+[3]total hit rate = 75.9719 %
+cost time = 0.544984 s
+================================
+feature = brand
+cache size = 20
+cache policy = lru
+[1]total hit rate = 70.7465 %
+[2]total hit rate = 73.02 %
+[3]total hit rate = 67.6902 %
+cost time = 0.312997 s
+================================
+feature = brand
+cache size = 20
+cache policy = lfu
+[1]total hit rate = 74.926 %
+[2]total hit rate = 79.1066 %
+[3]total hit rate = 78.9398 %
+cost time = 0.332574 s
+================================
+feature = brand
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 67.1573 %
+[2]total hit rate = 69.0649 %
+[3]total hit rate = 67.563 %
+cost time = 0.268503 s
+================================
+feature = brand
+cache size = 20
+cache policy = arc
+[1]total hit rate = 74.716 %
+[2]total hit rate = 78.0796 %
+[3]total hit rate = 72.4556 %
+cost time = 0.480527 s
+================================
+feature = brand
+cache size = 20
+cache policy = arf
+[1]total hit rate = 75.7783 %
+[2]total hit rate = 80.1384 %
+[3]total hit rate = 79.8406 %
+cost time = 0.476942 s
+================================
+feature = brand
+cache size = 30
+cache policy = lru
+[1]total hit rate = 76.5886 %
+[2]total hit rate = 80.1139 %
+[3]total hit rate = 74.0151 %
+cost time = 0.329617 s
+================================
+feature = brand
+cache size = 30
+cache policy = lfu
+[1]total hit rate = 79.4605 %
+[2]total hit rate = 85.0308 %
+[3]total hit rate = 84.5052 %
+cost time = 0.359502 s
+================================
+feature = brand
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 73.0456 %
+[2]total hit rate = 75.8723 %
+[3]total hit rate = 73.7958 %
+cost time = 0.283166 s
+================================
+feature = brand
+cache size = 30
+cache policy = arc
+[1]total hit rate = 79.25 %
+[2]total hit rate = 83.8382 %
+[3]total hit rate = 77.4905 %
+cost time = 0.49562 s
+================================
+feature = brand
+cache size = 30
+cache policy = arf
+[1]total hit rate = 79.9981 %
+[2]total hit rate = 85.8568 %
+[3]total hit rate = 85.4814 %
+cost time = 0.49023 s
+================================
+feature = brand
+cache size = 40
+cache policy = lru
+[1]total hit rate = 80.585 %
+[2]total hit rate = 85.3412 %
+[3]total hit rate = 78.7098 %
+cost time = 0.270838 s
+================================
+feature = brand
+cache size = 40
+cache policy = lfu
+[1]total hit rate = 82.436 %
+[2]total hit rate = 89.1482 %
+[3]total hit rate = 88.1226 %
+cost time = 0.323202 s
+================================
+feature = brand
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 77.2152 %
+[2]total hit rate = 81.3992 %
+[3]total hit rate = 78.3692 %
+cost time = 0.232245 s
+================================
+feature = brand
+cache size = 40
+cache policy = arc
+[1]total hit rate = 82.4085 %
+[2]total hit rate = 87.9016 %
+[3]total hit rate = 82.0115 %
+cost time = 0.427392 s
+================================
+feature = brand
+cache size = 40
+cache policy = arf
+[1]total hit rate = 82.7989 %
+[2]total hit rate = 89.7488 %
+[3]total hit rate = 88.8855 %
+cost time = 0.493724 s
+================================
+feature = brand
+cache size = 50
+cache policy = lru
+[1]total hit rate = 83.3982 %
+[2]total hit rate = 89.3065 %
+[3]total hit rate = 82.8669 %
+cost time = 0.262405 s
+================================
+feature = brand
+cache size = 50
+cache policy = lfu
+[1]total hit rate = 84.5269 %
+[2]total hit rate = 92.1899 %
+[3]total hit rate = 90.7047 %
+cost time = 0.32122 s
+================================
+feature = brand
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 80.4165 %
+[2]total hit rate = 84.564 %
+[3]total hit rate = 82.38 %
+cost time = 0.225485 s
+================================
+feature = brand
+cache size = 50
+cache policy = arc
+[1]total hit rate = 84.6802 %
+[2]total hit rate = 92.1482 %
+[3]total hit rate = 83.4837 %
+cost time = 0.463822 s
+================================
+feature = brand
+cache size = 50
+cache policy = arf
+[1]total hit rate = 84.7373 %
+[2]total hit rate = 92.8688 %
+[3]total hit rate = 90.988 %
+cost time = 0.44637 s
+================================
+feature = brand
+cache size = 60
+cache policy = lru
+[1]total hit rate = 85.4023 %
+[2]total hit rate = 92.455 %
+[3]total hit rate = 85.5721 %
+cost time = 0.260681 s
+================================
+feature = brand
+cache size = 60
+cache policy = lfu
+[1]total hit rate = 86.0125 %
+[2]total hit rate = 94.5016 %
+[3]total hit rate = 92.5289 %
+cost time = 0.327525 s
+================================
+feature = brand
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 82.7835 %
+[2]total hit rate = 87.8328 %
+[3]total hit rate = 85.1245 %
+cost time = 0.218753 s
+================================
+feature = brand
+cache size = 60
+cache policy = arc
+[1]total hit rate = 86.073 %
+[2]total hit rate = 94.9391 %
+[3]total hit rate = 88.1998 %
+cost time = 0.42597 s
+================================
+feature = brand
+cache size = 60
+cache policy = arf
+[1]total hit rate = 86.0647 %
+[2]total hit rate = 94.8828 %
+[3]total hit rate = 92.3623 %
+cost time = 0.448752 s
+================================
+feature = brand
+cache size = 70
+cache policy = lru
+[1]total hit rate = 86.7649 %
+[2]total hit rate = 94.9906 %
+[3]total hit rate = 88.2128 %
+cost time = 0.24986 s
+================================
+feature = brand
+cache size = 70
+cache policy = lfu
+[1]total hit rate = 87.0256 %
+[2]total hit rate = 96.2885 %
+[3]total hit rate = 93.8603 %
+cost time = 0.329031 s
+================================
+feature = brand
+cache size = 70
+cache policy = fifo
+[1]total hit rate = 84.6327 %
+[2]total hit rate = 92.2109 %
+[3]total hit rate = 87.6133 %
+cost time = 0.200332 s
+================================
+feature = brand
+cache size = 70
+cache policy = arc
+[1]total hit rate = 87.033 %
+[2]total hit rate = 96.432 %
+[3]total hit rate = 88.3545 %
+cost time = 0.423082 s
+================================
+feature = brand
+cache size = 70
+cache policy = arf
+[1]total hit rate = 87.033 %
+[2]total hit rate = 96.434 %
+[3]total hit rate = 93.2524 %
+cost time = 0.440677 s
+================================
+feature = brand
+cache size = 80
+cache policy = lru
+[1]total hit rate = 87.6073 %
+[2]total hit rate = 97.0246 %
+[3]total hit rate = 88.2128 %
+cost time = 0.259381 s
+================================
+feature = brand
+cache size = 80
+cache policy = lfu
+[1]total hit rate = 87.6891 %
+[2]total hit rate = 97.6426 %
+[3]total hit rate = 94.9071 %
+cost time = 0.33955 s
+================================
+feature = brand
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 85.9117 %
+[2]total hit rate = 92.6358 %
+[3]total hit rate = 88.1251 %
+cost time = 0.204654 s
+================================
+feature = brand
+cache size = 80
+cache policy = arc
+[1]total hit rate = 87.6891 %
+[2]total hit rate = 97.6426 %
+[3]total hit rate = 95.0233 %
+cost time = 0.382466 s
+================================
+feature = brand
+cache size = 80
+cache policy = arf
+[1]total hit rate = 87.6891 %
+[2]total hit rate = 97.6426 %
+[3]total hit rate = 93.5291 %
+cost time = 0.467012 s
+================================
+feature = brand
+cache size = 90
+cache policy = lru
+[1]total hit rate = 88.0721 %
+[2]total hit rate = 98.6781 %
+[3]total hit rate = 88.2128 %
+cost time = 0.258964 s
+================================
+feature = brand
+cache size = 90
+cache policy = lfu
+[1]total hit rate = 88.0829 %
+[2]total hit rate = 98.8212 %
+[3]total hit rate = 95.1995 %
+cost time = 0.33653 s
+================================
+feature = brand
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 87.2382 %
+[2]total hit rate = 93.8151 %
+[3]total hit rate = 88.167 %
+cost time = 0.199244 s
+================================
+feature = brand
+cache size = 90
+cache policy = arc
+[1]total hit rate = 88.0829 %
+[2]total hit rate = 98.8212 %
+[3]total hit rate = 97.1325 %
+cost time = 0.392811 s
+================================
+feature = brand
+cache size = 90
+cache policy = arf
+[1]total hit rate = 88.0829 %
+[2]total hit rate = 98.8212 %
+[3]total hit rate = 95.3999 %
+cost time = 0.431555 s
+================================
+feature = brand
+cache size = 95
+cache policy = lru
+[1]total hit rate = 88.1791 %
+[2]total hit rate = 99.3735 %
+[3]total hit rate = 88.2128 %
+cost time = 0.258726 s
+================================
+feature = brand
+cache size = 95
+cache policy = lfu
+[1]total hit rate = 88.1805 %
+[2]total hit rate = 99.4106 %
+[3]total hit rate = 95.2834 %
+cost time = 0.331033 s
+================================
+feature = brand
+cache size = 95
+cache policy = fifo
+[1]total hit rate = 87.8253 %
+[2]total hit rate = 95.0247 %
+[3]total hit rate = 88.1983 %
+cost time = 0.20696 s
+================================
+feature = brand
+cache size = 95
+cache policy = arc
+[1]total hit rate = 88.1805 %
+[2]total hit rate = 99.4106 %
+[3]total hit rate = 97.3785 %
+cost time = 0.366722 s
+================================
+feature = brand
+cache size = 95
+cache policy = arf
+[1]total hit rate = 88.1805 %
+[2]total hit rate = 99.4106 %
+[3]total hit rate = 97.3785 %
+cost time = 0.413195 s
+================================
+feature = brand
+cache size = 100
+cache policy = lru
+[1]total hit rate = 88.2128 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.224996 s
+================================
+feature = brand
+cache size = 100
+cache policy = lfu
+[1]total hit rate = 88.2128 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.313242 s
+================================
+feature = brand
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 88.2128 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.191318 s
+================================
+feature = brand
+cache size = 100
+cache policy = arc
+[1]total hit rate = 88.2128 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.342401 s
+================================
+feature = brand
+cache size = 100
+cache policy = arf
+[1]total hit rate = 88.2128 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.404987 s
+================================
+feature = price
+cache size = 0.1
+cache policy = lru
+[1]total hit rate = 3.38198 %
+[2]total hit rate = 2.37196 %
+[3]total hit rate = 3.34667 %
+cost time = 0.403672 s
+================================
+feature = price
+cache size = 0.1
+cache policy = lfu
+[1]total hit rate = 5.6649 %
+[2]total hit rate = 5.4945 %
+[3]total hit rate = 5.66667 %
+cost time = 86.8678 s
+================================
+feature = price
+cache size = 0.1
+cache policy = fifo
+[1]total hit rate = 3.34667 %
+[2]total hit rate = 2.37196 %
+[3]total hit rate = 3.34667 %
+cost time = 0.398383 s
+================================
+feature = price
+cache size = 0.1
+cache policy = arc
+[1]total hit rate = 5.174 %
+[2]total hit rate = 3.5303 %
+[3]total hit rate = 5.03454 %
+cost time = 0.652576 s
+================================
+feature = price
+cache size = 0.1
+cache policy = arf
+[1]total hit rate = 5.99366 %
+[2]total hit rate = 5.28831 %
+[3]total hit rate = 5.0343 %
+cost time = 0.667623 s
+================================
+feature = price
+cache size = 0.3
+cache policy = lru
+[1]total hit rate = 10.2521 %
+[2]total hit rate = 9.67418 %
+[3]total hit rate = 9.92642 %
+cost time = 0.433036 s
+================================
+feature = price
+cache size = 0.3
+cache policy = lfu
+[1]total hit rate = 18.3965 %
+[2]total hit rate = 18.3171 %
+[3]total hit rate = 18.4028 %
+cost time = 50.5412 s
+================================
+feature = price
+cache size = 0.3
+cache policy = fifo
+[1]total hit rate = 9.92618 %
+[2]total hit rate = 9.67418 %
+[3]total hit rate = 9.92642 %
+cost time = 0.426087 s
+================================
+feature = price
+cache size = 0.3
+cache policy = arc
+[1]total hit rate = 15.6079 %
+[2]total hit rate = 16.9144 %
+[3]total hit rate = 14.8096 %
+cost time = 0.689804 s
+================================
+feature = price
+cache size = 0.3
+cache policy = arf
+[1]total hit rate = 18.9233 %
+[2]total hit rate = 19.6255 %
+[3]total hit rate = 15.4191 %
+cost time = 0.723979 s
+================================
+feature = price
+cache size = 0.6
+cache policy = lru
+[1]total hit rate = 19.6371 %
+[2]total hit rate = 15.5776 %
+[3]total hit rate = 18.4444 %
+cost time = 0.4012 s
+================================
+feature = price
+cache size = 0.6
+cache policy = lfu
+[1]total hit rate = 30.5242 %
+[2]total hit rate = 30.5122 %
+[3]total hit rate = 30.5329 %
+cost time = 12.5263 s
+================================
+feature = price
+cache size = 0.6
+cache policy = fifo
+[1]total hit rate = 18.444 %
+[2]total hit rate = 14.1265 %
+[3]total hit rate = 18.4444 %
+cost time = 0.389271 s
+================================
+feature = price
+cache size = 0.6
+cache policy = arc
+[1]total hit rate = 28.3166 %
+[2]total hit rate = 27.4435 %
+[3]total hit rate = 26.296 %
+cost time = 0.618365 s
+================================
+feature = price
+cache size = 0.6
+cache policy = arf
+[1]total hit rate = 33.819 %
+[2]total hit rate = 35.7991 %
+[3]total hit rate = 31.5317 %
+cost time = 0.630809 s
+================================
+feature = price
+cache size = 1
+cache policy = lru
+[1]total hit rate = 31.0673 %
+[2]total hit rate = 25.1951 %
+[3]total hit rate = 28.308 %
+cost time = 0.351261 s
+================================
+feature = price
+cache size = 1
+cache policy = lfu
+[1]total hit rate = 46.2722 %
+[2]total hit rate = 46.3772 %
+[3]total hit rate = 46.2907 %
+cost time = 6.94994 s
+================================
+feature = price
+cache size = 1
+cache policy = fifo
+[1]total hit rate = 28.3062 %
+[2]total hit rate = 24.8972 %
+[3]total hit rate = 28.3077 %
+cost time = 0.33969 s
+================================
+feature = price
+cache size = 1
+cache policy = arc
+[1]total hit rate = 41.7545 %
+[2]total hit rate = 43.9112 %
+[3]total hit rate = 37.9518 %
+cost time = 0.527703 s
+================================
+feature = price
+cache size = 1
+cache policy = arf
+[1]total hit rate = 48.4368 %
+[2]total hit rate = 49.151 %
+[3]total hit rate = 46.2538 %
+cost time = 0.536701 s
+================================
+feature = price
+cache size = 2
+cache policy = lru
+[1]total hit rate = 52.7212 %
+[2]total hit rate = 51.1297 %
+[3]total hit rate = 46.1428 %
+cost time = 0.300322 s
+================================
+feature = price
+cache size = 2
+cache policy = lfu
+[1]total hit rate = 66.9871 %
+[2]total hit rate = 67.2145 %
+[3]total hit rate = 67.0186 %
+cost time = 1.84029 s
+================================
+feature = price
+cache size = 2
+cache policy = fifo
+[1]total hit rate = 46.1376 %
+[2]total hit rate = 42.0341 %
+[3]total hit rate = 46.1406 %
+cost time = 0.287799 s
+================================
+feature = price
+cache size = 2
+cache policy = arc
+[1]total hit rate = 62.6062 %
+[2]total hit rate = 61.259 %
+[3]total hit rate = 56.014 %
+cost time = 0.434025 s
+================================
+feature = price
+cache size = 2
+cache policy = arf
+[1]total hit rate = 68.1173 %
+[2]total hit rate = 68.2062 %
+[3]total hit rate = 66.7818 %
+cost time = 0.447445 s
+================================
+feature = price
+cache size = 3
+cache policy = lru
+[1]total hit rate = 66.2243 %
+[2]total hit rate = 64.2474 %
+[3]total hit rate = 57.847 %
+cost time = 0.225661 s
+================================
+feature = price
+cache size = 3
+cache policy = lfu
+[1]total hit rate = 76.5595 %
+[2]total hit rate = 76.5888 %
+[3]total hit rate = 76.6085 %
+cost time = 0.865759 s
+================================
+feature = price
+cache size = 3
+cache policy = fifo
+[1]total hit rate = 57.8372 %
+[2]total hit rate = 57.4363 %
+[3]total hit rate = 57.8457 %
+cost time = 0.214468 s
+================================
+feature = price
+cache size = 3
+cache policy = arc
+[1]total hit rate = 73.481 %
+[2]total hit rate = 71.6781 %
+[3]total hit rate = 66.3071 %
+cost time = 0.33709 s
+================================
+feature = price
+cache size = 3
+cache policy = arf
+[1]total hit rate = 77.6646 %
+[2]total hit rate = 77.8097 %
+[3]total hit rate = 77.0937 %
+cost time = 0.356012 s
+================================
+feature = price
+cache size = 4
+cache policy = lru
+[1]total hit rate = 74.4533 %
+[2]total hit rate = 74.1838 %
+[3]total hit rate = 65.8379 %
+cost time = 0.215237 s
+================================
+feature = price
+cache size = 4
+cache policy = lfu
+[1]total hit rate = 81.6888 %
+[2]total hit rate = 81.7454 %
+[3]total hit rate = 81.7466 %
+cost time = 0.426373 s
+================================
+feature = price
+cache size = 4
+cache policy = fifo
+[1]total hit rate = 65.828 %
+[2]total hit rate = 61.9099 %
+[3]total hit rate = 65.8357 %
+cost time = 0.202725 s
+================================
+feature = price
+cache size = 4
+cache policy = arc
+[1]total hit rate = 79.6918 %
+[2]total hit rate = 80.3661 %
+[3]total hit rate = 72.8636 %
+cost time = 0.323131 s
+================================
+feature = price
+cache size = 4
+cache policy = arf
+[1]total hit rate = 82.9862 %
+[2]total hit rate = 82.8462 %
+[3]total hit rate = 82.5868 %
+cost time = 0.344456 s
+================================
+feature = price
+cache size = 5
+cache policy = lru
+[1]total hit rate = 79.7213 %
+[2]total hit rate = 80.697 %
+[3]total hit rate = 71.6342 %
+cost time = 0.213136 s
+================================
+feature = price
+cache size = 5
+cache policy = lfu
+[1]total hit rate = 85.3748 %
+[2]total hit rate = 85.4584 %
+[3]total hit rate = 85.4512 %
+cost time = 0.412965 s
+================================
+feature = price
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 71.6207 %
+[2]total hit rate = 68.939 %
+[3]total hit rate = 71.637 %
+cost time = 0.195507 s
+================================
+feature = price
+cache size = 5
+cache policy = arc
+[1]total hit rate = 83.6718 %
+[2]total hit rate = 84.1475 %
+[3]total hit rate = 77.4951 %
+cost time = 0.308103 s
+================================
+feature = price
+cache size = 5
+cache policy = arf
+[1]total hit rate = 86.3025 %
+[2]total hit rate = 86.525 %
+[3]total hit rate = 86.0852 %
+cost time = 0.33879 s
+================================
+feature = price
+cache size = 7
+cache policy = lru
+[1]total hit rate = 85.8881 %
+[2]total hit rate = 86.3175 %
+[3]total hit rate = 79.2085 %
+cost time = 0.166128 s
+================================
+feature = price
+cache size = 7
+cache policy = lfu
+[1]total hit rate = 89.789 %
+[2]total hit rate = 89.8836 %
+[3]total hit rate = 89.8898 %
+cost time = 0.273168 s
+================================
+feature = price
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 79.1807 %
+[2]total hit rate = 80.2695 %
+[3]total hit rate = 79.1971 %
+cost time = 0.147569 s
+================================
+feature = price
+cache size = 7
+cache policy = arc
+[1]total hit rate = 88.4789 %
+[2]total hit rate = 88.3034 %
+[3]total hit rate = 83.5765 %
+cost time = 0.249915 s
+================================
+feature = price
+cache size = 7
+cache policy = arf
+[1]total hit rate = 90.3564 %
+[2]total hit rate = 90.5188 %
+[3]total hit rate = 90.3283 %
+cost time = 0.286274 s
+================================
+feature = price
+cache size = 10
+cache policy = lru
+[1]total hit rate = 90.6401 %
+[2]total hit rate = 90.7025 %
+[3]total hit rate = 85.6275 %
+cost time = 0.166897 s
+================================
+feature = price
+cache size = 10
+cache policy = lfu
+[1]total hit rate = 93.3129 %
+[2]total hit rate = 93.4505 %
+[3]total hit rate = 93.4503 %
+cost time = 0.260046 s
+================================
+feature = price
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 85.5917 %
+[2]total hit rate = 84.5831 %
+[3]total hit rate = 85.6192 %
+cost time = 0.139845 s
+================================
+feature = price
+cache size = 10
+cache policy = arc
+[1]total hit rate = 92.3779 %
+[2]total hit rate = 92.561 %
+[3]total hit rate = 88.7532 %
+cost time = 0.240132 s
+================================
+feature = price
+cache size = 10
+cache policy = arf
+[1]total hit rate = 93.6653 %
+[2]total hit rate = 93.8887 %
+[3]total hit rate = 93.7439 %
+cost time = 0.288121 s
+================================
+feature = price
+cache size = 15
+cache policy = lru
+[1]total hit rate = 94.3992 %
+[2]total hit rate = 94.6544 %
+[3]total hit rate = 91.0228 %
+cost time = 0.146304 s
+================================
+feature = price
+cache size = 15
+cache policy = lfu
+[1]total hit rate = 95.92 %
+[2]total hit rate = 96.1284 %
+[3]total hit rate = 96.1301 %
+cost time = 0.252159 s
+================================
+feature = price
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 90.949 %
+[2]total hit rate = 90.6261 %
+[3]total hit rate = 90.9934 %
+cost time = 0.110649 s
+================================
+feature = price
+cache size = 15
+cache policy = arc
+[1]total hit rate = 95.4489 %
+[2]total hit rate = 95.6483 %
+[3]total hit rate = 92.971 %
+cost time = 0.209547 s
+================================
+feature = price
+cache size = 15
+cache policy = arf
+[1]total hit rate = 96.1373 %
+[2]total hit rate = 96.4304 %
+[3]total hit rate = 96.337 %
+cost time = 0.272658 s
+================================
+feature = price
+cache size = 20
+cache policy = lru
+[1]total hit rate = 96.1536 %
+[2]total hit rate = 96.385 %
+[3]total hit rate = 93.7165 %
+cost time = 0.154797 s
+================================
+feature = price
+cache size = 20
+cache policy = lfu
+[1]total hit rate = 97.1904 %
+[2]total hit rate = 97.4626 %
+[3]total hit rate = 97.463 %
+cost time = 0.257141 s
+================================
+feature = price
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 93.625 %
+[2]total hit rate = 94.2243 %
+[3]total hit rate = 93.6759 %
+cost time = 0.113861 s
+================================
+feature = price
+cache size = 20
+cache policy = arc
+[1]total hit rate = 96.8209 %
+[2]total hit rate = 97.0486 %
+[3]total hit rate = 95.0725 %
+cost time = 0.215093 s
+================================
+feature = price
+cache size = 20
+cache policy = arf
+[1]total hit rate = 97.2929 %
+[2]total hit rate = 97.5711 %
+[3]total hit rate = 97.5446 %
+cost time = 0.286985 s
+================================
+feature = price
+cache size = 30
+cache policy = lru
+[1]total hit rate = 97.6991 %
+[2]total hit rate = 97.9418 %
+[3]total hit rate = 96.3298 %
+cost time = 0.11899 s
+================================
+feature = price
+cache size = 30
+cache policy = lfu
+[1]total hit rate = 98.1806 %
+[2]total hit rate = 98.5634 %
+[3]total hit rate = 98.5618 %
+cost time = 0.221403 s
+================================
+feature = price
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 96.1702 %
+[2]total hit rate = 96.7452 %
+[3]total hit rate = 96.2613 %
+cost time = 0.0839108 s
+================================
+feature = price
+cache size = 30
+cache policy = arc
+[1]total hit rate = 98.0461 %
+[2]total hit rate = 98.3281 %
+[3]total hit rate = 97.1292 %
+cost time = 0.180141 s
+================================
+feature = price
+cache size = 30
+cache policy = arf
+[1]total hit rate = 98.236 %
+[2]total hit rate = 98.6204 %
+[3]total hit rate = 98.5943 %
+cost time = 0.249902 s
+================================
+feature = price
+cache size = 40
+cache policy = lru
+[1]total hit rate = 98.3617 %
+[2]total hit rate = 98.705 %
+[3]total hit rate = 97.5853 %
+cost time = 0.128726 s
+================================
+feature = price
+cache size = 40
+cache policy = lfu
+[1]total hit rate = 98.6003 %
+[2]total hit rate = 99.0856 %
+[3]total hit rate = 99.0598 %
+cost time = 0.23679 s
+================================
+feature = price
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 97.3523 %
+[2]total hit rate = 97.7154 %
+[3]total hit rate = 97.4907 %
+cost time = 0.0861556 s
+================================
+feature = price
+cache size = 40
+cache policy = arc
+[1]total hit rate = 98.5763 %
+[2]total hit rate = 98.931 %
+[3]total hit rate = 98.1349 %
+cost time = 0.191026 s
+================================
+feature = price
+cache size = 40
+cache policy = arf
+[1]total hit rate = 98.6502 %
+[2]total hit rate = 99.1254 %
+[3]total hit rate = 99.1065 %
+cost time = 0.2716 s
+================================
+feature = price
+cache size = 50
+cache policy = lru
+[1]total hit rate = 98.7007 %
+[2]total hit rate = 99.1337 %
+[3]total hit rate = 98.3004 %
+cost time = 0.108693 s
+================================
+feature = price
+cache size = 50
+cache policy = lfu
+[1]total hit rate = 98.8252 %
+[2]total hit rate = 99.382 %
+[3]total hit rate = 99.3099 %
+cost time = 0.220409 s
+================================
+feature = price
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 97.9955 %
+[2]total hit rate = 98.4495 %
+[3]total hit rate = 98.1769 %
+cost time = 0.0738856 s
+================================
+feature = price
+cache size = 50
+cache policy = arc
+[1]total hit rate = 98.8296 %
+[2]total hit rate = 99.3388 %
+[3]total hit rate = 98.3576 %
+cost time = 0.1801 s
+================================
+feature = price
+cache size = 50
+cache policy = arf
+[1]total hit rate = 98.8434 %
+[2]total hit rate = 99.4267 %
+[3]total hit rate = 99.3392 %
+cost time = 0.255044 s
+================================
+feature = price
+cache size = 60
+cache policy = lru
+[1]total hit rate = 98.8927 %
+[2]total hit rate = 99.4323 %
+[3]total hit rate = 98.7089 %
+cost time = 0.111714 s
+================================
+feature = price
+cache size = 60
+cache policy = lfu
+[1]total hit rate = 98.9527 %
+[2]total hit rate = 99.5785 %
+[3]total hit rate = 99.4635 %
+cost time = 0.22655 s
+================================
+feature = price
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 98.4279 %
+[2]total hit rate = 99.179 %
+[3]total hit rate = 98.5689 %
+cost time = 0.0782029 s
+================================
+feature = price
+cache size = 60
+cache policy = arc
+[1]total hit rate = 98.961 %
+[2]total hit rate = 99.6116 %
+[3]total hit rate = 98.7534 %
+cost time = 0.182137 s
+================================
+feature = price
+cache size = 60
+cache policy = arf
+[1]total hit rate = 98.9605 %
+[2]total hit rate = 99.6206 %
+[3]total hit rate = 99.4679 %
+cost time = 0.259574 s
+================================
+feature = price
+cache size = 70
+cache policy = lru
+[1]total hit rate = 99.0067 %
+[2]total hit rate = 99.6297 %
+[3]total hit rate = 99.1111 %
+cost time = 0.115276 s
+================================
+feature = price
+cache size = 70
+cache policy = lfu
+[1]total hit rate = 99.0314 %
+[2]total hit rate = 99.7176 %
+[3]total hit rate = 99.5678 %
+cost time = 0.233387 s
+================================
+feature = price
+cache size = 70
+cache policy = fifo
+[1]total hit rate = 98.6581 %
+[2]total hit rate = 98.7108 %
+[3]total hit rate = 98.9563 %
+cost time = 0.0750067 s
+================================
+feature = price
+cache size = 70
+cache policy = arc
+[1]total hit rate = 99.0326 %
+[2]total hit rate = 99.7309 %
+[3]total hit rate = 99.1167 %
+cost time = 0.190391 s
+================================
+feature = price
+cache size = 70
+cache policy = arf
+[1]total hit rate = 99.0326 %
+[2]total hit rate = 99.7311 %
+[3]total hit rate = 99.5398 %
+cost time = 0.266262 s
+================================
+feature = price
+cache size = 80
+cache policy = lru
+[1]total hit rate = 99.0712 %
+[2]total hit rate = 99.7814 %
+[3]total hit rate = 99.115 %
+cost time = 0.12062 s
+================================
+feature = price
+cache size = 80
+cache policy = lfu
+[1]total hit rate = 99.0811 %
+[2]total hit rate = 99.823 %
+[3]total hit rate = 99.6456 %
+cost time = 0.237254 s
+================================
+feature = price
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 98.8034 %
+[2]total hit rate = 99.5096 %
+[3]total hit rate = 99.1078 %
+cost time = 0.0814996 s
+================================
+feature = price
+cache size = 80
+cache policy = arc
+[1]total hit rate = 99.0811 %
+[2]total hit rate = 99.823 %
+[3]total hit rate = 99.1434 %
+cost time = 0.198632 s
+================================
+feature = price
+cache size = 80
+cache policy = arf
+[1]total hit rate = 99.0811 %
+[2]total hit rate = 99.823 %
+[3]total hit rate = 99.5659 %
+cost time = 0.274117 s
+================================
+feature = price
+cache size = 90
+cache policy = lru
+[1]total hit rate = 99.1065 %
+[2]total hit rate = 99.9003 %
+[3]total hit rate = 99.115 %
+cost time = 0.125664 s
+================================
+feature = price
+cache size = 90
+cache policy = lfu
+[1]total hit rate = 99.1064 %
+[2]total hit rate = 99.9114 %
+[3]total hit rate = 99.6638 %
+cost time = 0.239256 s
+================================
+feature = price
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 98.9173 %
+[2]total hit rate = 99.4844 %
+[3]total hit rate = 99.107 %
+cost time = 0.0812668 s
+================================
+feature = price
+cache size = 90
+cache policy = arc
+[1]total hit rate = 99.1064 %
+[2]total hit rate = 99.9114 %
+[3]total hit rate = 99.2735 %
+cost time = 0.204828 s
+================================
+feature = price
+cache size = 90
+cache policy = arf
+[1]total hit rate = 99.1064 %
+[2]total hit rate = 99.9114 %
+[3]total hit rate = 99.6951 %
+cost time = 0.281252 s
+================================
+feature = price
+cache size = 95
+cache policy = lru
+[1]total hit rate = 99.1137 %
+[2]total hit rate = 99.9539 %
+[3]total hit rate = 99.115 %
+cost time = 0.127938 s
+================================
+feature = price
+cache size = 95
+cache policy = lfu
+[1]total hit rate = 99.1141 %
+[2]total hit rate = 99.9557 %
+[3]total hit rate = 99.6699 %
+cost time = 0.242933 s
+================================
+feature = price
+cache size = 95
+cache policy = fifo
+[1]total hit rate = 98.988 %
+[2]total hit rate = 99.3911 %
+[3]total hit rate = 99.1063 %
+cost time = 0.080726 s
+================================
+feature = price
+cache size = 95
+cache policy = arc
+[1]total hit rate = 99.1141 %
+[2]total hit rate = 99.9557 %
+[3]total hit rate = 99.8138 %
+cost time = 0.205629 s
+================================
+feature = price
+cache size = 95
+cache policy = arf
+[1]total hit rate = 99.1141 %
+[2]total hit rate = 99.9557 %
+[3]total hit rate = 99.7247 %
+cost time = 0.281915 s
+================================
+feature = price
+cache size = 100
+cache policy = lru
+[1]total hit rate = 99.115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.125959 s
+================================
+feature = price
+cache size = 100
+cache policy = lfu
+[1]total hit rate = 99.115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.24134 s
+================================
+feature = price
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 99.115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.0947634 s
+================================
+feature = price
+cache size = 100
+cache policy = arc
+[1]total hit rate = 99.115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.204463 s
+================================
+feature = price
+cache size = 100
+cache policy = arf
+[1]total hit rate = 99.115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 0.280759 s
+================================
+feature = random1
+cache size = 0.1
+cache policy = lru
+[1]total hit rate = 0.10006 %
+[2]total hit rate = 0.1107 %
+[3]total hit rate = 0.10009 %
+cost time = 5.13718 s
+================================
+feature = random1
+cache size = 0.1
+cache policy = lfu
+[1]total hit rate = 0.09988 %
+[2]total hit rate = 0.11971 %
+[3]total hit rate = 0.11964 %
+cost time = 6.45914 s
+================================
+feature = random1
+cache size = 0.1
+cache policy = fifo
+[1]total hit rate = 0.10009 %
+[2]total hit rate = 0.1107 %
+[3]total hit rate = 0.10009 %
+cost time = 5.11431 s
+================================
+feature = random1
+cache size = 0.1
+cache policy = arc
+[1]total hit rate = 0.10008 %
+[2]total hit rate = 0.12087 %
+[3]total hit rate = 0.10017 %
+cost time = 9.14624 s
+================================
+feature = random1
+cache size = 0.1
+cache policy = arf
+[1]total hit rate = 0.10034 %
+[2]total hit rate = 0.12891 %
+[3]total hit rate = 0.12292 %
+cost time = 9.09687 s
+================================
+feature = random1
+cache size = 0.3
+cache policy = lru
+[1]total hit rate = 0.29803 %
+[2]total hit rate = 0.33103 %
+[3]total hit rate = 0.29797 %
+cost time = 5.81518 s
+================================
+feature = random1
+cache size = 0.3
+cache policy = lfu
+[1]total hit rate = 0.30103 %
+[2]total hit rate = 0.3604 %
+[3]total hit rate = 0.36033 %
+cost time = 6.65174 s
+================================
+feature = random1
+cache size = 0.3
+cache policy = fifo
+[1]total hit rate = 0.29791 %
+[2]total hit rate = 0.33102 %
+[3]total hit rate = 0.29797 %
+cost time = 5.88402 s
+================================
+feature = random1
+cache size = 0.3
+cache policy = arc
+[1]total hit rate = 0.29934 %
+[2]total hit rate = 0.36622 %
+[3]total hit rate = 0.29933 %
+cost time = 10.5842 s
+================================
+feature = random1
+cache size = 0.3
+cache policy = arf
+[1]total hit rate = 0.29971 %
+[2]total hit rate = 0.38031 %
+[3]total hit rate = 0.36607 %
+cost time = 10.655 s
+================================
+feature = random1
+cache size = 0.6
+cache policy = lru
+[1]total hit rate = 0.59753 %
+[2]total hit rate = 0.66071 %
+[3]total hit rate = 0.59741 %
+cost time = 6.00178 s
+================================
+feature = random1
+cache size = 0.6
+cache policy = lfu
+[1]total hit rate = 0.59837 %
+[2]total hit rate = 0.71865 %
+[3]total hit rate = 0.71858 %
+cost time = 6.76145 s
+================================
+feature = random1
+cache size = 0.6
+cache policy = fifo
+[1]total hit rate = 0.59722 %
+[2]total hit rate = 0.66056 %
+[3]total hit rate = 0.59741 %
+cost time = 5.89847 s
+================================
+feature = random1
+cache size = 0.6
+cache policy = arc
+[1]total hit rate = 0.59867 %
+[2]total hit rate = 0.73114 %
+[3]total hit rate = 0.60065 %
+cost time = 11.7738 s
+================================
+feature = random1
+cache size = 0.6
+cache policy = arf
+[1]total hit rate = 0.5988 %
+[2]total hit rate = 0.75505 %
+[3]total hit rate = 0.7322 %
+cost time = 11.6762 s
+================================
+feature = random1
+cache size = 1
+cache policy = lru
+[1]total hit rate = 0.99774 %
+[2]total hit rate = 1.10174 %
+[3]total hit rate = 0.99749 %
+cost time = 6.06611 s
+================================
+feature = random1
+cache size = 1
+cache policy = lfu
+[1]total hit rate = 0.99927 %
+[2]total hit rate = 1.19878 %
+[3]total hit rate = 1.19871 %
+cost time = 6.87604 s
+================================
+feature = random1
+cache size = 1
+cache policy = fifo
+[1]total hit rate = 0.99697 %
+[2]total hit rate = 1.10058 %
+[3]total hit rate = 0.99749 %
+cost time = 5.90892 s
+================================
+feature = random1
+cache size = 1
+cache policy = arc
+[1]total hit rate = 0.99476 %
+[2]total hit rate = 1.20744 %
+[3]total hit rate = 0.9989 %
+cost time = 12.956 s
+================================
+feature = random1
+cache size = 1
+cache policy = arf
+[1]total hit rate = 0.99454 %
+[2]total hit rate = 1.24326 %
+[3]total hit rate = 1.20561 %
+cost time = 13.176 s
+================================
+feature = random1
+cache size = 2
+cache policy = lru
+[1]total hit rate = 1.99406 %
+[2]total hit rate = 2.19687 %
+[3]total hit rate = 1.9957 %
+cost time = 6.84199 s
+================================
+feature = random1
+cache size = 2
+cache policy = lfu
+[1]total hit rate = 1.99619 %
+[2]total hit rate = 2.39291 %
+[3]total hit rate = 2.39284 %
+cost time = 7.08562 s
+================================
+feature = random1
+cache size = 2
+cache policy = fifo
+[1]total hit rate = 1.99388 %
+[2]total hit rate = 2.19478 %
+[3]total hit rate = 1.99569 %
+cost time = 6.48312 s
+================================
+feature = random1
+cache size = 2
+cache policy = arc
+[1]total hit rate = 1.98938 %
+[2]total hit rate = 2.39496 %
+[3]total hit rate = 1.99885 %
+cost time = 15.9105 s
+================================
+feature = random1
+cache size = 2
+cache policy = arf
+[1]total hit rate = 1.99126 %
+[2]total hit rate = 2.47651 %
+[3]total hit rate = 2.41567 %
+cost time = 14.7383 s
+================================
+feature = random1
+cache size = 3
+cache policy = lru
+[1]total hit rate = 2.9927 %
+[2]total hit rate = 3.29076 %
+[3]total hit rate = 2.99676 %
+cost time = 8.15759 s
+================================
+feature = random1
+cache size = 3
+cache policy = lfu
+[1]total hit rate = 2.99713 %
+[2]total hit rate = 3.58949 %
+[3]total hit rate = 3.58942 %
+cost time = 7.94036 s
+================================
+feature = random1
+cache size = 3
+cache policy = fifo
+[1]total hit rate = 2.99234 %
+[2]total hit rate = 3.28796 %
+[3]total hit rate = 2.99672 %
+cost time = 7.9415 s
+================================
+feature = random1
+cache size = 3
+cache policy = arc
+[1]total hit rate = 2.98488 %
+[2]total hit rate = 3.60147 %
+[3]total hit rate = 2.99352 %
+cost time = 16.2396 s
+================================
+feature = random1
+cache size = 3
+cache policy = arf
+[1]total hit rate = 2.99147 %
+[2]total hit rate = 3.7303 %
+[3]total hit rate = 3.64521 %
+cost time = 15.9693 s
+================================
+feature = random1
+cache size = 4
+cache policy = lru
+[1]total hit rate = 3.98617 %
+[2]total hit rate = 4.38802 %
+[3]total hit rate = 3.99501 %
+cost time = 7.21192 s
+================================
+feature = random1
+cache size = 4
+cache policy = lfu
+[1]total hit rate = 3.99158 %
+[2]total hit rate = 4.77578 %
+[3]total hit rate = 4.7756 %
+cost time = 6.68046 s
+================================
+feature = random1
+cache size = 4
+cache policy = fifo
+[1]total hit rate = 3.98721 %
+[2]total hit rate = 4.38056 %
+[3]total hit rate = 3.9951 %
+cost time = 6.77802 s
+================================
+feature = random1
+cache size = 4
+cache policy = arc
+[1]total hit rate = 3.97607 %
+[2]total hit rate = 4.76832 %
+[3]total hit rate = 3.99073 %
+cost time = 17.8952 s
+================================
+feature = random1
+cache size = 4
+cache policy = arf
+[1]total hit rate = 3.98347 %
+[2]total hit rate = 4.92911 %
+[3]total hit rate = 4.82424 %
+cost time = 16.4613 s
+================================
+feature = random1
+cache size = 5
+cache policy = lru
+[1]total hit rate = 4.98491 %
+[2]total hit rate = 5.48367 %
+[3]total hit rate = 4.99786 %
+cost time = 7.88429 s
+================================
+feature = random1
+cache size = 5
+cache policy = lfu
+[1]total hit rate = 4.99154 %
+[2]total hit rate = 5.96229 %
+[3]total hit rate = 5.96211 %
+cost time = 7.24288 s
+================================
+feature = random1
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 4.98552 %
+[2]total hit rate = 5.47082 %
+[3]total hit rate = 4.99783 %
+cost time = 7.53322 s
+================================
+feature = random1
+cache size = 5
+cache policy = arc
+[1]total hit rate = 4.97269 %
+[2]total hit rate = 5.94781 %
+[3]total hit rate = 4.99335 %
+cost time = 17.8719 s
+================================
+feature = random1
+cache size = 5
+cache policy = arf
+[1]total hit rate = 4.97875 %
+[2]total hit rate = 6.15265 %
+[3]total hit rate = 6.05302 %
+cost time = 17.3051 s
+================================
+feature = random1
+cache size = 7
+cache policy = lru
+[1]total hit rate = 6.97771 %
+[2]total hit rate = 7.6678 %
+[3]total hit rate = 7.00242 %
+cost time = 7.25476 s
+================================
+feature = random1
+cache size = 7
+cache policy = lfu
+[1]total hit rate = 6.97535 %
+[2]total hit rate = 8.31759 %
+[3]total hit rate = 8.31741 %
+cost time = 6.73742 s
+================================
+feature = random1
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 6.97781 %
+[2]total hit rate = 7.64391 %
+[3]total hit rate = 7.0021 %
+cost time = 6.75681 s
+================================
+feature = random1
+cache size = 7
+cache policy = arc
+[1]total hit rate = 6.95767 %
+[2]total hit rate = 8.23832 %
+[3]total hit rate = 6.9884 %
+cost time = 19.4723 s
+================================
+feature = random1
+cache size = 7
+cache policy = arf
+[1]total hit rate = 6.96609 %
+[2]total hit rate = 8.52846 %
+[3]total hit rate = 8.3882 %
+cost time = 19.7726 s
+================================
+feature = random1
+cache size = 10
+cache policy = lru
+[1]total hit rate = 9.94921 %
+[2]total hit rate = 10.9306 %
+[3]total hit rate = 10 %
+cost time = 8.71855 s
+================================
+feature = random1
+cache size = 10
+cache policy = lfu
+[1]total hit rate = 9.95437 %
+[2]total hit rate = 11.8379 %
+[3]total hit rate = 11.8374 %
+cost time = 8.53868 s
+================================
+feature = random1
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 9.94914 %
+[2]total hit rate = 10.8846 %
+[3]total hit rate = 10.0002 %
+cost time = 8.44287 s
+================================
+feature = random1
+cache size = 10
+cache policy = arc
+[1]total hit rate = 9.92395 %
+[2]total hit rate = 11.6809 %
+[3]total hit rate = 9.97812 %
+cost time = 23.1676 s
+================================
+feature = random1
+cache size = 10
+cache policy = arf
+[1]total hit rate = 9.93549 %
+[2]total hit rate = 12.0863 %
+[3]total hit rate = 11.9101 %
+cost time = 24.8073 s
+================================
+feature = random1
+cache size = 15
+cache policy = lru
+[1]total hit rate = 14.8864 %
+[2]total hit rate = 16.3569 %
+[3]total hit rate = 14.9993 %
+cost time = 9.36794 s
+================================
+feature = random1
+cache size = 15
+cache policy = lfu
+[1]total hit rate = 14.8843 %
+[2]total hit rate = 17.6235 %
+[3]total hit rate = 17.6228 %
+cost time = 8.6536 s
+================================
+feature = random1
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 14.8813 %
+[2]total hit rate = 16.2569 %
+[3]total hit rate = 15.0002 %
+cost time = 7.84972 s
+================================
+feature = random1
+cache size = 15
+cache policy = arc
+[1]total hit rate = 14.8647 %
+[2]total hit rate = 17.2494 %
+[3]total hit rate = 14.9917 %
+cost time = 32.2881 s
+================================
+feature = random1
+cache size = 15
+cache policy = arf
+[1]total hit rate = 14.8733 %
+[2]total hit rate = 17.8565 %
+[3]total hit rate = 17.6959 %
+cost time = 31.0952 s
+================================
+feature = random1
+cache size = 20
+cache policy = lru
+[1]total hit rate = 19.7834 %
+[2]total hit rate = 21.7707 %
+[3]total hit rate = 20.0025 %
+cost time = 10.6572 s
+================================
+feature = random1
+cache size = 20
+cache policy = lfu
+[1]total hit rate = 19.7775 %
+[2]total hit rate = 23.3235 %
+[3]total hit rate = 23.3219 %
+cost time = 9.83755 s
+================================
+feature = random1
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 19.7873 %
+[2]total hit rate = 21.5821 %
+[3]total hit rate = 20.0032 %
+cost time = 10.0061 s
+================================
+feature = random1
+cache size = 20
+cache policy = arc
+[1]total hit rate = 19.7674 %
+[2]total hit rate = 22.6345 %
+[3]total hit rate = 20 %
+cost time = 34.288 s
+================================
+feature = random1
+cache size = 20
+cache policy = arf
+[1]total hit rate = 19.7871 %
+[2]total hit rate = 23.4955 %
+[3]total hit rate = 23.3563 %
+cost time = 30.545 s
+================================
+feature = random1
+cache size = 30
+cache policy = lru
+[1]total hit rate = 29.5024 %
+[2]total hit rate = 32.4658 %
+[3]total hit rate = 30.0108 %
+cost time = 12.2678 s
+================================
+feature = random1
+cache size = 30
+cache policy = lfu
+[1]total hit rate = 29.503 %
+[2]total hit rate = 34.5246 %
+[3]total hit rate = 34.523 %
+cost time = 8.21494 s
+================================
+feature = random1
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 29.5083 %
+[2]total hit rate = 32.076 %
+[3]total hit rate = 30.0118 %
+cost time = 10.0366 s
+================================
+feature = random1
+cache size = 30
+cache policy = arc
+[1]total hit rate = 29.4787 %
+[2]total hit rate = 32.8895 %
+[3]total hit rate = 29.9976 %
+cost time = 37.7817 s
+================================
+feature = random1
+cache size = 30
+cache policy = arf
+[1]total hit rate = 29.4779 %
+[2]total hit rate = 34.4278 %
+[3]total hit rate = 34.4302 %
+cost time = 34.7952 s
+================================
+feature = random1
+cache size = 40
+cache policy = lru
+[1]total hit rate = 39.0638 %
+[2]total hit rate = 43.0345 %
+[3]total hit rate = 39.9989 %
+cost time = 13.9184 s
+================================
+feature = random1
+cache size = 40
+cache policy = lfu
+[1]total hit rate = 39.0624 %
+[2]total hit rate = 45.3722 %
+[3]total hit rate = 45.3699 %
+cost time = 9.9978 s
+================================
+feature = random1
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 39.0684 %
+[2]total hit rate = 42.3727 %
+[3]total hit rate = 40.0033 %
+cost time = 11.4293 s
+================================
+feature = random1
+cache size = 40
+cache policy = arc
+[1]total hit rate = 39.0654 %
+[2]total hit rate = 42.8751 %
+[3]total hit rate = 40.0103 %
+cost time = 34.3971 s
+================================
+feature = random1
+cache size = 40
+cache policy = arf
+[1]total hit rate = 39.0695 %
+[2]total hit rate = 44.9613 %
+[3]total hit rate = 45.5948 %
+cost time = 30.6286 s
+================================
+feature = random1
+cache size = 50
+cache policy = lru
+[1]total hit rate = 48.4651 %
+[2]total hit rate = 53.4182 %
+[3]total hit rate = 49.9947 %
+cost time = 15.1692 s
+================================
+feature = random1
+cache size = 50
+cache policy = lfu
+[1]total hit rate = 48.4504 %
+[2]total hit rate = 55.8863 %
+[3]total hit rate = 55.8834 %
+cost time = 10.7214 s
+================================
+feature = random1
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 48.4603 %
+[2]total hit rate = 52.4586 %
+[3]total hit rate = 49.997 %
+cost time = 11.0904 s
+================================
+feature = random1
+cache size = 50
+cache policy = arc
+[1]total hit rate = 48.4614 %
+[2]total hit rate = 53.385 %
+[3]total hit rate = 49.9868 %
+cost time = 33.4666 s
+================================
+feature = random1
+cache size = 50
+cache policy = arf
+[1]total hit rate = 48.4343 %
+[2]total hit rate = 57.0453 %
+[3]total hit rate = 56.9198 %
+cost time = 28.2014 s
+================================
+feature = random1
+cache size = 60
+cache policy = lru
+[1]total hit rate = 57.6554 %
+[2]total hit rate = 63.6375 %
+[3]total hit rate = 59.993 %
+cost time = 10.1031 s
+================================
+feature = random1
+cache size = 60
+cache policy = lfu
+[1]total hit rate = 57.6368 %
+[2]total hit rate = 66.0279 %
+[3]total hit rate = 66.0233 %
+cost time = 8.58678 s
+================================
+feature = random1
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 57.6552 %
+[2]total hit rate = 62.3705 %
+[3]total hit rate = 59.9826 %
+cost time = 6.8771 s
+================================
+feature = random1
+cache size = 60
+cache policy = arc
+[1]total hit rate = 57.6557 %
+[2]total hit rate = 63.6066 %
+[3]total hit rate = 59.9834 %
+cost time = 24.1751 s
+================================
+feature = random1
+cache size = 60
+cache policy = arf
+[1]total hit rate = 57.6384 %
+[2]total hit rate = 67.2176 %
+[3]total hit rate = 67.0989 %
+cost time = 21.6056 s
+================================
+feature = random1
+cache size = 70
+cache policy = lru
+[1]total hit rate = 66.607 %
+[2]total hit rate = 73.5894 %
+[3]total hit rate = 70.1648 %
+cost time = 9.82693 s
+================================
+feature = random1
+cache size = 70
+cache policy = lfu
+[1]total hit rate = 66.598 %
+[2]total hit rate = 75.7622 %
+[3]total hit rate = 75.7564 %
+cost time = 8.71994 s
+================================
+feature = random1
+cache size = 70
+cache policy = fifo
+[1]total hit rate = 66.6289 %
+[2]total hit rate = 72.1138 %
+[3]total hit rate = 71.191 %
+cost time = 6.20384 s
+================================
+feature = random1
+cache size = 70
+cache policy = arc
+[1]total hit rate = 66.6082 %
+[2]total hit rate = 73.5603 %
+[3]total hit rate = 70.1521 %
+cost time = 21.3971 s
+================================
+feature = random1
+cache size = 70
+cache policy = arf
+[1]total hit rate = 66.603 %
+[2]total hit rate = 76.8606 %
+[3]total hit rate = 76.7495 %
+cost time = 18.5454 s
+================================
+feature = random1
+cache size = 80
+cache policy = lru
+[1]total hit rate = 75.2194 %
+[2]total hit rate = 83.1994 %
+[3]total hit rate = 80.5011 %
+cost time = 8.82173 s
+================================
+feature = random1
+cache size = 80
+cache policy = lfu
+[1]total hit rate = 75.203 %
+[2]total hit rate = 84.9366 %
+[3]total hit rate = 84.9293 %
+cost time = 8.49494 s
+================================
+feature = random1
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 75.2132 %
+[2]total hit rate = 81.7486 %
+[3]total hit rate = 79.8723 %
+cost time = 6.03033 s
+================================
+feature = random1
+cache size = 80
+cache policy = arc
+[1]total hit rate = 75.2221 %
+[2]total hit rate = 83.1738 %
+[3]total hit rate = 80.4969 %
+cost time = 18.6791 s
+================================
+feature = random1
+cache size = 80
+cache policy = arf
+[1]total hit rate = 75.2109 %
+[2]total hit rate = 85.8365 %
+[3]total hit rate = 85.7355 %
+cost time = 16.8876 s
+================================
+feature = random1
+cache size = 90
+cache policy = lru
+[1]total hit rate = 83.3043 %
+[2]total hit rate = 92.297 %
+[3]total hit rate = 90.0004 %
+cost time = 8.54089 s
+================================
+feature = random1
+cache size = 90
+cache policy = lfu
+[1]total hit rate = 83.3011 %
+[2]total hit rate = 93.37 %
+[3]total hit rate = 93.3626 %
+cost time = 8.30657 s
+================================
+feature = random1
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 83.2894 %
+[2]total hit rate = 91.1353 %
+[3]total hit rate = 89.9097 %
+cost time = 5.70003 s
+================================
+feature = random1
+cache size = 90
+cache policy = arc
+[1]total hit rate = 83.2991 %
+[2]total hit rate = 92.2779 %
+[3]total hit rate = 90.0004 %
+cost time = 14.5003 s
+================================
+feature = random1
+cache size = 90
+cache policy = arf
+[1]total hit rate = 83.2955 %
+[2]total hit rate = 93.9203 %
+[3]total hit rate = 93.8361 %
+cost time = 14.5352 s
+================================
+feature = random1
+cache size = 95
+cache policy = lru
+[1]total hit rate = 86.9931 %
+[2]total hit rate = 96.4947 %
+[3]total hit rate = 90.0004 %
+cost time = 7.64847 s
+================================
+feature = random1
+cache size = 95
+cache policy = lfu
+[1]total hit rate = 86.9945 %
+[2]total hit rate = 97.116 %
+[3]total hit rate = 97.1069 %
+cost time = 7.99406 s
+================================
+feature = random1
+cache size = 95
+cache policy = fifo
+[1]total hit rate = 86.9842 %
+[2]total hit rate = 95.1584 %
+[3]total hit rate = 89.9569 %
+cost time = 5.85518 s
+================================
+feature = random1
+cache size = 95
+cache policy = arc
+[1]total hit rate = 86.9937 %
+[2]total hit rate = 96.4812 %
+[3]total hit rate = 90.0004 %
+cost time = 13.1121 s
+================================
+feature = random1
+cache size = 95
+cache policy = arf
+[1]total hit rate = 86.9949 %
+[2]total hit rate = 97.426 %
+[3]total hit rate = 97.3571 %
+cost time = 13.684 s
+================================
+feature = random1
+cache size = 100
+cache policy = lru
+[1]total hit rate = 90.0004 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 6.76691 s
+================================
+feature = random1
+cache size = 100
+cache policy = lfu
+[1]total hit rate = 90.0004 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 7.96675 s
+================================
+feature = random1
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 90.0004 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 5.64953 s
+================================
+feature = random1
+cache size = 100
+cache policy = arc
+[1]total hit rate = 90.0004 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 11.638 s
+================================
+feature = random1
+cache size = 100
+cache policy = arf
+[1]total hit rate = 90.0004 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 12.176 s
+================================
+feature = random2
+cache size = 0.1
+cache policy = lru
+[1]total hit rate = 0.11286 %
+[2]total hit rate = 0.11849 %
+[3]total hit rate = 0.11284 %
+cost time = 5.87932 s
+================================
+feature = random2
+cache size = 0.1
+cache policy = lfu
+[1]total hit rate = 0.12249 %
+[2]total hit rate = 0.1398 %
+[3]total hit rate = 0.13969 %
+cost time = 7.08189 s
+================================
+feature = random2
+cache size = 0.1
+cache policy = fifo
+[1]total hit rate = 0.11284 %
+[2]total hit rate = 0.11849 %
+[3]total hit rate = 0.11284 %
+cost time = 5.79704 s
+================================
+feature = random2
+cache size = 0.1
+cache policy = arc
+[1]total hit rate = 0.12759 %
+[2]total hit rate = 0.14783 %
+[3]total hit rate = 0.12478 %
+cost time = 9.94115 s
+================================
+feature = random2
+cache size = 0.1
+cache policy = arf
+[1]total hit rate = 0.13478 %
+[2]total hit rate = 0.16196 %
+[3]total hit rate = 0.16227 %
+cost time = 9.85204 s
+================================
+feature = random2
+cache size = 0.3
+cache policy = lru
+[1]total hit rate = 0.33689 %
+[2]total hit rate = 0.35712 %
+[3]total hit rate = 0.33678 %
+cost time = 5.41747 s
+================================
+feature = random2
+cache size = 0.3
+cache policy = lfu
+[1]total hit rate = 0.36808 %
+[2]total hit rate = 0.41812 %
+[3]total hit rate = 0.418 %
+cost time = 6.70616 s
+================================
+feature = random2
+cache size = 0.3
+cache policy = fifo
+[1]total hit rate = 0.33671 %
+[2]total hit rate = 0.35692 %
+[3]total hit rate = 0.33678 %
+cost time = 5.3947 s
+================================
+feature = random2
+cache size = 0.3
+cache policy = arc
+[1]total hit rate = 0.38538 %
+[2]total hit rate = 0.44721 %
+[3]total hit rate = 0.37717 %
+cost time = 9.7542 s
+================================
+feature = random2
+cache size = 0.3
+cache policy = arf
+[1]total hit rate = 0.40705 %
+[2]total hit rate = 0.5016 %
+[3]total hit rate = 0.49245 %
+cost time = 9.63902 s
+================================
+feature = random2
+cache size = 0.6
+cache policy = lru
+[1]total hit rate = 0.67341 %
+[2]total hit rate = 0.71667 %
+[3]total hit rate = 0.67344 %
+cost time = 5.60475 s
+================================
+feature = random2
+cache size = 0.6
+cache policy = lfu
+[1]total hit rate = 0.74253 %
+[2]total hit rate = 0.84304 %
+[3]total hit rate = 0.84292 %
+cost time = 6.72629 s
+================================
+feature = random2
+cache size = 0.6
+cache policy = fifo
+[1]total hit rate = 0.67322 %
+[2]total hit rate = 0.71589 %
+[3]total hit rate = 0.67344 %
+cost time = 5.49433 s
+================================
+feature = random2
+cache size = 0.6
+cache policy = arc
+[1]total hit rate = 0.76865 %
+[2]total hit rate = 0.89333 %
+[3]total hit rate = 0.75139 %
+cost time = 10.2003 s
+================================
+feature = random2
+cache size = 0.6
+cache policy = arf
+[1]total hit rate = 0.81264 %
+[2]total hit rate = 0.97787 %
+[3]total hit rate = 0.98515 %
+cost time = 10.2603 s
+================================
+feature = random2
+cache size = 1
+cache policy = lru
+[1]total hit rate = 1.12243 %
+[2]total hit rate = 1.19295 %
+[3]total hit rate = 1.12223 %
+cost time = 5.52813 s
+================================
+feature = random2
+cache size = 1
+cache policy = lfu
+[1]total hit rate = 1.2414 %
+[2]total hit rate = 1.40824 %
+[3]total hit rate = 1.40811 %
+cost time = 6.55424 s
+================================
+feature = random2
+cache size = 1
+cache policy = fifo
+[1]total hit rate = 1.12173 %
+[2]total hit rate = 1.19102 %
+[3]total hit rate = 1.12223 %
+cost time = 5.44178 s
+================================
+feature = random2
+cache size = 1
+cache policy = arc
+[1]total hit rate = 1.28221 %
+[2]total hit rate = 1.48706 %
+[3]total hit rate = 1.25373 %
+cost time = 10.8941 s
+================================
+feature = random2
+cache size = 1
+cache policy = arf
+[1]total hit rate = 1.35413 %
+[2]total hit rate = 1.64844 %
+[3]total hit rate = 1.63507 %
+cost time = 10.9091 s
+================================
+feature = random2
+cache size = 2
+cache policy = lru
+[1]total hit rate = 2.23612 %
+[2]total hit rate = 2.39208 %
+[3]total hit rate = 2.23513 %
+cost time = 6.15327 s
+================================
+feature = random2
+cache size = 2
+cache policy = lfu
+[1]total hit rate = 2.47707 %
+[2]total hit rate = 2.80802 %
+[3]total hit rate = 2.80789 %
+cost time = 6.70853 s
+================================
+feature = random2
+cache size = 2
+cache policy = fifo
+[1]total hit rate = 2.23347 %
+[2]total hit rate = 2.38489 %
+[3]total hit rate = 2.23511 %
+cost time = 5.91521 s
+================================
+feature = random2
+cache size = 2
+cache policy = arc
+[1]total hit rate = 2.55605 %
+[2]total hit rate = 2.94646 %
+[3]total hit rate = 2.49596 %
+cost time = 11.7071 s
+================================
+feature = random2
+cache size = 2
+cache policy = arf
+[1]total hit rate = 2.68168 %
+[2]total hit rate = 3.22676 %
+[3]total hit rate = 3.26097 %
+cost time = 11.5926 s
+================================
+feature = random2
+cache size = 3
+cache policy = lru
+[1]total hit rate = 3.35198 %
+[2]total hit rate = 3.5892 %
+[3]total hit rate = 3.3513 %
+cost time = 7.33848 s
+================================
+feature = random2
+cache size = 3
+cache policy = lfu
+[1]total hit rate = 3.71109 %
+[2]total hit rate = 4.20309 %
+[3]total hit rate = 4.20296 %
+cost time = 7.45048 s
+================================
+feature = random2
+cache size = 3
+cache policy = fifo
+[1]total hit rate = 3.34756 %
+[2]total hit rate = 3.57824 %
+[3]total hit rate = 3.35124 %
+cost time = 7.0905 s
+================================
+feature = random2
+cache size = 3
+cache policy = arc
+[1]total hit rate = 3.81825 %
+[2]total hit rate = 4.39226 %
+[3]total hit rate = 3.72373 %
+cost time = 13.122 s
+================================
+feature = random2
+cache size = 3
+cache policy = arf
+[1]total hit rate = 4.01318 %
+[2]total hit rate = 4.82864 %
+[3]total hit rate = 4.87975 %
+cost time = 13.6675 s
+================================
+feature = random2
+cache size = 4
+cache policy = lru
+[1]total hit rate = 4.46239 %
+[2]total hit rate = 4.76436 %
+[3]total hit rate = 4.45827 %
+cost time = 6.43522 s
+================================
+feature = random2
+cache size = 4
+cache policy = lfu
+[1]total hit rate = 4.9273 %
+[2]total hit rate = 5.57764 %
+[3]total hit rate = 5.57751 %
+cost time = 6.98054 s
+================================
+feature = random2
+cache size = 4
+cache policy = fifo
+[1]total hit rate = 4.4513 %
+[2]total hit rate = 4.74074 %
+[3]total hit rate = 4.45836 %
+cost time = 6.23534 s
+================================
+feature = random2
+cache size = 4
+cache policy = arc
+[1]total hit rate = 5.0687 %
+[2]total hit rate = 5.81816 %
+[3]total hit rate = 4.94264 %
+cost time = 12.2777 s
+================================
+feature = random2
+cache size = 4
+cache policy = arf
+[1]total hit rate = 5.32842 %
+[2]total hit rate = 6.41627 %
+[3]total hit rate = 6.46068 %
+cost time = 13.114 s
+================================
+feature = random2
+cache size = 5
+cache policy = lru
+[1]total hit rate = 5.57102 %
+[2]total hit rate = 5.95095 %
+[3]total hit rate = 5.56276 %
+cost time = 7.17877 s
+================================
+feature = random2
+cache size = 5
+cache policy = lfu
+[1]total hit rate = 6.14576 %
+[2]total hit rate = 6.95421 %
+[3]total hit rate = 6.95408 %
+cost time = 7.17078 s
+================================
+feature = random2
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 5.552 %
+[2]total hit rate = 5.92474 %
+[3]total hit rate = 5.56283 %
+cost time = 6.71309 s
+================================
+feature = random2
+cache size = 5
+cache policy = arc
+[1]total hit rate = 6.30541 %
+[2]total hit rate = 7.24433 %
+[3]total hit rate = 6.14586 %
+cost time = 13.9797 s
+================================
+feature = random2
+cache size = 5
+cache policy = arf
+[1]total hit rate = 6.62651 %
+[2]total hit rate = 7.92129 %
+[3]total hit rate = 8.02938 %
+cost time = 14.1907 s
+================================
+feature = random2
+cache size = 7
+cache policy = lru
+[1]total hit rate = 7.78118 %
+[2]total hit rate = 8.33778 %
+[3]total hit rate = 7.76537 %
+cost time = 7.96016 s
+================================
+feature = random2
+cache size = 7
+cache policy = lfu
+[1]total hit rate = 8.56072 %
+[2]total hit rate = 9.67516 %
+[3]total hit rate = 9.67503 %
+cost time = 8.12474 s
+================================
+feature = random2
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 7.74362 %
+[2]total hit rate = 8.28055 %
+[3]total hit rate = 7.76505 %
+cost time = 7.7056 s
+================================
+feature = random2
+cache size = 7
+cache policy = arc
+[1]total hit rate = 8.75262 %
+[2]total hit rate = 10.0006 %
+[3]total hit rate = 8.53443 %
+cost time = 16.8288 s
+================================
+feature = random2
+cache size = 7
+cache policy = arf
+[1]total hit rate = 9.17904 %
+[2]total hit rate = 10.9611 %
+[3]total hit rate = 11.1099 %
+cost time = 17.3347 s
+================================
+feature = random2
+cache size = 10
+cache policy = lru
+[1]total hit rate = 11.0742 %
+[2]total hit rate = 11.8615 %
+[3]total hit rate = 11.0551 %
+cost time = 7.44296 s
+================================
+feature = random2
+cache size = 10
+cache policy = lfu
+[1]total hit rate = 12.1194 %
+[2]total hit rate = 13.6779 %
+[3]total hit rate = 13.6778 %
+cost time = 7.84128 s
+================================
+feature = random2
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 11.0094 %
+[2]total hit rate = 11.7496 %
+[3]total hit rate = 11.0546 %
+cost time = 7.1092 s
+================================
+feature = random2
+cache size = 10
+cache policy = arc
+[1]total hit rate = 12.3097 %
+[2]total hit rate = 13.9584 %
+[3]total hit rate = 12.0184 %
+cost time = 18.5901 s
+================================
+feature = random2
+cache size = 10
+cache policy = arf
+[1]total hit rate = 12.9155 %
+[2]total hit rate = 15.2216 %
+[3]total hit rate = 15.5536 %
+cost time = 17.2653 s
+================================
+feature = random2
+cache size = 15
+cache policy = lru
+[1]total hit rate = 16.5033 %
+[2]total hit rate = 17.6897 %
+[3]total hit rate = 16.4583 %
+cost time = 9.24335 s
+================================
+feature = random2
+cache size = 15
+cache policy = lfu
+[1]total hit rate = 17.9452 %
+[2]total hit rate = 20.2002 %
+[3]total hit rate = 20.2 %
+cost time = 9.02487 s
+================================
+feature = random2
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 16.3549 %
+[2]total hit rate = 17.461 %
+[3]total hit rate = 16.4571 %
+cost time = 8.47525 s
+================================
+feature = random2
+cache size = 15
+cache policy = arc
+[1]total hit rate = 18.0037 %
+[2]total hit rate = 20.2369 %
+[3]total hit rate = 17.6104 %
+cost time = 24.4391 s
+================================
+feature = random2
+cache size = 15
+cache policy = arf
+[1]total hit rate = 18.9539 %
+[2]total hit rate = 22.2343 %
+[3]total hit rate = 22.6067 %
+cost time = 21.826 s
+================================
+feature = random2
+cache size = 20
+cache policy = lru
+[1]total hit rate = 21.8692 %
+[2]total hit rate = 23.467 %
+[3]total hit rate = 21.8012 %
+cost time = 9.62888 s
+================================
+feature = random2
+cache size = 20
+cache policy = lfu
+[1]total hit rate = 23.616 %
+[2]total hit rate = 26.5186 %
+[3]total hit rate = 26.5185 %
+cost time = 8.07261 s
+================================
+feature = random2
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 21.616 %
+[2]total hit rate = 23.059 %
+[3]total hit rate = 21.7987 %
+cost time = 9.06877 s
+================================
+feature = random2
+cache size = 20
+cache policy = arc
+[1]total hit rate = 23.399 %
+[2]total hit rate = 26.0363 %
+[3]total hit rate = 22.934 %
+cost time = 24.466 s
+================================
+feature = random2
+cache size = 20
+cache policy = arf
+[1]total hit rate = 24.6992 %
+[2]total hit rate = 28.7133 %
+[3]total hit rate = 29.1844 %
+cost time = 25.5542 s
+================================
+feature = random2
+cache size = 30
+cache policy = lru
+[1]total hit rate = 32.3884 %
+[2]total hit rate = 34.7663 %
+[3]total hit rate = 32.3063 %
+cost time = 11.2606 s
+================================
+feature = random2
+cache size = 30
+cache policy = lfu
+[1]total hit rate = 34.4799 %
+[2]total hit rate = 38.5425 %
+[3]total hit rate = 38.5421 %
+cost time = 10.6569 s
+================================
+feature = random2
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 31.8753 %
+[2]total hit rate = 33.9159 %
+[3]total hit rate = 32.2971 %
+cost time = 10.8671 s
+================================
+feature = random2
+cache size = 30
+cache policy = arc
+[1]total hit rate = 33.3267 %
+[2]total hit rate = 36.3774 %
+[3]total hit rate = 32.8055 %
+cost time = 30.1784 s
+================================
+feature = random2
+cache size = 30
+cache policy = arf
+[1]total hit rate = 35.3313 %
+[2]total hit rate = 40.432 %
+[3]total hit rate = 41.015 %
+cost time = 26.2454 s
+================================
+feature = random2
+cache size = 40
+cache policy = lru
+[1]total hit rate = 42.5656 %
+[2]total hit rate = 45.7329 %
+[3]total hit rate = 42.559 %
+cost time = 12.3761 s
+================================
+feature = random2
+cache size = 40
+cache policy = lfu
+[1]total hit rate = 44.7212 %
+[2]total hit rate = 49.7833 %
+[3]total hit rate = 49.7829 %
+cost time = 9.21749 s
+================================
+feature = random2
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 41.7624 %
+[2]total hit rate = 44.383 %
+[3]total hit rate = 42.5412 %
+cost time = 10.0736 s
+================================
+feature = random2
+cache size = 40
+cache policy = arc
+[1]total hit rate = 43.3446 %
+[2]total hit rate = 47.1854 %
+[3]total hit rate = 43.1957 %
+cost time = 29.6085 s
+================================
+feature = random2
+cache size = 40
+cache policy = arf
+[1]total hit rate = 45.5029 %
+[2]total hit rate = 51.6115 %
+[3]total hit rate = 52.5159 %
+cost time = 27.3712 s
+================================
+feature = random2
+cache size = 50
+cache policy = lru
+[1]total hit rate = 52.3567 %
+[2]total hit rate = 56.3055 %
+[3]total hit rate = 52.5618 %
+cost time = 11.8639 s
+================================
+feature = random2
+cache size = 50
+cache policy = lfu
+[1]total hit rate = 54.3241 %
+[2]total hit rate = 60.2419 %
+[3]total hit rate = 60.2411 %
+cost time = 9.82511 s
+================================
+feature = random2
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 51.2662 %
+[2]total hit rate = 54.471 %
+[3]total hit rate = 52.523 %
+cost time = 9.90161 s
+================================
+feature = random2
+cache size = 50
+cache policy = arc
+[1]total hit rate = 52.4619 %
+[2]total hit rate = 56.3073 %
+[3]total hit rate = 52.5613 %
+cost time = 30.2407 s
+================================
+feature = random2
+cache size = 50
+cache policy = arf
+[1]total hit rate = 54.8674 %
+[2]total hit rate = 61.84 %
+[3]total hit rate = 61.8353 %
+cost time = 22.4939 s
+================================
+feature = random2
+cache size = 60
+cache policy = lru
+[1]total hit rate = 61.7187 %
+[2]total hit rate = 66.4676 %
+[3]total hit rate = 62.4189 %
+cost time = 11.9417 s
+================================
+feature = random2
+cache size = 60
+cache policy = lfu
+[1]total hit rate = 63.3044 %
+[2]total hit rate = 69.957 %
+[3]total hit rate = 69.9557 %
+cost time = 9.49223 s
+================================
+feature = random2
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 60.4632 %
+[2]total hit rate = 64.2199 %
+[3]total hit rate = 62.3817 %
+cost time = 10.4691 s
+================================
+feature = random2
+cache size = 60
+cache policy = arc
+[1]total hit rate = 61.7766 %
+[2]total hit rate = 66.4692 %
+[3]total hit rate = 62.419 %
+cost time = 26.4992 s
+================================
+feature = random2
+cache size = 60
+cache policy = arf
+[1]total hit rate = 63.6368 %
+[2]total hit rate = 71.3806 %
+[3]total hit rate = 71.3599 %
+cost time = 21.911 s
+================================
+feature = random2
+cache size = 70
+cache policy = lru
+[1]total hit rate = 70.5664 %
+[2]total hit rate = 76.1363 %
+[3]total hit rate = 72.0748 %
+cost time = 9.31664 s
+================================
+feature = random2
+cache size = 70
+cache policy = lfu
+[1]total hit rate = 71.6628 %
+[2]total hit rate = 78.9187 %
+[3]total hit rate = 78.9164 %
+cost time = 7.89359 s
+================================
+feature = random2
+cache size = 70
+cache policy = fifo
+[1]total hit rate = 69.2413 %
+[2]total hit rate = 73.6813 %
+[3]total hit rate = 71.8865 %
+cost time = 6.22608 s
+================================
+feature = random2
+cache size = 70
+cache policy = arc
+[1]total hit rate = 70.5723 %
+[2]total hit rate = 76.1379 %
+[3]total hit rate = 72.075 %
+cost time = 20.9817 s
+================================
+feature = random2
+cache size = 70
+cache policy = arf
+[1]total hit rate = 71.8721 %
+[2]total hit rate = 80.0305 %
+[3]total hit rate = 79.9666 %
+cost time = 17.985 s
+================================
+feature = random2
+cache size = 80
+cache policy = lru
+[1]total hit rate = 78.7739 %
+[2]total hit rate = 85.1518 %
+[3]total hit rate = 81.8349 %
+cost time = 8.48273 s
+================================
+feature = random2
+cache size = 80
+cache policy = lfu
+[1]total hit rate = 79.3712 %
+[2]total hit rate = 87.0911 %
+[3]total hit rate = 87.0879 %
+cost time = 8.20222 s
+================================
+feature = random2
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 77.6397 %
+[2]total hit rate = 82.6062 %
+[3]total hit rate = 82.9613 %
+cost time = 5.74486 s
+================================
+feature = random2
+cache size = 80
+cache policy = arc
+[1]total hit rate = 78.7549 %
+[2]total hit rate = 85.1549 %
+[3]total hit rate = 81.8355 %
+cost time = 17.1679 s
+================================
+feature = random2
+cache size = 80
+cache policy = arf
+[1]total hit rate = 79.4574 %
+[2]total hit rate = 87.8739 %
+[3]total hit rate = 87.8121 %
+cost time = 15.6657 s
+================================
+feature = random2
+cache size = 90
+cache policy = lru
+[1]total hit rate = 86.1743 %
+[2]total hit rate = 93.3552 %
+[3]total hit rate = 91.9691 %
+cost time = 7.71166 s
+================================
+feature = random2
+cache size = 90
+cache policy = lfu
+[1]total hit rate = 86.3388 %
+[2]total hit rate = 94.3564 %
+[3]total hit rate = 94.3515 %
+cost time = 8.09297 s
+================================
+feature = random2
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 85.4627 %
+[2]total hit rate = 92.7755 %
+[3]total hit rate = 91.8784 %
+cost time = 5.90693 s
+================================
+feature = random2
+cache size = 90
+cache policy = arc
+[1]total hit rate = 86.1786 %
+[2]total hit rate = 93.3423 %
+[3]total hit rate = 91.9682 %
+cost time = 13.938 s
+================================
+feature = random2
+cache size = 90
+cache policy = arf
+[1]total hit rate = 86.3691 %
+[2]total hit rate = 94.8027 %
+[3]total hit rate = 94.7526 %
+cost time = 13.8548 s
+================================
+feature = random2
+cache size = 95
+cache policy = lru
+[1]total hit rate = 89.4256 %
+[2]total hit rate = 97.0131 %
+[3]total hit rate = 92.0002 %
+cost time = 7.61082 s
+================================
+feature = random2
+cache size = 95
+cache policy = lfu
+[1]total hit rate = 89.469 %
+[2]total hit rate = 97.5425 %
+[3]total hit rate = 97.5366 %
+cost time = 8.43113 s
+================================
+feature = random2
+cache size = 95
+cache policy = fifo
+[1]total hit rate = 88.9123 %
+[2]total hit rate = 95.4661 %
+[3]total hit rate = 91.942 %
+cost time = 6.04473 s
+================================
+feature = random2
+cache size = 95
+cache policy = arc
+[1]total hit rate = 89.4277 %
+[2]total hit rate = 97.0038 %
+[3]total hit rate = 92.0008 %
+cost time = 12.826 s
+================================
+feature = random2
+cache size = 95
+cache policy = arf
+[1]total hit rate = 89.4735 %
+[2]total hit rate = 97.789 %
+[3]total hit rate = 97.7467 %
+cost time = 12.5755 s
+================================
+feature = random2
+cache size = 100
+cache policy = lru
+[1]total hit rate = 92.0002 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 6.95236 s
+================================
+feature = random2
+cache size = 100
+cache policy = lfu
+[1]total hit rate = 92.0002 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 7.72282 s
+================================
+feature = random2
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 92.0002 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 5.0434 s
+================================
+feature = random2
+cache size = 100
+cache policy = arc
+[1]total hit rate = 92.0002 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 11.3745 s
+================================
+feature = random2
+cache size = 100
+cache policy = arf
+[1]total hit rate = 92.0002 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 11.955 s
