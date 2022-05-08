@@ -1,5 +1,6 @@
 import re
 import numpy as np
+from statistics import plot_dataset_dist_aux
 
 
 def store(result_map, feature, cache_policy, cache_size, res_tuple):
@@ -18,7 +19,7 @@ def get_result_map(all_log_file):
         idx = 0
         while idx < line_num:
             if "====" in content[idx]:
-                feature = re.findall("(?<=feature = ).[a-z]*", content[idx + 1])[0]
+                feature = re.findall("(?<=feature = ).[a-z0-9_]*", content[idx + 1])[0]
                 cache_size = re.findall("(?<=cache size = ).[0-9.]*", content[idx + 2])[0]
                 cache_policy = re.findall("(?<=cache policy = ).[a-z]*", content[idx + 3])[0]
                 hit_rate1 = re.findall("(?<=\[1\]total hit rate = ).[0-9.]*", content[idx + 4])[0]
@@ -41,8 +42,26 @@ def plot_res(result_map, res_i, ylabel):
     # print(feature_list)
     # print(cache_policy_list)
     # print(cache_size_list)
-    res_list = {"ad": dict(), "user": dict()}
-    for f in feature_list:
+    filepath = {
+        "user": ["dataset/taobao/shuffled_sample.csv", 0],
+        "ad": ["dataset/taobao/shuffled_sample.csv", 1],
+        "cate_id": ["dataset/taobao/shuffled_ad_feature.csv", 1],
+        "campaign_id": ["dataset/taobao/shuffled_ad_feature.csv", 2],
+        "customer": ["dataset/taobao/shuffled_ad_feature.csv", 3],
+        "brand": ["dataset/taobao/shuffled_ad_feature.csv", 4],
+        "price": ["dataset/taobao/shuffled_ad_feature.csv", 5],
+        "random1": ["dataset/taobao/random_data.csv", 0],
+        "random2": ["dataset/taobao/random_data.csv", 1],
+    }
+    # ["cate_id", "campaign_id", "customer", "brand", "price", "random1", "random2"]
+    # res_list = {"ad": dict(), "user": dict()}
+    plot_f = ["ad", "user"]  # (13)
+    # plot_f = ["cate_id", "campaign_id"]  # (14)
+    # plot_f = ["customer", "brand"]  # (15)
+    # plot_f = ["price", "random1"] # (16)
+    # plot_f = ["random1", "random2"]  # (17)
+    res_list = {plot_f[0]: dict(), plot_f[1]: dict()}
+    for f in plot_f:
         if f not in res_list:
             res_list[f] = dict()
         for c in cache_policy_list:
@@ -53,16 +72,20 @@ def plot_res(result_map, res_i, ylabel):
 
     fig2 = plt.figure()
     ax1 = fig2.add_subplot(1, 2, 1)
-    color_list = ["tomato", "chocolate", "olivedrab", "deepskyblue", "silver", "royalblue"]
+    color_list = ["royalblue", "chocolate", "olivedrab", "deepskyblue", "silver", "black", "tomato"]
     color_map = {}
     i = 0
     for c in cache_policy_list:
         color_map[c] = color_list[i % len(color_list)]
         i += 1
+    color_map["dist"] = color_list[i % len(color_list)]
     for c in cache_policy_list:
-        list1, list2 = (list(t) for t in zip(*sorted(zip(res_list["user"][c][0], res_list["user"][c][1]))))
+        list1, list2 = (list(t) for t in zip(*sorted(zip(res_list[plot_f[0]][c][0], res_list[plot_f[0]][c][1]))))
         ax1.plot(list1, list2, color=color_map[c], label=c.upper())
-    ax1.set_title("user")
+    if res_i < 3:
+        ux, uy, _, _ = plot_dataset_dist_aux(filepath[plot_f[0]][0], filepath[plot_f[0]][1])
+        ax1.plot(ux, uy, color=color_map["dist"], label="dist")
+    ax1.set_title(plot_f[0])
     ax1.set_xlabel("Cache Size(%)")
     ax1.set_ylabel(ylabel)
     ax1.grid(True)
@@ -70,9 +93,12 @@ def plot_res(result_map, res_i, ylabel):
 
     ax2 = fig2.add_subplot(1, 2, 2)
     for c in cache_policy_list:
-        list1, list2 = (list(t) for t in zip(*sorted(zip(res_list["ad"][c][0], res_list["ad"][c][1]))))
+        list1, list2 = (list(t) for t in zip(*sorted(zip(res_list[plot_f[1]][c][0], res_list[plot_f[1]][c][1]))))
         ax2.plot(list1, list2, color=color_map[c], label=c.upper())
-    ax2.set_title("adgroup_id")
+    if res_i < 3:
+        ux, uy, _, _ = plot_dataset_dist_aux(filepath[plot_f[1]][0], filepath[plot_f[1]][1])
+        ax2.plot(ux, uy, color=color_map["dist"], label="dist")
+    ax2.set_title(plot_f[1])
     ax2.set_xlabel("Cache Size(%)")
     ax2.set_ylabel(ylabel)
     ax2.grid(True)

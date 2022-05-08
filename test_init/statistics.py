@@ -275,7 +275,7 @@ def shuffle_data(filepath, shuffled_filepath):
             wf.write(l)
 
 
-def plot_dataset_dist(filepath, feature):
+def plot_dataset_dist_aux(filepath, feature):
     feature_dict = dict()
     feature_name = None
     seq_len = 0
@@ -299,9 +299,13 @@ def plot_dataset_dist(filepath, feature):
         accu_count += key_count_list[i][1]
         ux[i + 1] = (i + 1) * 100 / dup_count
         uy[i + 1] = accu_count * 100 / seq_len
+    return ux, uy, feature_name, key_count_list
 
+
+def plot_dataset_dist(filepath, feature):
     import matplotlib.pyplot as plt
 
+    ux, uy, feature_name, key_count_list = plot_dataset_dist_aux(filepath, feature)
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
     ax.plot(ux, uy)
@@ -312,14 +316,15 @@ def plot_dataset_dist(filepath, feature):
     plt.show()
 
 
-# gen_result_file()
-# plot()
-# plot_ratio_lfu()
-# plot_ratio_lru()
-# plot_append_lru()
-# plot_append_lfu()
+if __name__ == "__main__":
+    # gen_result_file()
+    # plot()
+    # plot_ratio_lfu()
+    # plot_ratio_lru()
+    # plot_append_lru()
+    # plot_append_lfu()
 
-# shuffle_data("dataset/taobao/ad_feature.csv", "dataset/taobao/shuffled_ad_feature.csv")
+    # shuffle_data("dataset/taobao/ad_feature.csv", "dataset/taobao/shuffled_ad_feature.csv")
 
-# plot_dataset_dist("dataset/taobao/shuffled_ad_feature.csv", 3)
-plot_dataset_dist("dataset/taobao/random_data.csv", 1)
+    # plot_dataset_dist("dataset/taobao/shuffled_ad_feature.csv", 3)
+    plot_dataset_dist("dataset/taobao/random_data.csv", 1)
