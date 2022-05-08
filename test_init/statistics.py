@@ -1,4 +1,6 @@
 # -*- coding:utf-8 -*-
+import csv
+from random import shuffle
 import numpy as np
 from test_hit_rate import get_ori_visit_list
 
@@ -261,9 +263,63 @@ def plot_append_lfu():
 
     plt.show()
 
+
+def shuffle_data(filepath, shuffled_filepath):
+    wf = open(shuffled_filepath, "w+")
+    with open(filepath, encoding="utf-8") as csvfile:
+        hd = csvfile.readline()
+        wf.write(hd)
+        cont = csvfile.readlines()
+        shuffle(cont)
+        for l in cont:
+            wf.write(l)
+
+
+def plot_dataset_dist(filepath, feature):
+    feature_dict = dict()
+    feature_name = None
+    seq_len = 0
+    with open(filepath, encoding="utf-8") as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            if not feature_name:
+                feature_name = row[feature]
+            id = row[feature]
+            seq_len += 1
+            feature_dict[id] = feature_dict.get(id, 0) + 1
+    key_count_list = []
+    for key in feature_dict.keys():
+        key_count_list.append((key, feature_dict[key]))
+    key_count_list.sort(key=lambda kc: kc[1], reverse=True)
+    accu_count = 0
+    dup_count = len(feature_dict)
+    ux = np.zeros(dup_count + 1)
+    uy = np.zeros(dup_count + 1)
+    for i in range(dup_count):
+        accu_count += key_count_list[i][1]
+        ux[i + 1] = (i + 1) * 100 / dup_count
+        uy[i + 1] = accu_count * 100 / seq_len
+
+    import matplotlib.pyplot as plt
+
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 1, 1)
+    ax.plot(ux, uy)
+    ax.set_title(f"{feature_name} ({len(key_count_list)})")
+    ax.set_xlabel("Top ID(%)")
+    ax.set_ylabel("Count (%)")
+    ax.grid(True)
+    plt.show()
+
+
 # gen_result_file()
 # plot()
-plot_ratio_lfu()
-plot_ratio_lru()
-plot_append_lru()
-plot_append_lfu()
+# plot_ratio_lfu()
+# plot_ratio_lru()
+# plot_append_lru()
+# plot_append_lfu()
+
+# shuffle_data("dataset/taobao/ad_feature.csv", "dataset/taobao/shuffled_ad_feature.csv")
+
+# plot_dataset_dist("dataset/taobao/shuffled_ad_feature.csv", 3)
+plot_dataset_dist("dataset/taobao/random_data.csv", 1)
