@@ -2,15 +2,14 @@
 
 ## Cache策略比较
 
-不同`Hit Rate`的区别可以看[single_cache_test.cpp](ranking/single_cache_test.cpp)。结果如下图：
+不同`Hit Rate`的区别可以看[single_cache_test.cpp](ranking/single_cache_test.cpp)。结果如下：
 
-![](fig/Figure_10.png)
+**dist表示数据的分布**
 
-![](fig/Figure_11.png)
+[全部结果图片](FigureList.md)
+### PDF
 
-![](fig/Figure_12.png)
-
-![](fig/Figure_13.png)
+[FigureList.pdf](FigureList.pdf)
 
 ## 结果记录
 
