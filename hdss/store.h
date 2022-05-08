@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <unordered_set>
 #include "../justokmap/shard_lock_map.h"
 #include "../justokmap/ssd_hash_map.h"
 #include "../movement/files.h"
@@ -57,6 +58,15 @@ public:
     }
     size_t size() { return ids.size(); }
     int64_t at(int i) { return ids[i]; }
+    size_t count_dup_size()
+    {
+        std::unordered_set<int64_t> set;
+        for (const int64_t &id : ids)
+        {
+            set.insert(id);
+        }
+        return set.size();
+    }
 };
 
 void init_ssd_map(ssd_hash_map &smap);
@@ -139,10 +149,12 @@ class SingleConfig
 {
 public:
     std::string feature;
+    std::string filepath;
     size_t feature_id;
     SingleCache<int64_t, bool> *cache;
     size_t dsize;
     bool verbose;
+    DataLoader *dl;
 
     SingleConfig(int argc, char *argv[])
     {
@@ -167,19 +179,56 @@ public:
         std::cout << "feature = " << feature << std::endl;
         if (feature == "user")
         {
-            dsize = 1141729;
+            filepath = "dataset/taobao/shuffled_sample.csv";
             feature_id = 0;
         }
         else if (feature == "ad")
         {
-            dsize = 846811;
+            filepath = "dataset/taobao/shuffled_sample.csv";
+            feature_id = 1;
+        }
+        else if (feature == "cate_id")
+        {
+            filepath = "dataset/taobao/shuffled_ad_feature.csv";
+            feature_id = 1;
+        }
+        else if (feature == "campaign_id")
+        {
+            filepath = "dataset/taobao/shuffled_ad_feature.csv";
+            feature_id = 2;
+        }
+        else if (feature == "customer")
+        {
+            filepath = "dataset/taobao/shuffled_ad_feature.csv";
+            feature_id = 3;
+        }
+        else if (feature == "brand")
+        {
+            filepath = "dataset/taobao/shuffled_ad_feature.csv";
+            feature_id = 4;
+        }
+        else if (feature == "price")
+        {
+            filepath = "dataset/taobao/shuffled_ad_feature.csv";
+            feature_id = 5;
+        }
+        else if (feature == "random1")
+        {
+            filepath = "dataset/taobao/random_data.csv";
+            feature_id = 0;
+        }
+        else if (feature == "random2")
+        {
+            filepath = "dataset/taobao/random_data.csv";
             feature_id = 1;
         }
         else
         {
-            std::cout << "invalid: feature must be `ad` or `user`" << std::endl;
+            std::cout << "invalid: feature" << std::endl;
             exit(0);
         }
+        dl = new DataLoader(filepath, feature_id);
+        dsize = dl->count_dup_size();
         max_emb_num_perc = std::stod(argv[2]);
         std::cout << "cache size = " << max_emb_num_perc << std::endl;
         if (max_emb_num_perc <= 0)

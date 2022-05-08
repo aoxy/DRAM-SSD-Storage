@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     SingleConfig conf(argc, argv);
     auto begin = std::chrono::high_resolution_clock::now();
-    DataLoader dl("dataset/taobao/shuffled_sample.csv", conf.feature_id, 0);
+    DataLoader dl = *conf.dl;
     SingleCache<int64_t, bool> *cache = conf.cache;
     CacheRecord cr;
 
