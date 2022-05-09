@@ -222,6 +222,11 @@ public:
             filepath = "dataset/taobao/random_data.csv";
             feature_id = 1;
         }
+        else if (feature == "random3")
+        {
+            filepath = "dataset/taobao/random_data.csv";
+            feature_id = 2;
+        }
         else
         {
             std::cout << "invalid: feature" << std::endl;

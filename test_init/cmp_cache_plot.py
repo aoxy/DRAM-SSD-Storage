@@ -52,6 +52,7 @@ def plot_res(result_map, res_i, ylabel):
         "price": ["dataset/taobao/shuffled_ad_feature.csv", 5],
         "random1": ["dataset/taobao/random_data.csv", 0],
         "random2": ["dataset/taobao/random_data.csv", 1],
+        "random3": ["dataset/taobao/random_data.csv", 2],
     }
     # ["cate_id", "campaign_id", "customer", "brand", "price", "random1", "random2"]
     # res_list = {"ad": dict(), "user": dict()}
@@ -59,7 +60,7 @@ def plot_res(result_map, res_i, ylabel):
     # plot_f = ["cate_id", "campaign_id"]  # (14)
     # plot_f = ["customer", "brand"]  # (15)
     # plot_f = ["price", "random1"] # (16)
-    # plot_f = ["random1", "random2"]  # (17)
+    # plot_f = ["random2", "random3"]  # (17)
     res_list = {plot_f[0]: dict(), plot_f[1]: dict()}
     for f in plot_f:
         if f not in res_list:
