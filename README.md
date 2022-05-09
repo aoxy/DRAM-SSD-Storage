@@ -7,6 +7,7 @@
 **dist表示数据的分布**
 
 [全部结果图片](FigureList.md)
+
 ### PDF
 
 [FigureList.pdf](FigureList.pdf)
@@ -18,6 +19,7 @@
 - inplace 目录中的是每次读写embedding文件都打开关闭一次，且原地读写
 - filepool 目录中的是打开embedding文件，最后训练结束才关闭，且追加写
 - compaction 目录中的是打开embedding文件，最后训练结束才关闭，且追加写，最后compaction
+
 ### 最新结果
 
 数据说明：
@@ -79,7 +81,6 @@ k_size = 4096
 | 5 %        | 43.01 %  | - s        | - s        | - s        | - s        |
 | 1 %        | 15.62 %  | - s        | - s        | - s        | - s        |
 
-
 | Cache Size | Hit Rate | Epoch Zero | Train Time | Compaction | Total Time |
 | ---------- | -------- | ---------- | ---------- | ---------- | ---------- |
 | 100 %      | 100.00 % | - s        | - s        | - s        | - s        |
@@ -90,6 +91,7 @@ k_size = 4096
 | 10 %       | 56.23 %  | - s        | - s        | - s        | - s        |
 | 5 %        | 43.01 %  | - s        | - s        | - s        | - s        |
 | 1 %        | 15.62 %  | - s        | - s        | - s        | - s        |
+
 #### Adgroup 数据
 
 ```
@@ -136,7 +138,6 @@ k_size = 4096
 | 5 %        | 60.38 %  | - s        | - s        | - s        | - s        |
 | 1 %        | 25.00 %  | - s        | - s        | - s        | - s        |
 
-
 ## 测试数据
 
 ```
@@ -165,7 +166,6 @@ total time: 88.99227023124695 s
 #### LFU缓存策略的表现
 
 ![](fig/Figure_4.png)
-
 
 #### 缓存大小和LRU命中率的关系
 

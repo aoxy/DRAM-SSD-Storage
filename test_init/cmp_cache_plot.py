@@ -56,11 +56,11 @@ def plot_res(result_map, res_i, ylabel):
     }
     # ["cate_id", "campaign_id", "customer", "brand", "price", "random1", "random2"]
     # res_list = {"ad": dict(), "user": dict()}
-    plot_f = ["ad", "user"]  # (13)
+    # plot_f = ["ad", "user"]  # (13)
     # plot_f = ["cate_id", "campaign_id"]  # (14)
     # plot_f = ["customer", "brand"]  # (15)
     # plot_f = ["price", "random1"] # (16)
-    # plot_f = ["random2", "random3"]  # (17)
+    plot_f = ["random2", "random3"]  # (17)
     res_list = {plot_f[0]: dict(), plot_f[1]: dict()}
     for f in plot_f:
         if f not in res_list:
@@ -107,7 +107,7 @@ def plot_res(result_map, res_i, ylabel):
     plt.show()
 
 
-all_log_file = "logs/cache/temp/single/all.log"
+all_log_file = "logs/cache/temp/single/all_more.log"
 result_map = get_result_map(all_log_file)
 
 
