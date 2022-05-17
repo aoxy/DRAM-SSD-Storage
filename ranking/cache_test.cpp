@@ -12,11 +12,11 @@ int main(int argc, char *argv[])
 {
     Config conf(argc, argv);
     auto begin = std::chrono::high_resolution_clock::now();
-    DataLoader dl("dataset/taobao/shuffled_sample.csv", conf.feature_id);
-    BatchCache<int64_t> *cache = conf.cache;
-    const size_t batch_size = 512;
+    DataLoader dl("dataset/taobao/shuffled_sample_random_s.csv", conf.feature_id, 0);
+    ReplacementCache<int64_t> *cache = conf.cache;
+    const size_t batch_size = 2;
     const size_t num_worker = 1;
-    const size_t k_size = 8 * batch_size;
+    const size_t k_size = 1;//8 * batch_size;
     const size_t epoch = 1;
     int64_t *batch_ids = new int64_t[batch_size];
     std::set<int64_t> s;
@@ -36,11 +36,13 @@ int main(int argc, char *argv[])
             if (s.size() > cache->max_emb_num())
             {
                 size_t true_size = cache->get_evic_ids(evic_ids, k_size);
+                LOGINFO << array_str(evic_ids, true_size);
                 for (size_t i = 0; i < true_size; ++i)
                 {
                     s.erase(evic_ids[i]);
                 }
             }
+            LOGINFO << array_str(batch_ids, batch_size);
             cache->add_to_rank(batch_ids, batch_size);
             for (size_t i = 0; i < batch_size; ++i)
             {
@@ -76,6 +78,10 @@ int main(int argc, char *argv[])
         }
         remain_size -= remain_size;
     }
+
+    LOGINFO << "Cache Capacity = " << cache->max_emb_num();
+    LOGINFO << "Cache Size = " << cache->size();
+    LOGINFO << "S Size = " << s.size();
 
     for (size_t e = 0; e < epoch; ++e)
     {

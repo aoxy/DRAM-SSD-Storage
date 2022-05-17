@@ -327,4 +327,5 @@ if __name__ == "__main__":
     # shuffle_data("dataset/taobao/ad_feature.csv", "dataset/taobao/shuffled_ad_feature.csv")
 
     # plot_dataset_dist("dataset/taobao/shuffled_ad_feature.csv", 3)
-    plot_dataset_dist("dataset/taobao/random_data.csv", 1)
+    # plot_dataset_dist("dataset/taobao/shuffled_sample.csv", 0)
+    plot_dataset_dist("dataset/taobao/shuffled_ad_feature.csv", 4)

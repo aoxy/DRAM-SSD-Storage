@@ -6,15 +6,18 @@
 #include "../justokmap/ssd_hash_map.h"
 #include "prefetch.h"
 #include "../utils/logs.h"
-#include "../ranking/cache_manager.h"
+#include "../movement/eviction.h"
 #include "../utils/xhqueue.h"
 #include "../ranking/cache.h"
 #include "../movement/files.h"
 
-void prefetch(shard_lock_map &dmap, ssd_hash_map &smap, embedding_t *ret, int64_t *batch_ids, size_t batch_size, size_t num_workers, CacheRecord &cr, BatchCache<int64_t> *cache, size_t k_size, FilePool &fp)
+void prefetch(shard_lock_map &dmap, ssd_hash_map &smap, embedding_t *ret, int64_t *batch_ids, size_t batch_size, size_t num_workers, CacheRecord &cr, ReplacementCache<int64_t> *cache, size_t k_size, FilePool &fp)
 {
-    cache_manager_once(std::ref(dmap), std::ref(smap), cache, k_size, 1, std::ref(fp)); // TODO: 不能淘汰本次要用的，先淘汰
-    cache->add_to_rank(batch_ids, batch_size);
+    int64_t evic_id = cache->ranking(batch_ids[0]);
+    if (evic_id != -1)
+    {
+        eviction(std::ref(dmap), std::ref(smap), &evic_id, 1, num_workers, std::ref(fp));
+    }
 
     size_t work_size = int((batch_size + num_workers - 1) / num_workers); //上取整
     std::vector<std::thread> workers;
@@ -44,8 +47,9 @@ void fetch_aux(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, siz
         if (value == nullptr)
         { // 在SSD中，读取并分配地址
             value = new double[EMB_LEN];
+            // LOGINFO << "SSD";
             assert(value != nullptr && "allocate failed in prefetch.");
-            offset = smap.get(key) - 1; //offset - 1 是因为存的时候+1了
+            offset = smap.get(key) - 1; // offset - 1 是因为存的时候+1了
             assert(offset >= 0 && "key not exist.");
             fp.rw_s(key).seekg(offset, std::ios::beg);
             fp.rw_s(key).read((char *)value, EMB_LEN * sizeof(double));

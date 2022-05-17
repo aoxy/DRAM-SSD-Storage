@@ -10,8 +10,6 @@
 #include "../movement/files.h"
 #include "../ranking/cache.h"
 #include "../ranking/single_cache.h"
-#include "../ranking/arc.h"
-#include "../ranking/arf.h"
 
 class DataLoader
 {
@@ -78,7 +76,7 @@ class Config
 public:
     std::string feature;
     size_t feature_id;
-    BatchCache<int64_t> *cache;
+    ReplacementCache<int64_t> *cache;
     size_t dsize;
 
     Config(int argc, char *argv[])
@@ -88,7 +86,7 @@ public:
         if (argc < 4)
         {
             std::cout << "missing parameters" << std::endl;
-            std::cout << "usage: ./main <ad/user> <1~100> <lru/lfu>" << std::endl;
+            std::cout << "usage: ./main <ad/user> <1~100> <lru/lfu/fifo/arc/arf>" << std::endl;
             exit(0);
         }
         feature = std::string(argv[1]);
@@ -119,23 +117,23 @@ public:
         cache_policy = std::string(argv[3]);
         if (cache_policy == "lru")
         {
-            cache = new LRUCache<int64_t>(dsize * max_emb_num_perc / 100);
+            cache = new ReplacementLRUCache<int64_t>(-1, dsize * max_emb_num_perc / 100);
         }
         else if (cache_policy == "lfu")
         {
-            cache = new LFUCache<int64_t>(dsize * max_emb_num_perc / 100);
+            cache = new ReplacementLFUCache<int64_t>(-1, dsize * max_emb_num_perc / 100);
         }
         else if (cache_policy == "fifo")
         {
-            cache = new FIFOCache<int64_t>(dsize * max_emb_num_perc / 100);
+            cache = new ReplacementFIFOCache<int64_t>(-1, dsize * max_emb_num_perc / 100);
         }
         else if (cache_policy == "arc")
         {
-            cache = new ARCCache<int64_t>(dsize * max_emb_num_perc / 100);
+            cache = new ReplacementARCCache<int64_t>(-1, dsize * max_emb_num_perc / 100);
         }
         else if (cache_policy == "arf")
         {
-            cache = new ARFCache<int64_t>(dsize * max_emb_num_perc / 100);
+            cache = new ReplacementARFCache<int64_t>(-1, dsize * max_emb_num_perc / 100);
         }
         else
         {

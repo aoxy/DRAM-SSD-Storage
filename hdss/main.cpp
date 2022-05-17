@@ -13,8 +13,8 @@
 #include "../movement/files.h"
 #include "../ranking/cache_manager.h"
 
-void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker);
-double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch);
+void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, ReplacementCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker);
+double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, ReplacementCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch);
 
 int main(int argc, char *argv[])
 {
@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
     auto ts1 = std::chrono::high_resolution_clock::now();
     DataLoader dl("dataset/taobao/shuffled_sample.csv", conf.feature_id);
     auto ts2 = std::chrono::high_resolution_clock::now();
-    const size_t epoch = 3;
-    const size_t batch_size = 512;
+    const size_t epoch = 2;
+    const size_t batch_size = 1;
     const size_t num_worker = 1;
     const size_t k_size = 8 * batch_size;
     double hit_rate;
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             << std::flush;
     LOGINFO << "data size = " << dl.size() << std::endl
             << std::flush;
-    LOGINFO << "max emb num = " << conf.cache->max_emb_num() << std::endl
+    LOGINFO << "max emb num = " << conf.cache->capacity() << std::endl
             << std::flush;
     LOGINFO << "batch_size = " << batch_size << std::endl
             << std::flush;
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     shard_lock_map dmap;
     ssd_hash_map smap(conf.feature);
     FilePool fp(smap);
-    BatchCache<int64_t> *cache = conf.cache;
+    ReplacementCache<int64_t> *cache = conf.cache;
 
     int64_t *batch_ids = new int64_t[batch_size];
     if (batch_ids == nullptr)
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch)
+double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, ReplacementCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker, size_t epoch)
 {
     CacheRecord cr;
     embedding_t *ret = new embedding_t[batch_size];
@@ -108,21 +108,16 @@ double train(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_
             update_embs(ret, batch_size); // 一种梯度更新的方式
             // output(ret, 0, batch_size); // 加100次1.0
             remain_size -= batch_size;
-            if (int(remain_size / batch_size) % 8000 == 0)
-            {
-                std::cout << "\r(" << e + 1 << "/" << epoch << ")epoch training... " << std::fixed << std::setprecision(2) << double((total_size - remain_size) * 100.0) / total_size << " %" << std::flush;
-            }
+            // if (int(remain_size / batch_size) % 8000 == 0)
+            // {
+            //     std::cout << "\r(" << e + 1 << "/" << epoch << ")epoch training... " << std::fixed << std::setprecision(2) << double((total_size - remain_size) * 100.0) / total_size << " %" << std::flush;
+            // }
         }
-        dl.sample(batch_ids, remain_size);
-        prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, remain_size, num_worker, std::ref(cr), cache, k_size, std::ref(fp));
-        update_embs(ret, remain_size); // 一种梯度更新的方式
-        // output(ret, 0, remain_size);// 加100次1.0
-        remain_size -= remain_size;
     }
     return cr.hit_rate();
 }
 
-void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, BatchCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker)
+void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, size_t batch_size, ReplacementCache<int64_t> *cache, size_t k_size, DataLoader &dl, FilePool &fp, size_t num_worker)
 {
     CacheRecord temp_cr;
     dl.init();
@@ -142,15 +137,10 @@ void epoch_zero(shard_lock_map &dmap, ssd_hash_map &smap, int64_t *batch_ids, si
         update_embs(ret, batch_size); // 一种梯度更新的方式
         // output(ret, 0, batch_size); // 加100次1.0
         remain_size -= batch_size;
-        if (int(remain_size / batch_size) % 8000 == 0)
-        {
-            std::cout << "\repoch zero training... " << std::fixed << std::setprecision(2) << double((total_size - remain_size) * 100.0) / total_size << " %" << std::flush;
-        }
+        // if (int(remain_size / batch_size) % 8000 == 0)
+        // {
+        //     std::cout << "\repoch zero training... " << std::fixed << std::setprecision(2) << double((total_size - remain_size) * 100.0) / total_size << " %" << std::flush;
+        // }
     }
-    dl.sample(batch_ids, remain_size);
-    prefetch(std::ref(dmap), std::ref(smap), ret, batch_ids, remain_size, num_worker, std::ref(temp_cr), cache, k_size, std::ref(fp));
-    update_embs(ret, remain_size); // 一种梯度更新的方式
-    // output(ret, 0, remain_size);// 加100次1.0
-    remain_size -= remain_size;
     delete[] ret;
 }

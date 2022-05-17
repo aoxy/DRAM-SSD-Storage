@@ -13,10 +13,10 @@ CPPFLAGS += -I$(MAIN_DIR) -I. -isystem
 CXXFLAGS += -Wall -Wextra -Wpedantic -Wno-missing-field-initializers -std=c++17 -O3  ${_CXXFLAGS} -g
 LDFLAGS += -lpthread
 
-all :  main write_file_and_ssd_map read_file_and_ssd_map cache_test single_cache_test
+all :  main write_file_and_ssd_map read_file_and_ssd_map single_cache_test
 
 clean :
-	rm *.o main read_file_and_ssd_map write_file_and_ssd_map cache_test single_cache_test
+	rm *.o main read_file_and_ssd_map write_file_and_ssd_map single_cache_test
 
 run :
 	./main $(var) > "logs/compaction/temp/hdss($(var)).log"
@@ -28,13 +28,16 @@ run_single_cache :
 	./single_cache_test $(var) >> "logs/cache/temp/single/all.log"
 
 run5 :
-	./main $(var) > "logs/compaction/v5/hdss($(var)).log"
+	./main $(var) > "logs/compaction/v55/hdss($(var)).log"
 
 run6:
-	./main $(var) > "logs/compaction/v6/hdss($(var)).log"
+	./main $(var) > "logs/compaction/v66/hdss($(var)).log"
 
 run7 :
-	./main $(var) > "logs/compaction/v7/hdss($(var)).log"
+	./main $(var) > "logs/compaction/v77/hdss($(var)).log"
+
+run8 :
+	./main $(var) > "logs/compaction/v8/hdss($(var)).log"
 
 per :
 	chmod -R 777 ./

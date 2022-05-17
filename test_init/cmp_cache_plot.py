@@ -60,8 +60,11 @@ def plot_res(result_map, res_i, ylabel):
     # plot_f = ["cate_id", "campaign_id"]  # (14)
     # plot_f = ["customer", "brand"]  # (15)
     # plot_f = ["price", "random1"] # (16)
-    plot_f = ["random2", "random3"]  # (17)
-    res_list = {plot_f[0]: dict(), plot_f[1]: dict()}
+    # plot_f = ["random2", "random3"]  # (17)
+    plot_f = ["ad", "user", "cate_id", "campaign_id", "customer", "brand", "random2", "random3"]  # (18)
+    res_list = {}
+    for it in plot_f:
+        res_list[it] = dict()
     for f in plot_f:
         if f not in res_list:
             res_list[f] = dict()
@@ -71,8 +74,7 @@ def plot_res(result_map, res_i, ylabel):
             for s in cache_size_list:
                 res_list[f][c][1].append(float(result_map[f][c][s][res_i]))
 
-    fig2 = plt.figure()
-    ax1 = fig2.add_subplot(1, 2, 1)
+
     color_list = ["royalblue", "chocolate", "olivedrab", "deepskyblue", "silver", "black", "tomato"]
     color_map = {}
     i = 0
@@ -80,36 +82,37 @@ def plot_res(result_map, res_i, ylabel):
         color_map[c] = color_list[i % len(color_list)]
         i += 1
     color_map["dist"] = color_list[i % len(color_list)]
-    for c in cache_policy_list:
-        list1, list2 = (list(t) for t in zip(*sorted(zip(res_list[plot_f[0]][c][0], res_list[plot_f[0]][c][1]))))
-        ax1.plot(list1, list2, color=color_map[c], label=c.upper())
-    if res_i < 3:
-        ux, uy, _, _ = plot_dataset_dist_aux(filepath[plot_f[0]][0], filepath[plot_f[0]][1])
-        ax1.plot(ux, uy, color=color_map["dist"], label="dist")
-    ax1.set_title(plot_f[0])
-    ax1.set_xlabel("Cache Size(%)")
-    ax1.set_ylabel(ylabel)
-    ax1.grid(True)
-    ax1.legend()
 
-    ax2 = fig2.add_subplot(1, 2, 2)
-    for c in cache_policy_list:
-        list1, list2 = (list(t) for t in zip(*sorted(zip(res_list[plot_f[1]][c][0], res_list[plot_f[1]][c][1]))))
-        ax2.plot(list1, list2, color=color_map[c], label=c.upper())
-    if res_i < 3:
-        ux, uy, _, _ = plot_dataset_dist_aux(filepath[plot_f[1]][0], filepath[plot_f[1]][1])
-        ax2.plot(ux, uy, color=color_map["dist"], label="dist")
-    ax2.set_title(plot_f[1])
-    ax2.set_xlabel("Cache Size(%)")
-    ax2.set_ylabel(ylabel)
-    ax2.grid(True)
-    ax2.legend()
+    fig2 = plt.figure()
+    for i in range(len(plot_f)):
+        ax = fig2.add_subplot(2, len(plot_f)//2, i+1)
+        for c in cache_policy_list:
+            list1, list2 = (list(t) for t in zip(*sorted(zip(res_list[plot_f[i]][c][0], res_list[plot_f[i]][c][1]))))
+            if res_i == 3:
+                begin_idx = int(len(list1) * 0.3)
+                list1 = list1[begin_idx:]
+                list2 = list2[begin_idx:]
+            ax.plot(list1, list2, color=color_map[c], label=c.upper())
+        if res_i < 3:
+            if plot_f[i] in dist_cache:
+                ux, uy = dist_cache[plot_f[i]]
+            else:
+                ux, uy, _, _ = plot_dataset_dist_aux(filepath[plot_f[i]][0], filepath[plot_f[i]][1])
+                dist_cache[plot_f[i]] = (ux, uy)
+            ax.plot(ux, uy, color=color_map["dist"], label="dist")
+        ax.set_title(plot_f[i])
+        ax.set_xlabel("Cache Size(%)")
+        ax.set_ylabel(ylabel, labelpad=-4)
+        ax.grid(True)
+        ax.legend()
     plt.show()
 
 
-all_log_file = "logs/cache/temp/single/all_more.log"
+
+all_log_file = "logs/cache/temp/single/lunwen.log"
 result_map = get_result_map(all_log_file)
 
+dist_cache = {}
 
 plot_res(result_map, 0, "Hit Rate[1] (%)")
 plot_res(result_map, 1, "Hit Rate[2] (%)")
