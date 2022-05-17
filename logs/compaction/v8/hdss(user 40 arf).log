@@ -1,0 +1,17 @@
+
+[INFO]: hdss/main.cpp:30 (main):  	dsize = 1141729
+
+[INFO]: hdss/main.cpp:32 (main):  	data size = 26557961
+
+[INFO]: hdss/main.cpp:34 (main):  	max emb num = 456691
+
+[INFO]: hdss/main.cpp:36 (main):  	batch_size = 1
+
+[INFO]: hdss/main.cpp:38 (main):  	k_size = 8
+
+[INFO]: hdss/main.cpp:79 (main):  	read id time = 13.5954 s
+[INFO]: hdss/main.cpp:80 (main):  	zero-th epoch time = 77.7205 s
+[INFO]: hdss/main.cpp:81 (main):  	train time = 149.679 s
+[INFO]: hdss/main.cpp:82 (main):  	compaction time = 7.32824 s
+[INFO]: hdss/main.cpp:83 (main):  	total time = 249.241 s
+[INFO]: hdss/main.cpp:84 (main):  	total hit rate = 86.7618 %
