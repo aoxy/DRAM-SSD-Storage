@@ -1,0 +1,2592 @@
+================================
+feature = ad
+cache size = 5
+cache policy = alfu0
+[1]total hit rate = 59.1558 %
+[2]total hit rate = 59.482 %
+[3]total hit rate = 59.4829 %
+cost time = 17.0947 s
+================================
+feature = ad
+cache size = 5
+cache policy = alfu1
+[1]total hit rate = 59.1673 %
+[2]total hit rate = 59.5104 %
+[3]total hit rate = 59.5117 %
+cost time = 17.602 s
+================================
+feature = ad
+cache size = 5
+cache policy = alfu2
+[1]total hit rate = 59.205 %
+[2]total hit rate = 59.5714 %
+[3]total hit rate = 59.5831 %
+cost time = 16.9459 s
+================================
+feature = ad
+cache size = 5
+cache policy = alfu5
+[1]total hit rate = 59.4298 %
+[2]total hit rate = 59.8794 %
+[3]total hit rate = 59.9855 %
+cost time = 17.4047 s
+================================
+feature = ad
+cache size = 5
+cache policy = alfu10
+[1]total hit rate = 60.0987 %
+[2]total hit rate = 60.7458 %
+[3]total hit rate = 59.4327 %
+cost time = 16.9666 s
+================================
+feature = ad
+cache size = 5
+cache policy = alfu50
+[1]total hit rate = 60.923 %
+[2]total hit rate = 61.7657 %
+[3]total hit rate = 45.4716 %
+cost time = 20.0528 s
+================================
+feature = ad
+cache size = 5
+cache policy = alfu100
+[1]total hit rate = 57.0945 %
+[2]total hit rate = 58.2477 %
+[3]total hit rate = 43.9549 %
+cost time = 20.5032 s
+================================
+feature = ad
+cache size = 5
+cache policy = alfu500
+[1]total hit rate = 48.1382 %
+[2]total hit rate = 49.415 %
+[3]total hit rate = 43.561 %
+cost time = 30.9618 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu0
+[1]total hit rate = 65.8582 %
+[2]total hit rate = 66.288 %
+[3]total hit rate = 66.2914 %
+cost time = 19.3888 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu1
+[1]total hit rate = 65.8816 %
+[2]total hit rate = 66.3356 %
+[3]total hit rate = 66.3411 %
+cost time = 17.9564 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu2
+[1]total hit rate = 65.9381 %
+[2]total hit rate = 66.4265 %
+[3]total hit rate = 66.4322 %
+cost time = 15.7864 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu5
+[1]total hit rate = 66.2906 %
+[2]total hit rate = 66.9059 %
+[3]total hit rate = 66.9747 %
+cost time = 15.8603 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu10
+[1]total hit rate = 67.1962 %
+[2]total hit rate = 68.0822 %
+[3]total hit rate = 66.9774 %
+cost time = 15.5824 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu50
+[1]total hit rate = 65.9188 %
+[2]total hit rate = 66.9609 %
+[3]total hit rate = 52.4895 %
+cost time = 18.7817 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu100
+[1]total hit rate = 62.2959 %
+[2]total hit rate = 63.5655 %
+[3]total hit rate = 51.1246 %
+cost time = 20.6694 s
+================================
+feature = ad
+cache size = 7
+cache policy = alfu500
+[1]total hit rate = 52.9393 %
+[2]total hit rate = 53.7402 %
+[3]total hit rate = 50.6242 %
+cost time = 33.2926 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu0
+[1]total hit rate = 72.9289 %
+[2]total hit rate = 73.4983 %
+[3]total hit rate = 73.507 %
+cost time = 20.3234 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu1
+[1]total hit rate = 72.9722 %
+[2]total hit rate = 73.5885 %
+[3]total hit rate = 73.5997 %
+cost time = 18.4993 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu2
+[1]total hit rate = 73.076 %
+[2]total hit rate = 73.7587 %
+[3]total hit rate = 73.7676 %
+cost time = 16.8391 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu5
+[1]total hit rate = 73.6028 %
+[2]total hit rate = 74.4816 %
+[3]total hit rate = 74.535 %
+cost time = 16.3375 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu10
+[1]total hit rate = 74.5965 %
+[2]total hit rate = 75.8219 %
+[3]total hit rate = 74.8621 %
+cost time = 16.8649 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu50
+[1]total hit rate = 71.2533 %
+[2]total hit rate = 72.4667 %
+[3]total hit rate = 60.3256 %
+cost time = 21.4756 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu100
+[1]total hit rate = 67.8231 %
+[2]total hit rate = 69.2038 %
+[3]total hit rate = 59.1248 %
+cost time = 23.862 s
+================================
+feature = ad
+cache size = 10
+cache policy = alfu500
+[1]total hit rate = 61.448 %
+[2]total hit rate = 62.3661 %
+[3]total hit rate = 59.1138 %
+cost time = 40.2684 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu0
+[1]total hit rate = 80.5584 %
+[2]total hit rate = 81.3486 %
+[3]total hit rate = 81.3656 %
+cost time = 17.2499 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu1
+[1]total hit rate = 80.6414 %
+[2]total hit rate = 81.5229 %
+[3]total hit rate = 81.5392 %
+cost time = 17.3766 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu2
+[1]total hit rate = 80.8153 %
+[2]total hit rate = 81.8069 %
+[3]total hit rate = 81.8158 %
+cost time = 17.2423 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu5
+[1]total hit rate = 81.4827 %
+[2]total hit rate = 82.7869 %
+[3]total hit rate = 82.7605 %
+cost time = 71.6999 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu10
+[1]total hit rate = 81.7981 %
+[2]total hit rate = 83.2921 %
+[3]total hit rate = 82.2988 %
+cost time = 20.4939 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu50
+[1]total hit rate = 77.4316 %
+[2]total hit rate = 78.6343 %
+[3]total hit rate = 69.5118 %
+cost time = 25.8292 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu100
+[1]total hit rate = 74.8659 %
+[2]total hit rate = 75.7207 %
+[3]total hit rate = 68.5144 %
+cost time = 32.5444 s
+================================
+feature = ad
+cache size = 15
+cache policy = alfu500
+[1]total hit rate = 69.5502 %
+[2]total hit rate = 70.4075 %
+[3]total hit rate = 68.5233 %
+cost time = 56.9384 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu0
+[1]total hit rate = 85.3819 %
+[2]total hit rate = 86.3841 %
+[3]total hit rate = 86.4067 %
+cost time = 19.419 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu1
+[1]total hit rate = 85.5054 %
+[2]total hit rate = 86.6513 %
+[3]total hit rate = 86.6638 %
+cost time = 19.3679 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu2
+[1]total hit rate = 85.7267 %
+[2]total hit rate = 87.0277 %
+[3]total hit rate = 87.0219 %
+cost time = 19.7922 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu5
+[1]total hit rate = 86.1414 %
+[2]total hit rate = 87.7448 %
+[3]total hit rate = 87.5992 %
+cost time = 20.6755 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu10
+[1]total hit rate = 85.7454 %
+[2]total hit rate = 87.2672 %
+[3]total hit rate = 85.8709 %
+cost time = 21.9187 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu50
+[1]total hit rate = 81.3744 %
+[2]total hit rate = 82.595 %
+[3]total hit rate = 75.8199 %
+cost time = 28.5614 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu100
+[1]total hit rate = 78.6067 %
+[2]total hit rate = 79.8128 %
+[3]total hit rate = 74.9818 %
+cost time = 32.3143 s
+================================
+feature = ad
+cache size = 20
+cache policy = alfu500
+[1]total hit rate = 74.4906 %
+[2]total hit rate = 75.4513 %
+[3]total hit rate = 75.5044 %
+cost time = 66.3672 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu0
+[1]total hit rate = 90.9059 %
+[2]total hit rate = 92.3168 %
+[3]total hit rate = 92.3276 %
+cost time = 20.5715 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu1
+[1]total hit rate = 91.0512 %
+[2]total hit rate = 92.6931 %
+[3]total hit rate = 92.6237 %
+cost time = 20.8036 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu2
+[1]total hit rate = 91.1345 %
+[2]total hit rate = 92.8888 %
+[3]total hit rate = 92.7055 %
+cost time = 20.9334 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu5
+[1]total hit rate = 90.8974 %
+[2]total hit rate = 92.6659 %
+[3]total hit rate = 92.0368 %
+cost time = 21.7206 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu10
+[1]total hit rate = 90.1629 %
+[2]total hit rate = 91.7821 %
+[3]total hit rate = 90.5076 %
+cost time = 22.8424 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu50
+[1]total hit rate = 86.1762 %
+[2]total hit rate = 87.3514 %
+[3]total hit rate = 84.0981 %
+cost time = 32.5665 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu100
+[1]total hit rate = 84.5416 %
+[2]total hit rate = 86.0368 %
+[3]total hit rate = 83.6589 %
+cost time = 39.0196 s
+================================
+feature = ad
+cache size = 30
+cache policy = alfu500
+[1]total hit rate = 82.3489 %
+[2]total hit rate = 83.4504 %
+[3]total hit rate = 83.1914 %
+cost time = 95.5183 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu0
+[1]total hit rate = 93.6863 %
+[2]total hit rate = 95.467 %
+[3]total hit rate = 95.3525 %
+cost time = 22.7635 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu1
+[1]total hit rate = 93.7143 %
+[2]total hit rate = 95.6469 %
+[3]total hit rate = 95.3209 %
+cost time = 22.9768 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu2
+[1]total hit rate = 93.6378 %
+[2]total hit rate = 95.5994 %
+[3]total hit rate = 95.0761 %
+cost time = 23.0186 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu5
+[1]total hit rate = 93.2365 %
+[2]total hit rate = 95.1093 %
+[3]total hit rate = 94.135 %
+cost time = 24.087 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu10
+[1]total hit rate = 92.6157 %
+[2]total hit rate = 94.2945 %
+[3]total hit rate = 92.9658 %
+cost time = 50.2066 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu50
+[1]total hit rate = 89.6512 %
+[2]total hit rate = 91.1486 %
+[3]total hit rate = 88.9461 %
+cost time = 97.7512 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu100
+[1]total hit rate = 88.5346 %
+[2]total hit rate = 90.1228 %
+[3]total hit rate = 88.8313 %
+cost time = 128.762 s
+================================
+feature = ad
+cache size = 40
+cache policy = alfu500
+[1]total hit rate = 86.9351 %
+[2]total hit rate = 88.0625 %
+[3]total hit rate = 88.0561 %
+cost time = 173.409 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu0
+[1]total hit rate = 95.1436 %
+[2]total hit rate = 97.2197 %
+[3]total hit rate = 96.8518 %
+cost time = 22.1703 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu1
+[1]total hit rate = 95.0795 %
+[2]total hit rate = 97.2033 %
+[3]total hit rate = 96.5985 %
+cost time = 22.6737 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu2
+[1]total hit rate = 94.963 %
+[2]total hit rate = 97.0715 %
+[3]total hit rate = 96.2938 %
+cost time = 22.7308 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu5
+[1]total hit rate = 94.5756 %
+[2]total hit rate = 96.5602 %
+[3]total hit rate = 95.4719 %
+cost time = 23.8589 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu10
+[1]total hit rate = 93.9859 %
+[2]total hit rate = 95.8107 %
+[3]total hit rate = 94.6135 %
+cost time = 24.5907 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu50
+[1]total hit rate = 91.7493 %
+[2]total hit rate = 93.2511 %
+[3]total hit rate = 92.108 %
+cost time = 32.4371 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu100
+[1]total hit rate = 90.9418 %
+[2]total hit rate = 92.4467 %
+[3]total hit rate = 92.1585 %
+cost time = 41.4444 s
+================================
+feature = ad
+cache size = 50
+cache policy = alfu500
+[1]total hit rate = 90.3676 %
+[2]total hit rate = 91.6026 %
+[3]total hit rate = 92.2335 %
+cost time = 114.321 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu0
+[1]total hit rate = 95.9389 %
+[2]total hit rate = 98.2471 %
+[3]total hit rate = 97.6432 %
+cost time = 20.7857 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu1
+[1]total hit rate = 95.8364 %
+[2]total hit rate = 98.1382 %
+[3]total hit rate = 97.3425 %
+cost time = 20.9645 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu2
+[1]total hit rate = 95.7258 %
+[2]total hit rate = 97.9939 %
+[3]total hit rate = 97.0876 %
+cost time = 21.1677 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu5
+[1]total hit rate = 95.512 %
+[2]total hit rate = 97.6733 %
+[3]total hit rate = 96.4915 %
+cost time = 22.1037 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu10
+[1]total hit rate = 95.042 %
+[2]total hit rate = 96.8224 %
+[3]total hit rate = 95.8511 %
+cost time = 25.2945 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu50
+[1]total hit rate = 93.9396 %
+[2]total hit rate = 95.7665 %
+[3]total hit rate = 94.3519 %
+cost time = 33.6272 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu100
+[1]total hit rate = 93.4203 %
+[2]total hit rate = 95.1486 %
+[3]total hit rate = 94.172 %
+cost time = 45.3534 s
+================================
+feature = ad
+cache size = 60
+cache policy = alfu500
+[1]total hit rate = 92.9617 %
+[2]total hit rate = 94.4811 %
+[3]total hit rate = 94.0278 %
+cost time = 137.831 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu0
+[1]total hit rate = 96.637 %
+[2]total hit rate = 99.3525 %
+[3]total hit rate = 98.4548 %
+cost time = 20.8377 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu1
+[1]total hit rate = 96.5544 %
+[2]total hit rate = 99.2099 %
+[3]total hit rate = 98.3 %
+cost time = 20.9357 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu2
+[1]total hit rate = 96.5304 %
+[2]total hit rate = 99.1327 %
+[3]total hit rate = 98.0202 %
+cost time = 21.0531 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu5
+[1]total hit rate = 96.3951 %
+[2]total hit rate = 98.8153 %
+[3]total hit rate = 97.8001 %
+cost time = 22.1729 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu10
+[1]total hit rate = 96.2926 %
+[2]total hit rate = 98.5727 %
+[3]total hit rate = 97.676 %
+cost time = 23.1685 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu50
+[1]total hit rate = 95.8445 %
+[2]total hit rate = 97.9222 %
+[3]total hit rate = 97.2361 %
+cost time = 34.8752 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu100
+[1]total hit rate = 95.6728 %
+[2]total hit rate = 97.5268 %
+[3]total hit rate = 97.2731 %
+cost time = 48.3039 s
+================================
+feature = ad
+cache size = 80
+cache policy = alfu500
+[1]total hit rate = 95.5377 %
+[2]total hit rate = 97.1972 %
+[3]total hit rate = 97.3173 %
+cost time = 155.503 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu0
+[1]total hit rate = 96.7684 %
+[2]total hit rate = 99.6811 %
+[3]total hit rate = 98.8424 %
+cost time = 20.6569 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu1
+[1]total hit rate = 96.7476 %
+[2]total hit rate = 99.5874 %
+[3]total hit rate = 98.9191 %
+cost time = 20.8981 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu2
+[1]total hit rate = 96.7182 %
+[2]total hit rate = 99.5148 %
+[3]total hit rate = 98.9981 %
+cost time = 20.9226 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu5
+[1]total hit rate = 96.6811 %
+[2]total hit rate = 99.3706 %
+[3]total hit rate = 98.9798 %
+cost time = 21.784 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu10
+[1]total hit rate = 96.6373 %
+[2]total hit rate = 99.2048 %
+[3]total hit rate = 98.8618 %
+cost time = 23.3005 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu50
+[1]total hit rate = 96.4401 %
+[2]total hit rate = 98.6554 %
+[3]total hit rate = 98.8088 %
+cost time = 34.9553 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu100
+[1]total hit rate = 96.3653 %
+[2]total hit rate = 98.3755 %
+[3]total hit rate = 98.7445 %
+cost time = 49.1679 s
+================================
+feature = ad
+cache size = 90
+cache policy = alfu500
+[1]total hit rate = 96.3306 %
+[2]total hit rate = 98.2808 %
+[3]total hit rate = 98.7097 %
+cost time = 158.158 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu0
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 19.9634 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu1
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 19.9848 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu2
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 21.5044 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu5
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 21.0962 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu10
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 22.6993 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu50
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 34.577 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu100
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 48.2657 s
+================================
+feature = ad
+cache size = 100
+cache policy = alfu500
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 156.518 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu0
+[1]total hit rate = 40.0952 %
+[2]total hit rate = 40.5774 %
+[3]total hit rate = 40.5892 %
+cost time = 18.9886 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu1
+[1]total hit rate = 40.1324 %
+[2]total hit rate = 40.6537 %
+[3]total hit rate = 40.676 %
+cost time = 18.8995 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu2
+[1]total hit rate = 40.216 %
+[2]total hit rate = 40.7926 %
+[3]total hit rate = 40.8532 %
+cost time = 18.802 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu5
+[1]total hit rate = 40.7396 %
+[2]total hit rate = 41.5228 %
+[3]total hit rate = 41.421 %
+cost time = 18.803 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu10
+[1]total hit rate = 41.9616 %
+[2]total hit rate = 43.1461 %
+[3]total hit rate = 36.2721 %
+cost time = 19.2128 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu50
+[1]total hit rate = 39.9517 %
+[2]total hit rate = 41.1066 %
+[3]total hit rate = 26.2425 %
+cost time = 22.0486 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu100
+[1]total hit rate = 36.1673 %
+[2]total hit rate = 37.4195 %
+[3]total hit rate = 25.4945 %
+cost time = 24.1628 s
+================================
+feature = user
+cache size = 5
+cache policy = alfu500
+[1]total hit rate = 28.4716 %
+[2]total hit rate = 29.2584 %
+[3]total hit rate = 25.2351 %
+cost time = 38.7308 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu0
+[1]total hit rate = 45.9835 %
+[2]total hit rate = 46.6111 %
+[3]total hit rate = 46.6309 %
+cost time = 22.584 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu1
+[1]total hit rate = 46.0394 %
+[2]total hit rate = 46.7264 %
+[3]total hit rate = 46.7476 %
+cost time = 22.7765 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu2
+[1]total hit rate = 46.1714 %
+[2]total hit rate = 46.943 %
+[3]total hit rate = 47.02 %
+cost time = 22.2156 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu5
+[1]total hit rate = 46.8855 %
+[2]total hit rate = 47.9464 %
+[3]total hit rate = 47.8511 %
+cost time = 22.3751 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu10
+[1]total hit rate = 48.258 %
+[2]total hit rate = 49.8326 %
+[3]total hit rate = 42.7103 %
+cost time = 22.8751 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu50
+[1]total hit rate = 44.3675 %
+[2]total hit rate = 45.7754 %
+[3]total hit rate = 32.0477 %
+cost time = 25.8874 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu100
+[1]total hit rate = 40.5503 %
+[2]total hit rate = 42.051 %
+[3]total hit rate = 31.3477 %
+cost time = 28.5493 s
+================================
+feature = user
+cache size = 7
+cache policy = alfu500
+[1]total hit rate = 33.5952 %
+[2]total hit rate = 34.3325 %
+[3]total hit rate = 31.3291 %
+cost time = 47.9629 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu0
+[1]total hit rate = 52.9117 %
+[2]total hit rate = 53.7524 %
+[3]total hit rate = 53.7823 %
+cost time = 22.688 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu1
+[1]total hit rate = 52.9978 %
+[2]total hit rate = 53.9334 %
+[3]total hit rate = 53.9523 %
+cost time = 21.0949 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu2
+[1]total hit rate = 53.1826 %
+[2]total hit rate = 54.2331 %
+[3]total hit rate = 54.3205 %
+cost time = 21.176 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu5
+[1]total hit rate = 54.1644 %
+[2]total hit rate = 55.6393 %
+[3]total hit rate = 55.4499 %
+cost time = 21.7691 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu10
+[1]total hit rate = 55.4612 %
+[2]total hit rate = 57.5582 %
+[3]total hit rate = 50.2766 %
+cost time = 23.6054 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu50
+[1]total hit rate = 49.8715 %
+[2]total hit rate = 51.444 %
+[3]total hit rate = 39.1973 %
+cost time = 31.6174 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu100
+[1]total hit rate = 46.774 %
+[2]total hit rate = 48.0225 %
+[3]total hit rate = 38.6107 %
+cost time = 36.6521 s
+================================
+feature = user
+cache size = 10
+cache policy = alfu500
+[1]total hit rate = 39.3063 %
+[2]total hit rate = 40.0985 %
+[3]total hit rate = 37.6789 %
+cost time = 66.2982 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu0
+[1]total hit rate = 61.6639 %
+[2]total hit rate = 62.8338 %
+[3]total hit rate = 62.8815 %
+cost time = 24.6835 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu1
+[1]total hit rate = 61.8069 %
+[2]total hit rate = 63.1354 %
+[3]total hit rate = 63.1625 %
+cost time = 24.7517 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu2
+[1]total hit rate = 62.1027 %
+[2]total hit rate = 63.6314 %
+[3]total hit rate = 63.6796 %
+cost time = 25.2749 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu5
+[1]total hit rate = 63.3086 %
+[2]total hit rate = 65.4418 %
+[3]total hit rate = 65.2038 %
+cost time = 29.2882 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu10
+[1]total hit rate = 63.8768 %
+[2]total hit rate = 66.404 %
+[3]total hit rate = 59.2028 %
+cost time = 33.3863 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu50
+[1]total hit rate = 56.7658 %
+[2]total hit rate = 58.627 %
+[3]total hit rate = 48.297 %
+cost time = 43.3825 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu100
+[1]total hit rate = 53.1147 %
+[2]total hit rate = 54.9604 %
+[3]total hit rate = 47.8002 %
+cost time = 49.4414 s
+================================
+feature = user
+cache size = 15
+cache policy = alfu500
+[1]total hit rate = 48.6686 %
+[2]total hit rate = 49.8511 %
+[3]total hit rate = 48.4071 %
+cost time = 93.9492 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu0
+[1]total hit rate = 68.2522 %
+[2]total hit rate = 69.7273 %
+[3]total hit rate = 69.7943 %
+cost time = 88.5472 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu1
+[1]total hit rate = 68.4649 %
+[2]total hit rate = 70.1809 %
+[3]total hit rate = 70.2103 %
+cost time = 85.6414 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu2
+[1]total hit rate = 68.8754 %
+[2]total hit rate = 70.8741 %
+[3]total hit rate = 70.883 %
+cost time = 25.2327 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu5
+[1]total hit rate = 69.9784 %
+[2]total hit rate = 72.6365 %
+[3]total hit rate = 72.1741 %
+cost time = 26.9458 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu10
+[1]total hit rate = 69.6458 %
+[2]total hit rate = 72.2786 %
+[3]total hit rate = 65.6821 %
+cost time = 31.1211 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu50
+[1]total hit rate = 63.0622 %
+[2]total hit rate = 64.5006 %
+[3]total hit rate = 55.7005 %
+cost time = 42.4589 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu100
+[1]total hit rate = 59.6411 %
+[2]total hit rate = 61.0111 %
+[3]total hit rate = 55.3359 %
+cost time = 51.4237 s
+================================
+feature = user
+cache size = 20
+cache policy = alfu500
+[1]total hit rate = 55.6916 %
+[2]total hit rate = 57.3001 %
+[3]total hit rate = 54.9756 %
+cost time = 113.044 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu0
+[1]total hit rate = 77.5516 %
+[2]total hit rate = 79.5781 %
+[3]total hit rate = 79.6722 %
+cost time = 27.3198 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu1
+[1]total hit rate = 77.8853 %
+[2]total hit rate = 80.3237 %
+[3]total hit rate = 80.3268 %
+cost time = 27.5333 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu2
+[1]total hit rate = 78.3044 %
+[2]total hit rate = 81.0809 %
+[3]total hit rate = 80.9983 %
+cost time = 28.4616 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu5
+[1]total hit rate = 78.5428 %
+[2]total hit rate = 81.6249 %
+[3]total hit rate = 80.7321 %
+cost time = 30.5304 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu10
+[1]total hit rate = 77.324 %
+[2]total hit rate = 80.045 %
+[3]total hit rate = 74.7991 %
+cost time = 33.7031 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu50
+[1]total hit rate = 70.7678 %
+[2]total hit rate = 72.9094 %
+[3]total hit rate = 66.484 %
+cost time = 45.967 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu100
+[1]total hit rate = 68.5021 %
+[2]total hit rate = 70.4695 %
+[3]total hit rate = 66.7026 %
+cost time = 55.5825 s
+================================
+feature = user
+cache size = 30
+cache policy = alfu500
+[1]total hit rate = 65.0757 %
+[2]total hit rate = 66.4408 %
+[3]total hit rate = 65.6948 %
+cost time = 137.688 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu0
+[1]total hit rate = 83.5477 %
+[2]total hit rate = 86.0674 %
+[3]total hit rate = 86.1585 %
+cost time = 25.8667 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu1
+[1]total hit rate = 83.896 %
+[2]total hit rate = 86.9029 %
+[3]total hit rate = 86.791 %
+cost time = 26.2199 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu2
+[1]total hit rate = 84.0795 %
+[2]total hit rate = 87.3134 %
+[3]total hit rate = 86.9779 %
+cost time = 26.6378 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu5
+[1]total hit rate = 83.7035 %
+[2]total hit rate = 86.8966 %
+[3]total hit rate = 85.7082 %
+cost time = 28.1481 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu10
+[1]total hit rate = 82.4476 %
+[2]total hit rate = 85.2738 %
+[3]total hit rate = 81.4662 %
+cost time = 32.0041 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu50
+[1]total hit rate = 77.5112 %
+[2]total hit rate = 79.0604 %
+[3]total hit rate = 74.9242 %
+cost time = 48.8105 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu100
+[1]total hit rate = 74.7593 %
+[2]total hit rate = 75.8009 %
+[3]total hit rate = 73.6928 %
+cost time = 63.2683 s
+================================
+feature = user
+cache size = 40
+cache policy = alfu500
+[1]total hit rate = 74.1163 %
+[2]total hit rate = 75.8763 %
+[3]total hit rate = 74.5499 %
+cost time = 177.266 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu0
+[1]total hit rate = 87.5724 %
+[2]total hit rate = 90.5306 %
+[3]total hit rate = 90.5575 %
+cost time = 26.2542 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu1
+[1]total hit rate = 87.8285 %
+[2]total hit rate = 91.2115 %
+[3]total hit rate = 90.8768 %
+cost time = 34.7796 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu2
+[1]total hit rate = 87.8224 %
+[2]total hit rate = 91.2999 %
+[3]total hit rate = 90.6346 %
+cost time = 34.4135 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu5
+[1]total hit rate = 87.2596 %
+[2]total hit rate = 90.5604 %
+[3]total hit rate = 89.0059 %
+cost time = 35.8122 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu10
+[1]total hit rate = 86.1992 %
+[2]total hit rate = 89.0528 %
+[3]total hit rate = 86.0006 %
+cost time = 40.3349 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu50
+[1]total hit rate = 81.5929 %
+[2]total hit rate = 83.9921 %
+[3]total hit rate = 81.1657 %
+cost time = 59.2205 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu100
+[1]total hit rate = 80.6597 %
+[2]total hit rate = 82.6389 %
+[3]total hit rate = 80.9838 %
+cost time = 80.7598 s
+================================
+feature = user
+cache size = 50
+cache policy = alfu500
+[1]total hit rate = 79.0732 %
+[2]total hit rate = 80.1374 %
+[3]total hit rate = 80.1035 %
+cost time = 244.068 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu0
+[1]total hit rate = 90.3786 %
+[2]total hit rate = 93.726 %
+[3]total hit rate = 93.6048 %
+cost time = 25.4154 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu1
+[1]total hit rate = 90.5172 %
+[2]total hit rate = 94.1457 %
+[3]total hit rate = 93.5584 %
+cost time = 25.5176 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu2
+[1]total hit rate = 90.4186 %
+[2]total hit rate = 94.065 %
+[3]total hit rate = 93.119 %
+cost time = 26.3654 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu5
+[1]total hit rate = 89.8487 %
+[2]total hit rate = 93.2721 %
+[3]total hit rate = 91.6245 %
+cost time = 27.7986 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu10
+[1]total hit rate = 88.8483 %
+[2]total hit rate = 91.9251 %
+[3]total hit rate = 89.6988 %
+cost time = 31.0955 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu50
+[1]total hit rate = 85.2842 %
+[2]total hit rate = 87.7514 %
+[3]total hit rate = 86.2073 %
+cost time = 46.8966 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu100
+[1]total hit rate = 84.6656 %
+[2]total hit rate = 86.454 %
+[3]total hit rate = 86.1535 %
+cost time = 66.0034 s
+================================
+feature = user
+cache size = 60
+cache policy = alfu500
+[1]total hit rate = 84.1073 %
+[2]total hit rate = 85.6177 %
+[3]total hit rate = 85.0763 %
+cost time = 206.178 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu0
+[1]total hit rate = 93.7835 %
+[2]total hit rate = 97.753 %
+[3]total hit rate = 97.2995 %
+cost time = 24.8853 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu1
+[1]total hit rate = 93.8332 %
+[2]total hit rate = 97.7929 %
+[3]total hit rate = 97.0462 %
+cost time = 24.636 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu2
+[1]total hit rate = 93.7854 %
+[2]total hit rate = 97.6731 %
+[3]total hit rate = 96.7143 %
+cost time = 25.5868 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu5
+[1]total hit rate = 93.6341 %
+[2]total hit rate = 97.1988 %
+[3]total hit rate = 95.983 %
+cost time = 27.6607 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu10
+[1]total hit rate = 93.3858 %
+[2]total hit rate = 96.7758 %
+[3]total hit rate = 95.6081 %
+cost time = 31.0871 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu50
+[1]total hit rate = 92.0773 %
+[2]total hit rate = 94.7466 %
+[3]total hit rate = 93.9301 %
+cost time = 50.1042 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu100
+[1]total hit rate = 91.9084 %
+[2]total hit rate = 94.5038 %
+[3]total hit rate = 93.6597 %
+cost time = 72.3788 s
+================================
+feature = user
+cache size = 80
+cache policy = alfu500
+[1]total hit rate = 91.4932 %
+[2]total hit rate = 94.241 %
+[3]total hit rate = 93.8368 %
+cost time = 258.77 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu0
+[1]total hit rate = 94.8826 %
+[2]total hit rate = 99.1019 %
+[3]total hit rate = 98.5835 %
+cost time = 23.9107 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu1
+[1]total hit rate = 94.9977 %
+[2]total hit rate = 99.041 %
+[3]total hit rate = 98.404 %
+cost time = 24.5292 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu2
+[1]total hit rate = 95.0008 %
+[2]total hit rate = 98.9392 %
+[3]total hit rate = 98.2097 %
+cost time = 25.4245 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu5
+[1]total hit rate = 94.9131 %
+[2]total hit rate = 98.6263 %
+[3]total hit rate = 97.8151 %
+cost time = 27.2519 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu10
+[1]total hit rate = 94.7324 %
+[2]total hit rate = 98.14 %
+[3]total hit rate = 97.3989 %
+cost time = 30.5693 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu50
+[1]total hit rate = 94.0962 %
+[2]total hit rate = 96.8518 %
+[3]total hit rate = 96.9934 %
+cost time = 93.3306 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu100
+[1]total hit rate = 94.0058 %
+[2]total hit rate = 96.7 %
+[3]total hit rate = 96.9924 %
+cost time = 174.769 s
+================================
+feature = user
+cache size = 90
+cache policy = alfu500
+[1]total hit rate = 93.9503 %
+[2]total hit rate = 96.6679 %
+[3]total hit rate = 96.9866 %
+cost time = 618.35 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu0
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 51.6747 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu1
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 47.6659 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu2
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 45.3852 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu5
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 48.0187 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu10
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 57.2505 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu50
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 47.9433 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu100
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 70.951 s
+================================
+feature = user
+cache size = 100
+cache policy = alfu500
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 254.819 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu0
+[1]total hit rate = 11.7584 %
+[2]total hit rate = 11.7924 %
+[3]total hit rate = 11.7995 %
+cost time = 9.9061 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu1
+[1]total hit rate = 11.7584 %
+[2]total hit rate = 11.7924 %
+[3]total hit rate = 11.7995 %
+cost time = 8.51738 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu2
+[1]total hit rate = 11.7584 %
+[2]total hit rate = 11.7924 %
+[3]total hit rate = 11.8246 %
+cost time = 8.26469 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu5
+[1]total hit rate = 11.785 %
+[2]total hit rate = 11.8273 %
+[3]total hit rate = 23.5171 %
+cost time = 7.11064 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu10
+[1]total hit rate = 14.3839 %
+[2]total hit rate = 12.9353 %
+[3]total hit rate = 18.6653 %
+cost time = 6.55267 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu50
+[1]total hit rate = 29.3145 %
+[2]total hit rate = 11.9467 %
+[3]total hit rate = 27.2781 %
+cost time = 5.92135 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu100
+[1]total hit rate = 33.4457 %
+[2]total hit rate = 12.1112 %
+[3]total hit rate = 28.9105 %
+cost time = 5.74697 s
+================================
+feature = random3
+cache size = 5
+cache policy = alfu500
+[1]total hit rate = 38.8583 %
+[2]total hit rate = 13.2224 %
+[3]total hit rate = 29.9006 %
+cost time = 5.54947 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu0
+[1]total hit rate = 16.0174 %
+[2]total hit rate = 16.0642 %
+[3]total hit rate = 16.0709 %
+cost time = 9.62982 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu1
+[1]total hit rate = 16.0174 %
+[2]total hit rate = 16.0642 %
+[3]total hit rate = 16.0709 %
+cost time = 8.24667 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu2
+[1]total hit rate = 16.0174 %
+[2]total hit rate = 16.0642 %
+[3]total hit rate = 16.1038 %
+cost time = 7.33897 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu5
+[1]total hit rate = 16.0584 %
+[2]total hit rate = 16.1202 %
+[3]total hit rate = 30.3666 %
+cost time = 6.42424 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu10
+[1]total hit rate = 19.7863 %
+[2]total hit rate = 17.8867 %
+[3]total hit rate = 24.7974 %
+cost time = 6.59281 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu50
+[1]total hit rate = 40.2357 %
+[2]total hit rate = 16.3734 %
+[3]total hit rate = 37.1791 %
+cost time = 5.61994 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu100
+[1]total hit rate = 45.9973 %
+[2]total hit rate = 16.6614 %
+[3]total hit rate = 39.3966 %
+cost time = 5.46629 s
+================================
+feature = random3
+cache size = 7
+cache policy = alfu500
+[1]total hit rate = 52.2157 %
+[2]total hit rate = 17.6877 %
+[3]total hit rate = 40.7811 %
+cost time = 5.4512 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu0
+[1]total hit rate = 22.0152 %
+[2]total hit rate = 22.0785 %
+[3]total hit rate = 22.0845 %
+cost time = 7.36955 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu1
+[1]total hit rate = 22.0152 %
+[2]total hit rate = 22.0785 %
+[3]total hit rate = 22.088 %
+cost time = 6.66221 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu2
+[1]total hit rate = 22.0212 %
+[2]total hit rate = 22.0844 %
+[3]total hit rate = 22.1402 %
+cost time = 6.35178 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu5
+[1]total hit rate = 22.0967 %
+[2]total hit rate = 22.1927 %
+[3]total hit rate = 38.4232 %
+cost time = 6.0155 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu10
+[1]total hit rate = 27.6377 %
+[2]total hit rate = 24.9332 %
+[3]total hit rate = 33.3488 %
+cost time = 6.31031 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu50
+[1]total hit rate = 55.5829 %
+[2]total hit rate = 22.5122 %
+[3]total hit rate = 50.7251 %
+cost time = 5.37841 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu100
+[1]total hit rate = 63.3787 %
+[2]total hit rate = 22.8311 %
+[3]total hit rate = 53.7453 %
+cost time = 4.48665 s
+================================
+feature = random3
+cache size = 10
+cache policy = alfu500
+[1]total hit rate = 68.5316 %
+[2]total hit rate = 23.2345 %
+[3]total hit rate = 55.7048 %
+cost time = 4.66185 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu0
+[1]total hit rate = 29.2846 %
+[2]total hit rate = 29.3709 %
+[3]total hit rate = 29.3752 %
+cost time = 6.6482 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu1
+[1]total hit rate = 29.2846 %
+[2]total hit rate = 29.3709 %
+[3]total hit rate = 29.3969 %
+cost time = 5.79865 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu2
+[1]total hit rate = 29.3054 %
+[2]total hit rate = 29.3915 %
+[3]total hit rate = 29.5414 %
+cost time = 5.70607 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu5
+[1]total hit rate = 29.6108 %
+[2]total hit rate = 29.9 %
+[3]total hit rate = 46.911 %
+cost time = 5.89132 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu10
+[1]total hit rate = 39.3222 %
+[2]total hit rate = 35.2948 %
+[3]total hit rate = 44.8844 %
+cost time = 5.3985 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu50
+[1]total hit rate = 74.9411 %
+[2]total hit rate = 29.6709 %
+[3]total hit rate = 69.0958 %
+cost time = 3.68705 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu100
+[1]total hit rate = 84.3602 %
+[2]total hit rate = 30.1049 %
+[3]total hit rate = 73.1738 %
+cost time = 3.36294 s
+================================
+feature = random3
+cache size = 15
+cache policy = alfu500
+[1]total hit rate = 86.0224 %
+[2]total hit rate = 28.9948 %
+[3]total hit rate = 75.8295 %
+cost time = 4.05997 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu0
+[1]total hit rate = 32.2187 %
+[2]total hit rate = 32.3207 %
+[3]total hit rate = 32.3333 %
+cost time = 5.61775 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu1
+[1]total hit rate = 32.2245 %
+[2]total hit rate = 32.3324 %
+[3]total hit rate = 32.4693 %
+cost time = 5.73265 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu2
+[1]total hit rate = 32.3609 %
+[2]total hit rate = 32.4631 %
+[3]total hit rate = 33.3151 %
+cost time = 5.65586 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu5
+[1]total hit rate = 33.7297 %
+[2]total hit rate = 35.1001 %
+[3]total hit rate = 54.4169 %
+cost time = 5.16135 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu10
+[1]total hit rate = 47.3965 %
+[2]total hit rate = 44.0729 %
+[3]total hit rate = 53.2748 %
+cost time = 5.06294 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu50
+[1]total hit rate = 85.2145 %
+[2]total hit rate = 32.4719 %
+[3]total hit rate = 81.4527 %
+cost time = 3.09949 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu100
+[1]total hit rate = 92.5739 %
+[2]total hit rate = 32.3623 %
+[3]total hit rate = 86.2657 %
+cost time = 2.8962 s
+================================
+feature = random3
+cache size = 20
+cache policy = alfu500
+[1]total hit rate = 94.0602 %
+[2]total hit rate = 31.5997 %
+[3]total hit rate = 89.1042 %
+cost time = 3.78238 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu0
+[1]total hit rate = 35.01 %
+[2]total hit rate = 35.5738 %
+[3]total hit rate = 38.0084 %
+cost time = 5.41135 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu1
+[1]total hit rate = 37.1082 %
+[2]total hit rate = 39.6468 %
+[3]total hit rate = 44.0282 %
+cost time = 5.21211 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu2
+[1]total hit rate = 41.5282 %
+[2]total hit rate = 43.9136 %
+[3]total hit rate = 51.8763 %
+cost time = 4.86837 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu5
+[1]total hit rate = 49.6458 %
+[2]total hit rate = 55.3527 %
+[3]total hit rate = 69.7033 %
+cost time = 4.59187 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu10
+[1]total hit rate = 63.0676 %
+[2]total hit rate = 64.9013 %
+[3]total hit rate = 72.0708 %
+cost time = 3.81754 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu50
+[1]total hit rate = 95.9304 %
+[2]total hit rate = 33.7628 %
+[3]total hit rate = 90.321 %
+cost time = 2.67916 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu100
+[1]total hit rate = 98.3574 %
+[2]total hit rate = 33.2867 %
+[3]total hit rate = 95.3939 %
+cost time = 2.65509 s
+================================
+feature = random3
+cache size = 30
+cache policy = alfu500
+[1]total hit rate = 98.8322 %
+[2]total hit rate = 35.3526 %
+[3]total hit rate = 98.6813 %
+cost time = 3.86575 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu0
+[1]total hit rate = 54.9352 %
+[2]total hit rate = 56.1683 %
+[3]total hit rate = 59.5149 %
+cost time = 4.58605 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu1
+[1]total hit rate = 56.9724 %
+[2]total hit rate = 60.7039 %
+[3]total hit rate = 63.4694 %
+cost time = 4.37469 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu2
+[1]total hit rate = 62.8183 %
+[2]total hit rate = 64.7231 %
+[3]total hit rate = 68.6913 %
+cost time = 4.12131 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu5
+[1]total hit rate = 69.0004 %
+[2]total hit rate = 73.6095 %
+[3]total hit rate = 80.5069 %
+cost time = 3.57222 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu10
+[1]total hit rate = 80.2442 %
+[2]total hit rate = 73.9607 %
+[3]total hit rate = 79.2774 %
+cost time = 3.32598 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu50
+[1]total hit rate = 99.2192 %
+[2]total hit rate = 50.5829 %
+[3]total hit rate = 94.6224 %
+cost time = 2.61776 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu100
+[1]total hit rate = 99.4002 %
+[2]total hit rate = 47.3895 %
+[3]total hit rate = 97.3636 %
+cost time = 2.72965 s
+================================
+feature = random3
+cache size = 40
+cache policy = alfu500
+[1]total hit rate = 99.1413 %
+[2]total hit rate = 50.4263 %
+[3]total hit rate = 99.4475 %
+cost time = 4.31974 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu0
+[1]total hit rate = 66.3374 %
+[2]total hit rate = 67.874 %
+[3]total hit rate = 70.1837 %
+cost time = 19.4504 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu1
+[1]total hit rate = 66.6557 %
+[2]total hit rate = 68.4723 %
+[3]total hit rate = 70.9999 %
+cost time = 13.0169 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu2
+[1]total hit rate = 71.989 %
+[2]total hit rate = 73.3204 %
+[3]total hit rate = 76.1342 %
+cost time = 12.4833 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu5
+[1]total hit rate = 75.8357 %
+[2]total hit rate = 79.5577 %
+[3]total hit rate = 85.6666 %
+cost time = 10.8422 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu10
+[1]total hit rate = 91.4627 %
+[2]total hit rate = 76.2213 %
+[3]total hit rate = 85.6637 %
+cost time = 11.7685 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu50
+[1]total hit rate = 99.5234 %
+[2]total hit rate = 63.002 %
+[3]total hit rate = 98.829 %
+cost time = 8.1961 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu100
+[1]total hit rate = 99.4844 %
+[2]total hit rate = 63.3475 %
+[3]total hit rate = 99.386 %
+cost time = 8.85011 s
+================================
+feature = random3
+cache size = 50
+cache policy = alfu500
+[1]total hit rate = 99.3722 %
+[2]total hit rate = 60.8751 %
+[3]total hit rate = 99.5321 %
+cost time = 17.6996 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu0
+[1]total hit rate = 67.8952 %
+[2]total hit rate = 69.4363 %
+[3]total hit rate = 73.3073 %
+cost time = 13.3504 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu1
+[1]total hit rate = 71.7619 %
+[2]total hit rate = 73.2238 %
+[3]total hit rate = 79.0202 %
+cost time = 12.5754 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu2
+[1]total hit rate = 78.2951 %
+[2]total hit rate = 79.5151 %
+[3]total hit rate = 85.4469 %
+cost time = 10.8736 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu5
+[1]total hit rate = 90.2122 %
+[2]total hit rate = 93.8673 %
+[3]total hit rate = 96.9665 %
+cost time = 8.86541 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu10
+[1]total hit rate = 98.123 %
+[2]total hit rate = 84.4688 %
+[3]total hit rate = 93.6757 %
+cost time = 9.03943 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu50
+[1]total hit rate = 99.539 %
+[2]total hit rate = 71.3845 %
+[3]total hit rate = 99.6528 %
+cost time = 8.83721 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu100
+[1]total hit rate = 99.5359 %
+[2]total hit rate = 71.1156 %
+[3]total hit rate = 99.6461 %
+cost time = 10.51 s
+================================
+feature = random3
+cache size = 60
+cache policy = alfu500
+[1]total hit rate = 99.4674 %
+[2]total hit rate = 65.6584 %
+[3]total hit rate = 99.5432 %
+cost time = 17.7618 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu0
+[1]total hit rate = 97.8264 %
+[2]total hit rate = 98.2411 %
+[3]total hit rate = 99.1973 %
+cost time = 13.213 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu1
+[1]total hit rate = 98.7549 %
+[2]total hit rate = 99.1228 %
+[3]total hit rate = 99.6384 %
+cost time = 9.39518 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu2
+[1]total hit rate = 99.3497 %
+[2]total hit rate = 99.6528 %
+[3]total hit rate = 99.7907 %
+cost time = 9.99805 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu5
+[1]total hit rate = 99.5329 %
+[2]total hit rate = 99.4092 %
+[3]total hit rate = 99.7607 %
+cost time = 8.81327 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu10
+[1]total hit rate = 99.5501 %
+[2]total hit rate = 96.7141 %
+[3]total hit rate = 99.7552 %
+cost time = 9.72679 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu50
+[1]total hit rate = 99.5477 %
+[2]total hit rate = 90.7021 %
+[3]total hit rate = 99.7762 %
+cost time = 9.43275 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu100
+[1]total hit rate = 99.5293 %
+[2]total hit rate = 87.2025 %
+[3]total hit rate = 99.7699 %
+cost time = 11.5117 s
+================================
+feature = random3
+cache size = 80
+cache policy = alfu500
+[1]total hit rate = 99.487 %
+[2]total hit rate = 81.3122 %
+[3]total hit rate = 99.7794 %
+cost time = 26.5502 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu0
+[1]total hit rate = 99.5094 %
+[2]total hit rate = 99.9225 %
+[3]total hit rate = 99.9336 %
+cost time = 8.40476 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu1
+[1]total hit rate = 99.5431 %
+[2]total hit rate = 99.9356 %
+[3]total hit rate = 99.9267 %
+cost time = 8.59599 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu2
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 99.8961 %
+[3]total hit rate = 99.91 %
+cost time = 8.23086 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu5
+[1]total hit rate = 99.5502 %
+[2]total hit rate = 99.8194 %
+[3]total hit rate = 99.8699 %
+cost time = 8.13951 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu10
+[1]total hit rate = 99.5502 %
+[2]total hit rate = 97.9401 %
+[3]total hit rate = 99.855 %
+cost time = 8.48373 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu50
+[1]total hit rate = 99.5497 %
+[2]total hit rate = 97.3489 %
+[3]total hit rate = 99.8807 %
+cost time = 9.49764 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu100
+[1]total hit rate = 99.537 %
+[2]total hit rate = 96.5412 %
+[3]total hit rate = 99.8919 %
+cost time = 10.3297 s
+================================
+feature = random3
+cache size = 90
+cache policy = alfu500
+[1]total hit rate = 99.4992 %
+[2]total hit rate = 91.2854 %
+[3]total hit rate = 99.8977 %
+cost time = 22.2406 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu0
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 10.7469 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu1
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 8.21428 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu2
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 7.98904 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu5
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 8.21108 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu10
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 8.54182 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu50
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 11.3257 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu100
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 10.6547 s
+================================
+feature = random3
+cache size = 100
+cache policy = alfu500
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 21.6522 s
+================================
+feature = ad
+cache size = 5
+cache policy = arc
+[1]total hit rate = 57.952 %
+[2]total hit rate = 58.1455 %
+[3]total hit rate = 52.34 %
+cost time = 36.2551 s
+================================
+feature = ad
+cache size = 7
+cache policy = arc
+[1]total hit rate = 64.3729 %
+[2]total hit rate = 64.754 %
+[3]total hit rate = 58.4562 %
+cost time = 39.174 s
+================================
+feature = ad
+cache size = 10
+cache policy = arc
+[1]total hit rate = 71.2342 %
+[2]total hit rate = 71.7226 %
+[3]total hit rate = 65.1091 %
+cost time = 42.7021 s
+================================
+feature = ad
+cache size = 15
+cache policy = arc
+[1]total hit rate = 78.8016 %
+[2]total hit rate = 79.384 %
+[3]total hit rate = 72.7757 %
+cost time = 41.5854 s
+================================
+feature = ad
+cache size = 20
+cache policy = arc
+[1]total hit rate = 83.7993 %
+[2]total hit rate = 84.5361 %
+[3]total hit rate = 78.1546 %
+cost time = 47.4642 s
+================================
+feature = ad
+cache size = 30
+cache policy = arc
+[1]total hit rate = 89.9001 %
+[2]total hit rate = 90.9155 %
+[3]total hit rate = 85.4483 %
+cost time = 33.9386 s
+================================
+feature = ad
+cache size = 40
+cache policy = arc
+[1]total hit rate = 93.2236 %
+[2]total hit rate = 94.4633 %
+[3]total hit rate = 90.4959 %
+cost time = 34.0811 s
+================================
+feature = ad
+cache size = 50
+cache policy = arc
+[1]total hit rate = 95.0184 %
+[2]total hit rate = 96.6139 %
+[3]total hit rate = 92.355 %
+cost time = 31.5032 s
+================================
+feature = ad
+cache size = 60
+cache policy = arc
+[1]total hit rate = 95.9765 %
+[2]total hit rate = 98.1373 %
+[3]total hit rate = 94.8729 %
+cost time = 30.5573 s
+================================
+feature = ad
+cache size = 80
+cache policy = arc
+[1]total hit rate = 96.6373 %
+[2]total hit rate = 99.3623 %
+[3]total hit rate = 96.8729 %
+cost time = 30.1277 s
+================================
+feature = ad
+cache size = 90
+cache policy = arc
+[1]total hit rate = 96.7684 %
+[2]total hit rate = 99.6811 %
+[3]total hit rate = 97.2391 %
+cost time = 29.3415 s
+================================
+feature = ad
+cache size = 100
+cache policy = arc
+[1]total hit rate = 96.8115 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 27.9866 s
+================================
+feature = user
+cache size = 5
+cache policy = arc
+[1]total hit rate = 39.9082 %
+[2]total hit rate = 40.3442 %
+[3]total hit rate = 35.0016 %
+cost time = 54.4462 s
+================================
+feature = user
+cache size = 7
+cache policy = arc
+[1]total hit rate = 45.4522 %
+[2]total hit rate = 46.0338 %
+[3]total hit rate = 40.33 %
+cost time = 68.2978 s
+================================
+feature = user
+cache size = 10
+cache policy = arc
+[1]total hit rate = 51.917 %
+[2]total hit rate = 52.6297 %
+[3]total hit rate = 46.5208 %
+cost time = 69.0044 s
+================================
+feature = user
+cache size = 15
+cache policy = arc
+[1]total hit rate = 59.9712 %
+[2]total hit rate = 60.8747 %
+[3]total hit rate = 54.1846 %
+cost time = 74.3687 s
+================================
+feature = user
+cache size = 20
+cache policy = arc
+[1]total hit rate = 66.0323 %
+[2]total hit rate = 67.1142 %
+[3]total hit rate = 59.8874 %
+cost time = 52.8668 s
+================================
+feature = user
+cache size = 30
+cache policy = arc
+[1]total hit rate = 74.6784 %
+[2]total hit rate = 75.9993 %
+[3]total hit rate = 67.8941 %
+cost time = 63.5873 s
+================================
+feature = user
+cache size = 40
+cache policy = arc
+[1]total hit rate = 81.5821 %
+[2]total hit rate = 83.9984 %
+[3]total hit rate = 77.1678 %
+cost time = 126.297 s
+================================
+feature = user
+cache size = 50
+cache policy = arc
+[1]total hit rate = 85.8298 %
+[2]total hit rate = 87.3686 %
+[3]total hit rate = 81.0991 %
+cost time = 108.076 s
+================================
+feature = user
+cache size = 60
+cache policy = arc
+[1]total hit rate = 89.4344 %
+[2]total hit rate = 91.6797 %
+[3]total hit rate = 86.2017 %
+cost time = 113.742 s
+================================
+feature = user
+cache size = 80
+cache policy = arc
+[1]total hit rate = 93.654 %
+[2]total hit rate = 96.8242 %
+[3]total hit rate = 94.5361 %
+cost time = 77.4536 s
+================================
+feature = user
+cache size = 90
+cache policy = arc
+[1]total hit rate = 94.9498 %
+[2]total hit rate = 98.7469 %
+[3]total hit rate = 95.701 %
+cost time = 81.1176 s
+================================
+feature = user
+cache size = 100
+cache policy = arc
+[1]total hit rate = 95.701 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 32.8912 s
+================================
+feature = random3
+cache size = 5
+cache policy = arc
+[1]total hit rate = 33.8025 %
+[2]total hit rate = 11.252 %
+[3]total hit rate = 32.6302 %
+cost time = 10.8957 s
+================================
+feature = random3
+cache size = 7
+cache policy = arc
+[1]total hit rate = 44.8368 %
+[2]total hit rate = 14.9012 %
+[3]total hit rate = 42.5549 %
+cost time = 8.14683 s
+================================
+feature = random3
+cache size = 10
+cache policy = arc
+[1]total hit rate = 60.9256 %
+[2]total hit rate = 20.4035 %
+[3]total hit rate = 56.0291 %
+cost time = 7.67771 s
+================================
+feature = random3
+cache size = 15
+cache policy = arc
+[1]total hit rate = 83.7002 %
+[2]total hit rate = 28.1669 %
+[3]total hit rate = 77.4933 %
+cost time = 5.26028 s
+================================
+feature = random3
+cache size = 20
+cache policy = arc
+[1]total hit rate = 95.1704 %
+[2]total hit rate = 31.7736 %
+[3]total hit rate = 89.1757 %
+cost time = 4.20186 s
+================================
+feature = random3
+cache size = 30
+cache policy = arc
+[1]total hit rate = 99.4181 %
+[2]total hit rate = 33.2967 %
+[3]total hit rate = 98.4393 %
+cost time = 3.61406 s
+================================
+feature = random3
+cache size = 40
+cache policy = arc
+[1]total hit rate = 99.5217 %
+[2]total hit rate = 42.4155 %
+[3]total hit rate = 99.5209 %
+cost time = 3.81016 s
+================================
+feature = random3
+cache size = 50
+cache policy = arc
+[1]total hit rate = 99.5304 %
+[2]total hit rate = 62.6816 %
+[3]total hit rate = 99.5506 %
+cost time = 3.90041 s
+================================
+feature = random3
+cache size = 60
+cache policy = arc
+[1]total hit rate = 99.5224 %
+[2]total hit rate = 66.524 %
+[3]total hit rate = 99.5507 %
+cost time = 3.77798 s
+================================
+feature = random3
+cache size = 80
+cache policy = arc
+[1]total hit rate = 99.5326 %
+[2]total hit rate = 95.0475 %
+[3]total hit rate = 99.5507 %
+cost time = 3.70622 s
+================================
+feature = random3
+cache size = 90
+cache policy = arc
+[1]total hit rate = 99.5405 %
+[2]total hit rate = 99.8128 %
+[3]total hit rate = 99.5507 %
+cost time = 3.73869 s
+================================
+feature = random3
+cache size = 100
+cache policy = arc
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 3.89257 s

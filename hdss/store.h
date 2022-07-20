@@ -244,7 +244,11 @@ public:
             max_emb_num_perc = 100;
         }
         cache_policy = std::string(argv[3]);
-        std::cout << "cache policy = " << cache_policy << std::endl;
+        if (cache_policy != "alfu")
+        {
+            std::cout << "cache policy = " << cache_policy << std::endl;
+        }
+
         if (cache_policy == "lru")
         {
             cache = new SingleLRUCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
@@ -264,6 +268,17 @@ public:
         else if (cache_policy == "arf")
         {
             cache = new SingleARFCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
+        }
+        else if (cache_policy == "alfu")
+        {
+            if (argc < 5)
+            {
+                std::cout << "missing parameters: max_aging_times" << std::endl;
+                exit(0);
+            }
+            size_t max_aging_times = std::stod(argv[4]);
+            std::cout << "cache policy = " << cache_policy << max_aging_times << std::endl;
+            cache = new SingleAgingLFUCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100, dl->size() / (max_aging_times + 1));
         }
         else
         {

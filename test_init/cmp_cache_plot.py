@@ -21,7 +21,7 @@ def get_result_map(all_log_file):
             if "====" in content[idx]:
                 feature = re.findall("(?<=feature = ).[a-z0-9_]*", content[idx + 1])[0]
                 cache_size = re.findall("(?<=cache size = ).[0-9.]*", content[idx + 2])[0]
-                cache_policy = re.findall("(?<=cache policy = ).[a-z]*", content[idx + 3])[0]
+                cache_policy = re.findall("(?<=cache policy = ).[a-z0-9]*", content[idx + 3])[0]
                 hit_rate1 = re.findall("(?<=\[1\]total hit rate = ).[0-9.]*", content[idx + 4])[0]
                 hit_rate2 = re.findall("(?<=\[2\]total hit rate = ).[0-9.]*", content[idx + 5])[0]
                 hit_rate3 = re.findall("(?<=\[3\]total hit rate = ).[0-9.]*", content[idx + 6])[0]
@@ -61,7 +61,9 @@ def plot_res(result_map, res_i, ylabel):
     # plot_f = ["customer", "brand"]  # (15)
     # plot_f = ["price", "random1"] # (16)
     # plot_f = ["random2", "random3"]  # (17)
-    plot_f = ["ad", "user", "cate_id", "campaign_id", "customer", "brand", "random2", "random3"]  # (18)
+    # plot_f = ["ad", "user", "cate_id", "campaign_id", "customer", "brand", "random2", "random3"]  # (18)
+    plot_f = ["ad", "user"]  # (19)
+    # plot_f = ["user", "random3"]  # (20)
     res_list = {}
     for it in plot_f:
         res_list[it] = dict()
@@ -74,32 +76,37 @@ def plot_res(result_map, res_i, ylabel):
             for s in cache_size_list:
                 res_list[f][c][1].append(float(result_map[f][c][s][res_i]))
 
-
     color_list = ["royalblue", "chocolate", "olivedrab", "deepskyblue", "silver", "black", "tomato"]
+    linestyle_list = ["solid", "dotted"]
+    color_linestyle_list = []
+    for c in color_list:
+        for l in linestyle_list:
+            color_linestyle_list.append([c, l])
     color_map = {}
     i = 0
     for c in cache_policy_list:
-        color_map[c] = color_list[i % len(color_list)]
+        color_map[c] = color_linestyle_list[i % len(color_linestyle_list)]
         i += 1
-    color_map["dist"] = color_list[i % len(color_list)]
+    color_map["dist"] = color_linestyle_list[i % len(color_linestyle_list)]
 
     fig2 = plt.figure()
     for i in range(len(plot_f)):
-        ax = fig2.add_subplot(2, len(plot_f)//2, i+1)
+        # ax = fig2.add_subplot(2, len(plot_f) // 2, i + 1)
+        ax = fig2.add_subplot(1, 2, i + 1)  # 1行2列
         for c in cache_policy_list:
             list1, list2 = (list(t) for t in zip(*sorted(zip(res_list[plot_f[i]][c][0], res_list[plot_f[i]][c][1]))))
             if res_i == 3:
                 begin_idx = int(len(list1) * 0.3)
                 list1 = list1[begin_idx:]
                 list2 = list2[begin_idx:]
-            ax.plot(list1, list2, color=color_map[c], label=c.upper())
+            ax.plot(list1, list2, color=color_map[c][0], label=c.upper(), linestyle=color_map[c][1])
         if res_i < 3:
             if plot_f[i] in dist_cache:
                 ux, uy = dist_cache[plot_f[i]]
             else:
                 ux, uy, _, _ = plot_dataset_dist_aux(filepath[plot_f[i]][0], filepath[plot_f[i]][1])
                 dist_cache[plot_f[i]] = (ux, uy)
-            ax.plot(ux, uy, color=color_map["dist"], label="dist")
+            ax.plot(ux, uy, color=color_map["dist"][0], label="dist", linestyle=color_map[c][1])
         ax.set_title(plot_f[i])
         ax.set_xlabel("Cache Size(%)")
         ax.set_ylabel(ylabel, labelpad=-4)
@@ -108,13 +115,12 @@ def plot_res(result_map, res_i, ylabel):
     plt.show()
 
 
-
-all_log_file = "logs/cache/temp/single/lunwen.log"
+all_log_file = "logs/cache/temp/single/all_age.log"
 result_map = get_result_map(all_log_file)
 
 dist_cache = {}
 
-plot_res(result_map, 0, "Hit Rate[1] (%)")
-plot_res(result_map, 1, "Hit Rate[2] (%)")
+# plot_res(result_map, 0, "Hit Rate[1] (%)")
+# plot_res(result_map, 1, "Hit Rate[2] (%)")
 plot_res(result_map, 2, "Hit Rate[3] (%)")
 plot_res(result_map, 3, "Time (s)")

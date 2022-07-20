@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <unordered_set>
 #include <list>
 #include "utils/logs.h"
 
@@ -476,4 +477,152 @@ class SingleARFCache : public CompositeCache<K, V, LRUPart<K, V>, LFUPart<K, V>>
 {
 public:
     SingleARFCache(std::pair<K, V> invalid_kv, size_t cap = 16) : CompositeCache<K, V, LRUPart<K, V>, LFUPart<K, V>>(invalid_kv, cap) {}
+};
+
+template <class K, class V>
+class SingleAgingLFUCache : public SingleCache<K, V>
+{
+private:
+    class LFUNode
+    {
+    public:
+        K key;
+        size_t freq;
+        LFUNode(K key, size_t freq) : key(key), freq(freq) {}
+    };
+    size_t min_freq;
+    size_t max_freq;
+    size_t count;
+    size_t max_count;
+    size_t temp_aging_count;
+    std::unordered_map<K, typename std::list<LFUNode>::iterator> key_table;
+    std::unordered_map<size_t, typename std::list<LFUNode>> freq_table;
+
+public:
+    SingleAgingLFUCache(std::pair<K, V> invalid_kv, size_t cap = 16, size_t max_c = 0xffffffff) : SingleCache<K, V>(invalid_kv, cap)
+    {
+        min_freq = 0;
+        max_freq = 0;
+        count = 0;
+        max_count = max_c;
+        temp_aging_count = 0;
+        key_table.clear();
+        freq_table.clear();
+    }
+
+    inline size_t age_freq(size_t freq)
+    {
+        return freq >= 2 ? freq >> 1 : freq;
+    }
+
+    void aging()
+    {
+        if (count < max_count)
+        {
+            count++;
+            return;
+        }
+        count = 0;
+        temp_aging_count++;
+        // LOGINFO << "aging temp_aging_count = " << temp_aging_count << std::endl;
+
+        std::unordered_map<K, size_t> key_freq_table;
+        min_freq = key_table.begin()->second->freq;
+        max_freq = min_freq;
+        for (auto it = key_table.begin(); it != key_table.end(); it++)
+        {
+            size_t freq = age_freq(it->second->freq);
+            key_freq_table[it->second->key] = freq;
+            min_freq = std::min(min_freq, freq);
+            max_freq = std::max(max_freq, freq);
+        }
+        freq_table.clear();
+        key_table.clear();
+        for (auto it = key_freq_table.begin(); it != key_freq_table.end(); it++)
+        {
+            freq_table[it->second].emplace_front(LFUNode(it->first, it->second));
+        }
+
+        for (auto it1 = freq_table.begin(); it1 != freq_table.end(); it1++)
+        {
+            for (auto it2 = it1->second.begin(); it2 != it1->second.end(); it2++)
+            {
+                key_table[it2->key] = it2;
+            }
+        }
+    }
+
+    void check()
+    {
+        LOGINFO << "check-->";
+        std::unordered_set<size_t> freq_set;
+        for (auto it = key_table.begin(); it != key_table.end(); it++)
+        {
+            size_t freq = it->second->freq;
+            if (freq_set.count(freq))
+                freq_set.insert(freq);
+        }
+        for (auto iter = freq_set.begin(); iter != freq_set.end(); ++iter)
+        {
+            auto &freq_ls = freq_table[*iter];
+            for (auto it = freq_ls.begin(); it != freq_ls.end(); ++it)
+            {
+                assert(it->freq == *iter);
+            }
+        }
+    }
+
+    void set(const K &id, V value)
+    {
+        aging();
+        // check();
+        auto it = key_table.find(id);
+        if (it != key_table.end())
+        {
+            typename std::list<LFUNode>::iterator node = it->second;
+            size_t freq = node->freq;
+            auto &freq_ls = freq_table[freq];
+            if (freq_table[freq].size() <= 1)
+            {
+                freq_table.erase(freq);
+                if (min_freq == freq)
+                    min_freq += 1;
+            }
+            else
+                freq_table[freq].erase(node);
+            max_freq = std::max(max_freq, ++freq);
+            auto &freq_add_ls = freq_table[freq];
+            freq_add_ls.emplace_front(LFUNode(id, freq));
+            key_table[id] = freq_add_ls.begin();
+        }
+        else
+        {
+            if (SingleCache<K, V>::size() >= SingleCache<K, V>::capacity() && key_table.size() > 0)
+            {
+                auto &freq_ls = freq_table[min_freq];
+                auto rm_it = freq_ls.back();
+                freq_ls.pop_back();
+                K evic_id = rm_it.key;
+                key_table.erase(evic_id);
+                SingleCache<K, V>::cache.erase(evic_id);
+                if (freq_ls.size() == 0)
+                {
+                    freq_table.erase(min_freq);
+                    ++min_freq;
+                    while (min_freq <= max_freq)
+                    {
+                        auto it = freq_table.find(min_freq);
+                        if (it == freq_table.end() || it->second.size() == 0)
+                            ++min_freq;
+                        else
+                            break;
+                    }
+                }
+            }
+            freq_table[1].emplace_front(LFUNode(id, 1));
+            key_table[id] = freq_table[1].begin();
+            min_freq = 1;
+        }
+        SingleCache<K, V>::cache[id] = value;
+    }
 };
