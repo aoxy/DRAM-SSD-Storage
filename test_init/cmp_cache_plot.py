@@ -62,8 +62,9 @@ def plot_res(result_map, res_i, ylabel):
     # plot_f = ["price", "random1"] # (16)
     # plot_f = ["random2", "random3"]  # (17)
     # plot_f = ["ad", "user", "cate_id", "campaign_id", "customer", "brand", "random2", "random3"]  # (18)
-    plot_f = ["ad", "user"]  # (19)
+    # plot_f = ["ad", "user"]  # (19)
     # plot_f = ["user", "random3"]  # (20)
+    plot_f = ["random3"]  # (21)
     res_list = {}
     for it in plot_f:
         res_list[it] = dict()
@@ -92,7 +93,7 @@ def plot_res(result_map, res_i, ylabel):
     fig2 = plt.figure()
     for i in range(len(plot_f)):
         # ax = fig2.add_subplot(2, len(plot_f) // 2, i + 1)
-        ax = fig2.add_subplot(1, 2, i + 1)  # 1行2列
+        ax = fig2.add_subplot(1, 1, i + 1)  # 1行2列
         for c in cache_policy_list:
             list1, list2 = (list(t) for t in zip(*sorted(zip(res_list[plot_f[i]][c][0], res_list[plot_f[i]][c][1]))))
             if res_i == 3:

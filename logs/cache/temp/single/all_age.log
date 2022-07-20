@@ -2590,3 +2590,291 @@ cache policy = arc
 [2]total hit rate = 100 %
 [3]total hit rate = 100 %
 cost time = 3.89257 s
+================================
+feature = random3
+cache size = 5
+cache policy = lru
+[1]total hit rate = 30.7755 %
+[2]total hit rate = 10.2204 %
+[3]total hit rate = 29.9553 %
+cost time = 5.34406 s
+================================
+feature = random3
+cache size = 5
+cache policy = fifo
+[1]total hit rate = 29.9553 %
+[2]total hit rate = 9.90878 %
+[3]total hit rate = 29.9553 %
+cost time = 4.7102 s
+================================
+feature = random3
+cache size = 5
+cache policy = arf
+[1]total hit rate = 15.5283 %
+[2]total hit rate = 13.0601 %
+[3]total hit rate = 18.0196 %
+cost time = 11.7797 s
+================================
+feature = random3
+cache size = 7
+cache policy = lru
+[1]total hit rate = 42.432 %
+[2]total hit rate = 14.1622 %
+[3]total hit rate = 40.8293 %
+cost time = 4.2728 s
+================================
+feature = random3
+cache size = 7
+cache policy = fifo
+[1]total hit rate = 40.8293 %
+[2]total hit rate = 13.6108 %
+[3]total hit rate = 40.8293 %
+cost time = 3.73726 s
+================================
+feature = random3
+cache size = 7
+cache policy = arf
+[1]total hit rate = 20.397 %
+[2]total hit rate = 17.762 %
+[3]total hit rate = 22.6748 %
+cost time = 10.4978 s
+================================
+feature = random3
+cache size = 10
+cache policy = lru
+[1]total hit rate = 58.9338 %
+[2]total hit rate = 19.7033 %
+[3]total hit rate = 55.686 %
+cost time = 3.94268 s
+================================
+feature = random3
+cache size = 10
+cache policy = fifo
+[1]total hit rate = 55.686 %
+[2]total hit rate = 18.6067 %
+[3]total hit rate = 55.686 %
+cost time = 3.28337 s
+================================
+feature = random3
+cache size = 10
+cache policy = arf
+[1]total hit rate = 26.0765 %
+[2]total hit rate = 24.0495 %
+[3]total hit rate = 26.1105 %
+cost time = 10.45 s
+================================
+feature = random3
+cache size = 15
+cache policy = lru
+[1]total hit rate = 82.0737 %
+[2]total hit rate = 27.4274 %
+[3]total hit rate = 75.8078 %
+cost time = 2.92527 s
+================================
+feature = random3
+cache size = 15
+cache policy = fifo
+[1]total hit rate = 75.8078 %
+[2]total hit rate = 25.4699 %
+[3]total hit rate = 75.8078 %
+cost time = 1.84255 s
+================================
+feature = random3
+cache size = 15
+cache policy = arf
+[1]total hit rate = 33.5118 %
+[2]total hit rate = 32.1042 %
+[3]total hit rate = 35.0061 %
+cost time = 10.0548 s
+================================
+feature = random3
+cache size = 20
+cache policy = lru
+[1]total hit rate = 95.1168 %
+[2]total hit rate = 31.7533 %
+[3]total hit rate = 89.3204 %
+cost time = 2.40742 s
+================================
+feature = random3
+cache size = 20
+cache policy = fifo
+[1]total hit rate = 89.3204 %
+[2]total hit rate = 29.8848 %
+[3]total hit rate = 89.3204 %
+cost time = 1.21524 s
+================================
+feature = random3
+cache size = 20
+cache policy = arf
+[1]total hit rate = 43.6646 %
+[2]total hit rate = 42.2452 %
+[3]total hit rate = 46.557 %
+cost time = 9.02648 s
+================================
+feature = random3
+cache size = 30
+cache policy = lru
+[1]total hit rate = 99.4948 %
+[2]total hit rate = 33.3004 %
+[3]total hit rate = 98.8915 %
+cost time = 2.11138 s
+================================
+feature = random3
+cache size = 30
+cache policy = fifo
+[1]total hit rate = 98.8915 %
+[2]total hit rate = 33.0988 %
+[3]total hit rate = 98.8915 %
+cost time = 0.659914 s
+================================
+feature = random3
+cache size = 30
+cache policy = arf
+[1]total hit rate = 42.4338 %
+[2]total hit rate = 43.1937 %
+[3]total hit rate = 47.6354 %
+cost time = 9.53497 s
+================================
+feature = random3
+cache size = 40
+cache policy = lru
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 46.9861 %
+[3]total hit rate = 99.5507 %
+cost time = 2.17011 s
+================================
+feature = random3
+cache size = 40
+cache policy = fifo
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 33.492 %
+[3]total hit rate = 99.5507 %
+cost time = 0.653387 s
+================================
+feature = random3
+cache size = 40
+cache policy = arf
+[1]total hit rate = 68.8374 %
+[2]total hit rate = 69.45 %
+[3]total hit rate = 91.5993 %
+cost time = 6.00136 s
+================================
+feature = random3
+cache size = 50
+cache policy = lru
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 62.6536 %
+[3]total hit rate = 99.5507 %
+cost time = 2.31867 s
+================================
+feature = random3
+cache size = 50
+cache policy = fifo
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 37.5771 %
+[3]total hit rate = 99.5507 %
+cost time = 0.791475 s
+================================
+feature = random3
+cache size = 50
+cache policy = arf
+[1]total hit rate = 74.0474 %
+[2]total hit rate = 74.2955 %
+[3]total hit rate = 74.3525 %
+cost time = 7.14682 s
+================================
+feature = random3
+cache size = 60
+cache policy = lru
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 66.5099 %
+[3]total hit rate = 99.5507 %
+cost time = 2.31736 s
+================================
+feature = random3
+cache size = 60
+cache policy = fifo
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 53.4638 %
+[3]total hit rate = 99.5507 %
+cost time = 0.838529 s
+================================
+feature = random3
+cache size = 60
+cache policy = arf
+[1]total hit rate = 70.542 %
+[2]total hit rate = 72.0107 %
+[3]total hit rate = 72.0045 %
+cost time = 7.42588 s
+================================
+feature = random3
+cache size = 80
+cache policy = lru
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 91.8489 %
+[3]total hit rate = 99.5507 %
+cost time = 2.19426 s
+================================
+feature = random3
+cache size = 80
+cache policy = fifo
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 68.2262 %
+[3]total hit rate = 99.5507 %
+cost time = 0.805385 s
+================================
+feature = random3
+cache size = 80
+cache policy = arf
+[1]total hit rate = 98.7786 %
+[2]total hit rate = 99.1677 %
+[3]total hit rate = 99.167 %
+cost time = 3.07821 s
+================================
+feature = random3
+cache size = 90
+cache policy = lru
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 99.4969 %
+[3]total hit rate = 99.5507 %
+cost time = 2.22961 s
+================================
+feature = random3
+cache size = 90
+cache policy = fifo
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 80.3324 %
+[3]total hit rate = 99.5507 %
+cost time = 0.8622 s
+================================
+feature = random3
+cache size = 90
+cache policy = arf
+[1]total hit rate = 99.5341 %
+[2]total hit rate = 99.9384 %
+[3]total hit rate = 99.9372 %
+cost time = 2.94275 s
+================================
+feature = random3
+cache size = 100
+cache policy = lru
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 2.46674 s
+================================
+feature = random3
+cache size = 100
+cache policy = fifo
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 1.31035 s
+================================
+feature = random3
+cache size = 100
+cache policy = arf
+[1]total hit rate = 99.5507 %
+[2]total hit rate = 100 %
+[3]total hit rate = 100 %
+cost time = 3.2005 s
