@@ -25,7 +25,7 @@ run_cache :
 	./cache_test $(var) > "logs/cache/temp/hdss($(var)).log"
 
 run_single_cache :
-	./single_cache_test $(var) >> "logs/cache/temp/single/all_age.log"
+	./single_cache_test $(var) >> "logs/cache/temp/single/all_dy_age.log"
 
 run5 :
 	./main $(var) > "logs/compaction/v55/hdss($(var)).log"

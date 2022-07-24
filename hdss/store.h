@@ -280,6 +280,10 @@ public:
             std::cout << "cache policy = " << cache_policy << max_aging_times << std::endl;
             cache = new SingleAgingLFUCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100, dl->size() / (max_aging_times + 1));
         }
+        else if (cache_policy == "dalfu")
+        {
+            cache = new SingleDynamicAgingLFUCache<int64_t, bool>(std::make_pair(-1, false), dsize * max_emb_num_perc / 100);
+        }
         else
         {
             std::cout << "invalid: cache policy must be `lru`, `lfu`, `fifo`, `arc`, `arf`" << std::endl;
